@@ -1,0 +1,80 @@
+.l-container
+    position: relative
+
+    width: 90%
+    max-width: 1170px
+
+    margin: 0 auto
+
+    &::after
+        content: ""
+        display: table
+        clear: both
+
+.l-container-title
+    text-align: left
+    text-transform: uppercase
+
+    font-size: 13px
+    line-height: 50px
+
+.l-container-box,
+.l-container-box-image
+    position: relative
+    overflow: hidden
+
+    width: 100%
+
+.l-container-box
+    +border-radius(8px)
+
+    margin: 2rem 0
+
+.l-container-box-image
+    display: block
+
+.l-container-box-image-title
+    position: absolute
+    top: 20%
+    right: 10%
+
+    font-size: 1.5rem
+    letter-spacing: -1.5px
+    text-transform: uppercase
+
+.l-container-fill
+    position: relative
+
+    min-height: 50px
+
+    margin-left: 56px
+    padding: 0 1em 4em
+
+.l-container-fill::before,
+.l-container-fill::after
+    position: absolute
+    right: 100%
+
+    width: 56px
+
+    content: ""
+    z-index: 1
+
+.l-container-fill::before
+    top: 0
+
+    height: 50px
+
+    background-repeat: no-repeat
+
+.l-container-fill::after
+    top: 50px
+    bottom: 0
+
+    background-repeat: repeat-y
+
+.l-container-fill-divider::after
+    top: 0
+
+.l-container-fill-divider:last-child
+    display: none

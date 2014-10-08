@@ -1,0 +1,420 @@
+blockquote
+    quotes: none
+
+blockquote:after, blockquote:before
+    content: ''
+    content: none
+
+caption
+    text-align: left
+    font-weight: 400
+    vertical-align: middle
+
+html
+    font-size: 75%
+
+    @include min-screen(40em)
+        font-size: 87.5%
+
+    @include min-screen(50em)
+        font-size: 93.75%
+
+    @include min-screen(64em)
+        font-size: 106.25%
+
+    @include min-screen(100em)
+        font-size: 112.5%
+
+body
+    font-family: inherit
+    font-style: normal
+    font-weight: 400
+    font-size: 1.33333rem
+    line-height: 2rem
+
+    @include min-screen(40em)
+        font-size: 1.21429rem
+
+    @include min-screen(50em)
+        font-size: 1.2rem
+
+    @include min-screen(64em)
+        font-size: 1.17647rem
+
+    @include min-screen(100em)
+        font-size: 1.22222rem
+
+a
+    @include transition(color .1s, background-color .1s)
+
+    color: inherit
+    text-decoration: none
+
+a:active, a:focus, a:hover
+    color: inherit
+    text-decoration: none
+
+.typo li a, .typo p a
+    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#efa7ad))
+    background-image: -webkit-linear-gradient(top, transparent 50%, #efa7ad 50%)
+    background-image: linear-gradient(to bottom, transparent 50%, #efa7ad 50%)
+    background-repeat: repeat-x
+    background-size: 2px 2px
+    background-position: 0 90%
+
+    text-shadow: 1px 0 #FFF, 2px 0 #FFF, -1px 0 #FFF, -2px 0 #FFF
+
+.typo li a:active, .typo li a:focus, .typo li a:hover, .typo p a:active, .typo p a:focus, .typo p a:hover
+    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#969696))
+    background-image: -webkit-linear-gradient(top, transparent 50%, #969696 50%)
+    background-image: linear-gradient(to bottom, transparent 50%, #969696 50%)
+
+.typo p
+    @include font-feature-settings('kern' 1, 'onum' 1, 'liga' 1)
+
+    margin-bottom: 1.43999rem
+    padding-top: .56001rem
+
+    @include min-screen(40m)
+        margin-bottom: 1.4007rem
+        padding-top: .5993rem
+
+    @include min-screen(50em)
+        margin-bottom: 1.39599rem
+        padding-top: .60401rem
+
+    @include min-screen(64em)
+        margin-bottom: 1.38823rem
+        padding-top: .61177rem
+
+    @include min-screen(100em)
+        margin-bottom: 1.40332rem
+        padding-top: .59668rem
+
+.typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6
+    @include font-feature-settings('dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1)
+
+    font-family: inherit
+    font-style: normal
+    font-weight: 700
+    color: inherit
+
+.typo .alpha, .typo h1
+    line-height: 3rem
+    font-size: 2.33333rem
+
+    margin-bottom: .25832rem
+    padding-top: .74168rem
+
+    @include min-screen(40em)
+        font-size: 2.14286rem
+
+        margin-bottom: .19642rem
+        padding-top: .80358rem
+
+    @include min-screen(50em)
+        font-size: 2.13333rem
+
+        margin-bottom: .19332rem
+        padding-top: .80668rem
+
+    @include min-screen(64em)
+        font-size: 2.35294rem
+
+        margin-bottom: .2647rem
+        padding-top: .7353rem
+
+    @include min-screen(100em)
+        font-size: 2.77778rem
+
+        margin-bottom: .40277rem
+        padding-top: .59723rem
+
+.typo .beta, .typo h2
+    line-height: 3rem
+    font-size: 2.08333rem
+
+    margin-bottom: .17707rem
+    padding-top: .82293rem
+
+    @include min-screen(40em)
+        font-size: 1.9rem
+
+        margin-bottom: .11749rem
+        padding-top: .88251rem
+
+    @include min-screen(50em)
+        font-size: 1.87333rem
+
+        margin-bottom: .10882rem
+        padding-top: .89118rem
+
+    @include min-screen(64em)
+        font-size: 2.08824rem
+
+        margin-bottom: .17867rem
+        padding-top: .82133rem
+
+    @include min-screen(100em)
+        font-size: 2.43889rem
+
+        margin-bottom: .29263rem
+        padding-top: .70737rem
+
+.typo .gamma, .typo h3
+    line-height: 3rem
+    font-size: 1.86667rem
+
+    margin-bottom: .10666rem
+    padding-top: .89334rem
+
+    @include min-screen(40em)
+        font-size: 1.71429rem
+
+        margin-bottom: .05713rem
+        padding-top: .94287rem
+
+    @include min-screen(50em)
+        font-size: 1.70667rem
+
+        margin-bottom: .05466rem
+        padding-top: .94534rem
+
+    @include min-screen(64em)
+        font-size: 1.76471rem
+
+        margin-bottom: .07352rem
+        padding-top: .92648rem
+
+    @include min-screen(100em)
+        font-size: 1.96111rem
+
+        margin-bottom: .13735rem
+        padding-top: .86265rem
+
+.typo .delta, .typo h4
+    font-size: 1.66667rem
+
+    margin-bottom: -.45834rem
+    padding-top: .45834rem
+
+    @include min-screen(40em)
+        font-size: 1.52143rem
+
+        margin-bottom: -.50555rem
+        padding-top: .50555rem
+
+    @include min-screen(50em)
+        font-size: 1.5rem
+
+        margin-bottom: -.51251rem
+        padding-top: .51251rem
+
+    @include min-screen(64em)
+        font-size: 1.57059rem
+
+        margin-bottom: -.48957rem
+        padding-top: .48957rem
+
+    @include min-screen(100em)
+        font-size: 1.72778rem
+
+        margin-bottom: -.43848rem
+        padding-top: .43848rem
+
+.typo .epsilon, .typo h5
+    font-size: 1.49167rem
+
+    margin-bottom: -.51522rem
+    padding-top: .51522rem
+
+    @include min-screen(40em)
+        font-size: 1.37143rem
+
+        margin-bottom: -.5543rem
+        padding-top: .5543rem
+
+    @include min-screen(50em)
+        font-size: 1.36667rem
+
+        margin-bottom: -.55584rem
+        padding-top: .55584rem
+
+    @include min-screen(64em)
+        font-size: 1.32353rem
+
+        margin-bottom: -.56986rem
+        padding-top: .56986rem
+
+    @include min-screen(100em)
+        font-size: 1.38889rem
+
+        margin-bottom: -.54862rem
+        padding-top: .54862rem
+
+.typo .zeta, .typo h6
+    font-size: 1.33333rem
+
+    margin-bottom: -.56668rem
+    padding-top: .56668rem
+
+    @include min-screen(40em)
+        font-size: 1.21429rem
+
+        margin-bottom: -.60537rem
+        padding-top: .60537rem
+
+    @include min-screen(50em)
+        font-size: 1.2rem
+
+        margin-bottom: -.61001rem
+        padding-top: .61001rem
+
+    @include min-screen(64em)
+        font-size: 1.17647rem
+
+        margin-bottom: -.61766rem
+        padding-top: .61766rem
+
+    @include min-screen(100em)
+        font-size: 1.22222rem
+
+        margin-bottom: -.60279rem
+        padding-top: .60279rem
+
+.typo ol, .typo ul
+    margin-bottom: 1.43999rem
+    padding-top: .56001rem
+
+    @include min-screen(40em)
+        margin-bottom: 1.4007rem
+        padding-top: .5993rem
+
+    @include min-screen(50em)
+        margin-bottom: 1.39599rem
+        padding-top: .60401rem
+
+    @include min-screen(64em)
+        margin-bottom: 1.38823rem
+        padding-top: .61177rem
+
+    @include min-screen(100em)
+        margin-bottom: 1.40332rem
+        padding-top: .59668rem
+
+.typo ol li, .typo ul li
+    @include font-feature-settings('kern' 1, 'onum' 1, 'liga' 1)
+
+    margin-left: 2rem
+
+    @include min-screen(40em)
+        margin-left: 0
+
+.typo .bold, .typo b, .typo strong
+    font-weight: 700
+
+.typo .italic, .typo em, .typo i
+    font-style: italic
+
+.typo .caption, .typo small
+    font-family: inherit
+    font-style: normal
+    font-weight: 400
+    font-size: 1.06667rem
+
+    @include min-screen(40em)
+        font-size: .97143rem
+
+    @include min-screen(50em)
+        font-size: .96rem
+
+    @include min-screen(64em)
+        font-size: .88235rem
+
+    @include min-screen(100em)
+        font-size: .86667rem
+
+.typo small
+    line-height: 1rem
+
+.typo .caption
+    color: #7e7e7e
+
+    margin-bottom: 1.34666rem
+    padding-top: .65334rem
+
+    @include min-screen(40em)
+        margin-bottom: 1.3157rem
+        padding-top: .6843rem
+
+    @include min-screen(50em)
+        margin-bottom: 1.31199rem
+        padding-top: .68801rem
+
+    @include min-screen(64em)
+        margin-bottom: 1.28675rem
+        padding-top: .71325rem
+
+    @include min-screen(100em)
+        margin-bottom: 1.28166rem
+        padding-top: .71834rem
+
+.typo .alpha + .caption, .typo .beta + .caption, .typo .gamma + .caption, .typo h1 + .caption, .typo h2 + .caption, .typo h3 + .caption
+    margin-top: -1rem
+
+.typo blockquote p
+    font-style: italic
+
+    border-left: .1rem solid #3498db
+
+    margin-bottom: 1.87999rem
+    padding-left: 1rem
+    padding-bottom: .56001rem
+
+    @include min-screen(40em)
+        margin-bottom: 1.80142rem
+        padding-bottom: .5993rem
+
+    @include min-screen(50em)
+        margin-bottom: 1.79199rem
+        padding-bottom: .60401rem
+
+    @include min-screen(64em)
+        margin-bottom: 1.77646rem
+        padding-bottom: .61177rem
+
+    @include min-screen(100em)
+        margin-bottom: 1.80666rem
+        padding-bottom: .59668rem
+
+@include min-screen(40em)
+    .typo blockquote
+        margin-left: -1rem
+
+.typo hr
+    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#c9c9c9))
+    background-image: -webkit-linear-gradient(top, transparent 50%, #c9c9c9 50%)
+    background-image: linear-gradient(to bottom, transparent 50%, #c9c9c9 50%)
+    background-repeat: repeat-x
+    background-size: 2px 2px
+    background-position: 0 50%
+
+    border: 0
+
+    padding: 3rem 0
+    margin: 0
+
+.typo .upper
+    text-transform: uppercase
+    letter-spacing: .1rem
+
+.typo .small-caps
+    @include font-feature-settings('smcp' 1, 'kern' 1)
+
+    letter-spacing: .1rem
+
+.typo .lining-numerals
+    @include font-feature-settings('lnum' 1, 'kern' 1)
+
+.typo .oldstyle-numerals
+    @include font-feature-settings('onum' 1, 'kern' 1)
