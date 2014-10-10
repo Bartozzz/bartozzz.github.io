@@ -1,0 +1,18 @@
+body::before, body::after
+    +transform(translateX(-50%))
+
+    position: fixed
+    left: 50%
+
+    height: 100%
+    width: 90%
+    max-width: 1200px
+
+    content: ""
+    z-index: -1
+
+body::before
+    top: 0
+
+body::after
+    top: 50%

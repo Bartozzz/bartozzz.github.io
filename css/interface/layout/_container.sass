@@ -1,22 +1,18 @@
 .l-container
-    position: relative
+    +clearfix
 
-    width: 90%
-    max-width: 1170px
+    width: 90.5%
+    max-width: 1200px
 
     margin: 0 auto
 
-    &::after
-        content: ""
-        display: table
-        clear: both
+    .l-container-title
+        text-transform: uppercase
 
-.l-container-title
-    text-align: left
-    text-transform: uppercase
+        font-size: 13px
+        line-height: 50px
 
-    font-size: 13px
-    line-height: 50px
+
 
 .l-container-box,
 .l-container-box-image
@@ -42,6 +38,8 @@
     letter-spacing: -1.5px
     text-transform: uppercase
 
+
+
 .l-container-fill
     position: relative
 
@@ -50,31 +48,34 @@
     margin-left: 56px
     padding: 0 1em 4em
 
-.l-container-fill::before,
-.l-container-fill::after
-    position: absolute
-    right: 100%
+    &::before,
+    &::after
+        position: absolute
+        right: 100%
 
-    width: 56px
+        width: 56px
 
-    content: ""
-    z-index: 1
+        content: ""
+        z-index: 1
 
-.l-container-fill::before
-    top: 0
+    &::before
+        top: 0
 
-    height: 50px
+        height: 50px
 
-    background-repeat: no-repeat
+        background-repeat: no-repeat
 
-.l-container-fill::after
-    top: 50px
-    bottom: 0
+    &::after
+        top: 50px
+        bottom: 0
 
-    background-repeat: repeat-y
+        background-repeat: repeat-y
 
-.l-container-fill-divider::after
-    top: 0
 
-.l-container-fill-divider:last-child
-    display: none
+
+.l-container-fill-divider
+    &::after
+        top: 0
+
+    &:last-child
+        display: none
