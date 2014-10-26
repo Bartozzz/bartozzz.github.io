@@ -56,29 +56,27 @@
             <h4 class="l-footer-title">Kontakt</h4>
 
             <form class="l-contact" action="//forms.brace.io/laniewski.bartozzz@gmail.com" method="POST">
-                <div class="l-contact-name">
-                    <label class="l-contact-label" for="name">Imię</label>
-                    <input class="l-contact-field" id="name" type="text" name="name">
+                <div class="l-contact-input button-input">
+                    <input type="text" name="name" required>
+                    <label>Imię</label>
                 </div>
 
-                <div class="l-contact-email">
-                    <label class="l-contact-label" for="email">Email</label>
-                    <input class="l-contact-field" id="email" type="text" name="_replyto">
+                <div class="l-contact-input button-input">
+                    <input type="text" name="_replyto" required>
+                    <label>Email</label>
                 </div>
 
-                <div class="l-contact-message">
-                    <label class="l-contact-label" for="message">Wiadomość</label>
-                    <textarea class="l-contact-field" id="message" name="message"></textarea>
+                <div class="l-contact-textarea button-input">
+                    <textarea name="message" required></textarea>
+                    <label>Wiadomość</label>
                 </div>
 
                 <div class="l-contact-submit">
-                    <input class="l-contact-field" value="Wyślij" type="submit">
+                    <input value="Wyślij" type="submit">
                 </div>
             </form>
         </footer>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="javascript/jquery.contact.js"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -1,25 +1,14 @@
+.l-contact,
+.l-contact-input,
+.l-contact-textarea
+    border-color: darken($color-background, 15%)
+
 .l-contact
-    border-color: darken($color-background, 15%)
+    +border-radius(8px)
 
-.l-contact-label
-    color: darken($color-background, 15%)
+.l-contact-submit input
+    +border-radius(0 0 8px 8px)
 
-
-
-.l-contact-email,
-.l-contact-message,
-.l-contact-name
-    &.l-contact-typing .l-contact-label
-        color: $color-link
-
-.l-contact-email
-    border-left-color: darken($color-background, 15%)
-
-.l-contact-message
-    border-color: darken($color-background, 15%)
-
-.l-contact-submit
     background-color: darken($color-background, 15%)
+    color: darken($color-background, 85%)
 
-    .l-contact-field
-        color: $color-background
