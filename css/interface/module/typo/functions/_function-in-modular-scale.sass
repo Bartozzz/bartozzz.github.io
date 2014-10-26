@@ -1,0 +1,5 @@
+@function in-modular-scale($scale, $key)
+    $map:    map-get($modular-scale, $scale)
+    $output: map-has-key($map, $key)
+
+    @return $output

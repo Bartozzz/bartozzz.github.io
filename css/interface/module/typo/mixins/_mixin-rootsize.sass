@@ -1,0 +1,6 @@
+=rootsize()
+    font-size: nth($sizes, 1) / 16 * 100%
+
+    @for $i from 2 through $breakpoints-limit
+        @media screen and (min-width: nth($points, $i) / 16 * 1em )
+            font-size: nth($sizes, $i) / 16 * 100%

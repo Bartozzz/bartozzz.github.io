@@ -1,0 +1,176 @@
+@import "configuration/variables"
+@import "configuration/modular-scale"
+
+@import "functions/function-in-modular-scale"
+
+@import "mixins/mixin-baseline"
+@import "mixins/mixin-breakpoint"
+@import "mixins/mixin-font-feature-settings"
+@import "mixins/mixin-font-size"
+@import "mixins/mixin-rootsize"
+@import "mixins/mixin-sassline"
+@import "mixins/mixin-text-size-adjust"
+
+
+
+html
+    +text-size-adjust(100%)
+    +rootsize()
+
+body
+    +fontsize(zeta, all)
+
+    font-style: normal
+    font-weight: map-get($type-body, regular)
+    line-height: 2rem
+
+a
+    +transition(color .1s, background-color .1s)
+
+.typeset
+    p
+        +font-feature-settings('kern' 1, 'onum' 1, 'liga' 1)
+        +baseline($fontsize: zeta, $font: $type-body, $lineheight: 2, $below: 2, $breakpoint: all)
+
+    h1, h2, h3, h4, h5, h6
+        +font-feature-settings('dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1)
+
+        font-style: normal
+        font-weight: map-get($type-heading, bold)
+
+    h1, .alpha
+        +sassline($fontsize: alpha, $font: $type-heading, $lineheight: 3, $below: 1, $breakpoint: all)
+
+    h2, .beta
+        +sassline(beta, $type-heading, 3, 1, all)
+
+    h3, .gamma
+        +sassline(gamma, $type-heading, 3, 1, all)
+
+    h4, .delta
+        +sassline(delta, $type-heading, 2, 0, all)
+
+    h5, .epsilon
+        +sassline(epsilon, $type-heading, 2, 0, all)
+
+    h6, .zeta 
+        +sassline(zeta, $type-heading, 2, 0, all)
+
+    ul, ol
+        +baseline(zeta, $type-body, 2, 2, all)
+    
+        li
+            +font-feature-settings('kern' 1, 'onum' 1, 'liga' 1)
+            +breakpoint(break-1)
+                margin-left: 1.5rem
+
+            margin-left: 2rem
+
+    b, strong, .bold
+        font-weight: map-get($type-body, bold)
+
+    em, i, .italic
+        font-style: map-get($type-body, italic)
+
+    small, .caption
+        +fontsize(theta, all)
+
+        font-style: normal
+        font-weight: map-get($type-heading, regular)
+
+    small
+        line-height: 1rem
+
+    .caption
+        +baseline(theta, $type-heading, 2, 2, all)
+
+    h1 + .caption, .alpha + .caption,
+    h2 + .caption, .beta + .caption,
+    h3 + .caption, .gamma + .caption
+        margin-top: -1rem
+
+    .delta + .caption,
+    .epsilon + .caption,
+    .zeta + .caption
+        margin-top: 0rem
+
+    blockquote
+        +breakpoint(break-1)
+            margin-left: -1rem
+
+        p
+            $rootsize: nth($sizes, 1)
+            $get-scale: map-get($modular-scale, scale-0)
+            $get-size:  map-get($get-scale, zeta)
+            $baseline-shift: #{($get-size / 2 * ((2 * $rootsize / $get-size) - map-get($type-body, cap-height))) / $rootsize + .00001}
+            $baseline-push:  #{3 - (($get-size * ((2 * $rootsize / $get-size) - map-get($type-body, cap-height))) / $rootsize + .00001)}
+
+            border-left-width: .15rem
+            border-left-style: solid
+            border-left-color: $color-link
+
+            font-style: map-get($type-body, italic)
+
+            padding-left: 1rem
+            margin-bottom: #{$baseline-push}rem
+            padding-bottom: #{$baseline-shift}rem
+
+            @for $i from 2 through $breakpoints-limit
+                $rootsize: nth($sizes, $i)
+                $get-scale: map-get($modular-scale, scale-#{$i - 1})
+                $get-size:  map-get($get-scale, zeta)
+                $baseline-shift: #{($get-size / 2 * ((2 * $rootsize / $get-size) - map-get($type-body, cap-height))) / $rootsize + .00001}
+                $baseline-push:  #{3 - (($get-size * ((2 * $rootsize / $get-size) - map-get($type-body, cap-height))) / $rootsize + .00001)}
+                
+                @media screen and (min-width: nth($points, $i) / 16 * 1em )
+                    margin-bottom: #{$baseline-push}rem
+                    padding-bottom: #{$baseline-shift}rem
+
+    hr
+        +background-image(linear-gradient(to bottom, transparent 50%, $color-background 50%))
+        background-position: 0 50%
+        background-repeat: repeat-x
+        background-size: 100% .15rem
+
+        border: 0
+        margin: 0
+
+        padding-bottom: 3rem
+        padding-top: 3rem
+
+    code, pre
+        background-color: darken($color-background, 5%)
+        color: darken($color-background, 75%)
+
+    pre
+        +border-radius(3px)
+
+        display: block
+
+        margin-bottom: 2rem
+        padding: 1rem
+
+        white-space: pre
+        white-space: pre-wrap
+        word-break: break-all
+        word-wrap: break-word
+
+    code
+        +fontsize(theta, all)
+
+        line-height: 1rem
+
+    .upper
+        letter-spacing: .1rem
+        text-transform: uppercase
+
+    .small-caps
+        +font-feature-settings('smcp' 1, 'kern' 1)
+    
+        letter-spacing: .1rem
+
+    .lining-numerals
+        +font-feature-settings('lnum' 1, 'kern' 1)
+
+    .oldstyle-numerals
+        +font-feature-settings('smcp' 1, 'kern' 1)
