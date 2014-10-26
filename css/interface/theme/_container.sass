@@ -3,11 +3,14 @@
 
 
 
-.l-container-box-gradient
-    +background(linear-gradient(transparent, rgba(0, 0, 0, .3)))
+.l-container-box
+    +border-radius(8px)
 
-.l-container-box-image-title
-    color: $color-background
+    figcaption
+        color: rgba($color-background, .9)
+
+.l-container-box-gradient
+    +background(linear-gradient(left top, transparent, rgba(0, 0, 0, .3)))
 
 
 
