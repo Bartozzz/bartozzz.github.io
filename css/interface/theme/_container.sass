@@ -1,11 +1,17 @@
 .l-container-title
     color: darken($color-background, 15%)
 
+    +max-screen($responsive-tablet)
+        color: $color-text
+
 
 
 .l-container-box
     +border-radius(8px)
     +background(linear-gradient(left top, transparent, rgba(0, 0, 0, .3)))
+
+    +max-screen($responsive-tablet)
+        +border-radius(0)
 
     figcaption
         color: rgba($color-background, .9)

@@ -6,11 +6,17 @@
 
     margin: 0 auto
 
+    +max-screen($responsive-tablet)
+        width: 100%
+
     .l-container-title
         text-transform: uppercase
 
         font-size: 13px
         line-height: 50px
+
+        +max-screen($responsive-tablet)
+            padding-left: 1.5rem
 
 
 
@@ -25,6 +31,9 @@
 
 .l-container-box
     margin: 2rem 0
+
+    +max-screen($responsive-tablet)
+        margin: 0
 
     img
         display: block
@@ -51,7 +60,11 @@
     min-height: 50px
 
     margin-left: 56px
-    padding: 0 1em 4em
+    padding: 0 1rem 4rem
+
+    +max-screen($responsive-tablet)
+        margin-left: 0
+        padding: 1rem 0
 
     &::before,
     &::after
@@ -62,6 +75,9 @@
 
         content: ""
         z-index: 1
+
+        +max-screen($responsive-tablet)
+            width: 0
 
     &::before
         top: 0
@@ -77,6 +93,9 @@
         background-repeat: repeat-y
 
 .l-container-fill-divider
+    +max-screen($responsive-tablet)
+        display: none
+
     &::after
         top: 0
 

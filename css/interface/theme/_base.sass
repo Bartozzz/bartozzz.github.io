@@ -3,9 +3,15 @@ body
 
     &::before
         background-color: $color-fill
+
+        +max-screen($responsive-tablet)
+            background-color: $color-background
     
     &::after
         background-color: darken($color-background, 15%)
+
+        +max-screen($responsive-tablet)
+            background-color: $color-background
 
 a
     color: $color-link
