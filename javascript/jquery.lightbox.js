@@ -19,7 +19,7 @@
             animationSpeed: 700,
 
             templateFile: null,
-            templateCode: "<div id='lightbox'><div id='close'>×</div></div>"
+            templateCode: "<div id='lightbox'><div id='close'>×</div><div id='content'></div></div>"
         }, options );
 
         /**
@@ -69,7 +69,7 @@
          * @param   string  content
          */
         function success( content ) {
-            $( "#lightbox" ).append( content );
+            $( "#content" ).append( content );
             $( "#lightbox" ).fadeIn( options.animationSpeed );
         };
 
@@ -77,7 +77,7 @@
          * When content has not been loaded.
          */
         function error() {
-            $( "#lightbox" ).append( "Coś poszło nie tak." );
+            $( "#content" ).load( "template/404.html" );
             $( "#lightbox" ).fadeIn( options.animationSpeed );
 
             console.log( "Nie można otworzyć pliku." );
