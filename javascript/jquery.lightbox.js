@@ -19,7 +19,7 @@
             animationSpeed: 700,
 
             templateFile: null,
-            templateCode: "<div id='lightbox'><div id='close'>×</div><div id='content'></div></div>"
+            templateCode: "<div id='lightbox'><div id='content'></div><div id='close'>×</div></div>"
         }, options );
 
         /**
