@@ -1,10 +1,76 @@
-.container {
+/*------------------------------------------------------------------------------
+        Basics
+------------------------------------------------------------------------------*/
+#lightbox { background-color: #34495E; color: #000; }
+
+
+
+/*------------------------------------------------------------------------------
+        Template
+------------------------------------------------------------------------------*/
+.container,
+.slide {
     position: relative;
 
     width: 100%;
-    height: 100%;
-
-    padding: 1rem 2rem;
-
-    background-color: #2C3E50
+    height: 100%
 }
+
+.slide {
+    padding: 5rem 3rem;
+
+    -webkit-box-shadow: inset 0 -5px 20px -10px #000;
+    -moz-box-shadow: inset 0 -5px 20px -10px #000;
+    box-shadow: inset 0 -5px 20px -10px #000
+}
+
+
+
+/*------------------------------------------------------------------------------
+        Slides
+------------------------------------------------------------------------------*/
+.slide-1 {
+    background-color: #fff;
+    background-image: url("../../images/template/countdown/background.svg"), url("../../images/template/countdown/1.png");
+    background-attachment: scroll, fixed;
+    background-size: 25em, cover;
+
+    color: #fff
+}
+
+.slide-1 h1, .slide-1 h2 { text-shadow: 0 0 3px #000 }
+.slide-1 h1 { font-size: 4rem; line-height: 4rem }
+.slide-1 h2 { font-size: 1rem; text-align: center }
+
+
+
+.slide-2 {
+    height: auto;
+    min-height: 100%;
+
+    background-color: #fff
+}
+
+
+
+/*------------------------------------------------------------------------------
+        Helpers
+------------------------------------------------------------------------------*/
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.image { width: 100% }
+
+.no-right-gutter, .no-left-gutter { position: relative }
+.no-right-gutter { right: -52px }
+.no-left-gutter  { left: -52px }
+
+.big   { font-weight: 100; font-size: 5rem; line-height: 5rem }
+.light { font-family: 'Lato', sans-serif }
