@@ -7,7 +7,7 @@ description: >
 about: >
     Młody web designer i programista z Francji, tworzący niezwykłe rzeczy pixel po pixelu.
 baseurl: ""
-url: "laniewski.me"
+url: "//laniewski.me"
 
 # Paginator:
 paginate: 5
