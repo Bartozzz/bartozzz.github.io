@@ -1,0 +1,19 @@
+.l-header {
+    background-color: $color-1;
+    
+    opacity: .95;
+    
+    .l-header-logo,
+    .l-header-menu li {
+        font-family: $font-logo;
+        font-weight: bold;
+        
+        a {
+            color: $color-text;
+        }
+    }
+    
+    .l-header-menu {
+        list-style: none;
+    }
+}

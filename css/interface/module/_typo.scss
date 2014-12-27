@@ -1,0 +1,52 @@
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    font-size: 2.5vh;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 5vh;
+}
+
+a {
+    -webkit-transition: color .2s, background-color .2s;
+    -moz-transition: color .2s, background-color .2s;
+    -o-transition: color .2s, background-color .2s;
+    transition: color .2s, background-color .2s;
+}
+
+.typo {
+    p {
+        padding-top: 1.5vh;
+        margin-bottom: 3.5vh;
+        
+        &:not(.caption) {
+            padding-top: 1.5vh;
+        }
+    }
+    
+    h1, h2, h3, h4, h5, h6 {        
+        line-height: 5vh;
+
+        padding-top: 3vh;
+        margin-bottom: 1vh;
+    }
+    
+    h1 { font-size: 5vh; }
+    h2 { font-size: 4.5vh; }
+    h3 { font-size: 4vh; }
+    h4 { font-size: 3.5vh; }
+    h5 { font-size: 3vh; }
+    h6 { font-size: 2.5vh; }
+    
+    .caption {
+        font-size: 2.5vh;
+
+        padding-top: 0;
+        margin-bottom: 3.5vh;
+    }
+}

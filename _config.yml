@@ -1,0 +1,22 @@
+# Site settings:
+title: Bartosz Łaniewski
+email: laniewski.bartozzz@gmail.com
+description: >
+    My very awesome description for my new blog and my portfolio at the same
+    time. I hope it will be awesome.
+about: >
+    Młody web designer i programista z Francji, tworzący niezwykłe rzeczy pixel po pixelu.
+baseurl: ""
+url: "laniewski.me"
+
+# Paginator:
+paginate: 5
+paginate_path: "blog/:num/"
+
+# Style settings:
+sass:
+    sass_dir: css/interface
+    style: :compressed
+
+# Build settings:
+markdown: kramdown

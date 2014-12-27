@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+        
+        <!-- Meta tags -->
+        <meta charset="utf-8">
+        <meta description="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+        <meta name="author" content="Łaniewski Bartosz">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        
+        <!-- Stylesheets -->
+        <link href="//fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet">
+        <link href="{{ "/css/interface/main.css" | prepend: site.baseurl }}" rel="stylesheet">
+        <link href="{{ "/css/syntax.css" | prepend: site.baseurl }}" rel="stylesheet">
+        <link href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" rel="canonical" >
+        <link type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="alternate">
+    </head>
+
+    <body>
+        {% include header.html %}
+        {{ content }}
+        {% include footer.html %}
+    </body>
+</html>

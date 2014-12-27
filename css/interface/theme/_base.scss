@@ -1,0 +1,21 @@
+body {
+    background-color: $color-1;
+    color: $color-text;
+
+    font-family: $font-main;
+}
+
+a {
+    color: $color-link;
+    
+    &:hover { color: darken($color-link, 20%); }
+    &:focus { color: darken($color-link, 40%); }
+}
+
+.preview:after {
+    background-image: -webkit-linear-gradient(transparent, $color-1);
+    background-image: -moz-linear-gradient(transparent, $color-1);
+    background-image: -ms-linear-gradient(transparent, $color-1);
+    background-image: -o-linear-gradient(transparent, $color-1);
+    background-image: linear-gradient(transparent, $color-1);
+}

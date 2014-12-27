@@ -1,0 +1,16 @@
+.l-contact {
+    -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, .08);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, .08);
+    
+    input, textarea {
+        background-color: $color-1;
+        border-bottom-color: darken($color-1, 15%);
+    }
+    
+    input[type=submit] {
+        font-size: 2vh;
+        text-transform: uppercase;
+        
+        background-color: darken($color-1, 2%)
+    }
+}

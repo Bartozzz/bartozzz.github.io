@@ -1,0 +1,96 @@
+.l-content,
+.l-content-inverse {
+    @include clearfix();
+
+    position: relative;
+    top: 10vh;
+
+    min-height: 90vh;
+
+    margin: 0 auto;
+    padding: 5vh;
+}
+
+.l-content {
+    max-width: $responsive-deskop;
+}
+
+.l-content-scroll {
+    -webkit-border-radius: 2vh;
+    -moz-border-radius: 2vh;
+    border-radius: 2vh;
+    
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    
+    width: 26px;
+    height: 42px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: $color-1;
+    
+    &::after {
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        
+        -webkit-transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+        transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+        -webkit-animation: scroll 1.5s -1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        animation: scroll 1.5s -1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        
+        margin-left: -2px;
+        
+        width: 4px;
+        height: 4px;
+
+        background-color: $color-1;
+
+        content: "";
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes scroll {
+  0%, 20% {
+    -webkit-transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+            transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+  }
+  10% {
+    -webkit-transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+            transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+            transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+    opacity: 0.01;
+  }
+}
+
+@keyframes scroll {
+  0%, 20% {
+    -webkit-transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+            transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+  }
+  10% {
+    -webkit-transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+            transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+            transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+    opacity: 0.01;
+  }
+}

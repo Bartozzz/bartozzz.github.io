@@ -1,0 +1,21 @@
+---
+layout: default
+menu: true
+title: Kontakt
+permalink: /kontakt/
+---
+
+<section class="l-content-inverse">
+    <div class="center typo">
+        <div class="l-contact">
+            <form method="post" action="http://formspree.io/{{ site.email }}">
+                <input name="_replyto" type="email" placeholder="Email" required>
+                <input name="title" type="text" placeholder="Tytuł" required>
+
+                <textarea name="message" placeholder="Treść wiadomości…" required></textarea></textarea>
+
+                <input type="submit" value="Wyślij">
+            </form>
+        </div>
+    </div>
+</section>

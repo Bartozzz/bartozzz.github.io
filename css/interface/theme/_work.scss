@@ -1,0 +1,48 @@
+.l-work-pricing {
+    @include clearfix();
+
+    width: 100%;
+    max-width: $responsive-deskop;
+
+    .l-work-pricing-box,
+    .l-work-pricing-box-main {
+        @include clearfix();
+        
+        -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, .08);
+        box-shadow: 0 2px 1px rgba(0, 0, 0, .08);
+
+        float: left;
+        position: relative;
+        
+        width: 33.334%;
+
+        header {
+            text-align: center;
+
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: darken($color-1, 15%);
+            
+            background-color: darken($color-1, 2%);
+        }
+        
+        ul {
+            list-style: none;
+            
+            li {
+                font-size: 2vh;
+
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: darken($color-1, 15%);
+                
+                background-color: $color-1;
+                
+                padding: 1vh 5vh;
+            }
+        }
+    }
+    
+    .l-work-pricing-box { margin-top: 4vh; }
+    .l-work-pricing-box { z-index: 1; }
+}

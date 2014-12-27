@@ -1,0 +1,27 @@
+.l-contact {
+    width: 100%;
+    max-width: $responsive-mobile;
+    
+    margin: 0 auto;
+    
+    input, textarea {
+        margin: 0;
+        padding: 2vh 5vh;
+        
+        width: 100%;
+        height: auto;
+        
+        border: none;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+
+        outline: none;
+        resize: none;
+    }
+    
+    textarea {
+        display: block;
+
+        height: 30vh;
+    }
+}

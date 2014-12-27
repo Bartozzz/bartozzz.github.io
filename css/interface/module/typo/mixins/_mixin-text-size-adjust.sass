@@ -1,7 +1,0 @@
-$default-text-size-adjust: 100%
-
-=text-size-adjust($size: null)
-    @if $size == null
-        $size: $default-text-size-adjust
-
-    +experimental(text-size-adjust, $size, -moz, -webkit, not -o, -ms, not -khtml, official)
