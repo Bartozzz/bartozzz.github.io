@@ -14,15 +14,15 @@
         <link href="//fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet">
         <link href="/css/interface/main.css" rel="stylesheet">
         <link href="/css/syntax.css" rel="stylesheet">
-        <link href="http://127.0.0.1:4000/kontakt/" rel="canonical" >
-        <link type="application/rss+xml" title="Bartosz Łaniewski" href="http://127.0.0.1:4000/feed.xml" rel="alternate">
+        <link href="//laniewski.me/kontakt/" rel="canonical" >
+        <link type="application/rss+xml" title="Bartosz Łaniewski" href="//laniewski.me/feed.xml" rel="alternate">
     </head>
 
     <body>
         <header class="l-header">
     <hgroup>
         <h1 class="l-header-logo">
-            <a href="http://127.0.0.1:4000">Bart.</a>
+            <a href="//laniewski.me">Bart.</a>
         </h1>
     </hgroup>
 
@@ -33,7 +33,10 @@
     </menu>
 </header>
 
-        <section class="l-content-inverse">
+        <div class="l-content-inverse" id="google-map"></div>
+<div class="l-content-scroll"></div>
+
+<section class="l-content-inverse">
     <div class="center typo">
         <div class="l-contact">
             <form method="post" action="http://formspree.io/laniewski.bartozzz@gmail.com">
@@ -47,9 +50,34 @@
         </div>
     </div>
 </section>
+
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCtM8FolffNNJrvDEmyTm4EFxsS8WmLuIk"></script>
+<script type="text/javascript">
+    function initialize() {
+        var map = new google.maps.Map( document.getElementById( "google-map" ), {
+            zoom: 16,
+            center: new google.maps.LatLng(48.8494016,2.2195923),
+			mapTypeControl: false,
+			scrollwheel: false,
+			draggable: true,
+			panControl:false,
+			scaleControl: false,
+			zoomControl: false,
+			streetViewControl:false,
+			navigationControl: false,
+			mapTypeId: google.maps.MapTypeId.SATELLITE
+        } );
+        
+        google.maps.event.addDomListener( window, "resize", function () {
+			google.maps.event.trigger( map, "resize" );
+			map.setCenter( map.getCenter() );
+		} );	
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
         <footer class="l-footer">
     <p class="l-footer-copyright">
-        Stworzone z sercem przez <a href="http://127.0.0.1:4000">Bartka</a>.
+        Stworzone z sercem przez <a href="//laniewski.me">Bartka</a>.
     </p>
 </footer>
     </body>

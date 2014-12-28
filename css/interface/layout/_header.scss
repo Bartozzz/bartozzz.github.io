@@ -7,15 +7,15 @@
     
     padding-left: 2.5vh;
     padding-right: 2.5vh;
-    
+
     z-index: 2;
-    
+
     .l-header-logo {
         float: left;
-        
+
         padding-left: 2.5vh;
         padding-right: 2.5vh;
-        
+
         font-size: 3vh;
         font-weight: bold;
         line-height: 10vh;
@@ -23,9 +23,9 @@
 
     .l-header-menu {
         float: right;
-        
+
         list-style: none;
-        
+
         li {
             display: inline-block;
 
@@ -38,4 +38,8 @@
             }
         }
     }
+}
+
+.l-header + .l-content {
+    margin-top: 10vh;
 }

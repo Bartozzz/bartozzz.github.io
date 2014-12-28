@@ -31,3 +31,9 @@ body {
     
     text-align: center
 }
+
+.hide-on-mobiles {
+    @include max-screen($responsive-mobile) {
+        display: none
+    }
+}

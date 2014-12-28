@@ -1,17 +1,15 @@
 .l-content,
 .l-content-inverse {
-    @include clearfix();
-
     position: relative;
-    top: 10vh;
+    
+    min-height: 100vh;
 
-    min-height: 90vh;
-
-    margin: 0 auto;
     padding: 5vh;
 }
 
 .l-content {
+    margin: 0 auto;
+
     max-width: $responsive-deskop;
 }
 
@@ -34,6 +32,8 @@
     border-width: 2px;
     border-style: solid;
     border-color: $color-1;
+    
+    z-index: 1;
     
     &::after {
         -webkit-border-radius: 50%;
@@ -93,4 +93,14 @@
             transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
     opacity: 0.01;
   }
+}
+
+#google-map {
+    .gm-style-cc,
+    .gmnoprint a,
+    .gmnoprint span {
+        display: none !important
+    }
+
+    .gmnoprint div { background: none !important }
 }
