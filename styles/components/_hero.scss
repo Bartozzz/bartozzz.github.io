@@ -1,0 +1,86 @@
+.hero {
+    position: relative;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 45px;
+    margin: 0;
+
+    background: $hero-background;
+
+    h1,
+    h2 {
+        margin: 0;
+    }
+
+    h1 {
+        color: $grey-900;
+
+        font-size: 72px;
+        font-weight: 900;
+        
+        letter-spacing: -2px;
+        line-height: 65px;
+    }
+
+    h2 {
+        color: $grey-400;
+
+        font-size: 21px;
+        font-weight: 900;
+
+        text-align:justify;
+        text-transform: uppercase;
+
+        letter-spacing: 2px;
+        line-height: 50px;
+
+        // Auto-fit hack:
+        span {
+            display: inline-block;
+
+            width: 100%;
+            height: 1em;
+        }
+    }
+    
+    ul {
+        list-style: none;
+        
+        li {
+            display: inline-block;
+
+            margin-right: 25px;
+            padding-bottom: 2px;
+            
+            &:last-child {
+                margin-right: 0;
+            }
+            
+            &::after {
+                display: block;
+                content: "";
+                
+                width: 80px;
+                
+                border-bottom-width: 2px;
+                border-bottom-style: solid;
+                border-bottom-color: $grey-800;
+            }
+
+            a {
+                display: block;
+                width: 80px;
+
+                color: $grey-800;
+
+                font-size: 12px;
+                font-weight: 900;
+                
+                text-transform: uppercase;
+            }
+        }
+    }
+}

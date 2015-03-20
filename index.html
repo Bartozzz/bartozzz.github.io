@@ -1,19 +1,42 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bartosz Łaniewski</title>
 
-<main class="l-content typo">
-    {% for post in site.categories['blog'] %}
-        <article>
-            <header>
-                <h2>
-                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                </h2>
-            </header>
+        <meta charset="utf-8">
+        <meta name="description" content="Bartosz Łaniewski from Paris, France.">
+        <meta name="keywords" content="designer, design, portfolio, ui, ux, interface">
+        <meta name="author" content="Łaniewski Bartosz">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
-            <section class="preview">
-                {{ post.excerpt }}
-            </section>
-        </article>
-    {% endfor %}
-</main>
+        <!--[if lt IE 9]><meta http-equiv="X-UA-Compatible" content="chrome=1"><![endif]-->
+        <!--[if lt IE 9]><meta http-equiv="imagetoolbar" content="no"><![endif]-->
+
+        <link href="styles/template.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <header class="hero">
+            <div class="is-centered">
+                <h1>Bartosz<br>Łaniewski</h1>
+                <h2>Digital UI/UX designer<span></span></h2>
+
+                <ul>
+                    <li><a href="//facebook.com/laniewski.bartozzz">Facebook</a></li>
+                    <li><a href="//dribbble.com/bartozzz">Work</a></li>
+                    <li><a href="mailto:laniewski.bartozzz@gmail.com">Contact</a></li>
+                </ul>
+            </div>
+        </header>
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-55655920-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+body {
+    font-family: $font-text;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    background-color: $background-color;
+    color: $text-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-head;
+}
