@@ -1,0 +1,23 @@
+{
+    "name"      : "bartozzz-github",
+    "version"   : "1.0.0",
+    "private"   : true,
+
+    "author"  : "Łaniewski Bartosz <laniewski.bartozzz@gmail.com> (http://laniewski.me/)",
+    "license" : "MIT",
+
+    "repository" : {
+        "type" : "git",
+        "url"  : "https://github.com/Bartozzz/bartozzz.github.io.git"
+    },
+
+    "bugs" : {
+        "url" : "https://github.com/Bartozzz/bartozzz.github.io/issues"
+    },
+
+    "dependencies" : {
+        "jax.js"   : "latest",
+        "jump.js"  : "latest",
+        "flickity" : "latest"
+    }
+}
