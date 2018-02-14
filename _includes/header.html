@@ -1,0 +1,17 @@
+<header class="header">
+  <div class="header-content">
+    <a class="header-logo" href="{{ "/" | relative_url }}" rel="index">Łanek</a>
+
+    <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <ul>
+        <li class="header-item">
+          <a class="{% if page.permalink == "/posts/" %}is-active{% endif %}" href="{{ "/posts/" | relative_url }}">Devblogs</a>
+        </li>
+
+        <li class="header-item">
+          <a class="{% if page.permalink == "/about/" %}is-active{% endif %}" href="{{ "/about/" | relative_url }}" rel="author">About</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

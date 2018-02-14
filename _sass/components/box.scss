@@ -1,0 +1,52 @@
+.box {
+  display: block;
+
+  margin: .5rem;
+  padding: 1rem .75rem;
+
+  border-radius: 5px;
+  background-color: $color-background;
+
+  box-shadow: 0 1px 1px rgba($color-text, .075);
+  transition: all .2s ease-in-out;
+
+  &-name {
+    margin: 0 .25rem;
+
+    font-weight: 500;
+    color: $color-text;
+
+    vertical-align: middle;
+  }
+
+  &-meta {
+    font-size: .85rem;
+  }
+
+  &-desc {
+    margin: 1rem .25rem;
+
+    font-size: .85rem;
+    color: lighten($color-text, 15%);
+  }
+
+  &.is-hoverable {
+    @include focusable(1px);
+
+    &:hover {
+      transform: scale(1.025);
+      box-shadow: 0 3px 15px rgba($color-text, 0.10);
+    }
+
+    &:focus {
+      transform: scale(1.025);
+      box-shadow: 0 3px 15px rgba($color-accent, .35);
+    }
+  }
+
+  &, &.is-hoverable {
+    border-width: 1px;
+    border-style: solid;
+    border-color: $color-border;
+  }
+}

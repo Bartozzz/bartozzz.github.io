@@ -1,0 +1,12 @@
+.keyword {
+  display: inline-block;
+  padding: .25rem .75rem;
+
+  font-size: .80rem;
+  font-family: $font-main;
+  font-weight: 500;
+  color: $color-link;
+
+  background-color: lighten($color-accent, 20%);
+  border-radius: 3px;
+}

@@ -1,0 +1,36 @@
+.footer {
+  &-contact {
+    text-align: right;
+  }
+
+  &-source {
+    margin: 0 1rem;
+
+    font-size: .85rem;
+    font-weight: 500;
+  }
+
+  &-menu {
+    padding: 0;
+
+    &-item {
+      display: inline-block;
+      margin: 0 1rem;
+
+      @include max-screen($mobile) {
+        margin: 0 .5rem;
+      }
+
+      a {
+        font-weight: 500;
+        color: $color-text;
+      }
+    }
+  }
+
+  @include max-screen($mobile) {
+    &-contact, &-menu, &-source {
+      text-align: center;
+    }
+  }
+}

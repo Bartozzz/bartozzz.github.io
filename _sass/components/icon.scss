@@ -1,0 +1,12 @@
+.icon {
+  margin: 0 .25rem 0 .75rem;
+  padding: 0;
+
+  height: .75rem;
+  width: .75rem;
+
+  &.is-balanced {
+    height: .60rem;
+    width: .60rem;
+  }
+}

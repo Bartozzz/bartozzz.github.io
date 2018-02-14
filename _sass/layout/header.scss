@@ -1,0 +1,48 @@
+.header {
+  @include transparent($color-background);
+
+  position: fixed;
+  padding: 0 1rem;
+  margin: 0;
+
+  width: 100%;
+  height: 4rem;
+
+  z-index: 3;
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+  }
+
+  a {
+    color: $color-text;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0 auto;
+    padding: 0;
+
+    height: 100%;
+    width: 100%;
+    max-width: $desktop;
+  }
+
+  &-logo {
+    font-size: 1.15rem;
+    font-weight: 900;
+  }
+
+  &-item {
+    display: inline-block;
+
+    font-weight: 500;
+    padding: 0 0 0 2rem;
+  }
+}

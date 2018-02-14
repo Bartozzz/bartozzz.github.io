@@ -1,214 +1,376 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Bartosz Łaniewski</title>
+<html lang="en" dir="ltr" vocab="http://schema.org" typeof="WebPage">
+  <head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="author" content="Bartosz Łaniewski">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no, minimal-ui">
+    <meta name="description" content="">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <meta charset="utf-8">
-        <meta name="author" content="Łaniewski Bartosz">
-        <meta name="keywords" content="webdesigner, programmer, designer, design, portfolio, ui, ux, web, interface">
-        <meta name="description" content="Bartosz Łaniewski, developer & designer, 19 years old, from Poland.">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title itemprop="name">
+      
+        Bartosz Łaniewski
+      
+    </title>
 
-        <!--[if lt IE 9]><meta http-equiv="imagetoolbar" content="no"><![endif]-->
-        <!--[if lt IE 9]><meta http-equiv="X-UA-Compatible" content="chrome=1"><![endif]-->
+    <link rel="index" title="Home" href="http://localhost:8000/">
+    <link rel="author" content="https://plus.google.com/+BartoszŁaniewski">
+    <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Bartosz Łaniewski">
+    <link rel="canonical" href="http://localhost:8000/">
 
-        <!--[if lte IE 8]><script src="scripts/polyfills/html5/index.js"></script><![endif]-->
-        <!--[if lte IE 8]><script src="scripts/polyfills/respond/index.js"></script><![endif]-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700:500" async>
+    <link rel="stylesheet" href="/assets/styles/index.css">
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700">
-        <link rel="stylesheet" href="styles/index.css">
-    </head>
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv-printshiv.min.js"></script>
+		<![endif]-->
+  </head>
 
-    <body>
-        <div class="loader" id="loader">
-        </div>
+  <body>
+    <header class="header">
+  <div class="header-content">
+    <a class="header-logo" href="/" rel="index">Łanek</a>
 
-        <menu class="menu" id="menu">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-lg-11">
-                    <div class="menu-section">
-                        <h2 class="menu-section-title">Projects</h2>
+    <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <ul>
+        <li class="header-item">
+          <a class="" href="/posts/">Devblogs</a>
+        </li>
 
-                        <div class="row">
-                            <!--
-                            <div class="col-xs-12 col-sm-6 col-lg-6">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-lg-4">
-                                        <div class="project-box color-2">
-                                            Beertime
-                                        </div>
-                                    </div>
+        <li class="header-item">
+          <a class="" href="/about/" rel="author">About</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-                                    <div class="col-xs-12 col-sm-6 col-lg-4">
-                                        <div class="project-box color-2">
-                                            Foodie
-                                        </div>
-                                    </div>
 
-                                    <div class="col-xs-12 col-sm-6 col-lg-4">
-                                        <div class="project-box color-2">
-                                            Messenger
-                                        </div>
-                                    </div>
-                                </div>
+    <section class="gallery" id="gallery">
+  <section class="gallery-cell">
+    <div class="hero">
+      <div class="hero-box">
+        <h1 class="hero-name" data-parallax="" data-friction="60">Bartosz<br /> Łaniewski</h1>
+        <h2 class="hero-desc" data-parallax="" data-friction="60">Developer &amp; Designer, 19 years old, from Poland</h2>
+      </div>
 
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-lg-8">
-                                        <div class="project-box color-2 is-medium">
-                                            Qilin
-                                        </div>
-                                    </div>
+      <div id="shapes-container" aria-hidden="true"></div>
+    </div>
+  </section>
 
-                                    <div class="col-xs-12 col-sm-12 col-lg-4">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-lg-12">
-                                                <div class="project-box color-2">
-                                                    Norus
-                                                </div>
-                                            </div>
+  
+    <section class="gallery-cell">
+      <div class="gallery-images">
+        
+          <img class="gallery-image main" alt="Qilin - main image" src="/assets/images/placeholder.png" data-flickity-lazyload="/projects/qilin/images/mockups/main.png" />
+        
+      </div>
 
-                                            <div class="col-xs-12 col-sm-6 col-lg-12">
-                                                <div class="project-box color-2">
-                                                    Portfolio
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+      <div class="gallery-meta">
+        <h2 class="gallery-meta-name">Qilin</h2>
+        <h3 class="gallery-meta-desc">Text editor for exact sciences.</h3>
+        <a class="button" href="/projects/qilin.html" tabindex="-1">Check it out</a>
+      </div>
+    </section>
+  
+    <section class="gallery-cell">
+      <div class="gallery-images">
+        
+          <img class="gallery-image main" alt="Vulcanus - main image" src="/assets/images/placeholder.png" data-flickity-lazyload="/projects/vulcanus/images/mockups/main.png" />
+        
+      </div>
 
-                            <div class="col-xs-12 col-sm-6 col-lg-6">
-                                <div class="project-box color-2 is-big">
-                                    Vulcanus
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    -->
-                </div>
-            </div>
+      <div class="gallery-meta">
+        <h2 class="gallery-meta-name">Vulcanus</h2>
+        <h3 class="gallery-meta-desc">Hybrid apps compiler.</h3>
+        <a class="button" href="/projects/vulcanus.html" tabindex="-1">Check it out</a>
+      </div>
+    </section>
+  
+    <section class="gallery-cell">
+      <div class="gallery-images">
+        
+          <img class="gallery-image desktop" alt="Beertime - desktop image" src="/assets/images/placeholder.png" data-flickity-lazyload="/projects/beertime/images/mockups/desktop.png" />
+        
+          <img class="gallery-image tablet" alt="Beertime - tablet image" src="/assets/images/placeholder.png" data-flickity-lazyload="/projects/beertime/images/mockups/tablet.png" />
+        
+          <img class="gallery-image mobile" alt="Beertime - mobile image" src="/assets/images/placeholder.png" data-flickity-lazyload="/projects/beertime/images/mockups/mobile.png" />
+        
+      </div>
 
-            <div class="col-xs-12 col-sm-12 col-lg-11">
-                <div class="menu-section">
-                    <h2 class="menu-section-title">Articles</h2>
+      <div class="gallery-meta">
+        <h2 class="gallery-meta-name">Beertime</h2>
+        <h3 class="gallery-meta-desc">Let's drink together.</h3>
+        <a class="button" href="/projects/beertime.html" tabindex="-1">Check it out</a>
+      </div>
+    </section>
+  
+</section>
 
-                    <div class="row">
-                    </div>
-                </div>
-            </div>
-        </menu>
+<main class="content grid" property="mainContentOfPage" typeof="WebPageElement">
+  
+    <article class="xs-12 sm-6 lg-4" data-repo-name="qilin-editor/qilin-app">
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/qilin-editor/qilin-app">
+        <h4 class="box-name">
+          qilin-editor/qilin-app
+          <span class="is-right box-meta" data-repo-stars=""></span>
+          <span class="is-right box-meta" data-repo-forks=""></span>
+        </h4>
 
-        <header class="header">
-            <hgroup class="header-logo">
-                <h1>BŁ</h1>
-            </hgroup>
+        <p class="box-desc">Text editor for exact sciences with built-in KaTeX/AsciiMath support.</p>
 
-            <div class="menu-toggle" id="toggle">
-                <div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-        </header>
+        
+          <strong class="keyword">nw.js</strong>
+        
+          <strong class="keyword">React</strong>
+        
+          <strong class="keyword">Cross platform</strong>
+        
+          <strong class="keyword">App</strong>
+        
+      </a>
+    </article>
+  
+    <article class="xs-12 sm-6 lg-4" data-repo-name="project-inra/inra-server">
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/project-inra/inra-server">
+        <h4 class="box-name">
+          project-inra/inra-server
+          <span class="is-right box-meta" data-repo-stars=""></span>
+          <span class="is-right box-meta" data-repo-forks=""></span>
+        </h4>
 
-        <section class="gallery" id="gallery">
-            <article class="gallery-cell">
-                <div class="about">
-                    <div class="about-desc">
-                        <h1 class="about-desc-name" data-parallax data-friction="60">Bartosz</h1>
-                        <h2 class="about-desc-name" data-parallax data-friction="60">Łaniewski</h2>
-                        <h3 class="about-desc-profession" data-parallax data-friction="60">Developer & Designer, <span>19 years old,</span> from Poland</h3>
-                    </div>
+        <p class="box-desc">A bunch of utility modules for creating Node.js servers suitable for small applications.</p>
 
-                    <div class="about-shapes" id="shapes-container">
-                    </div>
-                </div>
-            </article>
+        
+          <strong class="keyword">Node.js</strong>
+        
+          <strong class="keyword">Back-end</strong>
+        
+          <strong class="keyword">Flow</strong>
+        
+          <strong class="keyword">NPM</strong>
+        
+      </a>
+    </article>
+  
+    <article class="xs-12 sm-6 lg-4" data-repo-name="queue-promise">
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/Bartozzz/queue-promise">
+        <h4 class="box-name">
+          queue-promise
+          <span class="is-right box-meta" data-repo-stars=""></span>
+          <span class="is-right box-meta" data-repo-forks=""></span>
+        </h4>
 
-            <article class="gallery-cell">
-                <img class="gallery-image main" data-flickity-lazyload="projects/qilin/images/mockups/main.png">
+        <p class="box-desc">A simple and small library for promise-based queues.</p>
 
-                <div class="gallery-meta">
-                    <h2 class="gallery-name">Qilin</h2>
-                    <h3 class="gallery-desc">Text editor for exact sciences</h3>
-                </div>
-            </article>
+        
+          <strong class="keyword">Flow</strong>
+        
+          <strong class="keyword">Async</strong>
+        
+          <strong class="keyword">Promise</strong>
+        
+          <strong class="keyword">NPM</strong>
+        
+      </a>
+    </article>
+  
+    <article class="xs-12 sm-6 lg-4" data-repo-name="call-dir">
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/Bartozzz/call-dir">
+        <h4 class="box-name">
+          call-dir
+          <span class="is-right box-meta" data-repo-stars=""></span>
+          <span class="is-right box-meta" data-repo-forks=""></span>
+        </h4>
 
-            <article class="gallery-cell">
-                <img class="gallery-image main" data-flickity-lazyload="projects/vulcanus/images/mockups/main.png">
+        <p class="box-desc">Loads files from a directory and executes a callback for each.</p>
 
-                <div class="gallery-meta">
-                    <h2 class="gallery-name">Vulcanus</h2>
-                    <h3 class="gallery-desc">Hybrid apps compiler</h3>
-                </div>
-            </article>
+        
+          <strong class="keyword">Node.js</strong>
+        
+          <strong class="keyword">Flow</strong>
+        
+          <strong class="keyword">File-system</strong>
+        
+          <strong class="keyword">NPM</strong>
+        
+      </a>
+    </article>
+  
+    <article class="xs-12 sm-6 lg-4" data-repo-name="wildcard-named">
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/Bartozzz/wildcard-named">
+        <h4 class="box-name">
+          wildcard-named
+          <span class="is-right box-meta" data-repo-stars=""></span>
+          <span class="is-right box-meta" data-repo-forks=""></span>
+        </h4>
 
-            <article class="gallery-cell">
-                <img class="gallery-image desktop" data-flickity-lazyload="projects/beertime/images/mockups/desktop.png">
-                <img class="gallery-image tablet" data-flickity-lazyload="projects/beertime/images/mockups/tablet.png">
-                <img class="gallery-image mobile" data-flickity-lazyload="projects/beertime/images/mockups/mobile.png">
+        <p class="box-desc">Matches strings using named and/or unnamed wildcards.</p>
 
-                <div class="gallery-meta">
-                    <h2 class="gallery-name">Beertime</h2>
-                    <h3 class="gallery-desc">Let's drink together</h3>
-                </div>
-            </article>
+        
+          <strong class="keyword">Node.js</strong>
+        
+          <strong class="keyword">Flow</strong>
+        
+          <strong class="keyword">RegExp</strong>
+        
+          <strong class="keyword">NPM</strong>
+        
+      </a>
+    </article>
+  
+    <article class="xs-12 sm-6 lg-4" data-repo-name="json-overrides">
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/Bartozzz/wildcard-named">
+        <h4 class="box-name">
+          json-overrides
+          <span class="is-right box-meta" data-repo-stars=""></span>
+          <span class="is-right box-meta" data-repo-forks=""></span>
+        </h4>
 
-            <article class="gallery-cell">
-                <img class="gallery-image desktop" data-flickity-lazyload="projects/foodie/images/mockups/desktop.png">
-                <img class="gallery-image tablet" data-flickity-lazyload="projects/foodie/images/mockups/tablet.png">
-                <img class="gallery-image mobile" data-flickity-lazyload="projects/foodie/images/mockups/mobile.png">
+        <p class="box-desc">Creates various JSON object from a main parent JSON object.</p>
 
-                <div class="gallery-meta">
-                    <h2 class="gallery-name">Foodie</h2>
-                    <h3 class="gallery-desc">You are what you eat</h3>
-                </div>
-            </article>
+        
+          <strong class="keyword">Node.js</strong>
+        
+          <strong class="keyword">Flow</strong>
+        
+          <strong class="keyword">JSON</strong>
+        
+          <strong class="keyword">NPM</strong>
+        
+      </a>
+    </article>
+  
+    <article class="xs-12 sm-6 lg-4" data-repo-name="html-resources">
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/Bartozzz/html-resources">
+        <h4 class="box-name">
+          html-resources
+          <span class="is-right box-meta" data-repo-stars=""></span>
+          <span class="is-right box-meta" data-repo-forks=""></span>
+        </h4>
 
-            <article class="gallery-cell">
-                <img class="gallery-image desktop" data-flickity-lazyload="projects/prestige/images/mockups/desktop.png">
-                <img class="gallery-image tablet" data-flickity-lazyload="projects/prestige/images/mockups/tablet.png">
-                <img class="gallery-image mobile" data-flickity-lazyload="projects/prestige/images/mockups/mobile.png">
+        <p class="box-desc">Parses HTML files and extracts custom resources (scripts, stylesheets, images, …).</p>
 
-                <div class="gallery-meta">
-                    <h2 class="gallery-name">Prestige</h2>
-                    <h3 class="gallery-desc">Réparation, rénovation, embellissement</h3>
-                </div>
-            </article>
-        </section>
+        
+          <strong class="keyword">Node.js</strong>
+        
+          <strong class="keyword">Flow</strong>
+        
+          <strong class="keyword">HTML</strong>
+        
+          <strong class="keyword">NPM</strong>
+        
+      </a>
+    </article>
+  
+    <article class="xs-12 sm-6 lg-4" data-repo-name="crawlerr">
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/Bartozzz/crawlerr">
+        <h4 class="box-name">
+          crawlerr
+          <span class="is-right box-meta" data-repo-stars=""></span>
+          <span class="is-right box-meta" data-repo-forks=""></span>
+        </h4>
 
-        <section class="footer">
-            <div class="content">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-lg-6">
-                        <ul class="footer-menu col-lg-start col-sm-start col-xs-center">
-                            <li class="footer-menu-item"><a target="_blank" href="//github.com/Bartozzz">Github</a></li>
-                            <li class="footer-menu-item"><a target="_blank" href="//dribbble.com/bartozzz">Dribbble</a></li>
-                            <li class="footer-menu-item"><a target="_blank" href="//facebook.com/laniewski.bartozzz">Facebook</a></li>
-                            <li class="footer-menu-item"><a target="_blank" href="//youtube.com/channel/UCIC1vaSJwSJ2sqKWC3wTTmQ">YouTube</a></li>
-                        </ul>
-                    </div>
+        <p class="box-desc">A simple and fully customizable web crawler for Node.js.</p>
 
-                    <div class="col-xs-12 col-sm-6 col-lg-6">
-                        <ul class="footer-menu col-lg-end col-sm-end col-xs-center">
-                            <li class="footer-menu-item"><a href="mailto:laniewski.bartozzz@gmail.com">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
+          <strong class="keyword">Node.js</strong>
+        
+          <strong class="keyword">Flow</strong>
+        
+          <strong class="keyword">Request</strong>
+        
+          <strong class="keyword">NPM</strong>
+        
+      </a>
+    </article>
+  
+    <article class="xs-12 sm-6 lg-4" data-repo-name="get-link">
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/Bartozzz/get-link">
+        <h4 class="box-name">
+          get-link
+          <span class="is-right box-meta" data-repo-stars=""></span>
+          <span class="is-right box-meta" data-repo-forks=""></span>
+        </h4>
 
-        <script src="scripts/index.js"></script>
+        <p class="box-desc">Returns a new, absolute URL by parsing the link relative to the base URL.</p>
 
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+          <strong class="keyword">Node.js</strong>
+        
+          <strong class="keyword">Flow</strong>
+        
+          <strong class="keyword">URL</strong>
+        
+          <strong class="keyword">NPM</strong>
+        
+      </a>
+    </article>
+  
+    <article class="xs-12 sm-6 lg-4" data-repo-name="Wireframe">
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/Bartozzz/Wireframe">
+        <h4 class="box-name">
+          Wireframe
+          <span class="is-right box-meta" data-repo-stars=""></span>
+          <span class="is-right box-meta" data-repo-forks=""></span>
+        </h4>
 
-            ga('create', 'UA-55655920-1', 'auto');
-            ga('send', 'pageview');
-        </script>
-    </body>
+        <p class="box-desc">A flexible, modular and highly-customizable SCSS framework for rapid webiste prototyping.</p>
+
+        
+          <strong class="keyword">HTML</strong>
+        
+          <strong class="keyword">SCSS</strong>
+        
+          <strong class="keyword">Front-end</strong>
+        
+      </a>
+    </article>
+  
+</main>
+
+<script src="/assets/scripts/index.js"></script>
+
+
+
+    <footer class="footer" typeof="WPFooter">
+  <div class="content grid">
+    <nav class="xs-12 sm-8 lg-8 lg-start sm-start xs-center">
+      <ul class="footer-menu" itemscope typeof="ContactPoint">
+        <li class="footer-menu-item">
+          <a target="_blank" itemprop="url" rel="noopener noreferrer" href="https://github.com/Bartozzz">GitHub</a>
+        </li>
+
+        <li class="footer-menu-item">
+          <a target="_blank" itemprop="url" rel="noopener noreferrer" href="https://dribbble.com/bartozzz">Dribbble</a>
+        </li>
+
+        <li class="footer-menu-item">
+          <a target="_blank" itemprop="url" rel="noopener noreferrer" href="https://facebook.com/laniewski.bartozzz">Facebook</a>
+        </li>
+
+        <li class="footer-menu-item">
+          <a target="_blank" itemprop="url" rel="noopener noreferrer" href="https://youtube.com/channel/UCIC1vaSJwSJ2sqKWC3wTTmQ">YouTube</a>
+        </li>
+      </ul>
+
+      <p class="footer-source" itemprop="description">
+        Hand-coded using Liquid, JavaScript, SCSS, and more.
+        <a target="_blank" itemprop="url" rel="noopener noreferrer" href="https://github.com/Bartozzz/bartozzz.github.io">See the source</a>.
+      </p>
+    </nav>
+
+    <nav class="xs-12 sm-4 lg-4">
+      <ul class="footer-menu footer-contact" itemscope typeof="ContactPoint">
+        <li class="footer-menu-item">
+          <a target="_blank" rel="noopener noreferrer" href="mailto:laniewski.bartozzz@gmail.com" itemprop="email">Get in touch</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+  </body>
 </html>

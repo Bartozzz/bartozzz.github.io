@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" dir="ltr" vocab="http://schema.org" typeof="WebPage">
+  <head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="author" content="Bartosz Łaniewski">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no, minimal-ui">
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title itemprop="name">
+      {% if page.title %}
+        {{ site.title | escape }} &middot; {{ page.title | escape }}
+      {% else %}
+        {{ site.title | escape }}
+      {% endif %}
+    </title>
+
+    <link rel="index" title="Home" href="{{ "/" | absolute_url }}">
+    <link rel="author" content="https://plus.google.com/+BartoszŁaniewski">
+    <link rel="alternate" href="{{ "/feed.xml" | relative_url }}" type="application/atom+xml" title="Bartosz Łaniewski">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700:500" async>
+    <link rel="stylesheet" href="{{ "/assets/styles/index.css" | relative_url }}">
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv-printshiv.min.js"></script>
+		<![endif]-->
+  </head>
+
+  <body>
+    {% include header.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+  </body>
+</html>

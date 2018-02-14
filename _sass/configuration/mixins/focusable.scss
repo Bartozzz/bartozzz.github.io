@@ -1,0 +1,12 @@
+@mixin focusable($border: 0 0 3px 0) {
+  border-width: $border;
+  border-style: solid;
+  border-color: transparent;
+  outline: 0;
+
+  &.is-active,
+  &.is-focused,
+  &:focus {
+    border-color: $color-accent;
+  }
+}

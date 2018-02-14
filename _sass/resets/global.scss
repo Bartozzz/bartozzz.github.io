@@ -1,0 +1,40 @@
+::selection{
+  background-color: $color-accent;
+  color: $color-text;
+}
+
+*, *:after, *:before {
+  box-sizing: inherit;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-tap-highlight-color: rgba($color-background, 0);
+
+  outline: none;
+}
+
+body, html {
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+
+  min-width: 320px;
+  height: 100%;
+
+  font-family: $font-main;
+  font-size: $font-size;
+
+  box-sizing: border-box;
+}
+
+a {
+  @include focusable();
+
+  color: $color-link;
+  cursor: pointer;
+}
+
+a, a:active, a:focus, a:hover {
+  text-decoration: none;
+}
