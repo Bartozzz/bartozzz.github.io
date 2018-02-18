@@ -25,7 +25,7 @@
 
 - name: json-overrides
   desc: Creates various JSON object from a main parent JSON object.
-  path: https://github.com/Bartozzz/wildcard-named
+  path: https://github.com/Bartozzz/json-overrides
   keywords: [Node.js, Flow, JSON, npm]
 
 - name: html-resources
