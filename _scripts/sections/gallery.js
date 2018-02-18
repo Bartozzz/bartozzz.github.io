@@ -5,6 +5,7 @@ export default function () {
     setGallerySize: false,
     cellSelector: ".gallery-cell",
     pageDots: false,
+    lazyLoad: true,
     contain: true
   });
 };
