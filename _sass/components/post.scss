@@ -30,6 +30,12 @@
 .posts {
 	margin: 3rem 0 0 0;
 	padding: 0;
+
+	list-style: none;
+
+	li {
+		margin: 0 0 5rem;
+	}
 }
 
 .post {
@@ -46,7 +52,12 @@
 		&-time {
 			@extend %caps;
 
-			margin-right: 1rem;
+			margin: 0 1rem 0 0;
+
+			@include max-screen($mobile) {
+				display: block;
+				margin: 0 0 .5rem 0;
+			};
 		}
 
 		&-title {
@@ -59,6 +70,10 @@
 			font-family: $font-head;
 			font-weight: 700;
 			font-size: 2rem;
+
+			@include max-screen($mobile) {
+				font-size: 1.5rem;
+			};
 		}
 	}
 
