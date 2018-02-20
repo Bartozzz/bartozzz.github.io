@@ -22,15 +22,16 @@
         "babel-core": "^6.26.0",
         "babel-preset-env": "^1.6.1",
         "babelify": "^8.0.0",
-        "browserify": "^15.2.0",
-        "uglify-js": "3.3.10",
-        "watchify": "3.10.0"
+        "browserify": "^16.1.0",
+        "uglify-es": "^3.3.9",
+        "uglify-js": "^3.3.11",
+        "watchify": "^3.10.0"
     },
     "scripts": {
         "jekyll:build": "bundle exec jekyll build",
         "jekyll:serve": "bundle exec jekyll serve --incremental --profile --safe --strict_front_matter --port 8000",
         "js:babelify": "browserify ./_scripts/index.js -o ./assets/scripts/index.js -d -t [ babelify  --presets [ env ] ]",
-        "js:uglify": "uglifyjs ./_scripts/index.js -o ./assets/scripts/index.js",
+        "js:uglify": "uglifyjs ./assets/scripts/index.js  -o ./assets/scripts/index.js --compress --mangle --safari10 --timings --verbose --warn",
         "js:watch": "watchify ./_scripts/index.js -o ./assets/scripts/index.js -d -t [ babelify  --presets [ env ] ]",
         "build": "npm run js:babelify && npm run js:uglify && npm run jekyll:build",
         "start": "npm run jekyll:serve & npm run js:watch"
