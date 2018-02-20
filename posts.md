@@ -23,12 +23,12 @@ permalink: /posts/
 
             <br>
 
-            <a class="post-meta-title" itemprop="name headline" href="{{ post.url | relative_url }}">
+            <a class="post-meta-title" itemprop="name headline" href="{{ post.url | relative_url }}" lang="{{ post.lang | default: page.lang | default: "en" }}">
               {{ post.title | escape }}
             </a>
           </header>
 
-          <p class="post-content" itemprop="articleBody">
+          <p class="post-content" itemprop="articleBody" lang="{{ post.lang | default: page.lang | default: "en" }}">
             {{ post.content | truncatewords: 50 | strip_html }}
           </p>
         </article>
