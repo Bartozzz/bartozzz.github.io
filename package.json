@@ -29,7 +29,7 @@
     },
     "scripts": {
         "jekyll:build": "bundle exec jekyll build",
-        "jekyll:serve": "bundle exec jekyll serve --incremental --profile --safe --strict_front_matter --port 8000",
+        "jekyll:serve": "bundle exec jekyll serve --incremental --profile --safe --strict_front_matter --drafts --port 8000",
         "js:babelify": "browserify ./_scripts/index.js -o ./assets/scripts/index.js -d -t [ babelify  --presets [ env ] ]",
         "js:uglify": "uglifyjs ./assets/scripts/index.js  -o ./assets/scripts/index.js --compress --mangle --safari10 --timings --verbose --warn",
         "js:watch": "watchify ./_scripts/index.js -o ./assets/scripts/index.js -d -t [ babelify  --presets [ env ] ]",
