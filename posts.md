@@ -3,13 +3,16 @@ layout: default
 permalink: /posts/
 ---
 
-<main class="content" itemprop="mainContentOfPage">
+<main class="content" itemscope itemprop="mainContentOfPage">
   <ul class="posts" itemscope itemtype="http://schema.org/blogPosts">
     {% for post in site.posts %}
+      {% assign path = post.url | relative_url %}
+      {% assign lang = post.lang | default: page.lang | default: "en" %}
+
       <li>
         <article class="post" itemscope itemtype="http://schema.org/blogPost">
           <header class="post-meta">
-            <time class="post-meta-time" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+            <time class="post-meta-time caps" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
               {{ post.date | date: "%b %-d, %Y" }}
             </time>
 
@@ -23,13 +26,21 @@ permalink: /posts/
 
             <br>
 
-            <a class="post-meta-title" itemprop="name headline" href="{{ post.url | relative_url }}" lang="{{ post.lang | default: page.lang | default: "en" }}">
-              {{ post.title | escape }}
-            </a>
+            <h2 class="post-meta-title">
+              <a itemprop="name headline" href="{{ path }}" lang="{{ lang }}">
+                {{ post.title | escape }}
+              </a>
+            </h2>
           </header>
 
-          <p class="post-content" itemprop="articleBody" lang="{{ post.lang | default: page.lang | default: "en" }}">
-            {{ post.content | truncatewords: 50 | strip_html }}
+          <p class="post-content" itemprop="articleBody" lang="{{ lang }}">
+            {{ post.content | truncatewords: 50 | strip_html }}&nbsp;
+
+            {%- if lang == "en" -%}
+              <a href="{{ path }}" lang="{{ lang }}">Read more.</a>
+            {%- else -%}
+              <a href="{{ path }}" lang="{{ lang }}">Czytaj więcej.</a>
+            {%- endif -%}
           </p>
         </article>
       </li>

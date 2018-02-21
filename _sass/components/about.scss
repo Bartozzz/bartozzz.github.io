@@ -67,7 +67,7 @@
 
   h2 {
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
 
     @include max-screen($mobile) {
       font-size: 1rem;
@@ -76,7 +76,7 @@
 
   h3 {
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
 
     width: 175px;
     flex-grow: 0;

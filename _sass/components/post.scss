@@ -39,21 +39,31 @@
 }
 
 .post {
-	list-style: none;
-
   &-header {
     margin: 5rem 0;
 		text-align: center;
   }
 
+	&-meta,
+	&-content {
+		max-width: 850px;
+
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	&-meta {
 		margin-top: 2rem;
 
-		&-time {
-			@extend %caps;
+		&-time,
+		&-keywords {
+			display: inline-block;
 
 			margin: 0 1rem 0 0;
+			padding: 0;
+		}
 
+		&-time {
 			@include max-screen($mobile) {
 				display: block;
 				margin: 0 0 .5rem 0;
@@ -61,28 +71,28 @@
 		}
 
 		&-title {
-			display: inline-block;
-
-			margin-top: 1.25rem;
-			padding: 0;
-
-			font-feature-settings: "dlig", "liga", "lnum", "kern";
-			font-family: $font-head;
-			font-weight: 700;
-			font-size: 2rem;
-
-			@include max-screen($mobile) {
-				font-size: 1.5rem;
-			};
+			margin-top: 1rem !important;
 		}
-	}
-
-	&-content {
-		@extend %medium-paragraph;
 	}
 
 	.caps {
 		@extend %caps;
+	}
+
+	&-content {
+		@extend %medium-paragraph;
+
+		a {
+			@extend %word-wrap;
+
+			background-image: linear-gradient(to bottom, rgba($color-text, .75) 50%, rgba($color-text, 0) 50%);
+	    background-repeat: repeat-x;
+			background-size: 1px;
+	    background-position: 0 1.30em;
+
+			letter-spacing: -.005em;
+			color: inherit;
+		}
 	}
 
   h1, h2, h3, h4, h5, h6 {
@@ -154,13 +164,8 @@
 		margin-top: 1rem;
 	}
 
-	a {
-		@extend %word-wrap;
-
-		letter-spacing: -.003em;
-	}
-
-	blockquote {
+	blockquote,
+	blockquote p {
 		@extend %medium-paragraph;
 		@extend %word-wrap;
 
@@ -176,6 +181,8 @@
 
 		margin-left: -23px;
     margin-top: 29px;
+
+		color: rgba($color-text, .75);
 	}
 
 	pre, code {
@@ -191,7 +198,7 @@
 		font-feature-settings: "liga" 0;
 
     background-color: $color-alternative;
-		color: rgba($color-text, .8);
+		color: rgba($color-text, .75);
 	}
 
 	pre {
@@ -206,7 +213,7 @@
 	}
 
 	code {
-		letter-spacing: -.003em;
+		letter-spacing: -.005em;
 	}
 
 	ul, ol {
@@ -221,7 +228,7 @@
 			margin-left: 2rem;
 			margin-bottom: 1rem;
 
-      letter-spacing: -.003em;
+      letter-spacing: -.005em;
 		}
 
     ul, ol {
@@ -244,7 +251,7 @@
 			font-style: normal;
 			font-feature-settings: "liga" on, "lnum" on;
 			font-size: 14px;
-			line-height: 1.4;
+			line-height: 1.5;
 			letter-spacing: 0;
 			text-align: center;
 
