@@ -2,7 +2,7 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}" dir="ltr" vocab="http://schema.org" typeof="WebPage">
   <head>
     <meta charset="utf-8">
-    <meta name="author" href="Bartosz Łaniewski">
+    <meta name="author" content="Bartosz Łaniewski">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no, minimal-ui">
     <meta name="description" content="{{ page.excerpt | default: site.about | strip_html | normalize_whitespace | truncate: 160 | escape }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,7 @@
     </title>
 
     <link rel="index" title="Home" href="{{ "/" | absolute_url }}">
-    <link rel="author" content="https://plus.google.com/+BartoszŁaniewski">
+    <link rel="author" href="https://plus.google.com/+BartoszŁaniewski">
     <link rel="alternate" href="{{ "/feed.xml" | relative_url }}" type="application/atom+xml" title="Bartosz Łaniewski">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
