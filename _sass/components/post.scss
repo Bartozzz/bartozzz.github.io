@@ -87,11 +87,19 @@
 
 			background-image: linear-gradient(to bottom, rgba($color-text, .75) 50%, rgba($color-text, 0) 50%);
 	    background-repeat: repeat-x;
-			background-size: 1px;
+			background-size: 2px 1px;
 	    background-position: 0 1.30em;
 
 			letter-spacing: -.005em;
 			color: inherit;
+		}
+
+		abbr {
+			border-bottom-width: 1px;
+	    border-bottom-style: dashed;
+	    border-bottom-color: rgba($color-text, .75);
+
+	    text-decoration: none;
 		}
 	}
 
