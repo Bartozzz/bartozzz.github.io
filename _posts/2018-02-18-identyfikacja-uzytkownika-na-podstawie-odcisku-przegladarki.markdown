@@ -36,7 +36,7 @@ Termin ten odnosi się do procesu generowania trwałego, unikalnego identyfikato
 }
 {% endhighlight %}
 
-Bazując się na wyżej wymienionych informacjach, bardzo łatwe staje się wygenerowanie identyfikatora, który posłuży do rozpoznawania niezalogowanego użytkownika na stronie szpiegującego. Jak wynika z badań doktora Peter Eckersley pt. [_„How Unique Is Your Web Browser?”_][3], na 400000 odwiedzin, ponad 80% użytkowników ma unikalne odciski.
+Bazując się na wyżej wymienionych informacjach, bardzo łatwo można wygenerować identyfikator, który posłuży do rozpoznawania niezalogowanego użytkownika na stronie szpiegującego. Jak wynika z badań doktora Peter Eckersley pt. [_„How Unique Is Your Web Browser?”_][3], na 400000 odwiedzin, ponad 80% użytkowników ma unikalne odciski.
 
 >83.6% of the browsers seen had an instantaneously unique fingerprint, and a further 5.3% had an anonymity set of size 2. Among visiting browsers that had either Adobe Flash or a Java Virtual Machine enabled, 94.2% exhibited instantaneously unique fingerprints and a further 4.8% had fingerprints that were seen exactly twice. – Peter Eckersley
 
