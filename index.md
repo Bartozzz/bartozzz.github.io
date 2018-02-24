@@ -34,7 +34,7 @@ layout: default
   {% endfor %}
 </section>
 
-<main class="content grid" property="mainContentOfPage" typeof="WebPageElement">
+<main id="content" class="content grid" property="mainContentOfPage" typeof="WebPageElement">
   {% for repository in site.data.repositories %}
     <article class="xs-12 sm-6 lg-4" data-repo-name="{{ repository.name }}">
       <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="{{ repository.path }}">

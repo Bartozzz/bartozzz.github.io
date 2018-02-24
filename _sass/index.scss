@@ -16,12 +16,14 @@
 
 @import "components/box";
 @import "components/hero";
+@import "components/skip";
 @import "components/icon";
 @import "components/post";
 @import "components/about";
 @import "components/keyword";
 @import "components/forms/button";
 
+@import "utils/is-srt";
 @import "utils/is-bold";
 @import "utils/is-right";
 

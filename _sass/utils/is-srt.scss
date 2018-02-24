@@ -1,0 +1,21 @@
+.is-srt {
+  position: absolute;
+  overflow: hidden;
+
+  height: 1px;
+  width: 1px;
+
+  clip: rect(0 0 0 0);
+
+  &:hover,
+  &:focus {
+    display: block;
+
+    clip: auto !important;
+
+    height: auto;
+    width: auto;
+
+    z-index: 100000;
+  }
+}

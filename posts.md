@@ -3,7 +3,7 @@ layout: default
 permalink: /posts/
 ---
 
-<main class="content">
+<main id="content" class="content" property="mainContentOfPage" typeof="WebPageElement">
   <ul class="posts" itemscope itemtype="http://schema.org/blogPosts">
     {% for post in site.posts %}
       {% assign path = post.url | relative_url %}

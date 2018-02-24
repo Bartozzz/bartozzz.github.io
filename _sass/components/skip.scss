@@ -1,0 +1,15 @@
+.skip {
+  top: 20px;
+  left: 1rem;
+
+  background-color: $color-background;
+
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: $color-text;
+
+  &:focus,
+  &:hover {
+    color: $color-text;
+  }
+}

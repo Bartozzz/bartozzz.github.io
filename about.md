@@ -69,7 +69,7 @@ permalink: /about/
   }
 </style>
 
-<main class="content about" itemscope itemtype="http://schema.org/Person">
+<main id="content" class="content about" itemscope itemtype="http://schema.org/Person">
   <header class="about-header">
     <h1 itemprop="name">Bartosz Łaniewski</h1>
     <link itemprop="sameAs" href="https://github.com/Bartozzz">
