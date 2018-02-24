@@ -10,36 +10,37 @@
   box-shadow: 0 1px 1px rgba($color-text, .075);
   transition: all .2s ease-in-out;
 
+  &-meta {
+    font-size: .85rem;
+  }
+
   &-name {
     margin: 0 .25rem;
 
     font-weight: 500;
     color: $color-text;
-
-    vertical-align: middle;
   }
 
-  &-meta {
-    font-size: .85rem;
-  }
-
-  &-desc {
+  &-description {
     margin: 1rem .25rem;
 
     font-size: .85rem;
-    color: lighten($color-text, 15%);
+    color: $color-text;
   }
 
   &.is-hoverable {
     @include focusable(1px);
 
-    &:hover {
+    &:hover,
+    &:focus {
       transform: scale(1.025);
+    }
+
+    &:hover {
       box-shadow: 0 3px 15px rgba($color-text, 0.10);
     }
 
     &:focus {
-      transform: scale(1.025);
       box-shadow: 0 3px 15px rgba($color-accent, .35);
     }
   }
@@ -48,5 +49,19 @@
     border-width: 1px;
     border-style: solid;
     border-color: $color-border;
+  }
+
+
+  &.is-wide {
+    min-height: 135px;
+    line-height: 135px;
+
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: darken($color-border, 20%);
+
+    padding: 0;
+    opacity: 0.5;
   }
 }
