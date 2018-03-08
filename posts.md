@@ -38,6 +38,8 @@ permalink: /posts/
 
             {%- if lang == "en" -%}
               <a href="{{ path }}" lang="{{ lang }}">Read more.</a>
+            {%- elsif lang == "fr" -%}
+              <a href="{{ path }}" lang="{{ lang }}">Lire plus.</a>
             {%- else -%}
               <a href="{{ path }}" lang="{{ lang }}">Czytaj więcej.</a>
             {%- endif -%}
