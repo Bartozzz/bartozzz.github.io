@@ -56,7 +56,7 @@ AJAX daje dostęp do większej ilości danych, ponieważ służy do pobierania c
 
 >We divided the methods into several categories: explicitly assigned client-side identifiers, such as HTTP cookies; inherent client device characteristics that identify a particular machine; and **measurable user behaviors and preferences that may reveal the identity of the person** behind the keyboard (or touchscreen). – Artur Janc and Michal Zalewski
 
-Zmienny adres IP, usuwanie danych przeglądania, aktualizacja oprogramowania lub nawet zmiana rozdzielczości ekranu może mieć znaczny wpływ na odcisk naszej przeglądarki, dlatego ważne jest, aby algorytm był stabilny i przygotowany na takie okoliczności. Przykładowa implementacja takiego algorytmu została opisana w sekcji 5.2. publikacji [„How Unique Is Your Web Browser?” autorstwa Peter Eckersley][3].
+Zmienny adres IP, usuwanie danych przeglądania, aktualizacja oprogramowania, a nawet zmiana rozdzielczości ekranu może mieć znaczny wpływ na odcisk naszej przeglądarki, dlatego ważne jest, aby algorytm był stabilny i przygotowany na takie okoliczności. Przykładowa implementacja takiego algorytmu została opisana w sekcji 5.2. publikacji [„How Unique Is Your Web Browser?” autorstwa Peter Eckersley][3].
 
 ## Jak się bronić przed „Browser Fingerprint”?
 
