@@ -161,6 +161,13 @@
 
 		margin-top: 1rem;
 		margin-bottom: 0;
+
+		img {
+			max-width: 100%;
+			height: auto;
+
+			margin: 2rem auto 1rem;
+		}
 	}
 
 	h1 + p,
