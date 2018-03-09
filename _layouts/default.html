@@ -17,13 +17,15 @@
 
     <link rel="index" title="Home" href="{{ "/" | absolute_url }}">
     <link rel="author" href="https://plus.google.com/+BartoszŁaniewski">
-    <link rel="alternate" href="{{ "/feed.xml" | relative_url }}" type="application/atom+xml" title="Bartosz Łaniewski">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <link rel="alternate" href="{{ "/feed.xml" | relative_url }}" type="application/atom+xml" title="Bartosz Łaniewski">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.10/flickity.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;subset=latin-ext">
+
     <link rel="stylesheet" href="{{ "/assets/styles/index.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/styles/print.css" | relative_url }}" media="print">
 
     <!--[if lt IE 9]>
       <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv-printshiv.min.js"></script>
