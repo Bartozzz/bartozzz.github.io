@@ -24,7 +24,8 @@
   &-description {
     margin: 1rem .25rem;
 
-    font-size: .85rem;
+    font-size: .9rem;
+    line-height: 1.25rem;
     color: $color-text;
   }
 
@@ -51,10 +52,9 @@
     border-color: $color-border;
   }
 
-
   &.is-wide {
-    min-height: 135px;
-    line-height: 135px;
+    min-height: 145px;
+    line-height: 145px;
 
     text-align: center;
     font-size: 1.25rem;
@@ -62,6 +62,6 @@
     color: darken($color-border, 20%);
 
     padding: 0;
-    opacity: 0.5;
+    opacity: 0.75;
   }
 }
