@@ -1,24 +1,26 @@
-- name: Qilin
-  desc: Text editor for exact sciences.
-  path: /projects/qilin.html
-  images:
-    - path: /projects/qilin/images/mockups/main.png
-      type: main
+#- name: Qilin
+#  desc: Text editor for exact sciences.
+#  path: /projects/qilin/index.html
+#  images:
+#    - path: /projects/qilin/images/mockups/main.png
+#      type: main
 
-- name: Vulcanus
-  desc: Hybrid apps compiler.
-  path: /projects/vulcanus.html
-  images:
-    - path: /projects/vulcanus/images/mockups/main.png
-      type: main
+#- name: Vulcanus
+#  desc: Hybrid apps compiler.
+#  path: /projects/vulcanus/index.html
+#  images:
+#    - path: /projects/vulcanus/images/mockups/main.png
+#      type: main
 
 - name: Beertime
   desc: Let's drink together.
-  path: /projects/beertime.html
-  images:
-    - path: /projects/beertime/images/mockups/desktop.png
-      type: desktop
-    - path: /projects/beertime/images/mockups/tablet.png
-      type: tablet
-    - path: /projects/beertime/images/mockups/mobile.png
-      type: mobile
+  path: https://www.facebook.com/beertimeapp/
+#  path: /projects/beertime/index.html
+  shoot: /projects/beertime/images/mockups/background.png
+#  images:
+#    - path: /projects/beertime/images/mockups/desktop.png
+#      type: desktop
+#    - path: /projects/beertime/images/mockups/tablet.png
+#      type: tablet
+#    - path: /projects/beertime/images/mockups/mobile.png
+#      type: mobile
