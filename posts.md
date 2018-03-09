@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Devblogs
 permalink: /posts/
 ---
 
