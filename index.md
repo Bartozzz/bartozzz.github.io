@@ -1,38 +1,9 @@
 ---
 layout: default
+title: Developer & Designer
 ---
 
-<section class="gallery" id="gallery">
-  <section class="gallery-cell">
-    <div class="hero">
-      <div class="hero-box">
-        <h1 class="hero-name" data-parallax data-friction="60">Bartosz<br> Łaniewski</h1>
-        <h2 class="hero-desc" data-parallax data-friction="60">Developer & Designer, 19 years old, from Poland</h2>
-      </div>
-
-      <div id="shapes-container" aria-hidden="true"></div>
-    </div>
-  </section>
-
-  {% for project in site.data.projects %}
-    <section class="gallery-cell">
-      <div class="gallery-images">
-        {% for image in project.images %}
-          <img class="gallery-image {{ image.type }}"
-            alt="{{ project.name }} - {{ image.type }} image"
-            src="/assets/images/placeholder.png"
-            data-flickity-lazyload="{{ image.path }}">
-        {% endfor %}
-      </div>
-
-      <div class="gallery-meta">
-        <h2 class="gallery-meta-name">{{ project.name }}</h2>
-        <h3 class="gallery-meta-desc">{{ project.desc }}</h3>
-        <a class="button" href="{{ project.path }}" tabindex="-1">Check it out</a>
-      </div>
-    </section>
-  {% endfor %}
-</section>
+{% include gallery.html %}
 
 <main id="content" class="content grid" property="mainContentOfPage" typeof="WebPageElement">
   <header class="content-header">
