@@ -1,0 +1,25 @@
+#markdown-toc {
+  margin: 2rem 0;
+
+  &, ul {
+    list-style-type: none;
+    counter-reset: item;
+  }
+
+  li {
+    display: table;
+    margin: 0.5rem 0 0;
+    counter-increment: item;
+
+    &::before {
+      display: table-cell;
+      padding: 0 0.5rem 0 0;
+      content: counters(item, ".") ". ";
+    }
+
+    ul,
+    ul > li {
+      margin: 0;
+    }
+  }
+}
