@@ -65,8 +65,8 @@ permalink: /about/
       <details class="box">
         <summary class="box-header caps">
           Fullstack Developer @ <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
-            <link href="https://beertime.me/" itemprop="url">
-            <a itemprop="name" href="https://beertime.me/" target="_blank" rel="noopener noreferrer">Beertime</a>
+            <link href="https://beertime.me" itemprop="url">
+            <a itemprop="name" href="https://beertime.me" target="_blank" rel="noopener noreferrer">Beertime</a>
           </span>
 
           <time class="keyword is-right">2016 - 2018</time>
@@ -75,7 +75,7 @@ permalink: /about/
         <p>Beertime is a location-based social search app which allows users to go out for a beer with people nearby. Our algorithm attempts to find the best matches depending on the user's individual preferences. Information available to the users is based on a profile picture, a short bio that users write themselves and their hobbies.</p>
 
         <ul>
-          <li>Developed the back-end in Node.js, with Sequelize.js/Express.js/Socket.io as main stack.</li>
+          <li>Developed the back-end in Node.js, with Sequelize.js, Express.js and Socket.io as main stack.</li>
           <li>Designed the front-end using React.js, including extensive unit and end-to-end testing.</li>
           <li>Migrated the front-end using data.js to a Firebase-based back-end.</li>
         </ul>
@@ -84,8 +84,8 @@ permalink: /about/
       <details class="box">
         <summary class="box-header caps">
           Front-end Developer @ <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
-            <link href="https://findsitandeat.com/" itemprop="url">
-            <a itemprop="name" href="https://findsitandeat.com/" target="_blank" rel="noopener noreferrer">FindSit&Eat</a>
+            <link href="https://findsitandeat.com" itemprop="url">
+            <a itemprop="name" href="https://findsitandeat.com" target="_blank" rel="noopener noreferrer">FindSit&Eat</a>
           </span>
 
           <time class="keyword is-right">2017</time>
@@ -105,10 +105,11 @@ permalink: /about/
       <details class="box">
         <summary class="box-header caps">
           Front-end Developer @ <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
-            <span itemprop="name">Foodie</span>
+            <link href="https://github.com/michaldev/foodie" itemprop="url">
+            <a itemprop="name" href="https://github.com/michaldev/foodie" target="_blank" rel="noopener noreferrer">Foodie</a>
           </span>
 
-          <time class="keyword is-right">2016</time>
+          <time class="keyword is-right">2015</time>
         </summary>
 
         <div class="box-content post">
@@ -116,7 +117,7 @@ permalink: /about/
 
           <ul>
             <li>Designed a template according to Material Design specifications</li>
-            <li>Created the front-end using Angular.js</li>
+            <li>Created the front-end using Angular</li>
           </ul>
         </div>
       </details>
@@ -141,6 +142,7 @@ permalink: /about/
           <span class="keyword">TypeScript</span>
           <span class="keyword">CoffeeScript</span>
           <span class="keyword">PHP</span>
+          <span class="keyword">ASM/C/C++</span>
         </li>
 
         <li>
@@ -149,15 +151,17 @@ permalink: /about/
           <span class="keyword">MongoDB</span>
           <span class="keyword">MySQL</span>
           <span class="keyword">NoSQL</span>
+          <span class="keyword">Firebase</span>
         </li>
 
         <li>
           <span class="is-bold">Frameworks:</span><br>
           <span class="keyword">Koa.js</span>
           <span class="keyword">Express.js</span>
+          <span class="keyword">Sequelize.js</span>
+          <span class="keyword">Socket.io</span>
           <span class="keyword">React.js</span>
-          <span class="keyword">Angular.js</span>
-          <span class="keyword">ElasticSearch</span>
+          <span class="keyword">Angular</span>
         </li>
 
         <li>
