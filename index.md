@@ -7,8 +7,8 @@ title: Developer & Designer
 
 <main id="content" class="content grid" property="mainContentOfPage" typeof="WebPageElement">
   <header class="content-header">
-    <h4 class="content-heading">Open-source projects</h4>
-    <h5 class="content-subheading">Community is essential to me. I want to become the kind of developer that I would want to work with. That's why I share my knowledge, code, and time with others.</h5>
+    <h2 class="content-heading">Open-source projects</h2>
+    <h3 class="content-subheading">Community is essential to me. I want to become the kind of developer that I would want to work with. That's why I share my knowledge, code, and time with others.</h3>
   </header>
 
   {% for repository in site.data.repositories %}
@@ -16,8 +16,8 @@ title: Developer & Designer
       <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="{{ repository.path }}">
         <h4 class="box-name">
           {{ repository.name }}
-          <span class="is-right box-meta" data-repo-stars></span>
-          <span class="is-right box-meta" data-repo-forks></span>
+          <span class="is-right box-meta" data-repo-stars aria-hidden="true"></span>
+          <span class="is-right box-meta" data-repo-forks aria-hidden="true"></span>
         </h4>
 
         <p class="box-description">{{ repository.desc }}</p>
