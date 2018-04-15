@@ -29,11 +29,11 @@ title: Developer & Designer
     </article>
   {% endfor %}
 
-  <article class="xs-12 sm-6 lg-4" data-repo-name="{{ repository.name }}">
+  <aside class="xs-12 sm-6 lg-4" data-repo-name="{{ repository.name }}">
     <a class="box is-wide is-hoverable" target="_blank" rel="noopener noreferrer" href="https://github.com/Bartozzz">
       See more…
     </a>
-  </article>
+  </aside>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.10/flickity.pkgd.min.js"></script>
