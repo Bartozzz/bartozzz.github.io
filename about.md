@@ -44,7 +44,9 @@ permalink: /about/
             <span itemprop="name">Université Paris Descartes</span>
           </span>
 
-          <time class="keyword is-right">now</time>
+          <span class="keyword is-right">
+            Now
+          </span>
         </summary>
 
         <p>I joined Paris Descartes in 2017. Beside my main field of interest, I have additionally attended Economy cursus during the first semester. I had the opportunity to integrate IT Excellence Project where I've met a lot of great people.</p>
@@ -69,7 +71,9 @@ permalink: /about/
             <a itemprop="name" href="https://beertime.me" target="_blank" rel="noopener noreferrer">Beertime</a>
           </span>
 
-          <time class="keyword is-right">2016 - 2018</time>
+          <span class="keyword is-right">
+            <time>2016</time> - <time>2018</time>
+          </span>
         </summary>
 
         <p>Beertime is a location-based social search app which allows users to go out for a beer with people nearby. Our algorithm attempts to find the best matches depending on the user's individual preferences. Information available to the users is based on a profile picture, a short bio that users write themselves and their hobbies.</p>
