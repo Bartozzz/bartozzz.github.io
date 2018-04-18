@@ -12,19 +12,25 @@ title: Developer & Designer
   </header>
 
   {% for repository in site.data.repositories %}
-    <article class="xs-12 sm-6 lg-4" data-repo-name="{{ repository.name }}">
-      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="{{ repository.path }}">
-        <h4 class="box-name">
+    <article class="xs-12 sm-6 lg-4" data-repo-name="{{ repository.name }}" itemtype="http://schema.org/SoftwareSourceCode" itemscope>
+      <link itemprop="codeRepository" href="{{ repository.path }}">
+      <link itemprop="downloadUrl" href="{{ repository.path }}/releases">
+
+      <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="{{ repository.path }}" aria-label="{{ repository.desc }}">
+        <h4 class="box-name" itemprop="name">
           {{ repository.name }}
+
           <span class="is-right box-meta" data-repo-stars aria-hidden="true"></span>
           <span class="is-right box-meta" data-repo-forks aria-hidden="true"></span>
         </h4>
 
-        <p class="box-description">{{ repository.desc }}</p>
+        <p class="box-description" itemprop="about">{{ repository.desc }}</p>
 
-        {% for keyword in repository.keywords %}
-          <strong class="keyword">{{ keyword }}</strong>
-        {% endfor %}
+        <aside itemprop="keywords">
+          {% for keyword in repository.keywords %}
+            <strong class="keyword">{{ keyword }}</strong>
+          {% endfor %}
+        </aside>
       </a>
     </article>
   {% endfor %}
