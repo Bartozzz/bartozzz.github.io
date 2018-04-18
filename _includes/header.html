@@ -1,17 +1,15 @@
-<header class="header">
-  <div class="header-content">
-    <a class="header-logo" href="{{ "/" | relative_url }}" rel="index">Łanek</a>
+<nav class="header" itemtype="http://schema.org/SiteNavigationElement" itemscope>
+  <ul class="header-content">
+    <li class="header-item">
+      <a class="header-logo" href="{{ "/" | relative_url }}" rel="index" title="Go to main page">Łanek</a>
+    </li>
 
-    <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
-      <ul>
-        <li class="header-item">
-          <a class="{% if page.permalink == "/posts/" %}is-active{% endif %}" href="{{ "/posts/" | relative_url }}">Devblogs</a>
-        </li>
+    <li class="header-item">
+      <a class="{% if page.permalink == "/posts/" %}is-active{% endif %}" href="{{ "/posts/" | relative_url }}">Devblogs</a>
+    </li>
 
-        <li class="header-item">
-          <a class="{% if page.permalink == "/about/" %}is-active{% endif %}" href="{{ "/about/" | relative_url }}" rel="author">About</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <li class="header-item">
+      <a class="{% if page.permalink == "/about/" %}is-active{% endif %}" href="{{ "/about/" | relative_url }}" rel="author">About me</a>
+    </li>
+  </ul>
+</nav>
