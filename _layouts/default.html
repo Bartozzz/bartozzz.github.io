@@ -7,7 +7,7 @@
     <meta name="description" content="{{ page.excerpt | default: site.about | strip_html | normalize_whitespace | truncate: 160 | escape }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title property="name">
+    <title itemprop="name">
       {% if page.title %}
         {{ site.title | escape }} &middot; {{ page.title | escape }}
       {% else %}
