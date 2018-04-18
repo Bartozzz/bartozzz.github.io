@@ -5,7 +5,7 @@ title: Developer & Designer
 
 {% include gallery.html %}
 
-<main id="content" class="content grid" property="mainContentOfPage" typeof="WebPageElement">
+<main id="content" class="content grid" itemprop="mainContentOfPage">
   <header class="content-header">
     <h2 class="content-heading">Open-source projects</h2>
     <h3 class="content-subheading">Community is essential to me. I want to become the kind of developer that I would want to work with. That's why I share my knowledge, code, and time with others.</h3>

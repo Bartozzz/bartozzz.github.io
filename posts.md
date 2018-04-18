@@ -4,7 +4,7 @@ title: Devblogs
 permalink: /posts/
 ---
 
-<main id="content" class="content" property="mainContentOfPage" typeof="WebPageElement">
+<main id="content" class="content" itemprop="mainContentOfPage">
   <ul class="posts" itemscope itemtype="http://schema.org/blogPosts">
     {% for post in site.posts %}
       {% assign path = post.url | relative_url %}
