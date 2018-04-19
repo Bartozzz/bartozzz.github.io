@@ -18,7 +18,7 @@
       margin: 0 1rem;
 
       @include max-screen($mobile) {
-        margin: 0 .5rem;
+        margin: .5rem .5rem 0;
       }
 
       a {
