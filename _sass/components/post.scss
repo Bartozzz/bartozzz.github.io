@@ -63,6 +63,23 @@
 			padding: 0;
 		}
 
+		&-authors {
+	    @extend %font-antialias;
+	    @extend %word-wrap;
+
+	    font-feature-settings: "dlig", "liga", "lnum", "kern";
+	  	font-family: $font-head;
+	  	font-weight: 700;
+	  	font-style: normal;
+	  	letter-spacing: -.02em;
+
+			margin: 0 0 1rem 0;
+
+			span {
+				margin: 0 0.5rem;
+			}
+		}
+
 		&-time {
 			@include max-screen($mobile) {
 				display: block;

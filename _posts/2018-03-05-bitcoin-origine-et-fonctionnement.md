@@ -1,14 +1,11 @@
 ---
 layout     : article
-author     : Bartosz Łaniewski
 title      : Bitcoin – origine et fonctionnement
 date       : 2018-03-05 00:00:00 +0100
 lang       : fr
 categories : publication
-keywords   :
-  - Bitcoin
-  - Blockchain
-  - Cryptocurrency
+authors    : ["Bartosz Łaniewski", "Tao Schreiner"]
+keywords   : ["Bitcoin", "Blockchain", "Cryptocurrency"]
 ---
 
 Le Bitcoin est l’une des premières cryptomonnaies utilisant un réseau de type paire-à-paire et des systèmes cryptographiques sophistiqués. Elle est aujourd’hui évaluée à une valeur nette de plus de [185 milliards de dollars][1]. Ce document traitera des origines du Bitcoin, mais aussi de l’implémentation des technologies utilisés dans cette monnaie.

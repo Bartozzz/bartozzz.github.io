@@ -3,7 +3,7 @@ layout: default
 ---
 
 <main id="content" class="content" itemprop="mainContentOfPage">
-  <article class="post" itemscope itemtype="http://schema.org/blogPost">
+  <article class="post" itemtype="http://schema.org/blogPost" itemscope>
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
 
@@ -12,20 +12,24 @@ layout: default
           {{ page.date | date: "%b %-d, %Y" }}
         </time>
 
-        {% if page.author %}
-          <span itemscope itemprop="author" itemtype="http://schema.org/Person" style="display: none">
-            <span itemprop="name">{{ page.author }}</span>
-          </span>
-        {% endif %}
-
-        {% if page.keywords %}
-          <span itemprop="keywords">
-            {% for keyword in page.keywords %}
-              <strong class="keyword">{{ keyword }}</strong>
+        {% if page.authors %}
+          <span class="post-meta-authors">
+            {% for autor in page.authors %}
+              <span itemprop="author" itemtype="http://schema.org/Person" itemscope>
+                <span itemprop="name">{{ autor }}</span>
+              </span>
             {% endfor %}
           </span>
         {% endif %}
       </p>
+
+      {% if page.keywords %}
+        <aside itemprop="keywords" style="display: none">
+          {% for keyword in page.keywords %}
+            <strong class="keyword">{{ keyword }}</strong>
+          {% endfor %}
+        </aside>
+      {% endif %}
     </header>
 
     <div class="post-content" itemprop="articleBody">

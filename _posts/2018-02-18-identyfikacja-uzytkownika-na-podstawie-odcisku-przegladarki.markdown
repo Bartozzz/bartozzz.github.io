@@ -1,14 +1,11 @@
 ---
 layout     : article
-author     : Bartosz Łaniewski
 title      : Identyfikacja użytkownika na podstawie odcisku przeglądarki
 date       : 2018-02-18 00:00:00 +0100
 lang       : pl
 categories : security
-keywords   :
-  - Security
-  - Privacy
-  - Fingerprint
+authors    : ["Bartosz Łaniewski"]
+keywords   : ["Security", "Privacy", "Fingerprint"]
 ---
 
 Odwiedzając strony internetowe, użytkownicy udzielają dostępu do potencjalnie prywatnych, tudzież unikalnych informacji. Te zaś pozwalają na precyzyjną identyfikację ich maszyn oraz inwigilację, bez konieczności rejestracji. Ten sposób śledzenia często opiera się o tzw. [Browser Fingerprint][1] — najczęściej spotykany i jednocześnie najtrudniejszy do wykrycia sposób rozpoznawania internautów na podstawie danych udostępnianych poprzez oprogramowanie.
