@@ -21,8 +21,11 @@
     <link rel="alternate" href="{{ "/feed.xml" | relative_url }}" type="application/atom+xml" title="Bartosz Łaniewski">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.10/flickity.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;subset=latin-ext">
+
+    {% if page.url == "/" %}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.10/flickity.min.css">
+    {% endif %}
 
     <link rel="stylesheet" href="{{ "/assets/styles/index.css" | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/styles/print.css" | relative_url }}" media="print">
