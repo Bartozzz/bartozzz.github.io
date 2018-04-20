@@ -38,7 +38,7 @@ permalink: /about/
 
     <div class="about-content post">
       <details class="box">
-        <summary class="box-header caps">
+        <summary class="box-header is-caps">
           <span itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
             <link href="https://www.univ-paris5.fr/" itemprop="url">
             <span itemprop="name">Université Paris Descartes</span>
@@ -65,7 +65,7 @@ permalink: /about/
 
     <div class="about-content post">
       <details class="box">
-        <summary class="box-header caps">
+        <summary class="box-header is-caps">
           Fullstack Developer @ <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
             <link href="https://beertime.me" itemprop="url">
             <a itemprop="name" href="https://beertime.me" target="_blank" rel="noopener noreferrer">Beertime</a>
@@ -86,7 +86,7 @@ permalink: /about/
       </details>
 
       <details class="box">
-        <summary class="box-header caps">
+        <summary class="box-header is-caps">
           Front-end Developer @ <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
             <link href="https://findsitandeat.com" itemprop="url">
             <a itemprop="name" href="https://findsitandeat.com" target="_blank" rel="noopener noreferrer">FindSit&Eat</a>
@@ -107,7 +107,7 @@ permalink: /about/
       </details>
 
       <details class="box">
-        <summary class="box-header caps">
+        <summary class="box-header is-caps">
           Front-end Developer @ <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
             <link href="https://github.com/michaldev/foodie" itemprop="url">
             <a itemprop="name" href="https://github.com/michaldev/foodie" target="_blank" rel="noopener noreferrer">Foodie</a>

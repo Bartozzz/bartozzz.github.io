@@ -13,7 +13,7 @@ permalink: /posts/
       <li>
         <article class="post" itemscope itemtype="http://schema.org/blogPost">
           <header class="post-meta">
-            <time class="post-meta-time caps" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+            <time class="post-meta-time is-caps" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
               {{ post.date | date: "%b %-d, %Y" }}
             </time>
 
