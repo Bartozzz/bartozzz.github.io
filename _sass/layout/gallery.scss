@@ -1,6 +1,6 @@
 .gallery {
   position: relative;
-  padding: 0rem 1rem 1rem;
+  padding: 1rem;
 
   // For disabled JavaScript:
   overflow-x: hidden;
@@ -13,7 +13,8 @@
 
   &-cell {
     display: inline-block;
-    padding: 64px 0 0;
+    padding: 3rem 0 0;
+    margin: 0 0 1rem 0;
 
     background-size: cover;
     background-position: bottom center;
@@ -28,6 +29,7 @@
     max-width: 270px;
 
     text-align: center;
+    z-index: 1;
 
     &-name,
     &-desc {
