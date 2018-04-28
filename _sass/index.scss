@@ -1,11 +1,11 @@
 @import "configuration/colors";
 @import "configuration/responsive";
 @import "configuration/typography";
-@import "configuration/mixins/clearfix";
-@import "configuration/mixins/focusable";
-@import "configuration/mixins/responsive";
-@import "configuration/mixins/transparent";
 
+@import "utils/mixins/clearfix";
+@import "utils/mixins/focusable";
+@import "utils/mixins/responsive";
+@import "utils/mixins/transparent";
 @import "utils/extends/text-paragraph";
 @import "utils/extends/text-rendering";
 @import "utils/extends/word-wrap";
