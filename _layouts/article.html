@@ -5,34 +5,34 @@ layout: default
 <main id="content" class="content" itemprop="mainContentOfPage">
   <article class="post" itemtype="http://schema.org/blogPost" itemscope>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+      <h1 itemprop="name headline">{{ page.title | escape }}</h1>
 
       <p class="post-meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished" style="display: none">
+        <time class="post-meta-time" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished" style="display: none">
           {{ page.date | date: "%b %-d, %Y" }}
         </time>
 
         {% if page.authors %}
-          <span class="post-meta-authors">
+          <ul class="post-meta-authors">
             {% for autor in page.authors %}
-              <span itemprop="author" itemtype="http://schema.org/Person" itemscope>
+              <li itemprop="author" itemtype="http://schema.org/Person" itemscope>
                 <span itemprop="name">{{ autor }}</span>
-              </span>
+              </li>
             {% endfor %}
-          </span>
+          </ul>
+        {% endif %}
+
+        {% if page.keywords %}
+          <aside class="post-meta-keywords" itemprop="keywords" style="display: none">
+            {% for keyword in page.keywords %}
+              <strong class="keyword">{{ keyword }}</strong>
+            {% endfor %}
+          </aside>
         {% endif %}
       </p>
-
-      {% if page.keywords %}
-        <aside itemprop="keywords" style="display: none">
-          {% for keyword in page.keywords %}
-            <strong class="keyword">{{ keyword }}</strong>
-          {% endfor %}
-        </aside>
-      {% endif %}
     </header>
 
-    <div class="post-content" itemprop="articleBody">
+    <div class="post-content is-article" itemprop="articleBody">
       {{ content }}
     </div>
   </article>

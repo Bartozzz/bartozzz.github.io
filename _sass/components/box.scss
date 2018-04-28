@@ -27,19 +27,16 @@
   }
 
   &-meta {
+    @extend %reset-list;
+
     display: flex;
     position: absolute;
     top: 1.15rem;
     right: 1.15rem;
 
-    margin: 0;
-    padding: 0;
-
     font-size: .85rem;
     color: $color-text;
     background-image: linear-gradient(90deg, rgba(white, 0.0000001), white 15%);
-
-    list-style: none;
   }
 
   &.is-hoverable {

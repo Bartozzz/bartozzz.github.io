@@ -5,7 +5,7 @@ permalink: /posts/
 ---
 
 <main id="content" class="content" itemprop="mainContentOfPage">
-  <ul class="posts" itemscope itemtype="http://schema.org/blogPosts">
+  <ul class="content-list" itemscope itemtype="http://schema.org/blogPosts">
     {% for post in site.posts %}
       {% assign path = post.url | relative_url %}
       {% assign lang = post.lang | default: page.lang | default: "en" %}
@@ -25,12 +25,8 @@ permalink: /posts/
               </span>
             {% endif %}
 
-            <br>
-
-            <h2 class="post-meta-title">
-              <a itemprop="name headline" href="{{ path }}" lang="{{ lang }}">
-                {{ post.title | escape }}
-              </a>
+            <h2>
+              <a itemprop="name headline" href="{{ path }}" lang="{{ lang }}">{{ post.title | escape }}</a>
             </h2>
           </header>
 
@@ -40,7 +36,7 @@ permalink: /posts/
             {%- if lang == "en" -%}
               <a href="{{ path }}" lang="{{ lang }}">Read more.</a>
             {%- elsif lang == "fr" -%}
-              <a href="{{ path }}" lang="{{ lang }}">Lire plus.</a>
+              <a href="{{ path }}" lang="{{ lang }}">Lire la suite.</a>
             {%- else -%}
               <a href="{{ path }}" lang="{{ lang }}">Czytaj więcej.</a>
             {%- endif -%}

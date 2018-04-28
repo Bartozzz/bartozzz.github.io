@@ -21,7 +21,7 @@ permalink: /about/
   <section class="about-section">
     <h3>Summary</h3>
 
-    <div class="about-content post">
+    <div class="about-content">
       <p>I have excellent knowledge of front-end development. I’m comfortable in new technologies such as CSS Modules, CSS Preprocessors, PostCSS, Javascript inline styling as well as build tools such as Gulp and Webpack. I am confident in understanding documentation when introducing a new framework or library.</p>
 
       <p>Beyond front-end, I am passionate about creating robust, scalable, and secure systems. As a fullstack developer, I can integrate user-facing elements with server side logic. I adhere to the best infosec and devops practices. I always write reusable code and libraries.</p>
@@ -39,7 +39,7 @@ permalink: /about/
   <section class="about-section">
     <h3>Education</h3>
 
-    <div class="about-content post">
+    <div class="about-content">
       <details class="box">
         <summary class="box-header is-caps">
           <span itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
@@ -66,7 +66,7 @@ permalink: /about/
   <section class="about-section">
     <h3>Experience</h3>
 
-    <div class="about-content post">
+    <div class="about-content">
       <details class="box">
         <summary class="is-caps">
           <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
@@ -106,15 +106,13 @@ permalink: /about/
           <time class="keyword">2017</time>
         </summary>
 
-        <div class="box-content post">
-          <p>FindSit&Eat provides an easy way to find the best food offers and places to eat. The app can find the nearest restaurants by using user's location.</p>
+        <p>FindSit&Eat provides an easy way to find the best food offers and places to eat. The app can find the nearest restaurants by using user's location.</p>
 
-          <ul>
-            <li>Created a responsive template with respect to specifications.</li>
-            <li>Implemented Flux architecture for a RESTful API.</li>
-            <li>Integrated with PayU's payment system.</li>
-          </ul>
-        </div>
+        <ul>
+          <li>Created a responsive template with respect to specifications.</li>
+          <li>Implemented Flux architecture for a RESTful API.</li>
+          <li>Integrated with PayU's payment system.</li>
+        </ul>
       </details>
 
       <details class="box">
@@ -130,14 +128,12 @@ permalink: /about/
           <time class="keyword">2015</time>
         </summary>
 
-        <div class="box-content post">
-          <p>Choose healthy, local food with Foodie. Don't waste time to decipher food labels. You don’t have to read every last word on the package while you’re shopping with this app.</p>
+        <p>Choose healthy, local food with Foodie. Don't waste time to decipher food labels. You don’t have to read every last word on the package while you’re shopping with this app.</p>
 
-          <ul>
-            <li>Designed a template according to Material Design specifications</li>
-            <li>Created the front-end using Angular</li>
-          </ul>
-        </div>
+        <ul>
+          <li>Designed a template according to Material Design specifications</li>
+          <li>Created the front-end using Angular</li>
+        </ul>
       </details>
     </div>
   </section>
@@ -145,7 +141,7 @@ permalink: /about/
   <section class="about-section">
     <h3>Skills</h3>
 
-    <div class="about-content post">
+    <div class="about-content">
       <ul>
         <li>
           <h4>Foreign languages:</h4>
