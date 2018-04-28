@@ -17,14 +17,13 @@ title: Developer & Designer
       <link itemprop="downloadUrl" href="{{ repository.path }}/releases">
 
       <a class="box is-hoverable" target="_blank" rel="noopener noreferrer" href="{{ repository.path }}" aria-label="{{ repository.desc }}">
-        <h4 class="box-name" itemprop="name">
-          {{ repository.name }}
+        <h4 class="box-name" itemprop="name">{{ repository.name }}</h4>
+        <p class="box-desc" itemprop="about">{{ repository.desc }}</p>
 
-          <span class="is-right box-meta" data-repo-stars aria-hidden="true"></span>
-          <span class="is-right box-meta" data-repo-forks aria-hidden="true"></span>
-        </h4>
-
-        <p class="box-description" itemprop="about">{{ repository.desc }}</p>
+        <ul class="box-meta" aria-hidden="true">
+          <li data-repo-stars></li>
+          <li data-repo-forks></li>
+        </ul>
 
         <aside itemprop="keywords">
           {% for keyword in repository.keywords %}<strong class="keyword">{{ keyword }}</strong>{% endfor %}
