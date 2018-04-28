@@ -6,6 +6,14 @@
 @import "configuration/mixins/responsive";
 @import "configuration/mixins/transparent";
 
+@import "utils/extends/text-paragraph";
+@import "utils/extends/text-rendering";
+@import "utils/extends/word-wrap";
+@import "utils/is-srt";
+@import "utils/is-caps";
+@import "utils/is-bold";
+@import "utils/is-right";
+
 @import "resets/global";
 
 @import "layout/grid";
@@ -23,10 +31,5 @@
 @import "components/about";
 @import "components/keyword";
 @import "components/forms/button";
-
-@import "utils/is-srt";
-@import "utils/is-caps";
-@import "utils/is-bold";
-@import "utils/is-right";
 
 @import "vendor/flickity";
