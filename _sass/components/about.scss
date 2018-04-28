@@ -48,42 +48,6 @@
     }
   }
 
-  h1, h2, h3 {
-    margin: 1rem 0;
-    padding: 0;
-
-    font-family: $font-head;
-    letter-spacing: -.02em;
-  }
-
-  h1 {
-    font-size: 3rem;
-    font-weight: 900;
-
-    @include max-screen($mobile) {
-      font-size: 3rem;
-    }
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-
-    @include max-screen($mobile) {
-      font-size: 1rem;
-    }
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-
-    width: 175px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 175px;
-  }
-
   &-content {
     flex-grow: 1;
   }
@@ -97,5 +61,45 @@
     @include max-screen($mobile) {
       display: block;
     }
+  }
+
+  h1, h2, h3, h4 {
+    margin: 1rem 0;
+    padding: 0;
+
+    font-family: $font-head;
+    font-weight: 900;
+    letter-spacing: -.02em;
+  }
+
+  h1 {
+    font-size: 3rem;
+
+    @include max-screen($mobile) {
+      font-size: 3rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+
+    @include max-screen($mobile) {
+      font-size: .95rem;
+    }
+  }
+
+  h4 {
+    font-size: 1rem
+  }
+
+  h3 {
+    font-size: 1.5rem;
+
+    flex-shrink: 0;
+    flex-basis: 175px;
+  }
+
+  ul {
+    margin: 1rem 0;
   }
 }

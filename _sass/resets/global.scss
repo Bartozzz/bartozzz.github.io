@@ -33,8 +33,20 @@ a {
 
   color: $color-link;
   cursor: pointer;
+
+  &, &:active, &:focus, &:hover {
+    text-decoration: none;
+  }
 }
 
-a, a:active, a:focus, a:hover {
-  text-decoration: none;
+summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+
+  *:first-child {
+    flex: 1;
+  }
 }

@@ -12,7 +12,10 @@ permalink: /about/
     <link itemprop="sameAs" href="https://facebook.com/laniewski.bartozzz">
     <link itemprop="sameAs" href="https://youtube.com/channel/UCIC1vaSJwSJ2sqKWC3wTTmQ">
 
-    <h2>Creative designer & developer at work.<br> Passionate mathematician at home.</h2>
+    <h2>
+      Creative designer & developer at work.<br>
+      Passionate mathematician at home.
+    </h2>
   </header>
 
   <section class="about-section">
@@ -21,7 +24,7 @@ permalink: /about/
     <div class="about-content post">
       <p>I have excellent knowledge of front-end development. I’m comfortable in new technologies such as CSS Modules, CSS Preprocessors, PostCSS, Javascript inline styling as well as build tools such as Gulp and Webpack. I am confident in understanding documentation when introducing a new framework or library.</p>
 
-      <p>Beyond front-end, I am passionate about creating robust, scalable, and secure systems. As a fullstack developer, I can integrate user-facing elements with server side logic. I adhere to the best infosec and devops practices. I always build reusable back-end code and libraries for future use.</p>
+      <p>Beyond front-end, I am passionate about creating robust, scalable, and secure systems. As a fullstack developer, I can integrate user-facing elements with server side logic. I adhere to the best infosec and devops practices. I always write reusable code and libraries.</p>
 
       <ul>
         <li>I am passionate about developing creative tools that help create stunning content.</li>
@@ -65,14 +68,18 @@ permalink: /about/
 
     <div class="about-content post">
       <details class="box">
-        <summary class="box-header is-caps">
-          Fullstack Developer @ <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+        <summary class="is-caps">
+          <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+            Fullstack Dev @
+
             <link href="https://beertime.me" itemprop="url">
+            <link href="https://www.facebook.com/beertimeapp" itemprop="sameAs">
+
             <a itemprop="name" href="https://beertime.me" target="_blank" rel="noopener noreferrer">Beertime</a>
           </span>
 
-          <span class="keyword is-right">
-            <time>2016</time> - <time>2018</time>
+          <span class="keyword">
+            <time>2016</time>-<time>2018</time>
           </span>
         </summary>
 
@@ -86,13 +93,17 @@ permalink: /about/
       </details>
 
       <details class="box">
-        <summary class="box-header is-caps">
-          Front-end Developer @ <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+        <summary class="is-caps">
+          <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+            Front-end Dev @
+
             <link href="https://findsitandeat.com" itemprop="url">
+            <link href="https://www.facebook.com/findsitandeat" itemprop="sameAs">
+
             <a itemprop="name" href="https://findsitandeat.com" target="_blank" rel="noopener noreferrer">FindSit&Eat</a>
           </span>
 
-          <time class="keyword is-right">2017</time>
+          <time class="keyword">2017</time>
         </summary>
 
         <div class="box-content post">
@@ -107,13 +118,16 @@ permalink: /about/
       </details>
 
       <details class="box">
-        <summary class="box-header is-caps">
-          Front-end Developer @ <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+        <summary class="is-caps">
+          <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+            Front-end Dev @
+
             <link href="https://github.com/michaldev/foodie" itemprop="url">
+
             <a itemprop="name" href="https://github.com/michaldev/foodie" target="_blank" rel="noopener noreferrer">Foodie</a>
           </span>
 
-          <time class="keyword is-right">2015</time>
+          <time class="keyword">2015</time>
         </summary>
 
         <div class="box-content post">
@@ -134,14 +148,16 @@ permalink: /about/
     <div class="about-content post">
       <ul>
         <li>
-          <span class="is-bold">Foreign languages:</span><br>
+          <h4>Foreign languages:</h4>
+
           <span class="keyword">Polish</span>
           <span class="keyword">French</span>
           <span class="keyword">English</span>
         </li>
 
         <li>
-          <span class="is-bold">Programming languages:</span><br>
+          <h4>Programming languages:</h4>
+
           <span class="keyword">JavaScript</span>
           <span class="keyword">TypeScript</span>
           <span class="keyword">CoffeeScript</span>
@@ -150,7 +166,8 @@ permalink: /about/
         </li>
 
         <li>
-          <span class="is-bold">Databases:</span><br>
+          <h4>Databases</h4>
+
           <span class="keyword">PostgreSQL</span>
           <span class="keyword">MongoDB</span>
           <span class="keyword">MySQL</span>
@@ -159,7 +176,8 @@ permalink: /about/
         </li>
 
         <li>
-          <span class="is-bold">Frameworks:</span><br>
+          <h4>Frameworks</h4>
+
           <span class="keyword">Koa.js</span>
           <span class="keyword">Express.js</span>
           <span class="keyword">Sequelize.js</span>
@@ -169,7 +187,8 @@ permalink: /about/
         </li>
 
         <li>
-          <span class="is-bold">Tools:</span><br>
+          <h4>Tools</h4>
+
           <span class="keyword">Git</span>
           <span class="keyword">Gulp</span>
           <span class="keyword">Webpack</span>
