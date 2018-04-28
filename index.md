@@ -27,9 +27,7 @@ title: Developer & Designer
         <p class="box-description" itemprop="about">{{ repository.desc }}</p>
 
         <aside itemprop="keywords">
-          {% for keyword in repository.keywords %}
-            <strong class="keyword">{{ keyword }}</strong>
-          {% endfor %}
+          {% for keyword in repository.keywords %}<strong class="keyword">{{ keyword }}</strong>{% endfor %}
         </aside>
       </a>
     </article>
