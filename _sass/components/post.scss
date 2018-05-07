@@ -103,6 +103,13 @@
 			}
 		}
 
+    p, li {
+      & > code {
+        padding: .15rem .25rem;
+        margin: 0 .10rem;
+      }
+    }
+
 		ul, ol {
 			margin: 2rem 0;
 	    padding: 0;
@@ -158,6 +165,7 @@
 
 	    background-color: $color-alternative;
 			color: rgba($color-text, .75);
+      border-radius: 5px;
 		}
 
 		pre {
