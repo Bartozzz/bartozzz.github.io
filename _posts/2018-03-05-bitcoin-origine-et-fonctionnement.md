@@ -128,10 +128,10 @@ class Blockchain {
 
   checkValidity(newBlock, oldBlock) {
     if (newBlock.index !== oldBlock.index + 1)
-      throw new Error(“Invalid index”);
+      throw new Error("Invalid index");
 
     if (newBlock.previousHash !== oldBlock.hash)
-      throw new Error(“Invalid hash”);
+      throw new Error("Invalid hash");
 
     return true;
   }
@@ -197,12 +197,12 @@ Pour vérifier les transactions on utilise les propriétés du système RSA. Il 
 
 {% highlight json %}
 {
-  receiver: '1HPs4CYgxpR3MP4…kfBciJBfKLUT', // clé publique
-  sender: '14uGXpDoZxFsjzT…R4mLi8ay4aAy',   // clé publique
-  amount: '0.0015',
-  N: '12S…036',
-  h: '11bf52e5ef03cb40d7473…5266df0360fcd613fdc6b85',
-  s: '809…fc4'
+  "receiver": "1HPs4CYgxpR3MP4…kfBciJBfKLUT",
+  "sender": "14uGXpDoZxFsjzT…R4mLi8ay4aAy",
+  "amount": "0.0015",
+  "N": "12S…036",
+  "h": "11bf52e5ef03cb40d7473…5266df0360fcd613fdc6b85",
+  "s": "809…fc4"
 }
 {% endhighlight %}
 

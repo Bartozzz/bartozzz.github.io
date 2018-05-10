@@ -16,20 +16,20 @@ Termin ten odnosi się do procesu generowania trwałego, unikalnego identyfikato
 
 {% highlight json %}
 {
-  appName:"Netscape",
-  appCodeName: "Mozilla",
-  appVersion: "Mozilla/5.0 (Macintosh … Gecko) Chrome/6…3 Safari/5…6",
-  vendor: "Google Inc.",
-  vendorSub: "",
-  product: "Gecko",
-  productSub: "20…00",
-  platform: "MacIntel",
-  deviceMemory: 8,
-  hardwareConcurrency: 4,
-  language: "en"
-  languages: ["en", "pl", "fr"],
-  plugins: PluginArray {},
-  cookieEnabled: true
+  "appName": "Netscape",
+  "appCodeName": "Mozilla",
+  "appVersion": "Mozilla/5.0 (Macintosh … Gecko) Chrome/6…3 Safari/5…6",
+  "vendor": "Google Inc.",
+  "vendorSub": "",
+  "product": "Gecko",
+  "productSub": "20…00",
+  "platform": "MacIntel",
+  "deviceMemory": 8,
+  "hardwareConcurrency": 4,
+  "language": "en",
+  "languages": ["en", "pl", "fr"],
+  "plugins": {},
+  "cookieEnabled": true
 }
 {% endhighlight %}
 
