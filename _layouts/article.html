@@ -7,7 +7,7 @@ layout: default
     <header class="post-header">
       <h1 itemprop="name headline">{{ page.title | escape }}</h1>
 
-      <p class="post-meta">
+      <div class="post-meta">
         <time class="post-meta-time" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished" style="display: none">
           {{ page.date | date: "%b %-d, %Y" }}
         </time>
@@ -23,13 +23,13 @@ layout: default
         {% endif %}
 
         {% if page.keywords %}
-          <aside class="post-meta-keywords" itemprop="keywords" style="display: none">
+          <ul class="post-meta-keywords" itemprop="keywords" style="display: none">
             {% for keyword in page.keywords %}
-              <strong class="keyword">{{ keyword }}</strong>
+              <li class="keyword">{{ keyword }}</li>
             {% endfor %}
-          </aside>
+          </ul>
         {% endif %}
-      </p>
+      </div>
     </header>
 
     <div class="post-content is-article" itemprop="articleBody">
