@@ -77,7 +77,7 @@ Tree shaking simply means _dead code elimination_ – a script will perform code
 import { moduleA, moduleB } from "package";
 {% endhighlight %}
 
-This `package` exports `moduleA`, `moduleB` and `moduleC` but only the first two are required. Without tree shaking, the final bundle would be a lot bigger since it would contain unreachable code. During bundling, unused exports can be removed, potentially resulting in significant space savings.
+`package` exports `moduleA`, `moduleB` and `moduleC` but only the first two are required. Without tree shaking, the final bundle would be a lot bigger since it would contain unreachable code. During bundling, unused exports can be removed, potentially resulting in significant space savings.
 
 >Utilizing the tree shaking and dead code elimination can significantly reduce the code size we have in our application. The less code we send over the wire the more performant the application will be. – [Alex Bachuk](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd).
 
@@ -117,17 +117,17 @@ Additionally, we don't have to access a named export like in previous examples. 
 - `package/` directory is where your package will actually reside once it is compiled. This is the directory that will be pushed to the npm registry.
 - `source/` directory is where your package source resides. It will not be pushed to the npm registry, but should be contained in the repository.
 
-As you can see, we have two `package.json` files. The one at the root will be used to declare your `dependencies`, basic package data and build scripts. The second one is declaring in details the package that will be pushed to the npm registry.
+As you can see, there are two `package.json` files. The one at the root will be used to declare your `dependencies`, basic package data and build scripts. The second one is declaring in details the package that will be pushed to the npm registry.
 
 ### Compiling and building the package
 
 In this article, we will use [Babel](https://babeljs.io/) for the compilation process. Babel is a JavaScript transpiler that converts ECMAScript and other JavaScript subsets into plain JavaScript that can be used in any environment. First, you need to install Babel as a development dependency in your project:
 
 {% highlight bash %}
-$ npm install --save-dev babel-cli babel-node
+$ npm install --save-dev babel-cli
 {% endhighlight %}
 
-For full installation details, I encourage you to check [Babel' setup section in their documentation](https://babeljs.io/docs/setup/). Once Babel installed, we need to define a few scripts in your `/package.json`:
+For full installation details, I encourage you to check [Babel' setup section in their documentation](https://babeljs.io/docs/setup/). Once Babel is installed, we can define a few scripts in `/package.json`:
 
 {% highlight json %}
 {
@@ -146,7 +146,7 @@ For full installation details, I encourage you to check [Babel' setup section in
 - `npm run build` will build modules and pipe the bundles to `/package` directory.
 - `npm run copy` will execute `/scripts/copy.js` script described in the next section.
 
-Note that it is important to set `"private": true` in `/package.json`. It will prevent us from accidentally pushing your entire entire repository to the npm registry instead of only the builded modules.
+Note that it is important to set `"private": true` in `/package.json`. It will prevent you from accidentally pushing your entire entire repository to the npm registry instead of only the builded modules.
 
 ### Copying required files into package
 
@@ -231,7 +231,7 @@ bar[`method${n}`]();
 bar["methodD".split("").reverse().join("")]();
 {% endhighlight %}
 
-As you can see, `methodA` and `methodB` can be statically determined as being used at compile time, but this is not be the case for the last two property accessors. A potential solution to this problem could be to import methods separately and call them with an instance:
+As you can see, `methodA` and `methodB` can be statically determined as being used at compile time, but this is not be the case for the last two cases. A potential solution to this problem could be to import methods separately and call them with an instance:
 
 {% highlight javascript %}
 import Foo, { methodA, methodB } from "foo";
@@ -241,7 +241,7 @@ methodA.call(bar, "param");
 methodB.call(bar, "param");
 {% endhighlight %}
 
-This doesn't solve cases like `methodD` in the previous example, but, at least, can be optimized by tree shaking. There are different proposals which could serve this purpose a little bit better.
+This doesn't solve cases like `methodD` in the previous example but, at least, can be optimized by tree shaking. There are different proposals which could serve this purpose a little bit better.
 
 #### Bind operator proposal
 
@@ -272,8 +272,9 @@ bar |> methodB();
 1. [Exploring JS – Static module structure][1]
 2. [ECMAScript – This-Binding Syntax][2]
 3. [ECMAScript – The Pipeline Operator][3]
-4. [Rollup – Tree shaking][4]
-5. [Rollup vs Webpack2 – David Rodenas][5]
+4. [Rollup – Tree shaking documentation][4]
+5. [Webpack – Tree shaking documentation][7]
+6. [Rollup vs Webpack2 – David Rodenas][5]
 
 [1]: http://exploringjs.com/es6/ch_modules.html#static-module-structure "Exploring JS – Static module structure"
 [2]: https://github.com/tc39/proposal-bind-operator "ECMAScript This-Binding Syntax"
@@ -281,3 +282,4 @@ bar |> methodB();
 [4]: https://rollupjs.org/guide/en#tree-shaking "Rollup – Tree shaking documentation"
 [5]: http://david-rodenas.com/posts/rollup-vs-webpack-and-tree-shaking "Rollup vs. Webpack – Tree shaking"
 [6]: https://palantir.github.io/tslint/rules/no-default-export/ "TSLint rules – no default export"
+[7]: https://webpack.js.org/guides/tree-shaking/ "Webpack – Tree shaking documentation"
