@@ -82,3 +82,15 @@
     }
   }
 }
+
+// Causes strange artefacts with z-index on Google Chrome and Safari.
+/*
+#shapes-container {
+  opacity: 0;
+  transition: opacity 100ms ease;
+
+  &.is-rendered {
+    opacity: 1;
+  }
+}
+*/

@@ -1,10 +1,9 @@
 export default class Rectangle {
-  constructor(coords, size) {
-    this.x = coords.x;
-    this.y = coords.y;
-
-    this.width  = size.x;
-    this.height = size.y;
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
   }
 
   collides(rect) {

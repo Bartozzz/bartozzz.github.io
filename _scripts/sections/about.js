@@ -6,86 +6,93 @@ import Point from "../utils/math/Point";
 import Rectangle from "../utils/math/Rectangle";
 
 const margin = parseInt(window.innerHeight / 1.5, 0);
-const amount = 13;
 const height = 90;
 
+/**
+ * Creates shapes.
+ *
+ * @param   {number}  amount  How much shapes should be generated
+ * @return  {Promise<Array>}  Array of shapes
+ */
 function createShapes(amount) {
   return new Promise((resolve, reject) => {
-    const random = Math.random;
     const shapes = [];
+    const xScale = window.innerWidth - margin;
+    const yScale = window.innerHeight - margin;
 
-    function loop(i) {
-      let count = 0;
-      let inside = null;
-      let shape = null;
+    while (--amount) {
+      let collides, rectangle;
+      let retries = 200;
 
       do {
-        const x = parseInt(random() * (window.innerWidth - margin), 0);
-        const y = parseInt(random() * (window.innerHeight - margin), 0);
+        const x = Math.random() * xScale;
+        const y = Math.random() * yScale;
 
-        shape = new Rectangle(new Point(x, y), new Point(height, height));
-        shape.friction = (random() > .5 ? 40 : 90) + getRand(-10, 10);
+        rectangle = new Rectangle(x, y, height, height);
+        collides = shapes.some(shape => shape.collides(rectangle));
+      } while (collides && --retries > 0);
 
-        inside = shapes.some((a) => a.collides(shape));
-        count += 1;
-      } while (inside && count < 200);
-
-      if (count < 200) {
-        shapes.push(shape);
+      if (retries > 0) {
+        shapes.push(rectangle);
       }
-    };
-
-    for (let i = 0; i < amount; ++i) {
-      loop(i);
     }
 
     resolve(shapes);
   });
-};
+}
 
+/**
+ * Renders shapes in a container.
+ *
+ * @param   {Array}   shapes  Shapes to render
+ * @return  {void}
+ */
 function renderShapes(shapes) {
-  return new Promise((resolve, reject) => {
-    const container = document.getElementById("shapes-container");
+  const container = document.getElementById("shapes-container");
 
-    for (const shape of shapes) {
-      var elem = document.createElement("div");
+  for (const shape of shapes) {
+    const element = document.createElement("div");
+    const friction = (Math.random() > 0.5 ? 40 : 90) + getRand(-10, 10);
 
-      elem.className = "hero-shape";
-      elem.style.top = shape.y + margin / 2 + "px";
-      elem.style.left = shape.x + margin / 2 + "px";
+    element.className = "hero-shape";
+    element.style.top = shape.y + margin / 2 + "px";
+    element.style.left = shape.x + margin / 2 + "px";
 
-      elem.dataset.index = shape.friction > 60 ? 0 : 1;
-      elem.dataset.parallax = true;
-      elem.dataset.friction = shape.friction;
+    element.dataset.index = friction > 60 ? 0 : 1;
+    element.dataset.friction = friction;
 
-      container.appendChild(elem);
-    }
+    container.appendChild(element);
+  }
 
-    setTimeout(resolve, 0);
-  });
-};
+  container.classList.add("is-rendered");
+}
 
+/**
+ * Updates shape position on mouse move.
+ *
+ * @return  {void}
+ */
 function updateShapes() {
-  var elements = toArray("[data-parallax]");
+  const elements = toArray("[data-friction]");
+  const friction = elements.map(e => parseInt(e.getAttribute("data-friction")));
 
-  document.body.addEventListener("mousemove", function (event) {
-    elements.forEach(function (elem) {
-      var f = parseInt(elem.getAttribute("data-friction")) || 1;
-      var x = event.pageX * -1 / 10 * (f / 100);
-      var y = event.pageY * -1 / 10 * (f / 100);
+  document.body.addEventListener("mousemove", function(event) {
+    elements.forEach(function(elem, key) {
+      const f = friction[key] || 1;
+      const x = -(event.pageX * f) / 1000;
+      const y = -(event.pageY * f) / 1000;
 
       elem.style.transform = "translate(" + x + "px, " + y + "px)";
     });
   });
-};
+}
 
-export default function () {
+export default function() {
   if (isMobile() || isTablet()) {
-    console.log("Mobile, don't render shapes");
     return;
   }
 
-  createShapes(amount)
+  createShapes(12)
     .then(renderShapes)
     .then(updateShapes);
-};
+}
