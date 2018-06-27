@@ -23,16 +23,16 @@ A package is a directory described by a `package.json`. Each package is composed
 
 In the era of JavaScript bundlers such as [Webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/), the idea of a single entry-point is strongly encouraged. In fact, most of the bundlers will output a unique JavaScript file containing all built modules. For example, let's consider the following code:
 
-{% highlight javascript %}
+```javascript
 // Source file: index.js
 export * as moduleA from "./src/moduleA";
 export * as moduleB from "./src/moduleB";
 export * as moduleC from "./src/moduleC";
-{% endhighlight %}
+```
 
 To build this package, Webpack will start by compiling the source file (called _entry point_). It will then move from `import` to `import` and include every required file in the build pipe. It will generate a single bundle containing all the required modules, as follows:
 
-{% highlight javascript %}
+```javascript
 (function (modules) {
   // Webpack stuff
 })({
@@ -53,17 +53,17 @@ To build this package, Webpack will start by compiling the source file (called _
     // Compiled moduleC
   })
 });
-{% endhighlight %}
+```
 
 Once published to npm, each module can be loaded using Node.js' `require()` (or [ES2015 `import`](https://tc39.github.io/ecma262/#sec-imports)) as follows:
 
-{% highlight javascript %}
+```javascript
 import { moduleA, moduleB, moduleC } from "package";
 
 moduleA.internal();
 moduleB.internal();
 moduleC.internal();
-{% endhighlight %}
+```
 
 The reason why such bundlers can work, is that [ES2015 packages are static by nature][1]: you can predict which modules are being imported and exported just by analysing the code, without the need to execute it. However, this has some drawbacks:
 - **conditional imports and exports** are unsupported – you have to declare your imports at the top-level;
@@ -73,9 +73,9 @@ The reason why such bundlers can work, is that [ES2015 packages are static by na
 
 Tree shaking simply means _dead code elimination_ – a script will perform code analysis for a given bundle and check at the **compile (build) time** which modules are never being used. Let’s take the previous example:
 
-{% highlight javascript %}
+```javascript
 import { moduleA, moduleB } from "package";
-{% endhighlight %}
+```
 
 `package` exports `moduleA`, `moduleB` and `moduleC` but only the first two are required. Without tree shaking, the final bundle would be a lot bigger since it would contain unreachable code. During bundling, unused exports can be removed, potentially resulting in significant space savings.
 
@@ -85,11 +85,11 @@ import { moduleA, moduleB } from "package";
 
 Our goal will be to expose multiple module bundles from a single package, so ones can `import` only necessary parts instead of the entire library:
 
-{% highlight javascript %}
+```javascript
 import * as moduleA from "package/moduleA";
 import * as moduleB from "package/moduleB";
 import { funcA, funcB } from "package/moduleC";
-{% endhighlight %}
+```
 
 - If we import only `moduleA`, the two others modules will not be included in the final bundle because they aren't required anywhere.
 - If we import only a specific function from a module (ex. `funcA`), the rest of the module's content will be ignored.
@@ -123,24 +123,27 @@ As you can see, there are two `package.json` files. The one at the root will be 
 
 In this article, we will use [Babel](https://babeljs.io/) for the compilation process. Babel is a JavaScript transpiler that converts ECMAScript and other JavaScript subsets into plain JavaScript that can be used in any environment. First, you need to install Babel as a development dependency in your project:
 
-{% highlight bash %}
+```bash
 $ npm install --save-dev babel-cli
-{% endhighlight %}
+```
 
 For full installation details, I encourage you to check [Babel' setup section in their documentation](https://babeljs.io/docs/setup/). Once Babel is installed, we can define a few scripts in `/package.json`:
 
-{% highlight json %}
+```json
 {
   "private": true,
+  "dependencies": {
+    "rimraf": "^2.6.2"
+  },
   "scripts": {
     "prepare": "npm start",
-    "clean": "rm -rf ./package/*.js",
     "start": "npm run clean && npm run build && npm run copy",
-    "build": "babel ./source --out-dir ./package",
-    "copy": "babel-node ./scripts/copy.js"
+    "clean": "npx rimraf ./package/*",
+    "build": "npx babel ./source --out-dir ./package",
+    "copy": "npx babel-node ./scripts/copy.js"
   }
 }
-{% endhighlight %}
+```
 
 - `npm run clean` will remove built modules from `/package` directory.
 - `npm run build` will build modules and pipe the bundles to `/package` directory.
@@ -152,7 +155,7 @@ Note that it is important to set `"private": true` in `/package.json`. It will p
 
 The script below will copy important files such as `README.md` and `LICENSE` to your final package. Additionally, it will create a brand new `package.json`.
 
-{% highlight javascript %}
+```javascript
 // File: /scripts/copy.js
 import { basename, resolve } from "path";
 import { copy, writeFile } from "fs-extra";
@@ -187,7 +190,7 @@ async function run() {
 }
 
 run();
-{% endhighlight %}
+```
 
 ## Limitations and solutions
 
@@ -197,20 +200,20 @@ Tree shaking is a relatively new technology and still have some limitations. Whi
 
 Some modules have side effects: they can perform additional tasks such as modifying global variables instead of just exporting their content. According to the ECMAScript specifications, all child modules must be evaluated because they could contain side effects. Let's take the following examples:
 
-{% highlight javascript %}
+```javascript
 // moduleA
 console.log("Side effect");
 
 export {/* … */};
 export default /* … */;
-{% endhighlight %}
+```
 
-{% highlight javascript %}
+```javascript
 // moduleB
 window.a = /* … */;
 window.b = /* … */;
 window.c = /* … */;
-{% endhighlight %}
+```
 
 Because of this potential behaviour, tree shaking cannot remove all unreachable code. However, some bundlers, such as Webpack, drop the responsibility on the developers by providing a `sideEffect` option. By setting this flag to `false`, you indicate that your package is a _pure module_ and doesn't have any side effects. Therefore, it can get aggressively optimized.
 
@@ -222,24 +225,24 @@ Because of this potential behaviour, tree shaking cannot remove all unreachable 
 
 Class-based tree shaking is currently not supported because of the dynamic nature of JavaScript's property accessors – they cannot be statically determined, especially when using the bracket notation. Let's consider the following example:
 
-{% highlight javascript %}
+```javascript
 const bar = new Foo;
 
 bar.methodA();
 bar["methodB"]();
 bar[`method${n}`]();
 bar["methodD".split("").reverse().join("")]();
-{% endhighlight %}
+```
 
 As you can see, `methodA` and `methodB` can be statically determined as being used at compile time, but this is not be the case for the last two cases. A potential solution to this problem could be to import methods separately and call them with an instance:
 
-{% highlight javascript %}
+```javascript
 import Foo, { methodA, methodB } from "foo";
 
 const bar = new Foo;
 methodA.call(bar, "param");
 methodB.call(bar, "param");
-{% endhighlight %}
+```
 
 This doesn't solve cases like `methodD` in the previous example but, at least, can be optimized by tree shaking. There are different proposals which could serve this purpose a little bit better.
 
@@ -247,25 +250,25 @@ This doesn't solve cases like `methodD` in the previous example but, at least, c
 
 >The :: operator creates a bound function such that the left hand side of the operator is bound as the this variable to the target function on the right hand side. By providing syntactic sugar for these use cases we will enable a new class of "virtual method" library, which will have usability advantages over the standard adapter patterns in use today. – [tc39/proposal-bind-operator][2]
 
-{% highlight javascript %}
+```javascript
 import Foo, { methodA, methodB } from "foo";
 
 const bar = new Foo();
 bar::methodA();
 bar::methodB();
-{% endhighlight %}
+```
 
 #### Pipeline operator proposal
 
 >This proposal introduces a new operator \|\> similar to _F#, OCaml, …, Hack and LiveScript_, as well as UNIX pipes. It's a backwards-compatible way of streamlining chained function calls in a readable, functional manner, and provides a practical alternative to extending built-in prototypes. – [tc39/proposal-pipeline-operator][3]
 
-{% highlight javascript %}
+```javascript
 import Foo, { methodA, methodB } from "foo";
 
 const bar = new Foo();
 bar |> methodA();
 bar |> methodB();
-{% endhighlight %}
+```
 
 ## Resources
 
