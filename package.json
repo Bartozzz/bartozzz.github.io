@@ -1,39 +1,39 @@
 {
-    "name": "bartozzz-github",
-    "version": "1.0.0",
-    "private": true,
-    "author": "Łaniewski Bartosz <laniewski.bartozzz@gmail.com> (http://laniewski.me/)",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Bartozzz/bartozzz.github.io.git"
-    },
-    "bugs": {
-        "url": "https://github.com/Bartozzz/bartozzz.github.io/issues"
-    },
-    "dependencies": {
-        "flickity": "latest",
-        "jax.js": "latest",
-        "jump.js": "latest",
-        "normalize.css": "8.0.0"
-    },
-    "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.0",
-        "babel-preset-env": "^1.6.1",
-        "babelify": "^8.0.0",
-        "browserify": "^16.1.0",
-        "uglify-es": "^3.3.9",
-        "uglify-js": "^3.3.11",
-        "watchify": "^3.10.0"
-    },
-    "scripts": {
-        "jekyll:build": "bundle exec jekyll build",
-        "jekyll:serve": "bundle exec jekyll serve --incremental --profile --safe --strict_front_matter --drafts --port 8000",
-        "js:babelify": "browserify ./_scripts/index.js -o ./assets/scripts/index.js -d -t [ babelify  --presets [ env ] ]",
-        "js:uglify": "uglifyjs ./assets/scripts/index.js  -o ./assets/scripts/index.js --compress --mangle --safari10 --timings --verbose --warn",
-        "js:watch": "watchify ./_scripts/index.js -o ./assets/scripts/index.js -d -t [ babelify  --presets [ env ] ]",
-        "build": "npm run js:babelify && npm run js:uglify && npm run jekyll:build",
-        "start": "npm run jekyll:serve & npm run js:watch"
-    }
+  "name": "bartozzz-github",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Łaniewski Bartosz <laniewski.bartozzz@gmail.com> (http://laniewski.me/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bartozzz/bartozzz.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bartozzz/bartozzz.github.io/issues"
+  },
+  "dependencies": {
+    "flickity": "latest",
+    "jax.js": "latest",
+    "jump.js": "latest",
+    "normalize.css": "8.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "uglify-es": "^3.3.9",
+    "uglify-js": "^3.4.9",
+    "watchify": "3.11.0"
+  },
+  "scripts": {
+    "jekyll:build": "bundle exec jekyll build",
+    "jekyll:serve": "bundle exec jekyll serve --incremental --profile --safe --strict_front_matter --drafts --port 8000",
+    "js:babelify": "npx browserify ./_scripts/index.js -o ./assets/scripts/index.js -d -t [ babelify --presets [ @babel/env ] ]",
+    "js:uglify": "npx uglifyjs ./assets/scripts/index.js  -o ./assets/scripts/index.js --compress --mangle --safari10 --timings --verbose --warn",
+    "js:watch": "npx watchify ./_scripts/index.js -o ./assets/scripts/index.js -d -t [ babelify --presets [ @babel/env ] ]",
+    "build": "npm run js:babelify && npm run js:uglify && npm run jekyll:build",
+    "start": "npm run jekyll:serve & npm run js:watch"
+  }
 }
