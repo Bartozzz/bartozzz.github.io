@@ -147,6 +147,33 @@ installButton.addEventListener("click", () => {
 
 ### Prompting the user to update
 
+In `registerServiceWorker.ts` file, you should have a `updated` handler. This function will be executed each time a new version of your website is available – in order to get the updated version, the user should simply reload the page. It is considered very bad practice to force a page reload, therefore it is advised to create a small banner which will pop-up and inform the user about the update. We can start by creating a banner markup in our `index.html` file, as follows:
+
+```html
+<div id="update-banner" class="banner" style="display: none">
+  <p>There's a new version of Foo App.</p>
+  <button id="update-button">Reload</button>
+</div>
+```
+
+Next, we need to show this banner when a new update comes in, and add necessary event handlers for the "Reload" button. This can be achieved directly in `updated` function:
+
+```ts
+updated() {
+  console.log("New content is available; please refresh.");
+
+  const updateBanner = <HTMLElement>document.getElementById("update-banner");
+  const updateButton = <HTMLElement>document.getElementById("update-button");
+
+  updateBanner.style.display = "block";
+  updateButton.addEventListener("click", () => {
+    location.reload();
+  });
+}
+```
+
+Note that you could create a Vue component instead of a pure HTML-based banner, but then you should store `updateAvailable` state in your App' store (e.g. Vuex) and it would require a lot more work.
+
 ### Testing offline-first applications
 
 You can test your Progressive Web Applications directly in the browser, without the need to manually disable network connections.
