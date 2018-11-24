@@ -49,47 +49,52 @@ In this article, we will be using [Vue-CLI](https://cli.vuejs.org/) to create a 
 
 Service workes offer more functionality than the standard browser API, i.e. you can send push notifications, create periodic background tasks and intercept requests. In order to use workers, your website must be served over HTTPS. Even if service workers are not compatible with some web browsers, you can safely add them in your application – it will not break the experience for any user (_progressive enhancement_).
 
-#### Creating a SSL certificate for localhost
+[`@vue/cli-plugin-pwa`](https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-pwa) should take care of creating a service worker. The generated service worker will cache all the builded resources. If you want to create a service worker manually, you can modify this behaviour in the `vue.config.js` file by adding the following lines:
 
-The script below automates certificate creation. You can run it with the following command:
-
+```js
+module.exports = {
+  pwa: {
+    workboxPluginMode: "InjectManifest",
+    workboxOptions: {
+      swSrc: "public/service-worker.js"
+    }
+  }
+};
 ```
-$ npm run cert:gen
-```
 
-```bash
-#!/usr/bin/env bash
-# Based on: https://medium.freecodecamp.org/how-to-get-https-working-on-your-local-development-environment-in-5-minutes-7af615770eec
+It is important that the path in `swSrc` option matches the path specified in `registerServiceWorker.ts` file, otherwise you service worker will not be registered. You can then use [Workbox](https://developers.google.com/web/tools/workbox/guides/get-started) to define custom rules for request interceptors. Here's an example:
 
-BASE_DIR=$(cd "$(dirname $BASH_SOURCE[0])" && cd "../" && pwd)
-COMPOSE_DIR=$(cd "$(dirname $BASH_SOURCE[0])" && pwd)
+```js
+workbox.setConfig({ debug: true });
+workbox.precaching.precacheAndRoute([]);
 
-echo "Certificates will be saved at '$BASE_DIR/'\n"
+// Cache images:
+workbox.routing.registerRoute(
+  /\.(?:png|gif|jpg|jpeg|svg)$/,
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: "images",
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 60,
+        maxAgeSeconds: 30 * 24 * 60 * 60
+      })
+    ]
+  })
+);
 
-# This file will be used as the key to generate the Root SSL certificate:
-openssl genrsa -des3 -out $BASE_DIR/_localCA.key 2048
-
-# We can use the key we've generated to create a new Root SSL certificate:
-openssl req -x509 -new -nodes -sha256 -days 1024 \
-  -key $BASE_DIR/_localCA.key \
-  -out $BASE_DIR/_localCA.pem
-
-# Create a certificate key for localhost using the configuration settings stored
-# in server.csr.cnf. This key is stored in _localhost.key.
-openssl req -new -sha256 -nodes \
-  -newkey rsa:2048 \
-  -out $BASE_DIR/_localhost.csr \
-  -keyout $BASE_DIR/_localhost.key \
-  -config $COMPOSE_DIR/config/offchan.csr.cnf
-
-openssl x509 -req -days 500 -sha256 \
-  -in $BASE_DIR/_localhost.csr \
-  -CA $BASE_DIR/_localCA.pem \
-  -CAkey $BASE_DIR/_localCA.key -CAcreateserial \
-  -out $BASE_DIR/_localhost.crt \
-  -extfile $COMPOSE_DIR/config/offchan.v3.ext
-
-echo "\nAdd generated certificates to your local machine's keychain.\n"
+// Cache Google fonts:
+workbox.routing.registerRoute(
+  new RegExp("https://fonts.(?:googleapis|gstatic).com/(.*)"),
+  workbox.strategies.cacheFirst({
+    cacheName: "googleapis",
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 30,
+        maxAgeSeconds: 30 * 24 * 60 * 60
+      })
+    ]
+  })
+);
 ```
 
 ### Prompting the user to install
