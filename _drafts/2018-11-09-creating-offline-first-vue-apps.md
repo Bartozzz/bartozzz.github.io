@@ -174,6 +174,111 @@ updated() {
 
 Note that you could create a Vue component instead of a pure HTML-based banner, but then you should store `updateAvailable` state in your App' store (e.g. Vuex) and it would require a lot more work.
 
+### Handling offline-first forms
+
+There are 2 ways of handling offline forms: the first one is by intercepting the request when user i offline and sending it again when there's a internet connection. There are a few problems to take care of:
+
+1. **Concurrency**: what if the data on remote database has changed when user was offline? Overwritting it might be an unwanted behaviour.
+2. **False positives**: if the user is connected to internet, it doesn't necessary mean that he can send requests yet.
+3. **Error handling**: when the request failed, how should we inform the user that the request he tried to made 3 days ago failed?
+4. **Application architecture**: this kind of offline-first form handling often requires a more complex architecture.
+
+The easier approach is to save the form state in local storage and inform the user that he will be able to submit the form once he'll be online again. This solution can be implemented in a few line for each already existing form.
+
+Let's start with creating a local store in `store/local.ts`. We will use [`LocalForage`](https://github.com/localForage/localForage) library which wraps IndexedDB, WebSQL, or localStorage using a simple but powerful API. It will allow us to store data in the most suitable local storage available on user's device:
+
+```ts
+import LocalForage from "localforage";
+
+// This must be called before any other calls to localForage are made,
+// but can be called after localForage is loaded.
+LocalForage.config({
+  name: "foo-app",
+  storeName: "foo-app-store",
+  version: 1.0
+});
+
+export default LocalForage;
+export const formStore = LocalForage.createInstance({ name: "form" });
+```
+
+Then, we can modify any form to use the local `formStore` when needed, as follows:
+
+```html
+<template>
+  <form @submit="onSubmit">
+    <input type="text" v-model="form.author" placeholder="Your name…" />
+    <input type="text" v-model="form.message" placeholder="Message…" />
+
+    <button type="submit">Send</button>
+  </form>
+</template>
+
+<script lang="ts">
+  import { Component, Vue } from "vue-property-decorator";
+  import { formStore } from "@/store/local";
+
+  type MaybeString = string | null | void;
+
+  interface FormData {
+    author: MaybeString;
+    message: MaybeString;
+  }
+
+  @Component({})
+  export default class SomeForm extends Vue {
+    form: FormData = {
+      author: null,
+      message: null
+    };
+
+    storeData(data: FormData) {
+      formStore.setItem<MaybeString>("some-form-author", data.author);
+      formStore.setItem<MaybeString>("some-form-message", data.message);
+    }
+
+    sendData(data: FormData) {
+      // Reset form data once form sent:
+      this.form.author = null;
+      this.form.message = null;
+
+      // Reset local storage:
+      formStore.setItem<MaybeString>("some-form-author", null);
+      formStore.setItem<MaybeString>("some-form-message", null);
+
+      // Make a request here…
+    }
+
+    onSubmit(event: Event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      // Normalize & validate form data:
+      const form: FormData = {
+        author: this.form.author,
+        message: this.form.message
+      };
+
+      if (navigator.onLine) {
+        this.sendData(form);
+      } else {
+        this.storeData(form);
+      }
+    }
+
+    created() {
+      formStore.getItem<MaybeString>("some-form-author").then(value => {
+        this.form.author = value;
+      });
+
+      formStore.getItem<MaybeString>("some-form-message").then(value => {
+        this.form.message = value;
+      });
+    }
+  }
+</script>
+```
+
 ### Testing offline-first applications
 
 You can test your Progressive Web Applications directly in the browser, without the need to manually disable network connections.
