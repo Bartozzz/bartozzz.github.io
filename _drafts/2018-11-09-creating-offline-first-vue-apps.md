@@ -1,44 +1,90 @@
 ---
-layout     : article
-title      : Creating offline-first Vue.js applications
-date       : 2018-09-11 00:00:00 +0100
-lang       : en
-categories : vue pwa offline
-authors    : ["Bartosz Łaniewski"]
-keywords   : ["Vue.js", "PWA", "Offline-first"]
+layout: article
+title: Creating offline-first Vue.js applications
+date: 2018-09-11 00:00:00 +0100
+lang: en
+categories: vue pwa offline
+authors: ["Bartosz Łaniewski"]
+keywords: ["Vue.js", "PWA", "Offline-first"]
 ---
 
 With JavaScript increasingly gaining popularity, Progressive Web Apps (_PWAs_) might replace native mobile & desktops apps in the future. In this post, we will learn how to develop & test offline-first, Vue-based Progressive Web Applications and why it is worth-it. This article was originally written for [Milo Solutions](https://www.milosolutions.com/en/) – a polish company focused on delivering custom software solutions for any platform.
 
-* Do not remove this line (it will not be displayed)
 {:toc}
 
-## Introduction to Progressive Web Apps (PWA)
+## Introduction to Progressive Web Apps (PWAs)
 
 Progressive Web Apps can be installed on most devices much like native apps. They are meant to be **relaible** (work on each platform, even offline), **fast** and provide a **native-like** user experience. These apps combine the best of web and native solutions:
 
 - They are **rapid to develop**, **cross-compatible** and **responsive** by nature. JavaScript provides a lot of frameworks (such as [Vue](https://vuejs.org/), [React](https://reactjs.org/)) and dedicated front-end component libraries to boost productivity. You write your code once and deploy you application on every platform;
 - **Fast load, fast response**. Progressive web apps are comparable to native solutions in terms of efficiency. With _service workers_, cache and several optimizations made in engines running JavaScript, Progressive Web Applications' loading and response times are very low;
 
-### Service workers
-
 ### Browser support
 
 Progressive Web Apps are compatible with every mobile device which support one of the following browsers:
+
 - **Google Chrome** (since v40+);
 - **Firefox** (since v44+);
 - **Safari** (since v11.1+);
 - **Edge** (since v17+);
 
 Additionally, Google Chrome recently added support for Progressive Web Apps on desktop platofrms, such as:
+
 - **Chrome OS** (since Chrome 67+);
 - **Linux** (since Chrome 70+);
 - **Windows** (since Chrome 70+);
 - **macOS** (since Chrome 72+);
 
-Even if service workers are not compatible with some web browsers, you can safely add them in your application – it will not break the experience for any user (_progressive enhancement_).
-
 ## Getting started
+
+### Service workers
+
+[Service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) (not to be confused with [_worklets_](https://developer.mozilla.org/en-US/docs/Web/API/Worklet)) represents background tasks that can be executed on a different thread and communicate with the main one – your web application, via the `postMessage` interface. This comes very handy when you need to access the DOM: since workers are on a different thread, they don't have access to any of your web app internals.
+
+Service workes offer more functionality than the standard browser API, i.e. you can send push notifications, create periodic background tasks and intercept requests. In order to use workers, your website must be served over HTTPS. Even if service workers are not compatible with some web browsers, you can safely add them in your application – it will not break the experience for any user (_progressive enhancement_).
+
+#### Creating a SSL certificate for localhost
+
+The script below automates certificate creation. You can run it with the following command:
+
+```
+$ npm run cert:gen
+```
+
+```bash
+#!/usr/bin/env bash
+# Based on: https://medium.freecodecamp.org/how-to-get-https-working-on-your-local-development-environment-in-5-minutes-7af615770eec
+
+BASE_DIR=$(cd "$(dirname $BASH_SOURCE[0])" && cd "../" && pwd)
+COMPOSE_DIR=$(cd "$(dirname $BASH_SOURCE[0])" && pwd)
+
+echo "Certificates will be saved at '$BASE_DIR/'\n"
+
+# This file will be used as the key to generate the Root SSL certificate:
+openssl genrsa -des3 -out $BASE_DIR/_localCA.key 2048
+
+# We can use the key we've generated to create a new Root SSL certificate:
+openssl req -x509 -new -nodes -sha256 -days 1024 \
+  -key $BASE_DIR/_localCA.key \
+  -out $BASE_DIR/_localCA.pem
+
+# Create a certificate key for localhost using the configuration settings stored
+# in server.csr.cnf. This key is stored in _localhost.key.
+openssl req -new -sha256 -nodes \
+  -newkey rsa:2048 \
+  -out $BASE_DIR/_localhost.csr \
+  -keyout $BASE_DIR/_localhost.key \
+  -config $COMPOSE_DIR/config/offchan.csr.cnf
+
+openssl x509 -req -days 500 -sha256 \
+  -in $BASE_DIR/_localhost.csr \
+  -CA $BASE_DIR/_localCA.pem \
+  -CAkey $BASE_DIR/_localCA.key -CAcreateserial \
+  -out $BASE_DIR/_localhost.crt \
+  -extfile $COMPOSE_DIR/config/offchan.v3.ext
+
+echo "\nAdd generated certificates to your local machine's keychain.\n"
+```
 
 ### Prompting the user to install
 
@@ -77,7 +123,7 @@ installButton.addEventListener("click", () => {
   deferredPrompt.userChoice.then(choice => {
     deferredPrompt = null;
 
-    switch(choice.outcome) {
+    switch (choice.outcome) {
       case "accepted":
         return /*…*/;
 
@@ -88,6 +134,8 @@ installButton.addEventListener("click", () => {
 });
 ```
 
+### Prompting the user to update
+
 ### Testing offline-first applications
 
 You can test your Progressive Web Applications directly in the browser, without the need to manually disable network connections.
@@ -95,8 +143,6 @@ You can test your Progressive Web Applications directly in the browser, without 
 **Testing the application in offline mode:**
 
 1. Go to **Network** panel.
-
-
 
 **Testing the "add to home screen" experience:**
 
@@ -107,5 +153,6 @@ You can test your Progressive Web Applications directly in the browser, without 
 ## Conclusion
 
 In this article, we learned how to create a great base for offline-first, PWAs using Vue.js, web manifest and other standards. There's a lot more to consider to make a great native-like feeling and keep your user engaged. Here are some points to consider:
+
 - Keyboard shortcuts;
 - Notification & icon badges;
