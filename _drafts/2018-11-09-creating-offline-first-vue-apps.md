@@ -37,7 +37,13 @@ Additionally, Google Chrome recently added support for Progressive Web Apps on d
 
 ## Getting started
 
-### Service workers
+In this article, we will be using [Vue-CLI](https://cli.vuejs.org/) to create a brand-new Vue project. You can follow the instructions on [their website](https://cli.vuejs.org/guide/creating-a-project.html#vue-create). I encourage you to manually select the following features:
+
+1. `Babel` (used in this tutorial);
+2. `TypeScript` (used in this tutorial);
+3. `Progressive Web App (PWA) support` (required in this tutorial);
+
+### Setting up a service worker
 
 [Service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) (not to be confused with [_worklets_](https://developer.mozilla.org/en-US/docs/Web/API/Worklet)) represents background tasks that can be executed on a different thread and communicate with the main one – your web application, via the `postMessage` interface. This comes very handy when you need to access the DOM: since workers are on a different thread, they don't have access to any of your web app internals.
 
