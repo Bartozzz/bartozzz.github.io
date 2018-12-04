@@ -14,9 +14,9 @@ With JavaScript increasingly gaining popularity, Progressive Web Apps (_PWAs_) m
 
 ## Introduction to Progressive Web Apps (PWAs)
 
-Progressive Web Apps can be installed on most devices much like native apps. They are meant to be **relaible** (work on each platform, even offline), **fast** and provide a **native-like** user experience. These apps combine the best of web and native solutions:
+Progressive Web Apps can be installed on most devices like native apps. They are meant to be **relaible** (work on each platform, even offline), **fast** and provide a **native-like** user experience. These apps combine the best of web and native solutions:
 
-- They are **rapid to develop**, **cross-compatible** and **responsive** by nature. JavaScript provides a lot of frameworks (such as [Vue](https://vuejs.org/), [React](https://reactjs.org/)) and dedicated front-end component libraries to boost productivity. You write your code once and deploy you application on every platform;
+- They are **rapid to develop**, **cross-compatible** and **responsive** by nature. JavaScript provides a lot of frameworks (such as [Vue](https://vuejs.org/), [React](https://reactjs.org/)) and dedicated front-end component libraries to boost productivity (Bootstrap, MaterialUI). You write your code once and deploy you application on every platform;
 - **Fast load, fast response**. Progressive web apps are comparable to native solutions in terms of efficiency. With _service workers_, cache and several optimizations made in engines running JavaScript, Progressive Web Applications' loading and response times are very low;
 
 ### Browser support
@@ -45,11 +45,11 @@ In this article, we will be using [Vue-CLI](https://cli.vuejs.org/) to create a 
 
 ### Setting up a service worker
 
-[Service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) (not to be confused with [_worklets_](https://developer.mozilla.org/en-US/docs/Web/API/Worklet)) represents background tasks that can be executed on a different thread and communicate with the main one – your web application, via the `postMessage` interface. This comes very handy when you need to access the DOM: since workers are on a different thread, they don't have access to any of your web app internals.
+[Service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) (not to be confused with [_worklets_](https://developer.mozilla.org/en-US/docs/Web/API/Worklet)) represents background tasks that can be executed on a different thread and communicate with the main one – your web application, via the `postMessage` interface: since workers are on a different thread, they don't have direct access to any of your web app internals.
 
 Service workes offer more functionality than the standard browser API, i.e. you can send push notifications, create periodic background tasks and intercept requests. In order to use workers, your website must be served over HTTPS. Even if service workers are not compatible with some web browsers, you can safely add them in your application – it will not break the experience for any user (_progressive enhancement_).
 
-[`@vue/cli-plugin-pwa`](https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-pwa) should take care of creating a service worker. The generated service worker will cache all the builded resources. If you want to create a service worker manually, you can modify this behaviour in the `vue.config.js` file by adding the following lines:
+[`@vue/cli-plugin-pwa`](https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-pwa) should take care of creating a service worker. The generated service worker will cache all builded resources. If you want to create a service worker manually, you can modify this behaviour in the `vue.config.js` file by adding the following lines:
 
 ```js
 module.exports = {
@@ -65,6 +65,7 @@ module.exports = {
 It is important that the path in `swSrc` option matches the path specified in `registerServiceWorker.ts` file, otherwise you service worker will not be registered. You can then use [Workbox](https://developers.google.com/web/tools/workbox/guides/get-started) to define custom rules for request interceptors. Here's an example:
 
 ```js
+// public/service-worker.js
 workbox.setConfig({ debug: true });
 workbox.precaching.precacheAndRoute([]);
 
@@ -112,9 +113,9 @@ If those criterias are met, web browser will emit a `beforeinstallprompt` event 
 ```html
 <template>
   <div class="banner" v-if="deferredPrompt">
-  <p>Do you want to install Foo App?</p>
+    <p>Do you want to install Foo App?</p>
     <button @onClick="promptInstall">Opt for!</button>
-</div>
+  </div>
 </template>
 ```
 
@@ -146,19 +147,19 @@ Once registered, we can listen for `canInstall` event in any component and handl
     deferredPrompt: BeforeInstallPromptEvent | void;
 
     promptInstall() {
-          // Show the prompt:
+      // Show the prompt:
       this.deferredPrompt.prompt();
 
-          // Wait for the user to respond to the prompt:
+      // Wait for the user to respond to the prompt:
       this.deferredPrompt.userChoice.then(choiceResult => {
-            if (choiceResult.outcome === "accepted") {
-              console.log("User accepted the install prompt");
-            } else {
-              console.log("User dismissed the install prompt");
-            }
+        if (choiceResult.outcome === "accepted") {
+          console.log("User accepted the install prompt");
+        } else {
+          console.log("User dismissed the install prompt");
+        }
 
         this.deferredPrompt = null;
-        });
+      });
     }
 
     created() {
@@ -204,6 +205,8 @@ updated() {
 ```
 
 Note that you could create a Vue component instead of a pure HTML-based banner, but then you should store `updateAvailable` state in your App' store (e.g. Vuex) and it would require a lot more work.
+
+If possible, configure your production environment to serve `service-worker.js` with HTTP caching disabled. Otherwise if you visit your web app, and then revisit again before `service-worker.js` has expired from cache, you'll continue to get the update banner showing.
 
 ### Handling offline-first forms
 
