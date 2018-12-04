@@ -356,17 +356,30 @@ Then we can safely listen for the `online` and `offline` events in our `App.vue`
 
 ### Testing offline-first applications
 
-You can test your Progressive Web Applications directly in the browser, without the need to manually disable network connections.
+You can test your Progressive Web Applications directly in the browser, without the need to manually disable network connections. Google Chrome's DevTools offer a lot of functions test the PWA features of your web application.
 
-**Testing the application in offline mode:**
+#### Testing the application in offline mode
 
-1. Go to **Network** panel.
+1. Go to **Network** panel;
+2. Click **Offline** in the bar.
 
-**Testing the "add to home screen" experience:**
+> **Tip:** you can use the `cmd` + `shift` + `p` shortcut and type `offline`/`online` to switch network status.
 
-1. Go to the **Application** panel.
-2. Go to the **Manifest** tab.
+#### Testing the "add to home screen" experience
+
+1. Go to the **Application** panel;
+2. Go to the **Manifest** tab;
 3. Click **Add to home screen**.
+
+> **Tip:** you can use the `cmd` + `shift` + `p` shortcut and type `homescreen` to switch network status.
+
+#### Making a general Progressive Web App audit
+
+1. Go to the **Audits** panel;
+2. Select **Progressive Web App**;
+3. Click **Run audits**.
+
+> **Tip:** you can use the `cmd` + `shift` + `p` shortcut and type `homescreen` to switch network status.
 
 ## Conclusion
 
