@@ -309,6 +309,51 @@ Then, we can modify any form to use the local `formStore` when needed, as follow
 
 ### Showing offline information
 
+If your application is not fully offline-first (e.g. you don't save the requests in a queue like in the previous section), it is important to notify the users about their connection status. You can use `navigator.onLine` property and `ononline`, `onoffline` events or let the `vue-offline` plugin take care of all of this.
+
+```bash
+$ npm install --save vue-offline
+```
+
+It will add `isOnline`, `isOffline` data properties and `online`, `offline` events via a global mixin. We need to register their plugin in `main.ts`, as follows:
+
+```javascript
+import VueOffline from "vue-offline";
+
+Vue.use(VueOffline, { storage: false });
+```
+
+Then we can safely listen for the `online` and `offline` events in our `App.vue`:
+
+```html
+<template>
+  <div id="app">
+    <section class="offline" v-if="!isOnline">You are offline.</section>
+
+    <router-view></router-view>
+  </div>
+</template>
+
+<script lang="ts">
+  import { Component, Vue } from "vue-property-decorator";
+
+  @Component({})
+  export default class App extends Vue {
+    isOnline = navigator.onLine;
+
+    created() {
+      this.$on("online", () => {
+        this.isOnline = true;
+      });
+
+      this.$on("offline", () => {
+        this.isOnline = false;
+      });
+    }
+  }
+</script>
+```
+
 ### Testing offline-first applications
 
 You can test your Progressive Web Applications directly in the browser, without the need to manually disable network connections.
