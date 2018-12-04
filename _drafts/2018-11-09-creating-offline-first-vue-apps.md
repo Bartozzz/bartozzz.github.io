@@ -107,16 +107,18 @@ Installing a Progressive Web Application works the same way on both mobile and d
 4. Has a registered service worker to make the app work offline;
 5. The web app is served over HTTPS and not already installed;
 
-If those criterias are met, web browser will emit a `beforeinstallprompt` event which you can use to notify the user that your app can be installed. The most common way is by adding a button on the website. It is considered best practice to don't show a full page banner or distracting notifications. Let's add some markup in our `index.html` file:
+If those criterias are met, web browser will emit a `beforeinstallprompt` event which you can use to notify the user that your app can be installed. The most common way is by adding a button on the website. It is considered best practice to don't show a full page banner or distracting notifications. Let's add some markup for our `InstallBanner` component:
 
 ```html
-<div id="install-banner" class="banner" style="display: none">
+<template>
+  <div class="banner" v-if="deferredPrompt">
   <p>Do you want to install Foo App?</p>
-  <button id="install-button">Opt for!</button>
+    <button @onClick="promptInstall">Opt for!</button>
 </div>
+</template>
 ```
 
-Instead of dealing with adding and removing event listeners for `beforeinstallpromptevent` manually, we can use `vue-pwa-install` plugin which I wrote for this article. It will emit a `canInstall` in the root event bus – what you need to do is listen for this particular event in one of your components. First, let's install the `vue-pwa-install` plugin with the following command:
+Instead of dealing with adding and removing event listeners for `beforeinstallpromptevent` manually, we can use [`vue-pwa-install`](https://git.milosolutions.com/blaniewski/vue-pwa-install) plugin which I wrote for this article. It will emit a `canInstall` in the root event bus – what you need to do is listen for this particular event in one of your components. First, let's install the `vue-pwa-install` plugin with the following command:
 
 ```bash
 $ npm install --save vue-pwa-install
@@ -126,45 +128,46 @@ Then, register this installed plugin in your app entry point:
 
 ```javascript
 import Vue from "vue";
-import PWAInstall from "vue-pwa-install";
+import VueInstall from "vue-pwa-install";
 
-Vue.use(PWAInstall);
+Vue.use(VueInstall);
 ```
 
-Once registered, we can listen for `canInstall` event in any component and handle the event to show the install prompt. Let's add the following code in our `src/App.vue` file:
+Once registered, we can listen for `canInstall` event in any component and handle the event to show the install prompt. Let's add the following code in our `InstallBanner` component:
 
 ```html
 <script lang="ts">
   /* eslint-disable no-console */
   import { Component, Vue } from "vue-property-decorator";
+  import { BeforeInstallPromptEvent } from "vue-pwa-install";
 
   @Component({})
-  export default class App extends Vue {
-    created() {
-      this.$on("canInstall", (event: BeforeInstallPromptEvent) => {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt:
-        event.preventDefault();
+  export default class InstallBanner extends Vue {
+    deferredPrompt: BeforeInstallPromptEvent | void;
 
-        const banner = document.getElementById("install-banner") as HTMLElement;
-        const button = document.getElementById("install-button") as HTMLElement;
-
-        // Update UI notify the user they can add to home screen:
-        banner.style.display = "block";
-        button.addEventListener("click", () => {
-          banner.style.display = "none";
-
+    promptInstall() {
           // Show the prompt:
-          event.prompt();
+      this.deferredPrompt.prompt();
 
           // Wait for the user to respond to the prompt:
-          event.userChoice.then(choiceResult => {
+      this.deferredPrompt.userChoice.then(choiceResult => {
             if (choiceResult.outcome === "accepted") {
               console.log("User accepted the install prompt");
             } else {
               console.log("User dismissed the install prompt");
             }
-          });
+
+        this.deferredPrompt = null;
         });
+    }
+
+    created() {
+      this.$on("canInstall", (event: BeforeInstallPromptEvent) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt:
+        event.preventDefault();
+
+        // Stash the event so it can be triggered later:
+        this.deferredPrompt = event;
       });
     }
   }
