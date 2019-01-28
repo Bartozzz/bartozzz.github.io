@@ -1,5 +1,3 @@
-import jax from "jax.js";
-
 /*
 const template = data => `
   <div class="github-repo-container">
@@ -14,8 +12,9 @@ const template = data => `
 `;
  */
 
-export default function () {
-  jax("https://api.github.com/users/Bartozzz/repos")
+export default function() {
+  fetch("https://api.github.com/users/Bartozzz/repos")
+    .then(response => response.json())
     .then(response => {
       const data = JSON.parse(response);
 
@@ -56,4 +55,4 @@ export default function () {
     .catch(error => {
       console.error("Could not load GitHub repos", error);
     });
-};
+}

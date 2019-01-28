@@ -7,26 +7,4 @@
 
     <div id="shapes-container" aria-hidden="true"></div>
   </div>
-
-  {% for project in site.data.projects %}
-    <section class="gallery-cell" style="{% if project.shoot %}background-image: url({{ project.shoot }}){% endif %}">
-      <header class="gallery-meta">
-        <h2 class="gallery-meta-name">{{ project.name }}</h2>
-        <h3 class="gallery-meta-desc">{{ project.desc }}</h3>
-
-        <a class="button" href="{{ project.path }}" tabindex="-1">Check it out</a>
-      </header>
-
-      <div class="gallery-images">
-        {% for image in project.images %}
-          <img
-            class="gallery-image {{ image.type }}"
-            alt="{{ project.name }} - {{ image.type }} image"
-            src="/assets/images/placeholder.png"
-            data-flickity-lazyload="{{ image.path }}"
-          />
-        {% endfor %}
-      </div>
-    </section>
-  {% endfor %}
 </article>

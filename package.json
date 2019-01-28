@@ -12,9 +12,6 @@
     "url": "https://github.com/Bartozzz/bartozzz.github.io/issues"
   },
   "dependencies": {
-    "flickity": "latest",
-    "jax.js": "latest",
-    "jump.js": "latest",
     "normalize.css": "8.0.1"
   },
   "devDependencies": {
