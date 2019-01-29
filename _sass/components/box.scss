@@ -1,25 +1,25 @@
 .box {
+  @extend %with-shadow;
+
   position: relative;
   display: block;
 
   margin: .5rem;
   padding: 1rem .75rem;
 
-  border-radius: 5px;
-  background-color: $color-background;
-
-  box-shadow: 0 1px 1px rgba($color-text, .075);
   transition: all .2s ease-in-out;
 
   &-name {
     margin: 0 .25rem;
 
+    font-family: $font-mono;
+    font-size: 0.9rem;
     font-weight: 500;
     color: $color-text;
   }
 
   &-desc {
-    margin: 1rem .25rem;
+    margin: .75rem .25rem 1rem;
 
     font-size: .9rem;
     line-height: 1.25rem;
@@ -31,16 +31,17 @@
 
     display: flex;
     position: absolute;
-    top: 1.15rem;
-    right: 1.15rem;
+    top: 1rem;
+    right: 1rem;
 
+    font-family: $font-mono;
     font-size: .85rem;
     color: $color-text;
     background-image: linear-gradient(90deg, rgba(white, 0.0000001), white 15%);
   }
 
   &.is-hoverable {
-    @include focusable(1px);
+    @include focusable(1px, $color-border);
 
     &:hover,
     &:focus {
@@ -56,15 +57,9 @@
     }
   }
 
-  &, &.is-hoverable {
-    border-width: 1px;
-    border-style: solid;
-    border-color: $color-border;
-  }
-
   &.is-wide {
-    min-height: 163px;
-    line-height: 163px;
+    min-height: 155px;
+    line-height: 155px;
 
     text-align: center;
     font-size: 1.25rem;
