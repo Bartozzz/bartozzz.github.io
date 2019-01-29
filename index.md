@@ -3,7 +3,7 @@ layout: default
 title: Developer & Designer
 ---
 
-{% include gallery.html %}
+{% include hero.html %}
 
 <main id="content" class="content grid" itemprop="mainContentOfPage">
   <header class="content-header">
