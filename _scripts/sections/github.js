@@ -16,31 +16,22 @@ export default function() {
   fetch("https://api.github.com/users/Bartozzz/repos")
     .then(response => response.json())
     .then(response => {
-      const data = JSON.parse(response);
-
-      data.forEach(datum => {
+      response.forEach(datum => {
         const repo = document.querySelector(`[data-repo-name="${datum.name}"]`);
 
         if (repo) {
           const stars = repo.querySelector(`[data-repo-stars]`);
           const forks = repo.querySelector(`[data-repo-forks]`);
 
-          stars.innerHTML = `
-            <img class="icon" src="/assets/images/icons/star.svg" aria-label="star">
-            ${datum.stargazers_count}
-          `;
-
-          forks.innerHTML = `
-            <img class="icon is-balanced" src="/assets/images/icons/fork.svg" aria-label="fork">
-            ${datum.forks_count}
-          `;
+          stars.innerHTML = `<img class="icon" src="/assets/images/icons/star.svg" aria-label="star">${datum.stargazers_count}`;
+          forks.innerHTML = `<img class="icon is-balanced" src="/assets/images/icons/fork.svg" aria-label="fork">${datum.forks_count}`;
         }
       });
 
       /*
       const elem = document.createDocumentFragment();
 
-      data.forEach(datum => {
+      response.forEach(datum => {
         const wrap = document.createElement("div");
 
         wrap.classList.add("github-repo");
