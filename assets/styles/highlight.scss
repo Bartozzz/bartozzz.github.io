@@ -1,5 +1,11 @@
+---
+---
+@import "configuration/colors";
+@import "configuration/responsive";
+@import "configuration/typography";
+
 .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #ffffff; }
+.highlight { background: #ffffff; }
 .highlight .c { color: $color-comment } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: $color-keyword } /* Keyword */
