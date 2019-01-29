@@ -1,6 +1,6 @@
 <footer class="footer" itemtype="http://schema.org/WPFooter" itemscope>
-  <div class="content grid">
-    <nav class="xs-12 sm-8 lg-8 lg-start sm-start xs-center" typeof="http://schema.org/ContactPoint" itemscope>
+  <div class="content">
+    <nav typeof="http://schema.org/ContactPoint" itemscope>
       <ul class="footer-menu">
         <li class="footer-menu-item">
           <a target="_blank" itemprop="url" rel="noopener noreferrer" href="https://github.com/Bartozzz">GitHub</a>
@@ -17,20 +17,16 @@
         <li class="footer-menu-item">
           <a target="_blank" itemprop="url" rel="noopener noreferrer" href="https://youtube.com/channel/UCIC1vaSJwSJ2sqKWC3wTTmQ">YouTube</a>
         </li>
-      </ul>
 
-      <p class="footer-source" itemprop="description">
-        Hand-coded using Liquid, JavaScript, SCSS, and more.
-        <a target="_blank" itemprop="url" rel="noopener noreferrer" href="https://github.com/Bartozzz/bartozzz.github.io">See the source.</a>
-      </p>
-    </nav>
-
-    <nav class="xs-12 sm-4 lg-4" typeof="http://schema.org/ContactPoint" itemscope>
-      <ul class="footer-menu footer-contact">
-        <li class="footer-menu-item">
+        <li class="footer-menu-item footer-contact">
           <a target="_blank" itemprop="email" rel="noopener noreferrer" href="mailto:{{ site.email | escape }}">Get in touch</a>
         </li>
       </ul>
     </nav>
+
+    <p class="footer-source" itemprop="description">
+      Hand-coded using Liquid, JavaScript, SCSS, and more.
+      <a target="_blank" itemprop="url" rel="noopener noreferrer" href="https://github.com/Bartozzz/bartozzz.github.io">See the source.</a>
+    </p>
   </div>
 </footer>

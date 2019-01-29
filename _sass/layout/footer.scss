@@ -1,10 +1,20 @@
 .footer {
+  // Align text on tablets:
+  @include max-screen($tablet) {
+    text-align: center;
+  }
+
+  // Align contact on right on desktops:
   &-contact {
-    text-align: right;
+    float: right;
+
+    @include max-screen($tablet) {
+      float: none;
+    }
   }
 
   &-source {
-    margin: 0 1rem;
+    margin: 1.5rem 1rem 0;
 
     font-size: .85rem;
     font-weight: 500;
@@ -22,15 +32,10 @@
       }
 
       a {
-        font-weight: 500;
+        line-height: 2rem;
+        font-family: $font-mono;
         color: $color-text;
       }
-    }
-  }
-
-  @include max-screen($mobile) {
-    &-contact, &-menu, &-source {
-      text-align: center;
     }
   }
 }
