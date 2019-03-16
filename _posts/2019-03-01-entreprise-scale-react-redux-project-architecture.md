@@ -152,7 +152,7 @@ export default {
   v1: {
     posts: {
       get(id: number, meta?: Object) {
-        return `${URL}${API}v1/posts/${id}${createQueryString(meta)`;
+        return `${URL}${API}v1/posts/${id}${createQueryString(meta)}`;
       },
       list(meta?: Object) {
         return `${URL}${API}v1/posts${createQueryString(meta)}`;
