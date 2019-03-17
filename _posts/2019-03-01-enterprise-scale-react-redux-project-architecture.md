@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Entreprise-scale React & Redux project architecture
+title: Enterprise-scale React & Redux project architecture
 date: 2019-03-01 00:00:00 +0100
 lang: en
 categories: javascript react redux
