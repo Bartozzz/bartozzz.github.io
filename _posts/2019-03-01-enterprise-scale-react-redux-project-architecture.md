@@ -22,7 +22,7 @@ Maintaining large React projects can be a difficult task. Below are a few practi
 
 Dan Abramov created a [guide](http://react-file-structure.surge.sh/) for organising files and he got a very good point. For months I’ve been following the “good” ways to organise React projects: starting at the separation of concerns with Presentational and Container components, finishing at adapting [ducks](https://github.com/erikras/ducks-modular-redux).
 
-It was working well for small projects, but as they’ve grown to be 30 different, unique screens and over 200 components, it have become more difficult to maintain all of this together. At Milo, we’ve come with a directory structure that is inspired by Django and best-practices from React, taking the the separation of concerns to its extreme.
+It worked well for small projects, but as they grew to be 30 different, unique screens and over 200 components, it  became more difficult to maintain all of this together. At Milo, we came with a directory structure that is inspired by Django and best-practices from React, taking the separation of concerns to its extreme.
 
 ```
 src/
@@ -64,14 +64,14 @@ Screens are components which are directly mounted on routes ([`react-router`](ht
 
 Sometimes, we need to share the logic between web (React) and mobile (React Native) apps. The proposed structure makes it very easy to reuse and maintain the code without influencing other app parts.
 
-The main idea of `modules/` is to group together a strongly coupled part of the application and make it as reusable as possible. It contains all the required components (later used in screens) as well as the reducers, action creators and other state-related utilities.
+The main idea of `modules/` is to group together a strongly coupled part of the application and make it as reusable as possible. It contains all the required components (later used in screens) as well as reducers, action creators and other state-related utilities.
 
-- A module must contain the entire logic for handling it’s concept;
-- A module may contain all the required components to present it’s concept.
+- A module must contain the entire logic for handling its concept;
+- A module may contain all the required components to present its concept.
 
 #### Components
 
-We don’t always follow the concept of container and presentational components – the promoted thing with this concept is the separation of concerns which can be achieved in different, more maintainable ways, for example though the Hooks API. Do what is more suitable for your case.
+We don’t always follow the concept of a container and presentational components – the promoted thing with this concept is the separation of concerns which can be achieved in different, more maintainable ways, for example though the Hooks API. Do what is more suitable for your case.
 
 > “I don’t suggest splitting your components like this anymore. If you find it natural in your codebase, this pattern can be handy. But I’ve seen it enforced without any necessity and with almost dogmatic fervor far too many times. The main reason I found it useful was because it let me separate complex stateful logic from other aspects of the component. Hooks let me do the same thing without an arbitrary division.” – [Dan Abramov](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
 
@@ -108,7 +108,7 @@ export const POSTS_REQUEST = "@@<project_name>/<module_name>/POSTS_REQUEST";
 export const POSTS_PROCESS = "@@<project_name>/<module_name>/POSTS_PROCESS";
 ```
 
-You action types should be pure string literals. Dynamic string operations (like template strings, string concatenation, etc.) will widen literal type to its supertype string. This will break contextual typing in reducer cases when using TypeScript or Flow.
+Your action types should be pure string literals. Dynamic string operations (like template strings, string concatenation, etc.) will widen literal type to its supertype string. This will break contextual typing in reducer cases when using TypeScript or Flow.
 
 #### Action Creators
 
@@ -227,7 +227,7 @@ const mapStateToProps = state => ({
 });
 ```
 
-In the example above, a render is triggered every time the post collection changes, even if the changed post is not created by the user. Using selectors, we can avoid those unnecessary re-renders and update the component only if one of user’s posts has been created or modified:
+In the example above, a render is triggered every time the post collection changes, even if the changed post is not created by the user. Using selectors, we can avoid those unnecessary re-renders and update the component only if one of the user’s posts has been created or modified:
 
 ```typescript
 // selectors.ts
@@ -336,13 +336,13 @@ You can think of Redux as a low-level API – it doesn’t force any particular 
 
 ### Utilities for creating styles
 
-Creating styles can be a pain, especially in React Native or when you need to created custom styles based on the state. [Styled Components](https://www.styled-components.com/ecosystem) can come handy – they allow you to create styles directly in JavaScript using SCSS syntax.
+Creating styles can be a pain, especially in React Native or when you need to create custom styles based on the state. [Styled Components](https://www.styled-components.com/ecosystem) can come handy – they allow you to create styles directly in JavaScript using SCSS syntax.
 
 ### Tips and tricks
 
 #### You can use reducers on inner state
 
-Creating reducers to handle the inner component state is a good practice in case when you have complex state logic – it is easier to test and in most cases, less error-prone. Creating reducers for inner state management is even easier with the new Hooks API.
+Creating reducers to handle the inner component state is a good practice in the case when you have complex state logic – it is easier to test and in most cases, less error-prone. Creating reducers for inner state management is even easier with the new Hooks API.
 
 **Example:** from official React [`useReducer` example](https://reactjs.org/docs/hooks-reference.html#usereducer):
 
@@ -372,7 +372,7 @@ export default function Counter({initialState}) {
 
 ### Do’s and don’ts
 
-#### Never render a list of childs without assigning a unique key to each
+#### Never render a list of children without assigning a unique key to each
 
 This can have a huge impact on the performance, even bigger if you rendering a big list of elements. As from React documentation:
 
@@ -406,7 +406,7 @@ class FooComponent extends React.Component {
 
 #### Never create functions or objects in props
 
-This can have a huge impact on the performance. If you create new objects or functions in the props, a new reference will be passed down to the child each time it’s parents re-render, resulting in unnecessary re-renders and probably more unwanted behaviours.
+This can have a huge impact on the performance. If you create new objects or functions in the props, a new reference will be passed down to the child each time its parents re-render, resulting in unnecessary re-renders and probably more unwanted behaviours.
 
 **Don’t:**
 
@@ -444,7 +444,7 @@ class FooComponent extends React.Component {
 
 #### Avoid duplicating data between props and state
 
-If some data can be derived or calculated directly from the props, it’s unnecessary to replicate this data in state. Props should be the only source of truth. In fact – if you want to calculate the state based on the received props, you’ll need to create a componentDidUpdate method and keep you state and props in sync – this is an anti-pattern.
+If some data can be derived or calculated directly from the props, it’s unnecessary to replicate this data in state. Props should be the only source of truth. In fact – if you want to calculate the state based on the received props, you’ll need to create a `componentDidUpdate` method and keep you state and props in sync – this is an anti-pattern.
 
 The only case when assigning props to state is acceptable is to pass initial data to a component which doesn’t need to be in sync with the store, e.g. forms.
 
