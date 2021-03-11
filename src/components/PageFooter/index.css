@@ -1,0 +1,27 @@
+.footer {
+  position: relative;
+
+  margin: 0 auto;
+  padding: 4rem 1rem;
+
+  max-width: 1250px;
+  width: 100%;
+}
+
+.footer__menu {
+  padding: 0;
+}
+
+.footer__item {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.footer__item--contact {
+  float: right;
+}
+
+.footer__source {
+  margin: 1.5rem 1rem 0;
+  font-weight: 500;
+}

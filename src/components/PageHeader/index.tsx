@@ -1,3 +1,5 @@
+import "./index.css";
+
 import React from "react";
 import { Link } from "gatsby";
 
@@ -8,18 +10,20 @@ export function PageHeader() {
       itemType="http://schema.org/SiteNavigationElement"
       itemScope
     >
-      <ul className="header-content">
-        <li className="header-item">
+      <ul className="header__content">
+        <li className="header__item header__item--logo">
           <Link to="/" rel="index" title="Go to main page">
             Łanek
           </Link>
         </li>
-        <li className="header-item">
+
+        <li className="header__item">
           <Link className="" to="/posts/">
             Devblog
           </Link>
         </li>
-        <li className="header-item">
+
+        <li className="header__item">
           <a
             target="_blank"
             rel="author noopener noreferrer"
