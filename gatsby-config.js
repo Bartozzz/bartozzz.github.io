@@ -1,14 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
-    },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    title: `Bartosz Łaniewski`,
+    description: `Bartosz Łaniewski – Creative designer &amp; developer.`,
+    siteUrl: `https://laniewski.me/`,
+    siteRepo: `https://github.com/Bartozzz/bartozzz.github.io`,
+    contact: `hi@laniewski.me`,
     social: {
-      twitter: `kylemathews`,
+      GitHub: `https://github.com/Bartozzz`,
+      Dribbble: `https://dribbble.com/bartozzz`,
+      LinkedIn: `https://linkedin.com/in/bartozzz`,
+      YouTube: `https://www.youtube.com/channel/UCIC1vaSJwSJ2sqKWC3wTTmQ`,
     },
   },
   plugins: [
