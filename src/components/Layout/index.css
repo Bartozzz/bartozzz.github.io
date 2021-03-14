@@ -18,7 +18,7 @@
   font-size: 1.25rem;
 
   background-color: var(--background);
-  color: var(--text);
+  color: var(--text-primary);
 
   z-index: 5;
 }

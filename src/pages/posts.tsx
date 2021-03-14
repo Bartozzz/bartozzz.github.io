@@ -12,7 +12,7 @@ export default function PostsPage({ data }) {
     <Layout>
       <SEO title="All posts" />
 
-      <ol>
+      <ol className="list">
         {posts.map((post) => (
           <li key={post.fields.slug}>
             <PostExcerpt

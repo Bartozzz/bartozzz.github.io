@@ -33,7 +33,7 @@
 }
 
 .header__item a {
-  color: var(--text);
+  color: var(--text-primary);
 }
 
 .header__item--logo {

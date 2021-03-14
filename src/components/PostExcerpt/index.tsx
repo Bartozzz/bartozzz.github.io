@@ -5,22 +5,32 @@ import { Link } from "gatsby";
 
 export function PostExcerpt({ link, title, date, content }) {
   return (
-    <article itemScope itemType="http://schema.org/Article">
+    <article
+      itemScope
+      itemType="http://schema.org/Article"
+      className="post-excerpt__wrapper"
+    >
       <header>
-        <h2>
+        <time
+          className="post-excerpt__date"
+          dateTime={date}
+          itemProp="datePublished"
+        >
+          {date}
+        </time>
+
+        <h2 className="post-excerpt__title">
           <Link to={link} itemProp="url">
             <span itemProp="headline">{title}</span>
           </Link>
         </h2>
-        <small>{date}</small>
       </header>
-      <section>
+
+      <section className="post-excerpt__content">
         <p
           dangerouslySetInnerHTML={{ __html: content }}
           itemProp="description"
         />
-
-        <Link to={link}>Read more.</Link>
       </section>
     </article>
   );

@@ -21,7 +21,7 @@
 }
 
 .footer__item a {
-  color: var(--text);
+  color: var(--text-primary);
 }
 
 .footer__item--contact {
