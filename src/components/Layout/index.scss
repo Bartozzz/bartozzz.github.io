@@ -1,14 +1,4 @@
-.content {
-  position: relative;
-
-  margin: 0 auto;
-  padding: 4rem 1rem;
-
-  max-width: 1250px;
-  width: 100%;
-}
-
-.content__skip {
+.skip {
   position: absolute;
   top: 21px;
   left: 1rem;
@@ -17,7 +7,7 @@
   font-weight: 700;
   font-size: 1.25rem;
 
-  background-color: var(--background);
+  background-color: var(--primary);
   color: var(--text-primary);
 
   z-index: 5;

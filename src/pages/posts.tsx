@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { PostExcerpt } from "../components/PostExcerpt";
+import { Content } from "../components/Content";
 
 export default function PostsPage({ data }) {
   const posts = data.allMarkdownRemark.nodes;
@@ -12,18 +13,20 @@ export default function PostsPage({ data }) {
     <Layout>
       <SEO title="All posts" />
 
-      <ol className="list">
-        {posts.map((post) => (
-          <li key={post.fields.slug}>
-            <PostExcerpt
-              link={post.fields.slug}
-              title={post.frontmatter.title || post.fields.slug}
-              date={post.frontmatter.date}
-              content={post.frontmatter.description || post.excerpt}
-            />
-          </li>
-        ))}
-      </ol>
+      <Content>
+        <ol className="list">
+          {posts.map((post) => (
+            <li key={post.fields.slug}>
+              <PostExcerpt
+                link={post.fields.slug}
+                title={post.frontmatter.title || post.fields.slug}
+                date={post.frontmatter.date}
+                content={post.frontmatter.description || post.excerpt}
+              />
+            </li>
+          ))}
+        </ol>
+      </Content>
     </Layout>
   );
 }

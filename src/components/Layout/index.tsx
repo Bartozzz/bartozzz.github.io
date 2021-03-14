@@ -7,15 +7,13 @@ import { PageFooter } from "../PageFooter";
 export function Layout({ children }: React.PropsWithChildren<unknown>) {
   return (
     <>
-      <a className="content__skip visually-hidden" href="#content">
+      <a className="skip visually-hidden" href="#content">
         Skip to main content
       </a>
 
       <PageHeader />
 
-      <main id="content" className="content" itemProp="mainContentOfPage">
-        {children}
-      </main>
+      {children}
 
       <PageFooter />
     </>
