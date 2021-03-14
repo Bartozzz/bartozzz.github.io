@@ -5,7 +5,7 @@ import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { PostExcerpt } from "../components/PostExcerpt";
 
-export default function IndexPage({ data }) {
+export default function PostsPage({ data }) {
   const posts = data.allMarkdownRemark.nodes;
 
   return (
