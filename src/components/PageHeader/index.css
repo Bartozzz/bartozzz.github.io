@@ -26,13 +26,20 @@
 }
 
 .header__item {
+  font-family: var(--fn-main);
   font-weight: 500;
+
   padding: 0 0 0 1.5rem;
+}
+
+.header__item a {
+  color: var(--text);
 }
 
 .header__item--logo {
   flex: 1;
   padding: 0;
 
-  font-weight: 900;
+  font-weight: 700;
+  font-size: 1.25rem;
 }

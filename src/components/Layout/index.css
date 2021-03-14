@@ -7,3 +7,18 @@
   max-width: 1250px;
   width: 100%;
 }
+
+.content__skip {
+  position: absolute;
+  top: 21px;
+  left: 1rem;
+
+  font-family: var(--fn-main);
+  font-weight: 700;
+  font-size: 1.25rem;
+
+  background-color: var(--background);
+  color: var(--text);
+
+  z-index: 5;
+}

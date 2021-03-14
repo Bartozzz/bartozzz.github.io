@@ -7,7 +7,7 @@ import { PageFooter } from "../PageFooter";
 export function Layout({ children }: React.PropsWithChildren<unknown>) {
   return (
     <>
-      <a className="visually-hidden" href="#content">
+      <a className="content__skip visually-hidden" href="#content">
         Skip to main content
       </a>
 

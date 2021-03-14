@@ -15,6 +15,13 @@
 .footer__item {
   display: inline-block;
   margin: 0 1rem;
+
+  font-family: var(--fn-mono);
+  font-size: 16px;
+}
+
+.footer__item a {
+  color: var(--text);
 }
 
 .footer__item--contact {
@@ -23,5 +30,4 @@
 
 .footer__source {
   margin: 1.5rem 1rem 0;
-  font-weight: 500;
 }
