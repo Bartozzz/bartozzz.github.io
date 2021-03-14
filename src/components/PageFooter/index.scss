@@ -18,10 +18,10 @@
 
   font-family: var(--fn-mono);
   font-size: 16px;
-}
 
-.footer__item a {
-  color: var(--text-primary);
+  a {
+    color: var(--text-primary);
+  }
 }
 
 .footer__item--contact {

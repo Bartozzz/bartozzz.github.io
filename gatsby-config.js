@@ -9,10 +9,11 @@ module.exports = {
       GitHub: `https://github.com/Bartozzz`,
       Dribbble: `https://dribbble.com/bartozzz`,
       LinkedIn: `https://linkedin.com/in/bartozzz`,
-      YouTube: `https://www.youtube.com/channel/UCIC1vaSJwSJ2sqKWC3wTTmQ`,
+      YouTube: `https://youtube.com/channel/UCIC1vaSJwSJ2sqKWC3wTTmQ`,
     },
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,

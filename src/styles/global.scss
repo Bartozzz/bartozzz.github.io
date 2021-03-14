@@ -23,8 +23,8 @@ a {
   border-width: 0 0 3px;
   border-style: solid;
   border-color: transparent;
-}
 
-a:focus {
-  border-color: var(--primary);
+  &:focus {
+    border-color: var(--primary);
+  }
 }

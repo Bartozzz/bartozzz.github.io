@@ -30,10 +30,10 @@
   font-weight: 500;
 
   padding: 0 0 0 1.5rem;
-}
 
-.header__item a {
-  color: var(--text-primary);
+  a {
+    color: var(--text-primary);
+  }
 }
 
 .header__item--logo {
