@@ -1,7 +1,7 @@
 @mixin mediaquery($query) {
   $breakpoints: (
     'xs': '(min-width: 500px)',
-    'sm': '(min-width: 639px)',
+    'sm': '(min-width: 700px)',
     'lg': '(min-width: 800px)',
     'xl': '(min-width: 1050px)',
     'xxl': '(min-width: 1250px)',

@@ -13,6 +13,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-graphql-codegen`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     {
@@ -20,6 +21,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content`,
+        name: `content`,
       },
     },
     {
@@ -51,6 +59,8 @@ module.exports = {
         ],
       },
     },
+    `gatsby-transformer-yaml`,
+    `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,

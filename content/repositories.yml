@@ -1,0 +1,54 @@
+- name: qilin-editor/qilin-app
+  desc: Text editor for exact sciences with built-in KaTeX/AsciiMath support.
+  path: https://github.com/qilin-editor/qilin-app
+  keywords: [nw.js, React, Cross platform, App]
+
+- name: project-inra/inra-coin
+  desc: A bunch of utility modules for creating P2P and blockchain-based applications.
+  path: https://github.com/project-inra/inra-coin
+  keywords: [Node.js, Flow, Blockchain, P2P]
+
+- name: project-inra/inra-server
+  desc: Utility modules for creating Node.js servers suitable for small applications.
+  path: https://github.com/project-inra/inra-server
+  keywords: [Node.js, Flow, Back-end, npm]
+
+- name: potential-duplicates-bot
+  desc: A configurable GitHub App which checks for potential issue duplicates.
+  path: https://github.com/Bartozzz/potential-duplicates-bot
+  keywords: [Node.js, GitHub, Probot]
+
+- name: crawlerr
+  desc: A simple and fully customizable web crawler/spider for Node.js.
+  path: https://github.com/Bartozzz/crawlerr
+  keywords: [Node.js, Flow, Request, npm]
+
+- name: wildcard-named
+  desc: Matches strings using named and/or unnamed wildcards.
+  path: https://github.com/Bartozzz/wildcard-named
+  keywords: [Node.js, Flow, RegExp, npm]
+
+- name: queue-promise
+  desc: A simple, dependency-free library for concurrent promise-based queues.
+  path: https://github.com/Bartozzz/queue-promise
+  keywords: [Flow, Async, Promise, npm]
+
+- name: call-dir
+  desc: Loads files from a directory and executes a callback for each.
+  path: https://github.com/Bartozzz/call-dir
+  keywords: [Node.js, Flow, File system, npm]
+
+- name: json-overrides
+  desc: Creates various JSON object from a main parent JSON object.
+  path: https://github.com/Bartozzz/json-overrides
+  keywords: [Node.js, Flow, JSON, npm]
+
+- name: html-resources
+  desc: Parses HTML files and extracts custom resources (scripts, styles, images, …).
+  path: https://github.com/Bartozzz/html-resources
+  keywords: [Node.js, Flow, HTML, npm]
+
+- name: Wireframe
+  desc: A flexible and highly-customizable SCSS framework for rapid webiste prototyping.
+  path: https://github.com/Bartozzz/Wireframe
+  keywords: [HTML, SCSS, Front-end]

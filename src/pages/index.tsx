@@ -1,14 +1,23 @@
+import "../styles/pages/index.scss";
+
 import * as React from "react";
 import { graphql } from "gatsby";
+import { IndexPageQuery } from "../../graphql-types";
 
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { PostExcerpt } from "../components/PostExcerpt";
 import { Hero } from "../components/Hero";
 import { Content } from "../components/Content";
+import { Repository } from "../components/Repository";
 
-export default function IndexPage({ data }) {
+interface Props {
+  data: IndexPageQuery;
+}
+
+export default function IndexPage({ data }: Props) {
   const posts = data.allMarkdownRemark.nodes;
+  const repositories = data.allRepositoriesYaml.nodes;
 
   return (
     <Layout>
@@ -17,6 +26,19 @@ export default function IndexPage({ data }) {
       <Hero />
 
       <Content>
+        <ol className="repositories list">
+          {repositories.map((repository) => (
+            <Repository
+              as="li"
+              key={repository.id}
+              link={repository.path}
+              name={repository.name}
+              description={repository.desc}
+              keywords={repository.keywords}
+            />
+          ))}
+        </ol>
+
         <ol className="list">
           {posts.map((post) => (
             <li key={post.fields.slug}>
@@ -35,7 +57,7 @@ export default function IndexPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query {
+  query IndexPage {
     site {
       siteMetadata {
         title
@@ -52,6 +74,15 @@ export const pageQuery = graphql`
           title
           description
         }
+      }
+    }
+    allRepositoriesYaml {
+      nodes {
+        id
+        name
+        desc
+        path
+        keywords
       }
     }
   }

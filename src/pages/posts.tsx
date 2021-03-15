@@ -1,12 +1,17 @@
 import * as React from "react";
 import { graphql } from "gatsby";
+import { PostsPageQuery } from "../../graphql-types";
 
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { PostExcerpt } from "../components/PostExcerpt";
 import { Content } from "../components/Content";
 
-export default function PostsPage({ data }) {
+interface Props {
+  data: PostsPageQuery;
+}
+
+export default function PostsPage({ data }: Props) {
   const posts = data.allMarkdownRemark.nodes;
 
   return (
@@ -32,7 +37,7 @@ export default function PostsPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query {
+  query PostsPage {
     site {
       siteMetadata {
         title
