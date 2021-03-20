@@ -10,6 +10,7 @@ import { PostExcerpt } from "../components/PostExcerpt";
 import { Hero } from "../components/Hero";
 import { Content } from "../components/Content";
 import { Repository } from "../components/Repository";
+import { Heading } from "../components/Heading";
 
 interface Props {
   data: IndexPageQuery;
@@ -26,31 +27,52 @@ export default function IndexPage({ data }: Props) {
       <Hero />
 
       <Content>
-        <ol className="repositories list">
-          {repositories.map((repository) => (
-            <Repository
-              as="li"
-              key={repository.id}
-              link={repository.path}
-              name={repository.name}
-              description={repository.desc}
-              keywords={repository.keywords}
-            />
-          ))}
-        </ol>
+        <article>
+          <Heading>
+            <Heading.H2>Open-source projects</Heading.H2>
+            <Heading.H3>
+              Community is essential to me. I want to become the kind of
+              developer that I would want to work with. That is why I share my
+              knowledge, code, and time with others.
+            </Heading.H3>
+          </Heading>
 
-        <ol className="list">
-          {posts.map((post) => (
-            <li key={post.fields.slug}>
-              <PostExcerpt
-                link={post.fields.slug}
-                title={post.frontmatter.title || post.fields.slug}
-                date={post.frontmatter.date}
-                content={post.frontmatter.description || post.excerpt}
+          <ol className="repositories list">
+            {repositories.map((repository) => (
+              <Repository
+                as="li"
+                key={repository.id}
+                link={repository.path}
+                name={repository.name}
+                description={repository.desc}
+                keywords={repository.keywords}
               />
-            </li>
-          ))}
-        </ol>
+            ))}
+          </ol>
+        </article>
+
+        <article>
+          <Heading>
+            <Heading.H2>Newest articles</Heading.H2>
+            <Heading.H3>
+              I write articles about web development, mostly React, Vue, best
+              practices, accessibility and JS related stuff.
+            </Heading.H3>
+          </Heading>
+
+          <ol className="list">
+            {posts.map((post) => (
+              <li key={post.fields.slug}>
+                <PostExcerpt
+                  link={post.fields.slug}
+                  title={post.frontmatter.title || post.fields.slug}
+                  date={post.frontmatter.date}
+                  content={post.frontmatter.description || post.excerpt}
+                />
+              </li>
+            ))}
+          </ol>
+        </article>
       </Content>
     </Layout>
   );
