@@ -720,6 +720,7 @@ export type SitePluginPluginOptions = {
   disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>;
   disableBgImage?: Maybe<Scalars['Boolean']>;
   wrapperStyle?: Maybe<Scalars['String']>;
+  codegenDelay?: Maybe<Scalars['Int']>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
@@ -2968,6 +2969,7 @@ export type SitePluginPluginOptionsFilterInput = {
   disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
   disableBgImage?: Maybe<BooleanQueryOperatorInput>;
   wrapperStyle?: Maybe<StringQueryOperatorInput>;
+  codegenDelay?: Maybe<IntQueryOperatorInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
@@ -3212,6 +3214,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___disableBgImageOnAlpha'
   | 'pluginOptions___disableBgImage'
   | 'pluginOptions___wrapperStyle'
+  | 'pluginOptions___codegenDelay'
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
@@ -3274,18 +3277,18 @@ export type SitePluginSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+export type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<(
+export type FooterDataQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
       Pick<SiteSiteMetadata, 'siteRepo' | 'contact'>
       & { social?: Maybe<Pick<Social, 'GitHub' | 'Dribbble' | 'LinkedIn' | 'YouTube'>> }
     )> }> };
 
-export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
+export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 

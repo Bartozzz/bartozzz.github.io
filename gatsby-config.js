@@ -13,9 +13,16 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-graphql-codegen`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/,
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -57,6 +64,12 @@ module.exports = {
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        codegenDelay: 60 * 60,
       },
     },
     `gatsby-transformer-yaml`,
