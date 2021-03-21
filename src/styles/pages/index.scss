@@ -3,10 +3,10 @@
 .repositories {
   display: grid;
 
-  column-gap: 10px;
+  column-gap: var(--ls-xxs);
   row-gap: 1em;
 
-  padding: 0 0 8rem 0;
+  padding: 0 0 var(--ls-xl) 0;
 
   @include mediaquery("sm") {
     grid-template-columns: repeat(2, 1fr);

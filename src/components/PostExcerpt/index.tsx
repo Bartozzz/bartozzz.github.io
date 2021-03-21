@@ -26,12 +26,11 @@ export function PostExcerpt({ link, title, date, content }) {
         </h2>
       </header>
 
-      <section className="post-excerpt__content">
-        <p
-          dangerouslySetInnerHTML={{ __html: content }}
-          itemProp="description"
-        />
-      </section>
+      <p
+        dangerouslySetInnerHTML={{ __html: content }}
+        itemProp="description"
+        className="post-excerpt__content"
+      />
     </article>
   );
 }

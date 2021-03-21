@@ -2,9 +2,9 @@
   position: relative;
   display: block;
 
-  padding: 1rem .75rem;
+  padding: var(--cs-lg) var(--cs-md);
 
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   border-width: 1px;
   border-radius: 5px;
@@ -34,13 +34,13 @@
   list-style: none;
 
   font-family: var(--fn-mono);
-  font-size: .85rem;
+  font-size: 0.85rem;
   color: var(--text-primary);
   background-image: linear-gradient(90deg, rgba(white, 0.0000001), white 15%);
 }
 
 .repository__name {
-  margin: 0 .25rem;
+  margin: 0 var(--cs-sm);
 
   font-family: var(--fn-mono);
   font-size: 0.9rem;
@@ -51,9 +51,9 @@
 .repository__description {
   flex: 1;
 
-  margin: .75rem .25rem 1rem;
+  margin: var(--cs-md) var(--cs-sm) var(--cs-lg);
 
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 1.25rem;
   color: var(--text-primary);
 }

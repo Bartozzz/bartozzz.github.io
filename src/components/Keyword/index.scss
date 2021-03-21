@@ -1,10 +1,10 @@
 .keyword {
   display: inline-block;
 
-  padding: .25rem .75rem;
-  margin: 0 .1rem;
+  padding: var(--cs-xs) var(--cs-sm);
+  margin: 0 var(--cs-xxs);
 
-  font-size: .8rem;
+  font-size: 0.8rem;
 
   color: var(--primary);
   background-color: hsl(var(--primary), 50%);

@@ -4,7 +4,7 @@
   left: 0;
 
   width: 100%;
-  height: 4rem;
+  height: var(--ls-lg);
 
   background-color: rgba(var(--background), 0.85);
   backdrop-filter: saturate(200%) blur(5px);
@@ -17,7 +17,7 @@
   align-items: center;
 
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 var(--cs-lg);
 
   height: 100%;
   max-width: 1250px;
@@ -29,7 +29,7 @@
   font-family: var(--fn-main);
   font-weight: 500;
 
-  padding: 0 0 0 1.5rem;
+  padding: 0 0 0 var(--cs-xl);
 
   a {
     color: var(--text-primary);

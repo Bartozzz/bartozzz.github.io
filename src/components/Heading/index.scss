@@ -15,14 +15,14 @@
 
   &--h2 {
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: var(--ls-xxs);
 
     font-size: 2.5rem;
     font-weight: 700;
   }
 
   &--h3 {
-    margin-bottom: 4rem;
+    margin-bottom: var(--ls-lg);
 
     font-size: 1rem;
     font-weight: 400;

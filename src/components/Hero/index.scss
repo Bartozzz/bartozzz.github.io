@@ -15,29 +15,34 @@
   height: 100%;
 
   background-color: var(--background-100);
+  background: linear-gradient(
+      to bottom,
+      var(--background),
+      var(--background-100) 40%
+    )
+    fixed;
 }
 
 .hero__title {
-  margin: 0 0 1rem;
-
+  margin: 0 0 var(--cs-lg);
 
   font-size: 65px;
   line-height: 65px;
   letter-spacing: -0.003em;
 
-  @include mediaquery('lg') {
+  @include mediaquery("lg") {
     font-size: 83px;
     line-height: 83px;
   }
 }
 
 .hero__subtitle {
-  margin: 0 0 0 4px;
+  margin: 0 0 0 var(--cs-xs);
 
   font-size: 18px;
   letter-spacing: -0.005em;
 
-  @include mediaquery('lg') {
+  @include mediaquery("lg") {
     font-size: 16px;
   }
 }
@@ -45,7 +50,7 @@
 .hero__subtitle span {
   display: none;
 
-  @include mediaquery('lg') {
+  @include mediaquery("lg") {
     display: initial;
   }
 }

@@ -1,21 +1,28 @@
 .post-excerpt__wrapper {
   max-width: 600px;
 
-  margin: 64px 0;
+  margin: var(--ls-lg) 0;
 }
 
-.post-excerpt__title a {
-  color: var(--text-primary);
+.post-excerpt__title {
+  margin: var(--cs-lg) 0;
+
+  a {
+    color: var(--text-primary);
+  }
 }
 
 .post-excerpt__content {
-  font-family: var(--fn-serif);
+  margin: 0;
 
+  font-family: var(--fn-serif);
   line-height: 1.5;
   letter-spacing: -0.003em;
 }
 
 .post-excerpt__date {
+  margin: 0;
+
   font-family: var(--fn-mono);
   font-size: 14px;
   color: var(--text-secondary);
