@@ -1,0 +1,280 @@
+@import "../styles/extends/prefix-headings.scss";
+@import "../styles/extends/reset-list.scss";
+@import "../styles/extends/text-heading.scss";
+@import "../styles/extends/text-paragraph.scss";
+@import "../styles/extends/text-rendering.scss";
+@import "../styles/extends/text-word-wrap.scss";
+@import "../styles/mixins/mediaquery.scss";
+
+.post {
+  &__header {
+    margin: 5rem 0;
+    text-align: center;
+  }
+
+  &-meta,
+  &__content {
+    max-width: 850px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &-meta {
+    &-time {
+      @include mediaquery("lg") {
+        display: block;
+        margin: 0 0 0.5rem 0;
+      }
+    }
+
+    &-authors {
+      @extend %text-heading;
+      @extend %reset-list;
+    }
+  }
+
+  &__content {
+    @extend %text-paragraph;
+
+    &.is-article {
+      @extend %prefix-headings;
+    }
+
+    details {
+      summary {
+        font-family: var(--fn-main);
+        font-weight: 500;
+      }
+    }
+
+    a {
+      @extend %text-word-wrap;
+
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.75) 50%,
+        rgba(0, 0, 0, 0) 50%
+      );
+      background-repeat: repeat-x;
+      background-size: 2px 1px;
+      background-position: 0 1.3em;
+
+      letter-spacing: -0.005em;
+      color: inherit;
+    }
+
+    abbr {
+      border-bottom-width: 1px;
+      border-bottom-style: dashed;
+      border-bottom-color: rgba(0, 0, 0, 0.75);
+
+      text-decoration: none;
+    }
+
+    // Mainly markdown formatting
+    h2 {
+      margin-top: 3rem;
+    }
+    h3 {
+      margin-top: 3rem;
+    }
+    h4 {
+      margin-top: 2rem;
+    }
+
+    h1 + p,
+    h2 + p,
+    h3 + p,
+    h4 + p,
+    h5 + p,
+    h6 + p {
+      margin-top: 1rem;
+    }
+
+    b,
+    strong {
+      font-weight: 700;
+    }
+
+    em {
+      font-feature-settings: "liga" on, "salt" on;
+    }
+
+    p,
+    ul,
+    dl,
+    ol {
+      font-feature-settings: "kern", "onum", "liga";
+    }
+
+    p {
+      @extend %text-paragraph;
+      @extend %text-word-wrap;
+
+      letter-spacing: 0.01rem;
+
+      margin-top: 1rem;
+      margin-bottom: 0;
+
+      img {
+        max-width: 100%;
+        height: auto;
+
+        margin: 2rem auto 1rem;
+      }
+    }
+
+    p,
+    li {
+      & > code {
+        padding: 0.15rem 0.25rem;
+        margin: 0 0.1rem;
+      }
+    }
+
+    ul,
+    ol {
+      margin: 2rem 0;
+      padding: 0;
+
+      counter-reset: post;
+
+      li {
+        @extend %text-paragraph;
+
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+
+        letter-spacing: -0.005em;
+      }
+
+      ul,
+      ol {
+        margin: 1rem 0 0;
+      }
+    }
+
+    blockquote,
+    blockquote p {
+      @extend %text-paragraph;
+      @extend %text-word-wrap;
+
+      font-style: italic;
+      letter-spacing: -0.01em;
+
+      border-left-width: 3px;
+      border-left-style: solid;
+      border-left-color: red;
+
+      padding-left: 20px;
+      padding-bottom: 2px;
+
+      margin-left: -23px;
+      margin-top: 29px;
+
+      color: rgba(0, 0, 0, 0.75);
+    }
+
+    pre,
+    code {
+      @extend %text-rendering;
+      @extend %text-word-wrap;
+
+      font-family: var(--fn-mono);
+      font-size: 18px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.5;
+
+      font-feature-settings: "liga" 0;
+
+      background-color: var(--background-100);
+      color: rgba(0, 0, 0, 0.75);
+      border-radius: 5px;
+    }
+
+    pre {
+      margin: 3rem 0;
+      padding: 1.5rem;
+
+      letter-spacing: 0;
+      white-space: pre-wrap;
+
+      overflow-x: auto;
+      overflow-y: auto;
+    }
+
+    code {
+      letter-spacing: -0.005em;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    hr {
+      display: block;
+
+      margin: 5rem 0;
+      padding: 0;
+
+      border: 0;
+      height: 0;
+
+      text-align: center;
+
+      &:before {
+        font-family: var(--fn-serif);
+        font-weight: 400;
+        font-style: italic;
+        font-size: 28px;
+        letter-spacing: 0.6em;
+
+        content: "...";
+        display: inline-block;
+        margin-left: 0.6em;
+        color: rgba(0, 0, 0, 0.6);
+        position: relative;
+        top: -30px;
+      }
+    }
+
+    mark {
+      background-color: var(--background-100);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @extend %text-heading;
+    @extend %text-word-wrap;
+  }
+
+  h1 {
+    font-size: 3rem;
+
+    @include mediaquery("lg") {
+      font-size: 2rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    line-height: 1.15;
+  }
+
+  h4 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+}

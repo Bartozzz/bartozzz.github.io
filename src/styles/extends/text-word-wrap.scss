@@ -1,0 +1,7 @@
+// by https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+%text-word-wrap {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}

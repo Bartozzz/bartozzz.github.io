@@ -1,4 +1,6 @@
-import * as React from "react";
+import "./blog-post.scss";
+
+import React from "react";
 import { Link, graphql } from "gatsby";
 
 import { Layout } from "../components/Layout";
@@ -15,21 +17,25 @@ export function BlogPostTemplate({ data }) {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+
       <Content>
         <article
-          className="blog-post"
+          className="post"
           itemScope
           itemType="http://schema.org/Article"
         >
-          <header>
+          <header className="post__header">
             <h1 itemProp="headline">{post.frontmatter.title}</h1>
             <p>{post.frontmatter.date}</p>
           </header>
+
           <section
             dangerouslySetInnerHTML={{ __html: post.html }}
             itemProp="articleBody"
+            className="post__content"
           />
         </article>
+
         <nav className="blog-post-nav">
           <ul
             style={{
