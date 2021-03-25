@@ -721,6 +721,8 @@ export type SitePluginPluginOptions = {
   disableBgImage?: Maybe<Scalars['Boolean']>;
   wrapperStyle?: Maybe<Scalars['String']>;
   codegenDelay?: Maybe<Scalars['Int']>;
+  namedExport?: Maybe<Scalars['Boolean']>;
+  banner?: Maybe<Scalars['String']>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
@@ -2970,6 +2972,8 @@ export type SitePluginPluginOptionsFilterInput = {
   disableBgImage?: Maybe<BooleanQueryOperatorInput>;
   wrapperStyle?: Maybe<StringQueryOperatorInput>;
   codegenDelay?: Maybe<IntQueryOperatorInput>;
+  namedExport?: Maybe<BooleanQueryOperatorInput>;
+  banner?: Maybe<StringQueryOperatorInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
@@ -3215,6 +3219,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___disableBgImage'
   | 'pluginOptions___wrapperStyle'
   | 'pluginOptions___codegenDelay'
+  | 'pluginOptions___namedExport'
+  | 'pluginOptions___banner'
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'

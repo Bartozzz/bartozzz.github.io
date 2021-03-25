@@ -72,6 +72,7 @@ module.exports = {
         codegenDelay: 60 * 60,
       },
     },
+    `gatsby-plugin-dts-css-modules`,
     `gatsby-transformer-yaml`,
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
