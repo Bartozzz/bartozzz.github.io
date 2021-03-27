@@ -151,4 +151,4 @@ There's a GitHub project named `the-platform` which turns Web API's into React H
 4. https://youtube.com/watch?v=SCQgE4mTnjU
 5. https://www.youtube.com/watch?v=ByBPyMBTzM0
 
-\*[SPAs]: Single-Page Application: a web application that load once and dynamically update as the response for user interactions.
+*[SPAs]: Single-Page Application: a web application that load once and dynamically update as the response for user interactions.
