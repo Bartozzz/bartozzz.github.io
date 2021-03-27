@@ -27,11 +27,13 @@ export function Repository({
 
   return (
     <Wrapper
-      className="repository__wrapper"
       data-repo-name={name}
       itemType="http://schema.org/SoftwareSourceCode"
       itemScope
     >
+      <link itemProp="codeRepository" href={link} />
+      <link itemProp="downloadUrl" href={`${link}/releases`} />
+
       <a
         className="repository__link"
         target="_blank"

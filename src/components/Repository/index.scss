@@ -1,25 +1,35 @@
-.repository__wrapper {
+.repository__link {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
 
   padding: var(--cs-lg) var(--cs-md) var(--cs-md);
 
   transition: all 0.2s ease-in-out;
 
   border-width: 1px;
-  border-radius: 5px;
+  border-radius: 6px;
   border-style: solid;
   border-color: var(--background-500);
   box-shadow: 0 1px 1px rgb(0 0 0 / 8%);
 
   outline: 0;
-}
 
-.repository__link {
-  display: flex;
-  flex-direction: column;
+  &:hover,
+  &:focus {
+    transform: scale(1.025);
+  }
 
-  height: 100%;
+  &:hover {
+    box-shadow: 0 5px 15px -5px rgb(0 0 0 / 10%);
+  }
+
+  &:focus {
+    border-color: var(--primary-300);
+    box-shadow: 0 0 0 5px var(--primary-100);
+  }
 }
 
 .repository__meta {
