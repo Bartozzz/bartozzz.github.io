@@ -35,17 +35,28 @@ body {
 }
 
 body.light {
-  /* Colors: */
-  --background: #fff;
-  --background-100: #f8f8f8;
+  $shade-primary: 30 98%;
 
-  --primary: #fd8103;
+  --background-100: #ffffff;
+  --background-300: #f8f8f8;
+  --background-500: #e0e0e0;
+
+  --primary-100: hsl(#{$shade-primary} 96%);
+  --primary-300: hsl(#{$shade-primary} 75%);
+  --primary-500: hsl(#{$shade-primary} 50%);
+  --primary-700: hsl(#{$shade-primary} 35%);
+  --primary-900: hsl(#{$shade-primary} 15%);
+
+  --highlight-keyword: #fd8103;
+  --highlight-comment: green;
+  --highlight-literal: #a31515;
+
   --text-primary: #000;
-  --text-secondary: #6a737d;
+  --text-secondary: #404040;
 }
 
 a {
-  color: var(--primary);
+  color: var(--primary-500);
   text-decoration: none;
 
   border-width: 0 0 3px;
@@ -53,6 +64,6 @@ a {
   border-color: transparent;
 
   &:focus {
-    border-color: var(--primary);
+    border-color: var(--primary-500);
   }
 }

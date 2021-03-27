@@ -8,11 +8,10 @@
 
 .post {
   &__header {
-    margin: 5rem 0;
+    margin: var(--ls-xl) 0;
     text-align: center;
   }
 
-  &-meta,
   &__content {
     max-width: 850px;
 
@@ -20,26 +19,9 @@
     margin-right: auto;
   }
 
-  &-meta {
-    &-time {
-      @include mediaquery("lg") {
-        display: block;
-        margin: 0 0 0.5rem 0;
-      }
-    }
-
-    &-authors {
-      @extend %text-heading;
-      @extend %reset-list;
-    }
-  }
-
   &__content {
     @extend %text-paragraph;
-
-    &.is-article {
-      @extend %prefix-headings;
-    }
+    @extend %prefix-headings;
 
     details {
       summary {
@@ -49,38 +31,40 @@
     }
 
     a {
-      @extend %text-word-wrap;
-
-      background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.75) 50%,
-        rgba(0, 0, 0, 0) 50%
-      );
-      background-repeat: repeat-x;
-      background-size: 2px 1px;
-      background-position: 0 1.3em;
+      border-width: 0 0 1px;
+      border-color: currentColor;
+      border-style: underline;
 
       letter-spacing: -0.005em;
       color: inherit;
+
+      &:hover,
+      &:focus {
+        color: var(--primary-500);
+        border-color: var(--primary-500);
+        border-style: solid;
+        border-width: 0 0 2px;
+      }
     }
 
     abbr {
       border-bottom-width: 1px;
       border-bottom-style: dashed;
-      border-bottom-color: rgba(0, 0, 0, 0.75);
+      border-bottom-color: var(--text-secondary);
 
       text-decoration: none;
+      cursor: help;
     }
 
     // Mainly markdown formatting
     h2 {
-      margin-top: 3rem;
+      margin-top: var(--ls-md);
     }
     h3 {
-      margin-top: 3rem;
+      margin-top: var(--ls-md);
     }
     h4 {
-      margin-top: 2rem;
+      margin-top: var(--ls-sm);
     }
 
     h1 + p,
@@ -89,7 +73,7 @@
     h4 + p,
     h5 + p,
     h6 + p {
-      margin-top: 1rem;
+      margin-top: var(--ls-xxs);
     }
 
     b,
@@ -110,18 +94,17 @@
 
     p {
       @extend %text-paragraph;
-      @extend %text-word-wrap;
 
       letter-spacing: 0.01rem;
 
-      margin-top: 1rem;
+      margin-top: var(--ls-xxs);
       margin-bottom: 0;
 
       img {
         max-width: 100%;
         height: auto;
 
-        margin: 2rem auto 1rem;
+        margin: var(--ls-sm) auto var(--ls-xxs);
       }
     }
 
@@ -135,7 +118,7 @@
 
     ul,
     ol {
-      margin: 2rem 0;
+      margin: var(--ls-sm) 0;
       padding: 0;
 
       counter-reset: post;
@@ -143,29 +126,28 @@
       li {
         @extend %text-paragraph;
 
-        margin-left: 2rem;
-        margin-bottom: 1rem;
+        margin-left: var(--ls-sm);
+        margin-bottom: var(--ls-xxs);
 
         letter-spacing: -0.005em;
       }
 
       ul,
       ol {
-        margin: 1rem 0 0;
+        margin: var(--ls-xxs) 0 0;
       }
     }
 
     blockquote,
     blockquote p {
       @extend %text-paragraph;
-      @extend %text-word-wrap;
 
       font-style: italic;
       letter-spacing: -0.01em;
 
       border-left-width: 3px;
       border-left-style: solid;
-      border-left-color: red;
+      border-left-color: var(--text-secondary);
 
       padding-left: 20px;
       padding-bottom: 2px;
@@ -173,13 +155,12 @@
       margin-left: -23px;
       margin-top: 29px;
 
-      color: rgba(0, 0, 0, 0.75);
+      color: var(--text-secondary);
     }
 
     pre,
     code {
       @extend %text-rendering;
-      @extend %text-word-wrap;
 
       font-family: var(--fn-mono);
       font-size: 18px;
@@ -189,24 +170,35 @@
 
       font-feature-settings: "liga" 0;
 
-      background-color: var(--background-100);
-      color: rgba(0, 0, 0, 0.75);
+      background-color: var(--background-300);
+      color: var(--text-secondary);
       border-radius: 5px;
     }
 
     pre {
-      margin: 3rem 0;
+      margin: var(--ls-md) 0;
       padding: 1.5rem;
 
       letter-spacing: 0;
       white-space: pre-wrap;
 
-      overflow-x: auto;
-      overflow-y: auto;
+      overflow: auto;
     }
 
     code {
       letter-spacing: -0.005em;
+
+      .keyword {
+        color: var(--highlight-keyword);
+      }
+
+      .comment {
+        color: var(--highlight-comment);
+      }
+
+      .string {
+        color: var(--highlight-literal);
+      }
     }
 
     figure {
@@ -216,7 +208,7 @@
     hr {
       display: block;
 
-      margin: 5rem 0;
+      margin: var(--ls-xl) 0;
       padding: 0;
 
       border: 0;
@@ -234,7 +226,7 @@
         content: "...";
         display: inline-block;
         margin-left: 0.6em;
-        color: rgba(0, 0, 0, 0.6);
+        color: var(--text-secondary);
         position: relative;
         top: -30px;
       }
@@ -252,7 +244,6 @@
   h5,
   h6 {
     @extend %text-heading;
-    @extend %text-word-wrap;
   }
 
   h1 {
@@ -276,5 +267,38 @@
   h4 {
     font-size: 1.6rem;
     line-height: 1.2;
+  }
+}
+
+.toc {
+  margin: 2rem 0;
+
+  ul {
+    list-style-type: none;
+    counter-reset: toc;
+  }
+
+  li {
+    display: table;
+    counter-increment: toc;
+
+    &::before {
+      display: table-cell;
+      padding: 0 0.5rem 0 0;
+      content: counters(toc, ".") ". ";
+    }
+
+    &,
+    p,
+    ul,
+    ul > li {
+      margin-top: var(--cs-xxs) !important;
+      margin-bottom: var(--cs-xxs) !important;
+    }
+
+    ul,
+    ul > li {
+      margin: 0 !important;
+    }
   }
 }
