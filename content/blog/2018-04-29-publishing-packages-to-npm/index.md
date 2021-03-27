@@ -8,8 +8,9 @@ keywords: ["JavaScript", "Node.js", "npm"]
 
 With the rise of ES2015, modules have officially become an integral part of JavaScript. By their nature, ES2015 modules are static and can get optimized at the compile time. Various tools and techniques have been created to minimize the total size of generated bundles. The one described in this article is called tree shaking.
 
-* Do not remove this line (it will not be displayed)
-{:toc}
+```toc
+# This code block gets replaced with the TOC
+```
 
 ## Introduction to npm packages
 
@@ -34,22 +35,22 @@ To build this package, Webpack will start by compiling the source file (called _
 (function (modules) {
   // Webpack stuff
 })({
-  "./index.js": (function (module, exports, __webpack_require__) {
+  "./index.js": function (module, exports, __webpack_require__) {
     "use strict";
     // Compiled entry-point
-  }),
-  "./src/moduleA.js": (function (module, exports, __webpack_require__) {
+  },
+  "./src/moduleA.js": function (module, exports, __webpack_require__) {
     "use strict";
     // Compiled moduleA
-  }),
-  "./src/moduleB.js": (function (module, exports, __webpack_require__) {
+  },
+  "./src/moduleB.js": function (module, exports, __webpack_require__) {
     "use strict";
     // Compiled moduleB
-  }),
-  "./src/moduleC.js": (function (module, exports, __webpack_require__) {
+  },
+  "./src/moduleC.js": function (module, exports, __webpack_require__) {
     "use strict";
     // Compiled moduleC
-  })
+  },
 });
 ```
 
@@ -64,6 +65,7 @@ moduleC.internal();
 ```
 
 The reason why such bundlers can work, is that [ES2015 packages are static by nature][1]: you can predict which modules are being imported and exported just by analysing the code, without the need to execute it. However, this has some drawbacks:
+
 - **conditional imports and exports** are unsupported – you have to declare your imports at the top-level;
 - both imports and exports **cannot have any dynamic parts** – you cannot use string concatenation in `require()`.
 
@@ -77,7 +79,7 @@ import { moduleA, moduleB } from "package";
 
 `package` exports `moduleA`, `moduleB` and `moduleC` but only the first two are required. Without tree shaking, the final bundle would be a lot bigger since it would contain unreachable code. During bundling, unused exports can be removed, potentially resulting in significant space savings.
 
->Utilizing the tree shaking and dead code elimination can significantly reduce the code size we have in our application. The less code we send over the wire the more performant the application will be. – [Alex Bachuk](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd).
+> Utilizing the tree shaking and dead code elimination can significantly reduce the code size we have in our application. The less code we send over the wire the more performant the application will be. – [Alex Bachuk](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd).
 
 ## Creating tree shaking friendly packages
 
@@ -183,7 +185,7 @@ async function createPackageFile() {
 }
 
 async function run() {
-  await ["README.md", "LICENSE"].map(file => copyFile(file));
+  await ["README.md", "LICENSE"].map((file) => copyFile(file));
   await createPackageFile();
 }
 
@@ -217,14 +219,14 @@ Because of this potential behaviour, tree shaking cannot remove all unreachable 
 
 ### Wrong specs implementation
 
->Current tooling differs on the correct way to handle default imports/exports. Avoiding them all together can help avoid tooling bugs and conflicts. – [TSLint rules][6]
+> Current tooling differs on the correct way to handle default imports/exports. Avoiding them all together can help avoid tooling bugs and conflicts. – [TSLint rules][6]
 
 ### Class-based tree shaking
 
 Class-based tree shaking is currently not supported because of the dynamic nature of JavaScript's property accessors – they cannot be statically determined, especially when using the bracket notation. Let's consider the following example:
 
 ```javascript
-const bar = new Foo;
+const bar = new Foo();
 
 bar.methodA();
 bar["methodB"]();
@@ -237,7 +239,7 @@ As you can see, `methodA` and `methodB` can be statically determined as being us
 ```javascript
 import Foo, { methodA, methodB } from "foo";
 
-const bar = new Foo;
+const bar = new Foo();
 methodA.call(bar, "param");
 methodB.call(bar, "param");
 ```
@@ -246,7 +248,7 @@ This doesn't solve cases like `methodD` in the previous example but, at least, c
 
 #### Bind operator proposal
 
->The :: operator creates a bound function such that the left hand side of the operator is bound as the this variable to the target function on the right hand side. By providing syntactic sugar for these use cases we will enable a new class of "virtual method" library, which will have usability advantages over the standard adapter patterns in use today. – [tc39/proposal-bind-operator][2]
+> The :: operator creates a bound function such that the left hand side of the operator is bound as the this variable to the target function on the right hand side. By providing syntactic sugar for these use cases we will enable a new class of "virtual method" library, which will have usability advantages over the standard adapter patterns in use today. – [tc39/proposal-bind-operator][2]
 
 ```javascript
 import Foo, { methodA, methodB } from "foo";
@@ -258,7 +260,7 @@ bar::methodB();
 
 #### Pipeline operator proposal
 
->This proposal introduces a new operator \|\> similar to _F#, OCaml, …, Hack and LiveScript_, as well as UNIX pipes. It's a backwards-compatible way of streamlining chained function calls in a readable, functional manner, and provides a practical alternative to extending built-in prototypes. – [tc39/proposal-pipeline-operator][3]
+> This proposal introduces a new operator \|\> similar to _F#, OCaml, …, Hack and LiveScript_, as well as UNIX pipes. It's a backwards-compatible way of streamlining chained function calls in a readable, functional manner, and provides a practical alternative to extending built-in prototypes. – [tc39/proposal-pipeline-operator][3]
 
 ```javascript
 import Foo, { methodA, methodB } from "foo";

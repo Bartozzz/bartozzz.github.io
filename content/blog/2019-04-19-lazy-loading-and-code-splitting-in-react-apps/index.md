@@ -8,8 +8,9 @@ keywords: ["React"]
 
 Lazy loading is a well-known technique for improving performance and reducing the associated resources costs. It's so effective that it's even [being added to the web standard](https://github.com/whatwg/html/pull/3752) via the `loading="lazy"` attribute. In this article we will learn how to perform lazy ressources loading and code splitting in React.
 
-* Do not remove this line (it will not be displayed)
-{:toc}
+```toc
+# This code block gets replaced with the TOC
+```
 
 > **Note:** at the time of writing this article, a lot of APIs are still in development and are not ready to be used in production.
 
@@ -48,10 +49,10 @@ const Bar = lazy(() => import("./Bar"));
 
 const LazyFooBar = () => (
   <ErrorBoundary>
-    <Suspense maxDuration={1500} fallback={'Loading…'}>
+    <Suspense maxDuration={1500} fallback={"Loading…"}>
       <Foo />
 
-      <Suspense maxDuration={1000} fallback={'Loading…'}>
+      <Suspense maxDuration={1000} fallback={"Loading…"}>
         <Bar />
       </Suspense>
     </Suspense>
@@ -76,9 +77,7 @@ React team is working on an experimental library named [`react-cache`](https://g
 One of `react-cache` use-cases is to suspense rendering on pending requests.
 
 ```javascript
-const FooListResource = unstable_createResource(
-  query => fetchFooList(query)
-);
+const FooListResource = unstable_createResource((query) => fetchFooList(query));
 ```
 
 In our render, we just read the data using the `FooListResource.read`. This method returns the response from `unstable_createResource` Promise factory and tells the nearest parent `React.Suspense` to stop the rendering and display the fallback till the resource isn't ready. The implementation is simple:
@@ -86,17 +85,17 @@ In our render, we just read the data using the `FooListResource.read`. This meth
 ```jsx
 const FooList = () => {
   const response = FooListResource.read({
-    search: "Lorem ipsum dolor."
+    search: "Lorem ipsum dolor.",
   });
 
   return (
     <ul>
-      {response.map(item => (
+      {response.map((item) => (
         <li key={item.id}>{item.text}</li>
       ))}
     </ul>
-  )
-}
+  );
+};
 ```
 
 #### Embedded documents
@@ -105,9 +104,9 @@ You can use `react-cache` to lezy load embedded documents, such as images, video
 
 ```javascript
 const ImageResource = unstable_createResource(
-  src =>
+  (src) =>
     new Promise((resolve, reject) => {
-      const img = new Image;
+      const img = new Image();
       img.src = src;
       img.onload = resolve;
       // img.onerror = reject;
@@ -121,12 +120,11 @@ Now, we need to create an alternative `img` component which will make use of the
 const Img = ({ src, ...props }) => {
   ImageResource.read(src);
 
-  return <img src={src} {...props} />
-}
+  return <img src={src} {...props} />;
+};
 ```
 
 Now, we can create a wrapper which will take care of providing the low-resolution fallback image for us – we just need to wrap the newely created `Img` component with a `React.Suspense` and provide a fallback image, as follows:
-
 
 ```jsx
 function LazyImg = ({ lowResSrc, highResSrc, ...props }) => (
@@ -145,7 +143,6 @@ There's a GitHub project named `the-platform` which turns Web API's into React H
 - [`<Preload>`](https://github.com/palmerhq/the-platform#preload)
 - [`<Stylesheet>`](https://github.com/palmerhq/the-platform#stylesheet)
 
-
 ## Resources
 
 1. https://reactjs.org/docs/code-splitting.html
@@ -154,4 +151,4 @@ There's a GitHub project named `the-platform` which turns Web API's into React H
 4. https://youtube.com/watch?v=SCQgE4mTnjU
 5. https://www.youtube.com/watch?v=ByBPyMBTzM0
 
-*[SPAs]: Single-Page Application: a web application that load once and dynamically update as the response for user interactions.
+\*[SPAs]: Single-Page Application: a web application that load once and dynamically update as the response for user interactions.

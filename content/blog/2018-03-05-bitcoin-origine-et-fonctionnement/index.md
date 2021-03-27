@@ -8,8 +8,9 @@ keywords: ["Bitcoin", "Blockchain", "Cryptocurrency"]
 
 Le Bitcoin est l’une des premières cryptomonnaies utilisant un réseau de type paire-à-paire et des systèmes cryptographiques sophistiqués. Elle est aujourd’hui évaluée à une valeur nette de plus de [185 milliards de dollars][1]. Ce document traitera des origines du Bitcoin, mais aussi de l’implémentation des technologies utilisées dans cette monnaie.
 
-* Do not remove this line (it will not be displayed)
-{:toc}
+```toc
+# This code block gets replaced with the TOC
+```
 
 ## Les origines du Bitcoin
 
@@ -31,7 +32,7 @@ Début 2017, le Japon passe une loi donnant au Bitcoin le statut de devise pouva
 
 Toutefois, plusieurs événements mettant en cause la force du Bitcoin ont eu lieu. Ainsi, en août 2017 le Bitcoin est séparé en deux devises différentes: le Bitcoin (_BTC_) et Bitcoin Cash (_BCH_). _Steam_, _Stripe_ et d’autres entreprises ont annoncé en fin d’année 2017 supprimer graduellement la possibilité d’effectuer des transactions en Bitcoin. Les principales raisons évoquées étant les coûts de transaction de plus en plus élevés et un temps de complétion des transactions beaucoup trop lent, même si la puissance consacrée au minage était de [8000000 tera-hash par seconde][7]:
 
->La puissance globale consacrée aujourd’hui au minage de Bitcoins est de 2250000 pétaflops. C’est plus de 20000 fois la puissance du plus puissant ordinateur du monde (le «Tianhe-2» détenu par la Chine qui espère atteindre en 2015 une puissance de 100 pétaflops) et c’est largement plus de cent fois la puissance cumulée des 500 ordinateurs les plus puissants. – Jean-Paul Delahaye
+> La puissance globale consacrée aujourd’hui au minage de Bitcoins est de 2250000 pétaflops. C’est plus de 20000 fois la puissance du plus puissant ordinateur du monde (le «Tianhe-2» détenu par la Chine qui espère atteindre en 2015 une puissance de 100 pétaflops) et c’est largement plus de cent fois la puissance cumulée des 500 ordinateurs les plus puissants. – Jean-Paul Delahaye
 
 ---
 
@@ -45,7 +46,7 @@ Le Bitcoin est [l’une des premières][10] crypto-monnaies crées. C’est auss
 
 À cette periode, la monnaie virtuelle semblait être une idée abstraite d’Internet. Cela se voyait particulièrement avec les faibles cotations du Bitcoin quand il a fait ses débuts sur le marché boursier de [_MtGox_][12] et ne valait que 0.063 USD par unité. Le Bitcoin était alors la seule monnaie ne pouvant pas être confisquée par les forces d’état (gouvernements, banques, huissiers de justice, etc.). Il fournissait une garantie de possession d’argent qui s'avéra particulièrement utile dans les pays les plus touchés par la crise comme la Grèce.
 
->If people lose faith in a currency, the typical reaction is to start using another one. Traditionally, money has simply flung to the most stable currency, which has typically been the dollar. But Bitcoin has a couple of advantages over old-fashioned cash. The first advantage is that it is not controlled by any central authority. In countries where people are increasingly distrustful of how central banks and governments manage the economy, Bitcoin may seem like a more sensible alternative. ~ [Danny Bradbury][19]
+> If people lose faith in a currency, the typical reaction is to start using another one. Traditionally, money has simply flung to the most stable currency, which has typically been the dollar. But Bitcoin has a couple of advantages over old-fashioned cash. The first advantage is that it is not controlled by any central authority. In countries where people are increasingly distrustful of how central banks and governments manage the economy, Bitcoin may seem like a more sensible alternative. ~ [Danny Bradbury][19]
 
 ### Comparaison avec les monnaies classiques
 
@@ -90,60 +91,63 @@ Une fois qu’un bloc est rempli avec un nombre de transactions suffisant, d’a
 
 {% highlight javascript %}
 class Block {
-  constructor(index, previousHash, data) {
-    // Le numéro du bloc
-    this.index = index;
-    // Transactions
-    this.data = data;
-    // Date de création
-    this.date = new Date();
-    // Le hash du bloc précédent
-    this.prevHash = previousHash;
-  }
+constructor(index, previousHash, data) {
+// Le numéro du bloc
+this.index = index;
+// Transactions
+this.data = data;
+// Date de création
+this.date = new Date();
+// Le hash du bloc précédent
+this.prevHash = previousHash;
+}
 
-  get hash() {
-    return sha256(
-      this.index + this.date + this.prevHash + JSON.stringify(this.data)
-    );
-  }
+get hash() {
+return sha256(
+this.index + this.date + this.prevHash + JSON.stringify(this.data)
+);
+}
 }
 
 class Blockchain {
-  constructor(genesisBlock) {
-    // Le bloc initial, sans référence au bloc précédent
-    this.blockchain = [genesisBlock];
-  }
+constructor(genesisBlock) {
+// Le bloc initial, sans référence au bloc précédent
+this.blockchain = [genesisBlock];
+}
 
-  addBlock(data) {
-    const index    = this.blockchain.length;
-    const oldBlock = this.blockchain[index - 1];
-    const newBlock = new Block(index, oldBlock.hash, data);
+addBlock(data) {
+const index = this.blockchain.length;
+const oldBlock = this.blockchain[index - 1];
+const newBlock = new Block(index, oldBlock.hash, data);
 
     if (this.checkValidity(newBlock, oldBlock)) {
       this.blockchain.push(newBlock);
     }
-  }
 
-  checkValidity(newBlock, oldBlock) {
-    if (newBlock.index !== oldBlock.index + 1)
-      throw new Error("Invalid index");
+}
+
+checkValidity(newBlock, oldBlock) {
+if (newBlock.index !== oldBlock.index + 1)
+throw new Error("Invalid index");
 
     if (newBlock.previousHash !== oldBlock.hash)
       throw new Error("Invalid hash");
 
     return true;
-  }
 
-  checkIntegrality() {
-    for (let i = 1; i < this.blockchain.length; i++) {
-      const prev = this.blockchain[i - 1];
-      const next = this.blockchain[i];
+}
+
+checkIntegrality() {
+for (let i = 1; i < this.blockchain.length; i++) {
+const prev = this.blockchain[i - 1];
+const next = this.blockchain[i];
 
       if (!this.checkValidity(next, prev)) return false;
     }
 
     return true;
-  }
+
+}
 }
 {% endhighlight %}
 
@@ -158,7 +162,7 @@ Il s'agit d'une communication à double-sens: notre système doit envoyer toutes
 
 L'information se propage comme une épidémie dans le réseau en _O(log(n))_. L'implementation de ce protocole est décrite par Robbert van Renesse, Dan Dumitriu, Valient Gough et Chris Thomas dans leur publication [«_Efficient Reconciliation and Flow Control for Anti-Entropy Protocols_»][20]:
 
->With few limitations, updates spread in expected time that grows logarithmic in the number of participating hosts, even in the face of host failures and message loss. The behavior of update propagation is easily modeled with well-known epidemic analysis techniques. As a result, many distributed applications use gossip to contain various inconsistencies.
+> With few limitations, updates spread in expected time that grows logarithmic in the number of participating hosts, even in the face of host failures and message loss. The behavior of update propagation is easily modeled with well-known epidemic analysis techniques. As a result, many distributed applications use gossip to contain various inconsistencies.
 
 ### Transactions
 
@@ -175,6 +179,7 @@ Pour vérifier que c’est bien Jean et Marie qui ont envoyé de l’argent, dan
 #### Vérification de la signature
 
 Nous disposons de 3 nombres:
+
 - q: clé privée, connue par le propriétaire du portefeuille;
 - p: clé publique, utilisée pour effectuer des transactions;
 - h: hash de la transaction;
@@ -195,12 +200,12 @@ Pour vérifier les transactions on utilise les propriétés du système RSA. Il 
 
 {% highlight json %}
 {
-  "receiver": "1HPs4CYgxpR3MP4…kfBciJBfKLUT",
-  "sender": "14uGXpDoZxFsjzT…R4mLi8ay4aAy",
-  "amount": "0.0015",
-  "N": "12S…036",
-  "h": "11bf52e5ef03cb40d7473…5266df0360fcd613fdc6b85",
-  "s": "809…fc4"
+"receiver": "1HPs4CYgxpR3MP4…kfBciJBfKLUT",
+"sender": "14uGXpDoZxFsjzT…R4mLi8ay4aAy",
+"amount": "0.0015",
+"N": "12S…036",
+"h": "11bf52e5ef03cb40d7473…5266df0360fcd613fdc6b85",
+"s": "809…fc4"
 }
 {% endhighlight %}
 
@@ -212,7 +217,7 @@ Pour vérifier les transactions on utilise les propriétés du système RSA. Il 
 2. [”BitPay Signs 1,000 Merchants to Accept Bitcoin Payments” – Brian Browdie][6]
 3. [“Le Bitcoin, première crypto-monnaie” – Jean-Paul Delahaye][7]
 4. [“The price of bitcoin has doubled in two weeks“ – Lucas Matney][8]
-5. [“Why Is Bitcoin's Value So Volatile” –  Jonathan Todd Barker][9]
+5. [“Why Is Bitcoin's Value So Volatile” – Jonathan Todd Barker][9]
 6. [“Terrorist Use of Cyberspace and Cyber Terrorism: New Challenges and Responses” – M.N. Ogun][12]
 7. [“Bitcoin public and private keys” – Prypto][13]
 8. [“How long do Bitcoin transactions take?“ – Steven Buchko][16]
@@ -239,5 +244,5 @@ Pour vérifier les transactions on utilise les propriétés du système RSA. Il 
 [19]: https://thebalance.com/is-bitcoin-the-answer-in-a-financial-crisis-391275 "“Bitcoin and Financial Crisis“ – Danny Bradbury"
 [20]: https://www.cs.cornell.edu/home/rvr/papers/flowgossip.pdf "“Efficient Reconciliation and Flow Control for Anti-Entropy Protocols“ – Robbert van Renesse"
 
-*[hash]: Valeur de sortie d’une fonction de hachage cryptographique, c’est-à-dire une fonction qui à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu'elle est pratiquement impossible à inverser.
-*[RSA]: Le chiffrement RSA (nommé par les initiales de ses trois inventeurs) est un algorithme de cryptographie asymétrique, très utilisé dans le commerce électronique, et plus généralement pour échanger des données confidentielles sur Internet.
+_[hash]: Valeur de sortie d’une fonction de hachage cryptographique, c’est-à-dire une fonction qui à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu'elle est pratiquement impossible à inverser.
+_[RSA]: Le chiffrement RSA (nommé par les initiales de ses trois inventeurs) est un algorithme de cryptographie asymétrique, très utilisé dans le commerce électronique, et plus généralement pour échanger des données confidentielles sur Internet.
