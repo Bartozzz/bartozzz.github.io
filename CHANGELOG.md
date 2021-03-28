@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.4...v1.0.5) (2021-03-28)
+
+
+### Bug Fixes
+
+* prevent keyword text from wrapping ([d796f2d](https://github.com/Bartozzz/bartozzz.github.io/commit/d796f2d66474b17c5c4ed21b1a7b10bd33247f51))
+
 ## [1.0.4](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.3...v1.0.4) (2021-03-28)
 
 
