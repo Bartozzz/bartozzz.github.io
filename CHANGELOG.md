@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.5...v1.0.6) (2021-03-28)
+
+
+### Bug Fixes
+
+* change footer icons color absed on theme ([11b210d](https://github.com/Bartozzz/bartozzz.github.io/commit/11b210d71df7f14344a52fd531016880f49e06b2))
+
 ## [1.0.5](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.4...v1.0.5) (2021-03-28)
 
 
