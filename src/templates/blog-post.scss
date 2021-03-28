@@ -7,6 +7,38 @@
 @import "../styles/mixins/mediaquery.scss";
 
 .post {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @extend %text-heading;
+  }
+
+  h1 {
+    font-size: 3rem;
+
+    @include mediaquery("lg") {
+      font-size: 2rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    line-height: 1.15;
+  }
+
+  h4 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
   &__header {
     margin: var(--ls-xl) 0;
     text-align: center;
@@ -84,17 +116,6 @@
       font-weight: 700;
     }
 
-    em {
-      font-feature-settings: "liga" on, "salt" on;
-    }
-
-    p,
-    ul,
-    dl,
-    ol {
-      font-feature-settings: "kern", "onum", "liga";
-    }
-
     p {
       @extend %text-paragraph;
 
@@ -124,8 +145,6 @@
       margin: var(--ls-sm) 0;
       padding: 0;
 
-      counter-reset: post;
-
       li {
         @extend %text-paragraph;
 
@@ -141,24 +160,27 @@
       }
     }
 
-    blockquote,
-    blockquote p {
-      @extend %text-paragraph;
+    blockquote {
+      $decoration-border-width: 3px;
 
-      font-style: italic;
-      letter-spacing: -0.01em;
-
-      border-left-width: 3px;
+      border-left-width: $decoration-border-width;
       border-left-style: solid;
       border-left-color: var(--text-secondary);
 
-      padding-left: 20px;
-      padding-bottom: 2px;
+      padding-left: calc(var(--ls-xxs) - #{$decoration-border-width});
+      padding-bottom: 3px;
 
-      margin-left: -23px;
+      margin-left: calc(-1 * var(--ls-xxs));
       margin-top: 29px;
 
-      color: var(--text-secondary);
+      &,
+      p {
+        @extend %text-paragraph;
+
+        font-style: italic;
+        letter-spacing: -0.01em;
+        color: var(--text-secondary);
+      }
     }
 
     pre,
@@ -171,22 +193,37 @@
       font-style: normal;
       line-height: 1.5;
 
-      font-feature-settings: "liga" 0;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+      hyphens: none;
+      tab-size: 4;
 
       background-color: var(--background-300);
       color: var(--text-secondary);
+    }
+
+    code {
       border-radius: 5px;
     }
 
     pre {
-      -webkit-overflow-scrolling: touch;
+      min-width: 100%;
 
-      margin: var(--ls-md) 0;
-      padding: var(--ls-xs);
+      margin: var(--ls-md) calc(-1 * var(--ls-xxs));
+      padding: var(--ls-xs) var(--ls-xxs);
 
-      letter-spacing: 0;
-
+      -webkit-overflow-scrolling: auto;
       overflow: auto;
+
+      @include mediaquery("lg") {
+        margin: var(--ls-md) 0;
+        padding: var(--ls-xs);
+
+        border-radius: 5px;
+      }
     }
 
     code {
@@ -232,57 +269,27 @@
 
       text-align: center;
 
-      &:before {
+      &::before {
+        display: inline-block;
+        position: relative;
+        top: -30px;
+
+        margin-left: 0.6em;
+
         font-family: var(--fn-serif);
         font-weight: 400;
         font-style: italic;
         font-size: 28px;
         letter-spacing: 0.6em;
+        color: var(--text-secondary);
 
         content: "...";
-        display: inline-block;
-        margin-left: 0.6em;
-        color: var(--text-secondary);
-        position: relative;
-        top: -30px;
       }
     }
 
     mark {
       background-color: var(--background-100);
     }
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @extend %text-heading;
-  }
-
-  h1 {
-    font-size: 3rem;
-
-    @include mediaquery("lg") {
-      font-size: 2rem;
-    }
-  }
-
-  h2 {
-    font-size: 1.9rem;
-    line-height: 1.1;
-  }
-
-  h3 {
-    font-size: 1.8rem;
-    line-height: 1.15;
-  }
-
-  h4 {
-    font-size: 1.6rem;
-    line-height: 1.2;
   }
 }
 
@@ -300,8 +307,11 @@
 
     &::before {
       display: table-cell;
+
       padding: 0 0.5rem 0 0;
+
       content: counters(toc, ".") ". ";
+      white-space: nowrap;
     }
 
     &,
