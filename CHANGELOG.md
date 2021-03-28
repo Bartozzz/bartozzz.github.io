@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.3...v1.0.4) (2021-03-28)
+
+
+### Bug Fixes
+
+* change toggle to a controlled component ([ff629b2](https://github.com/Bartozzz/bartozzz.github.io/commit/ff629b2d8d6d245532a443b2de1a7518996a5cb5))
+
 ## [1.0.3](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.2...v1.0.3) (2021-03-28)
 
 
