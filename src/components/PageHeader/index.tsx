@@ -15,13 +15,15 @@ declare global {
 }
 
 export function PageHeader() {
-  const [theme, setTheme] = React.useState(window.__theme);
+  const [theme, setTheme] = React.useState("light");
 
   const handleThemeChange = React.useCallback((event) => {
     window.__setPreferredTheme(event.target.checked ? "dark" : "light");
   }, []);
 
   React.useEffect(() => {
+    setTheme(window.__theme);
+
     window.__onThemeChange = () => {
       setTheme(window.__theme);
     };
