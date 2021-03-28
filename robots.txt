@@ -1,2 +1,3 @@
+Sitemap: https://laniewski.me/sitemap.xml
 User-agent: *
 Disallow:
