@@ -23,6 +23,36 @@ export default function HTML(props) {
       </head>
 
       <body {...props.bodyAttributes} className="light">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.__theme = "light";
+                window.__onThemeChange = function onThemeChange() {};
+
+                function setTheme(newTheme) {
+                  window.__theme = newTheme;
+                  preferredTheme = newTheme;
+                  document.body.className = newTheme;
+                  window.__onThemeChange(newTheme);
+                }
+
+                window.__setPreferredTheme = function setPreferredTheme(newTheme) {
+                  setTheme(newTheme);
+                  localStorage.setItem('theme', newTheme);
+                }
+
+                const preferredTheme = localStorage.getItem('theme');
+                const prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+                prefersDarkQuery.addListener(function (event) {
+                  window.__setPreferredTheme(event.matches ? 'dark' : 'light')
+                });
+
+                setTheme(preferredTheme || (prefersDarkQuery.matches ? 'dark' : 'light'));
+            `,
+          }}
+        />
+
         {props.preBodyComponents}
 
         <div

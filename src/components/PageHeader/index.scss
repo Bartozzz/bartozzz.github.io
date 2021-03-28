@@ -7,7 +7,8 @@
   height: var(--ls-lg);
 
   background-color: rgba(var(--background-100), 0.85);
-  backdrop-filter: saturate(200%) blur(5px);
+  box-shadow: 0 0 10px -2px var(--background-100);
+  backdrop-filter: blur(5px);
 
   z-index: 4;
 }

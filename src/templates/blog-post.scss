@@ -10,18 +10,21 @@
   &__header {
     margin: var(--ls-xl) 0;
     text-align: center;
+
+    color: var(--text-primary);
   }
 
   &__content {
+    @extend %text-word-wrap;
+    @extend %text-paragraph;
+    @extend %prefix-headings;
+
     max-width: 850px;
 
     margin-left: auto;
     margin-right: auto;
-  }
 
-  &__content {
-    @extend %text-paragraph;
-    @extend %prefix-headings;
+    color: var(--text-primary);
 
     details {
       summary {
@@ -176,11 +179,12 @@
     }
 
     pre {
+      -webkit-overflow-scrolling: touch;
+
       margin: var(--ls-md) 0;
-      padding: 1.5rem;
+      padding: var(--ls-xs);
 
       letter-spacing: 0;
-      white-space: pre-wrap;
 
       overflow: auto;
     }
@@ -198,6 +202,18 @@
 
       .string {
         color: var(--highlight-literal);
+      }
+
+      .gatsby-highlight-code-line {
+        background-color: var(--background-500);
+        display: block;
+
+        margin-right: calc(-1 * var(--ls-xs));
+        margin-left: calc(-1 * var(--ls-xs));
+
+        padding-right: 1em;
+        padding-left: 1.25em;
+        border-left: 0.25em solid var(--primary-500);
       }
     }
 

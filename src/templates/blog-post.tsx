@@ -1,7 +1,7 @@
 import "./blog-post.scss";
 
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
@@ -9,7 +9,6 @@ import { Content } from "../components/Content";
 
 export function BlogPostTemplate({ data }) {
   const post = data.markdownRemark;
-  const { previous, next } = data;
 
   return (
     <Layout>
@@ -36,6 +35,7 @@ export function BlogPostTemplate({ data }) {
           />
         </article>
 
+        {/*
         <nav className="blog-post-nav">
           <ul
             style={{
@@ -62,6 +62,7 @@ export function BlogPostTemplate({ data }) {
             </li>
           </ul>
         </nav>
+        */}
       </Content>
     </Layout>
   );

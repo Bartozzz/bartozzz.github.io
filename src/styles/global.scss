@@ -1,5 +1,5 @@
 body {
-  background-color: var(--background);
+  background-color: var(--background-100);
   font-family: var(--fn-main);
   font-size: var(--fs-0);
 }
@@ -32,6 +32,27 @@ body {
   --ls-lg: 64px;
   --ls-xl: 96px;
   --ls-xxl: 160px;
+}
+
+body.dark {
+  $shade-primary: 266 48%;
+
+  --background-100: #101011;
+  --background-300: #1b1b1d;
+  --background-500: #343434;
+
+  --primary-100: hsl(#{$shade-primary} 15%);
+  --primary-300: hsl(#{$shade-primary} 35%);
+  --primary-500: hsl(#{$shade-primary} 50%);
+  --primary-700: hsl(#{$shade-primary} 75%);
+  --primary-900: hsl(#{$shade-primary} 96%);
+
+  --highlight-keyword: var(--primary-500);
+  --highlight-comment: green;
+  --highlight-literal: #a31515;
+
+  --text-primary: #d2d2d2;
+  --text-secondary: #9f9f9f;
 }
 
 body.light {

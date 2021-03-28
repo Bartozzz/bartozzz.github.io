@@ -29,6 +29,7 @@
   font-size: 65px;
   line-height: 65px;
   letter-spacing: -0.003em;
+  color: var(--text-primary);
 
   @include mediaquery("lg") {
     font-size: 83px;
@@ -41,6 +42,7 @@
 
   font-size: 18px;
   letter-spacing: -0.005em;
+  color: var(--text-primary);
 
   @include mediaquery("lg") {
     font-size: 16px;
