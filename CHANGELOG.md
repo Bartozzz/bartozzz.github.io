@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.1...v1.0.2) (2021-03-28)
+
+
+### Bug Fixes
+
+* build on Node 14 LTS ([b4dcd34](https://github.com/Bartozzz/bartozzz.github.io/commit/b4dcd3498f79688d67306a30570eca8ff402e9cb))
+
 ## [1.0.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.0...v1.0.1) (2021-03-28)
 
 
