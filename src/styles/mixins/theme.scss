@@ -1,0 +1,11 @@
+@mixin theme($theme) {
+  $themes: "dark" "light";
+
+  @if index($themes, $theme) != null {
+    .#{$theme} {
+      @content;
+    }
+  } @else {
+    @error "ERROR: Theme '#{$theme}' is not defined";
+  }
+}

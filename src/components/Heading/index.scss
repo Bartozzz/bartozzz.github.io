@@ -1,0 +1,33 @@
+.heading__wrapper {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  text-align: center;
+}
+
+.heading__text {
+  max-width: 460px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  color: var(--text-primary);
+
+  &--h2 {
+    margin-top: 0;
+    margin-bottom: var(--ls-xxs);
+
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  &--h3 {
+    margin-bottom: var(--ls-lg);
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+}

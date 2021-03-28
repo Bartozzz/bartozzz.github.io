@@ -1,0 +1,18 @@
+@import "../mixins/mediaquery.scss";
+
+.repositories {
+  display: grid;
+
+  column-gap: var(--ls-xxs);
+  row-gap: 1em;
+
+  padding: 0 0 var(--ls-xl) 0;
+
+  @include mediaquery("sm") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mediaquery("xl") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,6 +1,0 @@
-@mixin transparent($color: white) {
-  background-color: rgba($color, .85);
-
-  backdrop-filter: saturate(200%) blur(5px);
-  -webkit-backdrop-filter: saturate(200%) blur(5px);
-}

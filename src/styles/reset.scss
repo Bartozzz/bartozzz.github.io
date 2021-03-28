@@ -1,0 +1,31 @@
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+  outline: none;
+}
+
+body,
+html {
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+
+  min-width: 320px;
+  height: 100%;
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+html, a, p, li, code, h1, h2, h3, h4, h5, h6 {
+	text-rendering: optimizeLegibility;
+	font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: "dlig", "liga", "lnum", "kern";
+}

@@ -1,9 +1,0 @@
-%text-header {
-  @extend %text-rendering;
-
-  font-feature-settings: "dlig", "liga", "lnum", "kern";
-  font-family: $font-head;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: -.02em;
-}
