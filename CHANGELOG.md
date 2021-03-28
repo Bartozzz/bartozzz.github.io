@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.6...v1.1.0) (2021-03-28)
+
+
+### Features
+
+* add Gatsby sitemap plugin ([8caa785](https://github.com/Bartozzz/bartozzz.github.io/commit/8caa78548d814d4d44da9fc6945a63d21eb2be7f))
+
 ## [1.0.6](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.5...v1.0.6) (2021-03-28)
 
 
