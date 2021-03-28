@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.2...v1.0.3) (2021-03-28)
+
+
+### Bug Fixes
+
+* assignment to constant variable issue on theme change ([40ddd4e](https://github.com/Bartozzz/bartozzz.github.io/commit/40ddd4e4ccb0fd0a1c227b3dec50933ca9e72844))
+
 ## [1.0.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.1...v1.0.2) (2021-03-28)
 
 
