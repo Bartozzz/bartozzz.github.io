@@ -48,6 +48,8 @@
   position: relative;
   width: 22px;
 
+  fill: var(--text-primary);
+
   &--linkedin {
     top: -1px;
     width: 20px;
@@ -74,8 +76,9 @@
 .footer__contact-icon {
   position: relative;
   top: 4px;
-
   width: 22px;
+
+  fill: var(--text-primary);
 
   @include mediaquery("xxs") {
     display: none;
