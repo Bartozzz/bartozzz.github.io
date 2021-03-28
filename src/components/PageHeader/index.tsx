@@ -62,7 +62,7 @@ export function PageHeader() {
         <li className="header__item">
           <Toggle
             aria-label="Toggle theme"
-            defaultChecked={theme === "dark"}
+            checked={theme === "dark"}
             onChange={handleThemeChange}
             icons={false}
           />
