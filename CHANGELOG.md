@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.0...v1.0.1) (2021-03-28)
+
+
+### Bug Fixes
+
+* fix accessing window on build-time ([c2453a3](https://github.com/Bartozzz/bartozzz.github.io/commit/c2453a33d29128381e47499aded1b206e9a93748))
+
 # 1.0.0 (2021-03-28)
 
 
