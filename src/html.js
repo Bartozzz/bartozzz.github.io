@@ -41,8 +41,8 @@ export default function HTML(props) {
                   localStorage.setItem('theme', newTheme);
                 }
 
-                const preferredTheme = localStorage.getItem('theme');
-                const prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                var preferredTheme = localStorage.getItem('theme');
+                var prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
                 prefersDarkQuery.addListener(function (event) {
                   window.__setPreferredTheme(event.matches ? 'dark' : 'light')
