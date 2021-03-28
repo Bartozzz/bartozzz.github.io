@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.1.0...v1.1.1) (2021-03-28)
+
+
+### Bug Fixes
+
+* fix code overflow styles on blog posts ([db20099](https://github.com/Bartozzz/bartozzz.github.io/commit/db20099cd6bdd8944f64d7d12a8303b8dd61276c))
+
 # [1.1.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.0.6...v1.1.0) (2021-03-28)
 
 
