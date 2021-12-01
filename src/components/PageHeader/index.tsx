@@ -15,7 +15,7 @@ declare global {
 }
 
 export function PageHeader() {
-  const [theme, setTheme] = React.useState("light");
+  const [theme, setTheme] = React.useState(null);
 
   const handleThemeChange = React.useCallback((event) => {
     window.__setPreferredTheme(event.target.checked ? "dark" : "light");
@@ -59,14 +59,16 @@ export function PageHeader() {
           </a>
         </li>
 
-        <li className="header__item">
-          <Toggle
-            aria-label="Toggle theme"
-            checked={theme === "dark"}
-            onChange={handleThemeChange}
-            icons={false}
-          />
-        </li>
+        {theme !== null ? (
+          <li className="header__item">
+            <Toggle
+              aria-label="Toggle theme"
+              checked={theme === "dark"}
+              onChange={handleThemeChange}
+              icons={false}
+            />
+          </li>
+        ) : null}
       </ul>
     </nav>
   );
