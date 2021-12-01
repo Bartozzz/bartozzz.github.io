@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.1.1...v1.1.2) (2021-12-01)
+
+
+### Bug Fixes
+
+* prevent blinking theme toggle ([#7](https://github.com/Bartozzz/bartozzz.github.io/issues/7)) ([e554f4d](https://github.com/Bartozzz/bartozzz.github.io/commit/e554f4d8e0a5458c7d61d269d57e49388ab6703f))
+
 ## [1.1.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.1.0...v1.1.1) (2021-03-28)
 
 
