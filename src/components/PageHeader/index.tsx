@@ -3,31 +3,17 @@ import "./index.scss";
 import React from "react";
 import { Link } from "gatsby";
 import { Toggle } from "../Toggle";
-
-declare global {
-  type Theme = "dark" | "light";
-
-  interface Window {
-    __theme: Theme;
-    __setPreferredTheme: (theme: Theme) => void;
-    __onThemeChange: () => void;
-  }
-}
+import { useTheme } from "../../hooks/useTheme";
 
 export function PageHeader() {
-  const [theme, setTheme] = React.useState(null);
+  const [theme, setTheme] = useTheme();
 
-  const handleThemeChange = React.useCallback((event) => {
-    window.__setPreferredTheme(event.target.checked ? "dark" : "light");
-  }, []);
-
-  React.useEffect(() => {
-    setTheme(window.__theme);
-
-    window.__onThemeChange = () => {
-      setTheme(window.__theme);
-    };
-  }, []);
+  const handleThemeChange = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setTheme(event.target.checked ? "dark" : "light");
+    },
+    [setTheme]
+  );
 
   return (
     <nav
@@ -37,7 +23,7 @@ export function PageHeader() {
     >
       <ul className="header__content">
         <li className="header__item header__item--logo">
-          <Link to="/" rel="index" title="Go to main page">
+          <Link to="/" title="Go to main page">
             Łanek
           </Link>
         </li>
@@ -68,7 +54,11 @@ export function PageHeader() {
               icons={false}
             />
           </li>
-        ) : null}
+        ) : (
+          <li className="header__item">
+            <div className="header__item--toggle-placeholder" />
+          </li>
+        )}
       </ul>
     </nav>
   );

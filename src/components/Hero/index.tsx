@@ -1,7 +1,5 @@
 import "./index.scss";
 
-import React from "react";
-
 export function calculateAge(birthday: Date) {
   const ageDiff = Date.now() - birthday.getTime();
   const ageDate = new Date(ageDiff);
@@ -25,8 +23,6 @@ export function Hero() {
             Developer & Designer<span>, {age} years old,</span> from Poland
           </h2>
         </header>
-
-        <div />
       </div>
     </article>
   );

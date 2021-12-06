@@ -4,7 +4,7 @@
   display: grid;
 
   column-gap: var(--ls-xxs);
-  row-gap: 1em;
+  row-gap: var(--ls-xxs);
 
   padding: 0 0 var(--ls-xl) 0;
 

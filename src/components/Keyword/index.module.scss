@@ -1,14 +1,14 @@
 .keyword {
   display: inline-block;
 
-  padding: var(--cs-xs) var(--cs-sm);
-  margin: 0 var(--cs-xxs);
+  padding: var(--cs-xs) var(--cs-md);
+  margin: 0 var(--cs-xxs) var(--cs-xs);
 
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
 
-  color: var(--primary-700);
-  background-color: var(--primary-100);
-  border-radius: 3px;
+  color: var(--primary-100);
+  background-color: var(--primary-500);
+  border-radius: var(--br-md);
 
   white-space: nowrap;
 }

@@ -1,16 +1,35 @@
+@import "../../styles/mixins/theme.scss";
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
 
   width: 100%;
-  height: var(--ls-lg);
+  height: calc(var(--vr-lh) * 3);
 
-  background-color: rgba(var(--background-100), 0.85);
-  box-shadow: 0 0 10px -2px var(--background-100);
-  backdrop-filter: blur(5px);
+  background-color: hsla(var(--background-100-shade) / 0.85);
+  box-shadow: 0 0 8px -3px var(--background-100);
 
   z-index: 4;
+}
+
+@supports (backdrop-filter: none) {
+  .header {
+    backdrop-filter: blur(5px);
+  }
+
+  @include theme("dark") {
+    .header {
+      background-color: hsla(var(--background-100-shade) / 0.75);
+    }
+  }
+
+  @include theme("light") {
+    .header {
+      background-color: hsla(var(--background-100-shade) / 0.5);
+    }
+  }
 }
 
 .header__content {
@@ -21,7 +40,7 @@
   padding: 0 var(--cs-lg);
 
   height: 100%;
-  max-width: 1250px;
+  max-width: var(--mw-md);
 
   list-style: none;
 }
@@ -30,7 +49,7 @@
   font-family: var(--fn-main);
   font-weight: 500;
 
-  padding: 0 0 0 var(--cs-xl);
+  padding: 0 0 0 var(--cs-xxl);
 
   a {
     color: var(--text-primary);
@@ -42,5 +61,10 @@
   padding: 0;
 
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: var(--fs-lg);
+}
+
+.header__item--toggle-placeholder {
+  width: 40px;
+  height: 24px;
 }

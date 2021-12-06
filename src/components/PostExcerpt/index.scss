@@ -18,14 +18,11 @@
   font-family: var(--fn-serif);
   line-height: 1.5;
   letter-spacing: -0.003em;
-
   color: var(--text-secondary);
 }
 
 .post-excerpt__date {
-  margin: 0;
-
   font-family: var(--fn-mono);
-  font-size: 14px;
+  font-size: var(--fs-sm);
   color: var(--text-secondary);
 }

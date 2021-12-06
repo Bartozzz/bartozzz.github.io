@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 export default function HTML(props) {
@@ -19,6 +18,9 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no, minimal-ui"
         />
 
+        <link rel="preload" href="/discussion-dark.css" as="style" />
+        <link rel="preload" href="/discussion-light.css" as="style" />
+
         {props.headComponents}
       </head>
 
@@ -26,29 +28,29 @@ export default function HTML(props) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-                window.__theme = "light";
-                window.__onThemeChange = function onThemeChange() {};
+              window.__theme = "light";
+              window.__onThemeChange = function onThemeChange() {};
 
-                function setTheme(newTheme) {
-                  window.__theme = newTheme;
-                  preferredTheme = newTheme;
-                  document.body.className = newTheme;
-                  window.__onThemeChange(newTheme);
-                }
+              function setTheme(newTheme) {
+                window.__theme = newTheme;
+                preferredTheme = newTheme;
+                document.body.className = newTheme;
+                window.__onThemeChange(newTheme);
+              }
 
-                window.__setPreferredTheme = function setPreferredTheme(newTheme) {
-                  setTheme(newTheme);
-                  localStorage.setItem('theme', newTheme);
-                }
+              window.__setPreferredTheme = function setPreferredTheme(newTheme) {
+                setTheme(newTheme);
+                localStorage.setItem('theme', newTheme);
+              }
 
-                var preferredTheme = localStorage.getItem('theme');
-                var prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+              var preferredTheme = localStorage.getItem('theme');
+              var prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-                prefersDarkQuery.addListener(function (event) {
-                  window.__setPreferredTheme(event.matches ? 'dark' : 'light')
-                });
+              prefersDarkQuery.addListener(function (event) {
+                window.__setPreferredTheme(event.matches ? 'dark' : 'light')
+              });
 
-                setTheme(preferredTheme || (prefersDarkQuery.matches ? 'dark' : 'light'));
+              setTheme(preferredTheme || (prefersDarkQuery.matches ? 'dark' : 'light'));
             `,
           }}
         />

@@ -1,6 +1,6 @@
 import "./index.scss";
 
-import React from "react";
+import * as React from "react";
 import { Keyword } from "../Keyword";
 
 interface Props {
@@ -48,11 +48,6 @@ export function Repository({
         <p className="repository__description" itemProp="about">
           {description}
         </p>
-
-        <ul className="repository__meta" aria-hidden="true">
-          <li data-repo-stars></li>
-          <li data-repo-forks></li>
-        </ul>
 
         <aside itemProp="keywords">
           {keywords.map((keyword) => (

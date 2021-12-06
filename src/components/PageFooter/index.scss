@@ -1,18 +1,16 @@
 @import "../../styles/mixins/mediaquery.scss";
 
 .footer {
-  position: relative;
-
   margin: 0 auto;
-  padding: var(--ls-lg) var(--ls-xxs);
+  padding: var(--ls-lg) 0;
 
-  max-width: 1250px;
+  max-width: var(--mw-md);
   width: 100%;
 }
 
 .footer__menu {
   padding: 0;
-  margin: 0 0 var(--cs-xl);
+  margin: 0 0 var(--cs-xxl);
 }
 
 .footer__item {
@@ -20,8 +18,7 @@
   margin: 0 var(--cs-md);
 
   font-family: var(--fn-mono);
-  font-size: 16px;
-  line-height: 32px;
+  line-height: 2;
 
   @include mediaquery("sm") {
     margin: 0 var(--cs-lg);
@@ -45,18 +42,12 @@
 }
 
 .footer__item-icon {
-  position: relative;
+  vertical-align: middle;
   width: 22px;
 
   fill: var(--text-primary);
 
-  &--linkedin {
-    top: -1px;
-    width: 20px;
-  }
-
   &--youtube {
-    top: 2px;
     width: 26px;
   }
 
@@ -65,27 +56,7 @@
   }
 }
 
-.footer__contact-text {
-  display: none;
-
-  @include mediaquery("xxs") {
-    display: initial;
-  }
-}
-
-.footer__contact-icon {
-  position: relative;
-  top: 4px;
-  width: 22px;
-
-  fill: var(--text-primary);
-
-  @include mediaquery("xxs") {
-    display: none;
-  }
-}
-
 .footer__source {
-  margin: var(--cs-xl) var(--cs-lg) 0;
+  margin: var(--cs-xxl) var(--cs-lg) 0;
   color: var(--text-primary);
 }

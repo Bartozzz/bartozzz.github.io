@@ -1,14 +1,12 @@
 import "./index.scss";
 import { FooterDataQuery } from "../../../graphql-types";
 
-import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import DribbbleIcon from "../../assets/icons/dribbble.svg";
 import GitHubIcon from "../../assets/icons/github.svg";
 import LinkedInIcon from "../../assets/icons/linkedin.svg";
 import YouTubeIcon from "../../assets/icons/youtube.svg";
-import MailIcon from "../../assets/icons/mail.svg";
 
 export function socialKeyToIcon(key: string) {
   switch (key) {
@@ -43,7 +41,6 @@ export function PageFooter() {
             contact
             social {
               GitHub
-              Dribbble
               LinkedIn
               YouTube
             }
@@ -56,7 +53,7 @@ export function PageFooter() {
   return (
     <footer className="footer" itemType="http://schema.org/WPFooter" itemScope>
       <nav typeof="http://schema.org/ContactPoint" itemScope>
-        <ul className="footer__menu">
+        <ul className="list footer__menu">
           {Object.entries(site.siteMetadata.social).map(([name, link]) => (
             <li key={name} className="footer__item">
               <a
@@ -75,11 +72,10 @@ export function PageFooter() {
             <a
               target="_blank"
               itemProp="email"
-              rel="noopener noreferrer"
+              rel="author noopener noreferrer"
               href={`mailto:${site.siteMetadata.contact}`}
             >
-              <MailIcon className="footer__contact-icon" />
-              <span className="footer__contact-text">Get in touch</span>
+              Get in touch
             </a>
           </li>
         </ul>

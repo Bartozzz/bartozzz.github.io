@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
+        allMdx(
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
         ) {
@@ -34,7 +34,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return;
   }
 
-  const posts = result.data.allMarkdownRemark.nodes;
+  const posts = result.data.allMdx.nodes;
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -62,7 +62,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode });
 
     createNodeField({
@@ -91,19 +91,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       YouTube: String
     }
 
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-      fields: Fields
+    type Mdx implements Node {
+      frontmatter: MdxFrontmatter
     }
 
-    type Frontmatter {
+    type MdxFrontmatter {
       title: String
       description: String
       date: Date @dateformat
-    }
-
-    type Fields {
-      slug: String
     }
   `);
 };

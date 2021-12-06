@@ -1,19 +1,44 @@
+// @import "./mixins/vertical-rhythm.scss";
+// $vr-font-size: 100%; // ~16px
+// $vr-line-height: 1.5; // ~24px
+// $vr-modular-scale: minor-third;
+// $vr-grid-color: rgb(233, 30, 99);
+// $vr-breakpoints: false;
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+  // @include vr-grid();
+}
+
 body {
   background-color: var(--background-100);
   font-family: var(--fn-main);
-  font-size: var(--fs-0);
+  font-size: var(--vr-fs);
 }
 
 :root {
   /* Fonts: */
   --fn-main: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif;
+  --fn-head: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    var(--fn-main);
   --fn-mono: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
     monospace;
   --fn-serif: "pt serif", Georgia, Cambria, times new roman, Times, serif;
 
   /* Font sizes: */
-  --fs-0: 16px;
+  --fs-xs: 1.2rem;
+  --fs-sm: 1.4rem;
+  --fs-md: 1.6rem;
+  --fs-lg: 2rem;
+  --fs-xl: 3.2rem;
+  --fs-xxl: 4rem;
+
+  --vr-fs: 1.6rem;
+  --vr-lh: calc(var(--vr-fs) * 1.5);
+
+  /* Border radius */
+  --br-md: 15px;
 
   /* Component spacings: */
   --cs-xxs: 2px;
@@ -21,8 +46,8 @@ body {
   --cs-sm: 8px;
   --cs-md: 12px;
   --cs-lg: 16px;
-  --cs-xl: 24px;
-  --cs-xxl: 32px;
+  --cs-xl: 20px;
+  --cs-xxl: 28px;
 
   /* Layout spacings: */
   --ls-xxs: 16px;
@@ -32,48 +57,100 @@ body {
   --ls-lg: 64px;
   --ls-xl: 96px;
   --ls-xxl: 160px;
+
+  /* Max widths: */
+  --mw-sm: 850px;
+  --mw-md: 1250px;
 }
 
 body.dark {
-  $shade-primary: 266 48%;
+  --text-primary: hsl(0 0% 91%);
+  --text-secondary: hsl(0 0% 62%);
 
-  --background-100: #101011;
-  --background-300: #1b1b1d;
-  --background-500: #343434;
+  --background-100-shade: 0 0% 7%;
+  --background-100: hsl(var(--background-100-shade));
+  --background-300: hsl(0 0% 7%);
+  --background-500: hsl(0 0% 15%);
 
-  --primary-100: hsl(#{$shade-primary} 15%);
-  --primary-300: hsl(#{$shade-primary} 35%);
-  --primary-500: hsl(#{$shade-primary} 50%);
-  --primary-700: hsl(#{$shade-primary} 75%);
-  --primary-900: hsl(#{$shade-primary} 96%);
+  --primary-100: hsl(266 48% 15%);
+  --primary-300: hsl(266 48% 35%);
+  --primary-500: hsl(266 48% 50%);
 
-  --highlight-keyword: var(--primary-500);
-  --highlight-comment: green;
-  --highlight-literal: #a31515;
-
-  --text-primary: #d2d2d2;
-  --text-secondary: #9f9f9f;
+  --color-prettylights-syntax-comment: #768390;
+  --color-prettylights-syntax-constant: #6cb6ff;
+  --color-prettylights-syntax-entity: #dcbdfb;
+  --color-prettylights-syntax-storage-modifier-import: #adbac7;
+  --color-prettylights-syntax-entity-tag: #8ddb8c;
+  --color-prettylights-syntax-keyword: #f47067;
+  --color-prettylights-syntax-string: #96d0ff;
+  --color-prettylights-syntax-variable: #f69d50;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #e5534b;
+  --color-prettylights-syntax-invalid-illegal-text: #cdd9e5;
+  --color-prettylights-syntax-invalid-illegal-bg: #922323;
+  --color-prettylights-syntax-carriage-return-text: #cdd9e5;
+  --color-prettylights-syntax-carriage-return-bg: #ad2e2c;
+  --color-prettylights-syntax-string-regexp: #8ddb8c;
+  --color-prettylights-syntax-markup-list: #eac55f;
+  --color-prettylights-syntax-markup-heading: #316dca;
+  --color-prettylights-syntax-markup-italic: #adbac7;
+  --color-prettylights-syntax-markup-bold: #adbac7;
+  --color-prettylights-syntax-markup-deleted-text: #ffd8d3;
+  --color-prettylights-syntax-markup-deleted-bg: #78191b;
+  --color-prettylights-syntax-markup-inserted-text: #b4f1b4;
+  --color-prettylights-syntax-markup-inserted-bg: #1b4721;
+  --color-prettylights-syntax-markup-changed-text: #ffddb0;
+  --color-prettylights-syntax-markup-changed-bg: #682d0f;
+  --color-prettylights-syntax-markup-ignored-text: #adbac7;
+  --color-prettylights-syntax-markup-ignored-bg: #255ab2;
+  --color-prettylights-syntax-meta-diff-range: #dcbdfb;
+  --color-prettylights-syntax-brackethighlighter-angle: #768390;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #545d68;
+  --color-prettylights-syntax-constant-other-reference-link: #96d0ff;
 }
 
 body.light {
-  $shade-primary: 30 98%;
+  --text-primary: hsl(0 0% 0%);
+  --text-secondary: hsl(0 0% 25%);
 
-  --background-100: #ffffff;
-  --background-300: #f8f8f8;
-  --background-500: #e0e0e0;
+  --background-100-shade: 0 0% 100%;
+  --background-100: hsl(var(--background-100-shade));
+  --background-300: hsl(0 0% 97%);
+  --background-500: hsl(0 0% 88%);
 
-  --primary-100: hsl(#{$shade-primary} 96%);
-  --primary-300: hsl(#{$shade-primary} 75%);
-  --primary-500: hsl(#{$shade-primary} 50%);
-  --primary-700: hsl(#{$shade-primary} 35%);
-  --primary-900: hsl(#{$shade-primary} 15%);
+  --primary-100: hsl(33 98% 96%);
+  --primary-300: hsl(33 98% 75%);
+  --primary-500: hsl(33 98% 50%);
 
-  --highlight-keyword: #fd8103;
-  --highlight-comment: green;
-  --highlight-literal: #a31515;
-
-  --text-primary: #000;
-  --text-secondary: #404040;
+  --color-prettylights-syntax-comment: #6e7781;
+  --color-prettylights-syntax-constant: #0550ae;
+  --color-prettylights-syntax-entity: #8250df;
+  --color-prettylights-syntax-storage-modifier-import: #24292f;
+  --color-prettylights-syntax-entity-tag: #116329;
+  --color-prettylights-syntax-keyword: #cf222e;
+  --color-prettylights-syntax-string: #0a3069;
+  --color-prettylights-syntax-variable: #953800;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+  --color-prettylights-syntax-carriage-return-bg: #cf222e;
+  --color-prettylights-syntax-string-regexp: #116329;
+  --color-prettylights-syntax-markup-list: #3b2300;
+  --color-prettylights-syntax-markup-heading: #0550ae;
+  --color-prettylights-syntax-markup-italic: #24292f;
+  --color-prettylights-syntax-markup-bold: #24292f;
+  --color-prettylights-syntax-markup-deleted-text: #82071e;
+  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+  --color-prettylights-syntax-markup-inserted-text: #116329;
+  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+  --color-prettylights-syntax-markup-changed-text: #953800;
+  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
+  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+  --color-prettylights-syntax-meta-diff-range: #8250df;
+  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
+  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
 }
 
 a {

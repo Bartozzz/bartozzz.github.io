@@ -8,10 +8,6 @@ keywords: ["React"]
 
 Lazy loading is a well-known technique for improving performance and reducing the associated resources costs. It's so effective that it's even [being added to the web standard](https://github.com/whatwg/html/pull/3752) via the `loading="lazy"` attribute. In this article we will learn how to perform lazy ressources loading and code splitting in React.
 
-```toc
-# This code block gets replaced with the TOC
-```
-
 > **Note:** at the time of writing this article, a lot of APIs are still in development and are not ready to be used in production.
 
 ## Glossary

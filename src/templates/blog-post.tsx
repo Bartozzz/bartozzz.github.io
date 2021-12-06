@@ -1,14 +1,15 @@
 import "./blog-post.scss";
 
-import React from "react";
 import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { Content } from "../components/Content";
+import { Discussion } from "../components/Discussion";
 
 export function BlogPostTemplate({ data }) {
-  const post = data.markdownRemark;
+  const post = data.mdx;
 
   return (
     <Layout>
@@ -28,41 +29,12 @@ export function BlogPostTemplate({ data }) {
             <p>{post.frontmatter.date}</p>
           </header>
 
-          <section
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-            className="post__content"
-          />
+          <section itemProp="articleBody" className="post__content">
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </section>
         </article>
 
-        {/*
-        <nav className="blog-post-nav">
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
-        */}
+        <Discussion />
       </Content>
     </Layout>
   );
@@ -71,40 +43,19 @@ export function BlogPostTemplate({ data }) {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
+  query BlogPostBySlug($id: String!) {
     site {
       siteMetadata {
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        description
-      }
-    }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-    next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
       }
     }
   }

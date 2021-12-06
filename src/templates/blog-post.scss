@@ -17,25 +17,21 @@
   }
 
   h1 {
-    font-size: 3rem;
-
-    @include mediaquery("lg") {
-      font-size: 2rem;
-    }
+    font-size: var(--fs-xxl);
   }
 
   h2 {
-    font-size: 1.9rem;
+    font-size: var(--fs-xl);
     line-height: 1.1;
   }
 
   h3 {
-    font-size: 1.8rem;
+    font-size: var(--fs-lg);
     line-height: 1.15;
   }
 
   h4 {
-    font-size: 1.6rem;
+    font-size: var(--fs-lg);
     line-height: 1.2;
   }
 
@@ -51,7 +47,7 @@
     @extend %text-paragraph;
     @extend %prefix-headings;
 
-    max-width: 850px;
+    max-width: var(--mw-sm);
 
     margin-left: auto;
     margin-right: auto;
@@ -188,7 +184,7 @@
       @extend %text-rendering;
 
       font-family: var(--fn-mono);
-      font-size: 18px;
+      font-size: var(--fs-md);
       font-weight: 400;
       font-style: normal;
       line-height: 1.5;
@@ -206,7 +202,7 @@
     }
 
     code {
-      border-radius: 5px;
+      border-radius: var(--br-md);
     }
 
     pre {
@@ -222,23 +218,64 @@
         margin: var(--ls-md) 0;
         padding: var(--ls-xs);
 
-        border-radius: 5px;
+        border-radius: var(--br-md);
       }
     }
 
     code {
       letter-spacing: -0.005em;
 
-      .keyword {
-        color: var(--highlight-keyword);
-      }
-
       .comment {
-        color: var(--highlight-comment);
+        color: var(--color-prettylights-syntax-comment);
       }
-
+      .constant {
+        color: var(--color-prettylights-syntax-constant);
+      }
+      .function {
+        color: var(--color-prettylights-syntax-entity);
+      }
+      .keyword {
+        color: var(--color-prettylights-syntax-keyword);
+      }
       .string {
-        color: var(--highlight-literal);
+        color: var(--color-prettylights-syntax-string);
+      }
+      .number {
+        color: var(--color-prettylights-syntax-constant);
+      }
+      .variable {
+        color: var(--color-prettylights-syntax-variable);
+      }
+      .operator {
+        color: var(--color-prettylights-syntax-constant);
+      }
+      .class-name {
+        color: var(--color-prettylights-syntax-storage-modifier-import);
+      }
+      .attr-name {
+        color: var(--color-prettylights-syntax-constant);
+      }
+      // JSX tag names:
+      .tag > .tag {
+        color: var(--color-prettylights-syntax-entity-tag);
+      }
+      // JSX tag brackets:
+      .tag > .tag .punctuation,
+      .tag > .punctuation:last-child {
+        color: var(--color-prettylights-syntax-constant);
+      }
+      // Git diff:
+      .deleted {
+        background-color: var(--color-prettylights-syntax-markup-deleted-bg);
+        color: var(--color-prettylights-syntax-markup-deleted-text);
+      }
+      .inserted {
+        background-color: var(--color-prettylights-syntax-markup-inserted-bg);
+        color: var(--color-prettylights-syntax-markup-inserted-text);
+      }
+      // JSON:
+      .property {
+        color: var(--color-prettylights-syntax-entity-tag);
       }
 
       .gatsby-highlight-code-line {
@@ -279,7 +316,7 @@
         font-family: var(--fn-serif);
         font-weight: 400;
         font-style: italic;
-        font-size: 28px;
+        font-size: var(--fs-xl);
         letter-spacing: 0.6em;
         color: var(--text-secondary);
 

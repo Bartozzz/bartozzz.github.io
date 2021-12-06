@@ -1,6 +1,6 @@
 import "./index.scss";
 
-import React from "react";
+import * as React from "react";
 
 export function Content({ children }: React.PropsWithChildren<unknown>) {
   return (

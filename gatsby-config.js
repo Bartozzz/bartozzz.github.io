@@ -1,4 +1,5 @@
 module.exports = {
+  jsxRuntime: "automatic",
   siteMetadata: {
     title: `Bartosz Łaniewski`,
     description: `Bartosz Łaniewski – Creative designer &amp; developer.`,
@@ -46,26 +47,26 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [".md", ".mdx"],
+        remarkPlugins: [
+          // See: https://github.com/remarkjs/remark/blob/main/doc/plugins.md
+          require("remark-abbr"),
+          require("remark-copy-linked-files"),
+          // Needs ESM Support in Gatsby: https://github.com/gatsbyjs/gatsby/discussions/31599
+          // require("remark-smartypants"),
+          // require("remark-toc"),
+        ],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
             },
           },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          `gatsby-remark-table-of-contents`,
+          // TODO: migrate to custom component
           `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-          `gatsby-remark-abbr`,
         ],
       },
     },
@@ -98,10 +99,11 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map((node) => {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.nodes.map((node) => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
+                  title: node.frontmatter.title,
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
@@ -111,7 +113,7 @@ module.exports = {
             },
             query: `
               {
-                allMarkdownRemark(
+                allMdx(
                   sort: { order: DESC, fields: [frontmatter___date] },
                 ) {
                   nodes {
@@ -129,6 +131,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
+            title: "Bartosz Łaniewski RSS Feed",
           },
         ],
       },
