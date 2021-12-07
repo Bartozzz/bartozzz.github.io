@@ -1,4 +1,4 @@
-import "./index.scss";
+import * as css from "./index.module.scss";
 
 import React from "react";
 import { Link } from "gatsby";
@@ -17,24 +17,22 @@ export function PageHeader() {
 
   return (
     <nav
-      className="header"
+      className={css.header}
       itemType="http://schema.org/SiteNavigationElement"
       itemScope
     >
-      <ul className="header__content">
-        <li className="header__item header__item--logo">
+      <ul className={css.header__content}>
+        <li className={`${css.header__item} ${css.header__itemLogo}`}>
           <Link to="/" title="Go to main page">
-            Łanek
+            Bart
           </Link>
         </li>
 
-        <li className="header__item">
-          <Link className="" to="/posts/">
-            Devblog
-          </Link>
+        <li className={css.header__item}>
+          <Link to="/posts/">Devblog</Link>
         </li>
 
-        <li className="header__item">
+        <li className={css.header__item}>
           <a
             target="_blank"
             rel="author noopener noreferrer"
@@ -46,7 +44,7 @@ export function PageHeader() {
         </li>
 
         {theme !== null ? (
-          <li className="header__item">
+          <li className={css.header__item}>
             <Toggle
               aria-label="Toggle theme"
               checked={theme === "dark"}
@@ -55,8 +53,8 @@ export function PageHeader() {
             />
           </li>
         ) : (
-          <li className="header__item">
-            <div className="header__item--toggle-placeholder" />
+          <li className={css.header__item}>
+            <div className={css.header__itemTogglePlaceholder} />
           </li>
         )}
       </ul>

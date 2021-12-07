@@ -1,4 +1,4 @@
-import "./index.scss";
+import * as css from "./index.module.scss";
 
 import * as React from "react";
 
@@ -17,7 +17,7 @@ export function Heading({
   ...props
 }: React.PropsWithChildren<HeaderProps>) {
   return (
-    <header className="heading__wrapper" {...props}>
+    <header className={css.heading__wrapper} {...props}>
       {children}
     </header>
   );
@@ -28,7 +28,7 @@ Heading.H1 = function H1({
   ...props
 }: React.PropsWithChildren<HeadingProps>) {
   return (
-    <h1 className="heading__text heading__text--h1" {...props}>
+    <h1 className={`${css.heading__text}`} {...props}>
       {children}
     </h1>
   );
@@ -39,7 +39,7 @@ Heading.H2 = function H2({
   ...props
 }: React.PropsWithChildren<HeadingProps>) {
   return (
-    <h2 className="heading__text heading__text--h2" {...props}>
+    <h2 className={`${css.heading__text} ${css.heading__textH2}`} {...props}>
       {children}
     </h2>
   );
@@ -50,7 +50,7 @@ Heading.H3 = function H3({
   ...props
 }: React.PropsWithChildren<HeadingProps>) {
   return (
-    <h3 className="heading__text heading__text--h3" {...props}>
+    <h3 className={`${css.heading__text} ${css.heading__textH3}`} {...props}>
       {children}
     </h3>
   );
@@ -61,7 +61,7 @@ Heading.H4 = function H4({
   ...props
 }: React.PropsWithChildren<HeadingProps>) {
   return (
-    <h4 className="heading__text heading__text--h4" {...props}>
+    <h4 className={`${css.heading__text}`} {...props}>
       {children}
     </h4>
   );
@@ -72,7 +72,7 @@ Heading.H5 = function H5({
   ...props
 }: React.PropsWithChildren<HeadingProps>) {
   return (
-    <h5 className="heading__text heading__text--h5" {...props}>
+    <h5 className={`${css.heading__text}`} {...props}>
       {children}
     </h5>
   );
@@ -83,7 +83,7 @@ Heading.H6 = function H6({
   ...props
 }: React.PropsWithChildren<HeadingProps>) {
   return (
-    <h6 className="heading__text heading__text--h6" {...props}>
+    <h6 className={`${css.heading__text}`} {...props}>
       {children}
     </h6>
   );

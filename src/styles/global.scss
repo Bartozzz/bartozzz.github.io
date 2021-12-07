@@ -1,13 +1,5 @@
-// @import "./mixins/vertical-rhythm.scss";
-// $vr-font-size: 100%; // ~16px
-// $vr-line-height: 1.5; // ~24px
-// $vr-modular-scale: minor-third;
-// $vr-grid-color: rgb(233, 30, 99);
-// $vr-breakpoints: false;
-
 html {
   font-size: 62.5%; // 1rem = 10px
-  // @include vr-grid();
 }
 
 body {
@@ -26,44 +18,50 @@ body {
     monospace;
   --fn-serif: "pt serif", Georgia, Cambria, times new roman, Times, serif;
 
+  /* Vertical rhythm: */
+  --vr-unit: 0.8rem; // ~8px
+  --vr-fs: calc(var(--vr-unit) * 2); // ~16px
+  --vr-lh: calc(var(--vr-unit) * 3); // ~24px
+
   /* Font sizes: */
   --fs-xs: 1.2rem;
+  --lh-xs: var(--vr-lh);
   --fs-sm: 1.4rem;
+  --lh-sm: var(--vr-lh);
   --fs-md: 1.6rem;
+  --lh-md: var(--vr-lh);
   --fs-lg: 2rem;
+  --lh-lg: var(--vr-lh);
   --fs-xl: 3.2rem;
-  --fs-xxl: 4rem;
-
-  --vr-fs: 1.6rem;
-  --vr-lh: calc(var(--vr-fs) * 1.5);
+  --lh-xl: calc(var(--vr-lh) * 2);
+  --fs-xxl: 3.8rem;
+  --lh-xxl: calc(var(--vr-lh) * 2);
 
   /* Border radius */
-  --br-md: 15px;
+  --br-md: calc(var(--vr-unit) * 2);
 
   /* Component spacings: */
-  --cs-xxs: 2px;
-  --cs-xs: 4px;
-  --cs-sm: 8px;
-  --cs-md: 12px;
-  --cs-lg: 16px;
-  --cs-xl: 20px;
-  --cs-xxl: 28px;
+  --cs-sm: calc(var(--vr-unit) * 1);
+  --cs-md: calc(var(--vr-unit) * 2);
+  --cs-xl: calc(var(--vr-unit) * 3);
 
   /* Layout spacings: */
-  --ls-xxs: 16px;
-  --ls-xs: 24px;
-  --ls-sm: 32px;
-  --ls-md: 48px;
-  --ls-lg: 64px;
-  --ls-xl: 96px;
-  --ls-xxl: 160px;
+  --ls-xxs: calc(var(--vr-unit) * 2);
+  --ls-xs: calc(var(--vr-unit) * 3);
+  --ls-sm: calc(var(--vr-unit) * 4);
+  --ls-md: calc(var(--vr-unit) * 6);
+  --ls-lg: calc(var(--vr-unit) * 8);
+  --ls-xl: calc(var(--vr-unit) * 12);
+  --ls-xxl: calc(var(--vr-unit) * 20);
 
   /* Max widths: */
   --mw-sm: 850px;
-  --mw-md: 1250px;
+  --mw-md: 1248px;
 }
 
 body.dark {
+  color-scheme: dark;
+
   --text-primary: hsl(0 0% 91%);
   --text-secondary: hsl(0 0% 62%);
 
@@ -109,6 +107,8 @@ body.dark {
 }
 
 body.light {
+  color-scheme: light;
+
   --text-primary: hsl(0 0% 0%);
   --text-secondary: hsl(0 0% 25%);
 

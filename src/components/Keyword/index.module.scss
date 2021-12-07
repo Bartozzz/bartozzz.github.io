@@ -1,10 +1,12 @@
+@import "../../styles/mixins/vertical-rhythm";
+
 .keyword {
+  @include vr-font("xs");
+
   display: inline-block;
 
-  padding: var(--cs-xs) var(--cs-md);
-  margin: 0 var(--cs-xxs) var(--cs-xs);
-
-  font-size: var(--fs-xs);
+  padding: 0 var(--cs-sm);
+  margin: 0 0 var(--cs-sm) var(--cs-sm);
 
   color: var(--primary-100);
   background-color: var(--primary-500);

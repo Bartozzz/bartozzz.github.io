@@ -1,9 +1,12 @@
 @import "../../styles/mixins/mediaquery.scss";
 
 .hero {
-  height: 50vh;
-  min-height: 450px;
-  max-height: 600px;
+  height: calc(100vh - var(--vr-lh) * 3);
+  min-height: 288px; // 8 * 35
+
+  @include mediaquery("sm") {
+    height: 480px; // 8 * 60
+  }
 }
 
 .hero__wrapper {
@@ -20,10 +23,14 @@
       var(--background-300) 40%
     )
     fixed;
+
+  @include mediaquery("sm") {
+    padding-bottom: calc(var(--vr-lh) * 3);
+  }
 }
 
 .hero__title {
-  margin: 0 0 var(--cs-lg);
+  margin: 0 0 var(--cs-md);
 
   font-family: var(--fn-head);
   font-size: 65px;

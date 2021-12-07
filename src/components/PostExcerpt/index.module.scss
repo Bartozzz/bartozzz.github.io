@@ -1,11 +1,15 @@
+@import "../../styles/mixins/vertical-rhythm";
+
 .post-excerpt__wrapper {
-  max-width: 600px;
+  max-width: 592px;
 
   margin: var(--ls-lg) 0;
 }
 
 .post-excerpt__title {
-  margin: var(--cs-lg) 0;
+  @include vr-font("lg");
+
+  margin: var(--cs-md) 0;
 
   a {
     color: var(--text-primary);
@@ -13,16 +17,18 @@
 }
 
 .post-excerpt__content {
+  @include vr-font("md");
+
   margin: 0;
 
   font-family: var(--fn-serif);
-  line-height: 1.5;
   letter-spacing: -0.003em;
   color: var(--text-secondary);
 }
 
 .post-excerpt__date {
+  @include vr-font("sm");
+
   font-family: var(--fn-mono);
-  font-size: var(--fs-sm);
   color: var(--text-secondary);
 }

@@ -1,11 +1,14 @@
+@import "../../styles/mixins/vertical-rhythm";
+
 .skip {
+  @include vr-font("lg");
+
   position: absolute;
   top: 21px;
   left: 1rem;
 
   font-family: var(--fn-main);
   font-weight: 700;
-  font-size: var(--fs-lg);
 
   background-color: var(--primary-500);
   color: var(--text-primary);

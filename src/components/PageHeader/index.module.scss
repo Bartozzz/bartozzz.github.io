@@ -1,4 +1,5 @@
-@import "../../styles/mixins/theme.scss";
+@import "../../styles/mixins/theme";
+@import "../../styles/mixins/vertical-rhythm";
 
 .header {
   position: sticky;
@@ -36,7 +37,7 @@
   align-items: center;
 
   margin: 0 auto;
-  padding: 0 var(--cs-lg);
+  padding: 0 var(--cs-md);
 
   height: 100%;
   max-width: var(--mw-md);
@@ -45,10 +46,12 @@
 }
 
 .header__item {
+  @include vr-font("md");
+
   font-family: var(--fn-main);
   font-weight: 500;
 
-  padding: 0 0 0 var(--cs-xxl);
+  padding: 0 0 0 var(--cs-xl);
 
   a {
     color: var(--text-primary);
@@ -56,11 +59,12 @@
 }
 
 .header__item--logo {
+  @include vr-font("lg");
+
   flex: 1;
   padding: 0;
 
   font-weight: 700;
-  font-size: var(--fs-lg);
 }
 
 .header__item--toggle-placeholder {

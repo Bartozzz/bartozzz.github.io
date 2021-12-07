@@ -1,12 +1,18 @@
+@import "../../styles/mixins/vertical-rhythm";
+
 .repository__link {
+  --border-width: 2px;
+
   display: flex;
   flex-direction: column;
 
   height: 100%;
 
-  padding: var(--cs-xl) var(--cs-md) var(--cs-md);
+  padding: calc(var(--cs-md) - var(--border-width))
+    calc(var(--cs-sm) - var(--border-width))
+    calc(var(--cs-sm) - var(--border-width));
 
-  border-width: 2px;
+  border-width: var(--border-width);
   border-radius: var(--br-md);
   border-style: solid;
   border-color: var(--background-500);
@@ -31,20 +37,20 @@
 }
 
 .repository__name {
+  @include vr-font("sm");
+
   margin: 0 var(--cs-sm);
 
-  font-size: var(--fs-sm);
   font-family: var(--fn-mono);
   font-weight: 500;
   color: var(--text-primary);
 }
 
 .repository__description {
+  @include vr-font("sm");
+
   flex: 1;
+  margin: var(--cs-sm) var(--cs-sm) var(--cs-md);
 
-  margin: var(--cs-md) var(--cs-sm) var(--cs-lg);
-
-  font-size: var(--fs-sm);
-  line-height: 1.5;
   color: var(--text-primary);
 }

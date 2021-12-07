@@ -1,4 +1,4 @@
-import "./index.scss";
+import * as css from "./index.module.scss";
 
 import * as React from "react";
 import { Keyword } from "../Keyword";
@@ -35,17 +35,17 @@ export function Repository({
       <link itemProp="downloadUrl" href={`${link}/releases`} />
 
       <a
-        className="repository__link"
+        className={css.repository__link}
         target="_blank"
         rel="noopener noreferrer"
         href={link}
         aria-label={description}
       >
-        <h4 className="repository__name" itemProp="name">
+        <h4 className={css.repository__name} itemProp="name">
           {name}
         </h4>
 
-        <p className="repository__description" itemProp="about">
+        <p className={css.repository__description} itemProp="about">
           {description}
         </p>
 

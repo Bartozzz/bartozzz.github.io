@@ -25,6 +25,7 @@ export default function PostsPage({ data }: Props) {
                 link={post.fields.slug}
                 title={post.frontmatter.title || post.fields.slug}
                 date={post.frontmatter.date}
+                authors={post.frontmatter.authors}
                 content={post.frontmatter.description || post.excerpt}
               />
             </li>
@@ -51,6 +52,7 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
+          authors
           description
         }
       }

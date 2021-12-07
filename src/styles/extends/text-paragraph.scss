@@ -3,5 +3,5 @@
   font-style: normal;
   font-weight: 400;
   font-size: var(--fs-lg);
-  line-height: 1.5;
+  line-height: calc(var(--vr-unit) * 4);
 }

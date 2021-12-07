@@ -15,8 +15,17 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        cssLoaderOptions: {
+          modules: {
+            localIdentName: "[folder]-[name]--[local]--[hash:base64:5]",
+          },
+        },
+      },
+    },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -135,6 +144,12 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve: `gatsby-plugin-minify-classnames`,
+    },
+    {
+      resolve: `gatsby-plugin-minify-html`,
     },
   ],
 };
