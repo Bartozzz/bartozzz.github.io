@@ -5,8 +5,9 @@
   position: sticky;
   top: 0;
 
+  padding: var(--vr-lh) 0;
+
   width: 100%;
-  height: calc(var(--vr-lh) * 3);
 
   background-color: hsla(var(--background-100-shade) / 0.85);
   box-shadow: 0 0 8px -3px var(--background-100);
@@ -40,6 +41,7 @@
   padding: 0 var(--cs-md);
 
   height: 100%;
+  width: 100%;
   max-width: var(--mw-md);
 
   list-style: none;

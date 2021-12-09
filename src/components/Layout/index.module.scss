@@ -4,8 +4,8 @@
   @include vr-font("lg");
 
   position: absolute;
-  top: 21px;
-  left: 1rem;
+  top: var(--vr-lh);
+  left: var(--vr-lh);
 
   font-family: var(--fn-main);
   font-weight: 700;
