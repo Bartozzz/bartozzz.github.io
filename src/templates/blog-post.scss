@@ -12,8 +12,11 @@
 
   color: var(--text-primary);
 
-  p {
+  time {
     @include vr-font("md");
+
+    display: block;
+    margin-top: var(--ls-xxs);
   }
 }
 
@@ -68,7 +71,7 @@
   a {
     border-width: 0 0 1px;
     border-color: currentColor;
-    border-style: underline;
+    border-style: solid;
 
     letter-spacing: -0.005em;
     color: inherit;
