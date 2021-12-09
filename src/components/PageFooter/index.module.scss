@@ -11,7 +11,11 @@
 
 .footer__menu {
   padding: 0;
-  margin: 0 0 var(--cs-xl);
+  margin: 0 var(--cs-sm) var(--cs-xl);
+
+  @include mediaquery("sm") {
+    margin: 0 0 var(--cs-xl);
+  }
 }
 
 .footer__item {
