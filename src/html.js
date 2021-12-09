@@ -18,8 +18,8 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no, minimal-ui"
         />
 
-        <link rel="preload" href="/discussion-dark.css" as="style" />
-        <link rel="preload" href="/discussion-light.css" as="style" />
+        <link rel="prefetch" href="/discussion-dark.css" as="style" />
+        <link rel="prefetch" href="/discussion-light.css" as="style" />
 
         {props.headComponents}
       </head>
