@@ -50,6 +50,7 @@
   @extend %text-paragraph;
   @extend %prefix-headings;
 
+  width: 100%;
   max-width: var(--mw-sm);
 
   margin-left: auto;

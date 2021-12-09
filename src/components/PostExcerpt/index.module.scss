@@ -1,7 +1,7 @@
 @import "../../styles/mixins/vertical-rhythm";
 
 .post-excerpt__wrapper {
-  max-width: 592px;
+  max-width: var(--mw-xs);
 
   margin: var(--ls-lg) 0;
 }
