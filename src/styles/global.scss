@@ -158,12 +158,4 @@ body.light {
 a {
   color: var(--primary-500);
   text-decoration: none;
-
-  border-width: 0 0 3px;
-  border-style: solid;
-  border-color: transparent;
-
-  &:focus {
-    border-color: var(--primary-500);
-  }
 }

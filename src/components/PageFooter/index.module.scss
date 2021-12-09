@@ -1,5 +1,6 @@
 @import "../../styles/mixins/mediaquery";
 @import "../../styles/mixins/vertical-rhythm";
+@import "../../styles/extends/link-underline";
 
 .footer {
   margin: 0 auto;
@@ -35,6 +36,7 @@
   }
 
   a {
+    @extend %link-underline;
     color: var(--text-primary);
   }
 }
@@ -68,4 +70,8 @@
   margin: var(--cs-xl) var(--cs-md) 0;
 
   color: var(--text-primary);
+
+  a {
+    @extend %link-underline;
+  }
 }

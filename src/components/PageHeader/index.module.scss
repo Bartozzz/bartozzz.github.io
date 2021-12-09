@@ -1,5 +1,6 @@
 @import "../../styles/mixins/theme";
 @import "../../styles/mixins/vertical-rhythm";
+@import "../../styles/extends/link-underline";
 
 .header {
   position: sticky;
@@ -56,6 +57,8 @@
   padding: 0 0 0 var(--cs-xl);
 
   a {
+    @extend %link-underline;
+
     color: var(--text-primary);
   }
 }

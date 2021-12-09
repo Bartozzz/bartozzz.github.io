@@ -1,4 +1,5 @@
 @import "../../styles/mixins/vertical-rhythm";
+@import "../../styles/extends/link-underline";
 
 .post-excerpt__wrapper {
   max-width: var(--mw-xs);
@@ -12,6 +13,7 @@
   margin: var(--cs-md) 0;
 
   a {
+    @extend %link-underline;
     color: var(--text-primary);
   }
 }
