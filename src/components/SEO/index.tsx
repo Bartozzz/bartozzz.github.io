@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
+import { useTheme } from "../../hooks/useTheme";
 
 interface Props {
   title?: string;
@@ -14,6 +15,8 @@ export function SEO({
   lang = "en",
   meta = [],
 }: Props) {
+  const [theme] = useTheme();
+
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -65,6 +68,10 @@ export function SEO({
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: "theme-color",
+          content: theme === "light" ? "#f7f7f7" : "#121212",
         },
       ].concat(meta as any)}
     />
