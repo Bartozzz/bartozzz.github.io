@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.2.0...v1.2.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* update code font-size in paragraphs ([a2d9c82](https://github.com/Bartozzz/bartozzz.github.io/commit/a2d9c829c9db04835c4da27c8905c229cc910067))
+
 # [1.2.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.1.2...v1.2.0) (2021-12-09)
 
 
