@@ -42,8 +42,6 @@ export function Discussion() {
   const hasTheme = theme !== null;
 
   React.useLayoutEffect(() => {
-    console.log("Theme", theme);
-
     const div = divRef.current;
 
     if (!div || !hasTheme) {
