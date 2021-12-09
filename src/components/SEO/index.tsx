@@ -69,11 +69,13 @@ export function SEO({
           name: `twitter:description`,
           content: metaDescription,
         },
-        {
+        theme !== null && {
           name: "theme-color",
-          content: theme === "light" ? "#f7f7f7" : "#121212",
+          content: theme === "light" ? "#ffffff" : "#121212",
         },
-      ].concat(meta as any)}
+      ]
+        .filter(Boolean)
+        .concat(meta as any)}
     />
   );
 }
