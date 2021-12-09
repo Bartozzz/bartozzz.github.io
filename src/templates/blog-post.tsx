@@ -2,21 +2,25 @@ import "./blog-post.scss";
 
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { BlogPostBySlugQuery } from "../../graphql-types";
 
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
 
-export function BlogPostTemplate({ data }) {
+interface Props {
+  data: BlogPostBySlugQuery;
+}
+
+export function BlogPostTemplate({ data }: Props) {
   const post = data.mdx;
+  const { frontmatter, excerpt, body } = post;
+  const { title, date, description, authors } = frontmatter;
 
   return (
     <Layout>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <SEO title={title} description={description || excerpt} />
 
       <Content>
         <article
@@ -25,12 +29,27 @@ export function BlogPostTemplate({ data }) {
           itemType="http://schema.org/Article"
         >
           <header className="post__header">
-            <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <p>{post.frontmatter.date}</p>
+            <h1 itemProp="headline">{title}</h1>
+
+            <time dateTime={date} itemProp="datePublished">
+              {date}
+            </time>
+
+            {authors?.length ? (
+              <ul className="visually-hidden">
+                {authors.map((author, index) => (
+                  <li key={author}>
+                    <p itemProp="author">
+                      {`${index === 0 ? "" : " and "}${author}`}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </header>
 
           <section itemProp="articleBody" className="post__content">
-            <MDXRenderer>{post.body}</MDXRenderer>
+            <MDXRenderer>{body}</MDXRenderer>
           </section>
         </article>
 
@@ -44,18 +63,15 @@ export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($id: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
       body
       frontmatter {
-        title
         date(formatString: "MMMM DD, YYYY")
+        title
+        authors
+        description
       }
     }
   }

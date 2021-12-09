@@ -38,11 +38,6 @@ export default function PostsPage({ data }: Props) {
 
 export const pageQuery = graphql`
   query PostsPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
