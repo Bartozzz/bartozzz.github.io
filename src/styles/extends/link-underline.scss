@@ -16,7 +16,8 @@
   background-repeat: no-repeat;
   background-position: left 85%;
 
-  @media (prefers-reduced-motion: no-preference) {
+  // Disable transition on touch devices:
+  @media (prefers-reduced-motion: no-preference) and (hover: hover) {
     transition-property: background-size;
     transition-duration: var(--line-animation-duration);
     transition-timing-function: var(--line-animation-timing-function);
