@@ -2,7 +2,6 @@
   --line-color: var(--primary-500);
   --line-offset: 8px;
   --line-size-hover: 3px;
-  --line-size-focus: 3px;
   --line-animation-duration: 150ms;
   --line-animation-timing-function: ease-in-out;
 
@@ -23,11 +22,8 @@
     transition-timing-function: var(--line-animation-timing-function);
   }
 
-  &:hover {
-    background-size: 100% var(--line-size-hover);
-  }
-
+  &:hover,
   &:focus {
-    background-size: 100% var(--line-size-focus);
+    background-size: 100% var(--line-size-hover);
   }
 }

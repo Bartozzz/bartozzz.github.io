@@ -31,6 +31,8 @@
 .post-excerpt__date {
   @include vr-font("sm");
 
+  display: block;
+
   font-family: var(--fn-mono);
   color: var(--text-secondary);
 }
