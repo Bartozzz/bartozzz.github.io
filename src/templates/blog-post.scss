@@ -53,20 +53,12 @@
   @extend %text-paragraph;
   @extend %prefix-headings;
 
+  margin: 0 auto;
+
   width: 100%;
   max-width: var(--mw-sm);
 
-  margin-left: auto;
-  margin-right: auto;
-
   color: var(--text-primary);
-
-  details {
-    summary {
-      font-family: var(--fn-main);
-      font-weight: 500;
-    }
-  }
 
   a {
     border-width: 0 0 1px;
@@ -94,7 +86,6 @@
     cursor: help;
   }
 
-  // Mainly markdown formatting
   h2 {
     margin-top: var(--ls-md);
   }
@@ -103,15 +94,6 @@
   }
   h4 {
     margin-top: var(--ls-sm);
-  }
-
-  h1 + p,
-  h2 + p,
-  h3 + p,
-  h4 + p,
-  h5 + p,
-  h6 + p {
-    margin-top: var(--ls-xxs);
   }
 
   b,
@@ -135,11 +117,12 @@
     }
   }
 
+  a,
   p,
   li {
     & > code {
-      padding: 0.15rem 0.25rem;
-      margin: 0 0.1rem;
+      font-size: calc(var(--fs-lg) * 0.9);
+      line-height: calc(var(--vr-unit) * 4);
     }
   }
 
@@ -199,12 +182,7 @@
     hyphens: none;
     tab-size: 4;
 
-    background-color: var(--background-300);
     color: var(--text-secondary);
-  }
-
-  code {
-    border-radius: var(--br-md);
   }
 
   pre {
@@ -212,6 +190,8 @@
 
     margin: var(--ls-md) calc(-1 * var(--ls-xxs));
     padding: var(--ls-xs) var(--ls-xxs);
+
+    background-color: var(--background-300);
 
     -webkit-overflow-scrolling: auto;
     overflow: auto;
@@ -225,6 +205,8 @@
   }
 
   code {
+    border-radius: var(--br-md);
+
     letter-spacing: -0.005em;
 
     .comment {
@@ -325,9 +307,5 @@
 
       content: "...";
     }
-  }
-
-  mark {
-    background-color: var(--background-100);
   }
 }
