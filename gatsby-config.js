@@ -21,7 +21,7 @@ module.exports = {
       options: {
         cssLoaderOptions: {
           modules: {
-            localIdentName: "[folder]-[name]--[local]--[hash:base64:5]",
+            localIdentName: "[hash:base64]",
           },
         },
       },
