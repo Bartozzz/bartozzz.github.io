@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.1.2...v1.2.0) (2021-12-09)
+
+
+### Features
+
+* portfolio redesign ([#11](https://github.com/Bartozzz/bartozzz.github.io/issues/11)) ([fed4d7b](https://github.com/Bartozzz/bartozzz.github.io/commit/fed4d7b49dca7fd94629354f2d1ab4fc50120108))
+
 ## [1.1.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.1.1...v1.1.2) (2021-12-01)
 
 
