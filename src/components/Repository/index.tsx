@@ -1,6 +1,6 @@
-import "./index.scss";
+import * as css from "./index.module.scss";
 
-import React from "react";
+import * as React from "react";
 import { Keyword } from "../Keyword";
 
 interface Props {
@@ -35,24 +35,19 @@ export function Repository({
       <link itemProp="downloadUrl" href={`${link}/releases`} />
 
       <a
-        className="repository__link"
+        className={css.repository__link}
         target="_blank"
         rel="noopener noreferrer"
         href={link}
         aria-label={description}
       >
-        <h4 className="repository__name" itemProp="name">
+        <h4 className={css.repository__name} itemProp="name">
           {name}
         </h4>
 
-        <p className="repository__description" itemProp="about">
+        <p className={css.repository__description} itemProp="about">
           {description}
         </p>
-
-        <ul className="repository__meta" aria-hidden="true">
-          <li data-repo-stars></li>
-          <li data-repo-forks></li>
-        </ul>
 
         <aside itemProp="keywords">
           {keywords.map((keyword) => (

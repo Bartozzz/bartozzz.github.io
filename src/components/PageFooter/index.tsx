@@ -1,32 +1,26 @@
-import "./index.scss";
+import * as css from "./index.module.scss";
 import { FooterDataQuery } from "../../../graphql-types";
 
-import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import DribbbleIcon from "../../assets/icons/dribbble.svg";
 import GitHubIcon from "../../assets/icons/github.svg";
 import LinkedInIcon from "../../assets/icons/linkedin.svg";
 import YouTubeIcon from "../../assets/icons/youtube.svg";
-import MailIcon from "../../assets/icons/mail.svg";
 
 export function socialKeyToIcon(key: string) {
   switch (key) {
     case "GitHub":
-      return (
-        <GitHubIcon className="footer__item-icon footer__item-icon--github" />
-      );
+      return <GitHubIcon className={`${css.footer__itemIcon}`} />;
     case "Dribbble":
-      return (
-        <DribbbleIcon className="footer__item-icon footer__item-icon--dribbble" />
-      );
+      return <DribbbleIcon className={`${css.footer__itemIcon}`} />;
     case "LinkedIn":
-      return (
-        <LinkedInIcon className="footer__item-icon footer__item-icon--linkedin" />
-      );
+      return <LinkedInIcon className={`${css.footer__itemIcon} `} />;
     case "YouTube":
       return (
-        <YouTubeIcon className="footer__item-icon footer__item-icon--youtube" />
+        <YouTubeIcon
+          className={`${css.footer__itemIcon} ${css.footer__itemIconYoutube}`}
+        />
       );
     default:
       return null;
@@ -43,7 +37,6 @@ export function PageFooter() {
             contact
             social {
               GitHub
-              Dribbble
               LinkedIn
               YouTube
             }
@@ -54,11 +47,15 @@ export function PageFooter() {
   );
 
   return (
-    <footer className="footer" itemType="http://schema.org/WPFooter" itemScope>
+    <footer
+      className={css.footer}
+      itemType="http://schema.org/WPFooter"
+      itemScope
+    >
       <nav typeof="http://schema.org/ContactPoint" itemScope>
-        <ul className="footer__menu">
+        <ul className={`${css.footer__menu} list`}>
           {Object.entries(site.siteMetadata.social).map(([name, link]) => (
-            <li key={name} className="footer__item">
+            <li key={name} className={css.footer__item}>
               <a
                 target="_blank"
                 itemProp="url"
@@ -66,26 +63,25 @@ export function PageFooter() {
                 href={link}
               >
                 {socialKeyToIcon(name)}
-                <span className="footer__item-text">{name}</span>
+                <span className={css.footer__itemText}>{name}</span>
               </a>
             </li>
           ))}
 
-          <li className="footer__item footer__item--contact">
+          <li className={`${css.footer__item} ${css.footer__itemContact}`}>
             <a
               target="_blank"
               itemProp="email"
-              rel="noopener noreferrer"
+              rel="author noopener noreferrer"
               href={`mailto:${site.siteMetadata.contact}`}
             >
-              <MailIcon className="footer__contact-icon" />
-              <span className="footer__contact-text">Get in touch</span>
+              Get in touch
             </a>
           </li>
         </ul>
       </nav>
 
-      <p className="footer__source" itemProp="description">
+      <p className={css.footer__source} itemProp="description">
         Hand-coded using Gatsby, TypeScript and more.{" "}
         <a
           target="_blank"

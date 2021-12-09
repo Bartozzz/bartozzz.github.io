@@ -1,0 +1,29 @@
+%link-underline {
+  --line-color: var(--primary-500);
+  --line-offset: 8px;
+  --line-size-hover: 3px;
+  --line-animation-duration: 150ms;
+  --line-animation-timing-function: ease-in-out;
+
+  padding-bottom: var(--line-offset);
+
+  background-image: linear-gradient(
+    to right,
+    var(--line-color) 0%,
+    var(--line-color) 100%
+  );
+  background-size: 0 var(--line-size-hover);
+  background-repeat: no-repeat;
+  background-position: left 85%;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition-property: background-size;
+    transition-duration: var(--line-animation-duration);
+    transition-timing-function: var(--line-animation-timing-function);
+  }
+
+  &:hover,
+  &:focus {
+    background-size: 100% var(--line-size-hover);
+  }
+}

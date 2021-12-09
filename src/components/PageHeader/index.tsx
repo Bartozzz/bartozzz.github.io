@@ -1,54 +1,38 @@
-import "./index.scss";
+import * as css from "./index.module.scss";
 
 import React from "react";
 import { Link } from "gatsby";
 import { Toggle } from "../Toggle";
-
-declare global {
-  type Theme = "dark" | "light";
-
-  interface Window {
-    __theme: Theme;
-    __setPreferredTheme: (theme: Theme) => void;
-    __onThemeChange: () => void;
-  }
-}
+import { useTheme } from "../../hooks/useTheme";
 
 export function PageHeader() {
-  const [theme, setTheme] = React.useState(null);
+  const [theme, setTheme] = useTheme();
 
-  const handleThemeChange = React.useCallback((event) => {
-    window.__setPreferredTheme(event.target.checked ? "dark" : "light");
-  }, []);
-
-  React.useEffect(() => {
-    setTheme(window.__theme);
-
-    window.__onThemeChange = () => {
-      setTheme(window.__theme);
-    };
-  }, []);
+  const handleThemeChange = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setTheme(event.target.checked ? "dark" : "light");
+    },
+    [setTheme]
+  );
 
   return (
     <nav
-      className="header"
+      className={css.header}
       itemType="http://schema.org/SiteNavigationElement"
       itemScope
     >
-      <ul className="header__content">
-        <li className="header__item header__item--logo">
-          <Link to="/" rel="index" title="Go to main page">
-            Łanek
+      <ul className={css.header__content}>
+        <li className={`${css.header__item} ${css.header__itemLogo}`}>
+          <Link to="/" title="Go to main page">
+            Bart
           </Link>
         </li>
 
-        <li className="header__item">
-          <Link className="" to="/posts/">
-            Devblog
-          </Link>
+        <li className={css.header__item}>
+          <Link to="/posts/">Devblog</Link>
         </li>
 
-        <li className="header__item">
+        <li className={css.header__item}>
           <a
             target="_blank"
             rel="author noopener noreferrer"
@@ -60,7 +44,7 @@ export function PageHeader() {
         </li>
 
         {theme !== null ? (
-          <li className="header__item">
+          <li className={css.header__item}>
             <Toggle
               aria-label="Toggle theme"
               checked={theme === "dark"}
@@ -68,7 +52,11 @@ export function PageHeader() {
               icons={false}
             />
           </li>
-        ) : null}
+        ) : (
+          <li className={css.header__item}>
+            <div className={css.header__itemTogglePlaceholder} />
+          </li>
+        )}
       </ul>
     </nav>
   );

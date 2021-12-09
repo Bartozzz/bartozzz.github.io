@@ -8,10 +8,6 @@ keywords: ["JavaScript", "Node.js", "npm"]
 
 With the rise of ES2015, modules have officially become an integral part of JavaScript. By their nature, ES2015 modules are static and can get optimized at the compile time. Various tools and techniques have been created to minimize the total size of generated bundles. The one described in this article is called tree shaking.
 
-```toc
-# This code block gets replaced with the TOC
-```
-
 ## Introduction to npm packages
 
 **npm** is the most popular package manager for JavaScript. It is shipped by default with Node.js – the JavaScript runtime environment. Each month, there are over [20 billions downloads](https://www.npmjs.com/) from the npm registry which counts more than half a million different packages.

@@ -1,0 +1,10 @@
+@mixin vr-font($size) {
+  $sizes: "xxs" "xs" "sm" "md" "lg" "xl" "xxl";
+
+  @if index($sizes, $size) != null {
+    font-size: var(--fs-#{$size});
+    line-height: var(--lh-#{$size});
+  } @else {
+    @error "ERROR: Size '#{$size}' is not defined";
+  }
+}

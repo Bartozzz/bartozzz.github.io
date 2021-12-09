@@ -1,0 +1,77 @@
+@import "../../styles/mixins/mediaquery";
+@import "../../styles/mixins/vertical-rhythm";
+@import "../../styles/extends/link-underline";
+
+.footer {
+  margin: 0 auto;
+  padding: var(--ls-lg) 0;
+
+  max-width: var(--mw-md);
+  width: 100%;
+}
+
+.footer__menu {
+  padding: 0;
+  margin: 0 var(--cs-sm) var(--cs-xl);
+
+  @include mediaquery("sm") {
+    margin: 0 0 var(--cs-xl);
+  }
+}
+
+.footer__item {
+  @include vr-font("md");
+
+  display: inline-block;
+  margin: 0 var(--cs-sm);
+
+  font-family: var(--fn-mono);
+
+  @include mediaquery("sm") {
+    margin: 0 var(--cs-md);
+  }
+
+  &--contact {
+    float: right;
+  }
+
+  a {
+    @extend %link-underline;
+    color: var(--text-primary);
+  }
+}
+
+.footer__item-text {
+  display: none;
+
+  @include mediaquery("sm") {
+    display: initial;
+  }
+}
+
+.footer__item-icon {
+  vertical-align: middle;
+  width: 22px;
+
+  fill: var(--text-primary);
+
+  &--youtube {
+    width: 26px;
+  }
+
+  @include mediaquery("sm") {
+    display: none;
+  }
+}
+
+.footer__source {
+  @include vr-font("md");
+
+  margin: var(--cs-xl) var(--cs-md) 0;
+
+  color: var(--text-primary);
+
+  a {
+    @extend %link-underline;
+  }
+}

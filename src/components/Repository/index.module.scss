@@ -1,0 +1,56 @@
+@import "../../styles/mixins/vertical-rhythm";
+
+.repository__link {
+  --border-width: 2px;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  padding: calc(var(--cs-md) - var(--border-width))
+    calc(var(--cs-sm) - var(--border-width))
+    calc(var(--cs-sm) - var(--border-width));
+
+  border-width: var(--border-width);
+  border-radius: var(--br-md);
+  border-style: solid;
+  border-color: var(--background-500);
+
+  outline: 0;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition-property: transform, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.025);
+  }
+
+  &:focus {
+    border-color: var(--primary-300);
+    box-shadow: 0 0 0 5px var(--primary-100);
+  }
+}
+
+.repository__name {
+  @include vr-font("sm");
+
+  margin: 0 var(--cs-sm);
+
+  font-family: var(--fn-mono);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.repository__description {
+  @include vr-font("sm");
+
+  flex: 1;
+  margin: var(--cs-sm) var(--cs-sm) var(--cs-md);
+
+  color: var(--text-primary);
+}

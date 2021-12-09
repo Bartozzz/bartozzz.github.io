@@ -8,10 +8,6 @@ keywords: ["Bitcoin", "Blockchain", "Cryptocurrency"]
 
 Le Bitcoin est l’une des premières cryptomonnaies utilisant un réseau de type paire-à-paire et des systèmes cryptographiques sophistiqués. Elle est aujourd’hui évaluée à une valeur nette de plus de [185 milliards de dollars][1]. Ce document traitera des origines du Bitcoin, mais aussi de l’implémentation des technologies utilisées dans cette monnaie.
 
-```toc
-# This code block gets replaced with the TOC
-```
-
 ## Les origines du Bitcoin
 
 Les origines du Bitcoin remontent à fin 2008. En août, le nom de domaine [bitcoin.org est enregistré][2] et c’est le 1<sup>er</sup> novembre 2008 qu’est publié le livre blanc qui pose les bases de la crypto-monnaie. Nommé [«_Bitcoin: un système de monnaie électronique paire-à-paire_»][3], c’est dans celui-ci qu’est évoqué pour la première fois un système monétaire entièrement [décentralisé et sécurisé][4]. Le livre blanc fut ensuite posté sur une mailing list dédiée à la cryptographie pendant la même période. C’est ici que le projet attira l’attention des spécialistes du milieu.

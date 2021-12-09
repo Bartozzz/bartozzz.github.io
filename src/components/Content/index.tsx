@@ -1,10 +1,10 @@
-import "./index.scss";
+import * as css from "./index.module.scss";
 
-import React from "react";
+import * as React from "react";
 
 export function Content({ children }: React.PropsWithChildren<unknown>) {
   return (
-    <main id="content" className="content" itemProp="mainContentOfPage">
+    <main id="content" className={css.content} itemProp="mainContentOfPage">
       {children}
     </main>
   );

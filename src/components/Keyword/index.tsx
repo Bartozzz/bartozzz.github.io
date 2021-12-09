@@ -1,7 +1,13 @@
 import * as css from "./index.module.scss";
 
-import React from "react";
+interface Props {
+  children: string;
+}
 
-export function Keyword({ children }: React.PropsWithChildren<unknown>) {
-  return <strong className={css.keyword}>{children}</strong>;
+export function Keyword({ children }: Props) {
+  return (
+    <strong className={css.keyword} title={`Topic: ${children}`}>
+      {children}
+    </strong>
+  );
 }

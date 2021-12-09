@@ -1,14 +1,12 @@
+@import "../../styles/mixins/vertical-rhythm";
+
 .heading__wrapper {
-  display: block;
-
-  width: 100%;
-  height: auto;
-
+  margin: var(--ls-lg) 0;
   text-align: center;
 }
 
 .heading__text {
-  max-width: 460px;
+  max-width: var(--mw-xxs);
 
   margin-left: auto;
   margin-right: auto;
@@ -16,18 +14,18 @@
   color: var(--text-primary);
 
   &--h2 {
+    @include vr-font("xxl");
+
     margin-top: 0;
     margin-bottom: var(--ls-xxs);
 
-    font-size: 2.5rem;
+    font-family: var(--fn-head);
     font-weight: 700;
   }
 
   &--h3 {
-    margin-bottom: var(--ls-lg);
+    @include vr-font("md");
 
-    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.5;
   }
 }

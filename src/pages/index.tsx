@@ -1,6 +1,5 @@
 import "../styles/pages/index.scss";
 
-import * as React from "react";
 import { graphql } from "gatsby";
 import { IndexPageQuery } from "../../graphql-types";
 
@@ -17,12 +16,12 @@ interface Props {
 }
 
 export default function IndexPage({ data }: Props) {
-  const posts = data.allMarkdownRemark.nodes;
+  const posts = data.allMdx.nodes;
   const repositories = data.allRepositoriesYaml.nodes;
 
   return (
     <Layout>
-      <SEO title="All posts" />
+      <SEO />
 
       <Hero />
 
@@ -67,6 +66,7 @@ export default function IndexPage({ data }: Props) {
                   link={post.fields.slug}
                   title={post.frontmatter.title || post.fields.slug}
                   date={post.frontmatter.date}
+                  authors={post.frontmatter.authors}
                   content={post.frontmatter.description || post.excerpt}
                 />
               </li>
@@ -85,10 +85,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
-      limit: 3
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    allMdx(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
         fields {
@@ -97,6 +94,7 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
+          authors
           description
         }
       }

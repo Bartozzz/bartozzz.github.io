@@ -1,6 +1,4 @@
-import "./index.scss";
-
-import React from "react";
+import * as css from "./index.module.scss";
 
 export function calculateAge(birthday: Date) {
   const ageDiff = Date.now() - birthday.getTime();
@@ -13,20 +11,18 @@ export function Hero() {
   const age = calculateAge(new Date("01/01/1998"));
 
   return (
-    <article className="hero">
-      <div className="hero__wrapper">
+    <article className={css.hero}>
+      <div className={css.hero__wrapper}>
         <header>
-          <h1 className="hero__title">
+          <h1 className={css.hero__title}>
             Bartosz
             <br /> Łaniewski
           </h1>
 
-          <h2 className="hero__subtitle">
+          <h2 className={css.hero__subtitle}>
             Developer & Designer<span>, {age} years old,</span> from Poland
           </h2>
         </header>
-
-        <div />
       </div>
     </article>
   );

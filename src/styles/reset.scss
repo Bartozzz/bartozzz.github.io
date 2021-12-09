@@ -1,6 +1,6 @@
 *,
-*:after,
-*:before {
+*::after,
+*::before {
   box-sizing: inherit;
   outline: none;
 }
@@ -19,13 +19,28 @@ html {
   box-sizing: border-box;
 }
 
-html, a, p, li, code, h1, h2, h3, h4, h5, h6 {
-	text-rendering: optimizeLegibility;
-	font-smoothing: subpixel-antialiased;
-	-moz-osx-font-smoothing: grayscale;
+html,
+a,
+p,
+li,
+code,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-rendering: optimizeLegibility;
+  font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-feature-settings: "dlig", "liga", "lnum", "kern";
 }

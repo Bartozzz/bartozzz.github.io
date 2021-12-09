@@ -1,13 +1,13 @@
-import "./index.scss";
+import * as css from "./index.module.scss";
 
-import React from "react";
+import * as React from "react";
 import { PageHeader } from "../PageHeader";
 import { PageFooter } from "../PageFooter";
 
 export function Layout({ children }: React.PropsWithChildren<unknown>) {
   return (
     <>
-      <a className="skip visually-hidden" href="#content">
+      <a className={`${css.skip} visually-hidden`} href="#content">
         Skip to main content
       </a>
 
