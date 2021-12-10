@@ -10,8 +10,8 @@ body {
 
 :root {
   /* Fonts: */
-  --fn-main: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-    sans-serif;
+  --fn-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --fn-head: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     var(--fn-main);
   --fn-mono: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,

@@ -36,9 +36,8 @@ h4,
 h5,
 h6 {
   text-rendering: optimizeLegibility;
-  font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -47,5 +46,5 @@ h3,
 h4,
 h5,
 h6 {
-  font-feature-settings: "dlig", "liga", "lnum", "kern";
+  font-feature-settings: "zero", "liga", "lnum", "kern";
 }
