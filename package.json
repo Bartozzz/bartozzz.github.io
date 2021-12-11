@@ -16,7 +16,6 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "dangerously-set-html-content": "^1.0.9",
     "gatsby": "^4.3.0",
     "gatsby-plugin-dts-css-modules": "^2.2.0",
     "gatsby-plugin-feed": "^4.3.0",
@@ -68,7 +67,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "esm": "^3.2.25",
     "husky": "^7.0.4",
     "prettier": "^2.5.1",
     "semantic-release": "^17.4.1",
