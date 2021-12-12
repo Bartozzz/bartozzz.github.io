@@ -151,13 +151,13 @@
   }
 
   blockquote {
-    $decoration-border-width: 3px;
+    $decoration-border-width: 5px;
 
     border-left-width: $decoration-border-width;
     border-left-style: solid;
     border-left-color: var(--text-secondary);
 
-    margin: var(--ls-xxs) 0 var(--ls-xxs) calc(-1 * var(--ls-xxs));
+    margin: var(--ls-md) 0 var(--ls-md) calc(-1 * var(--ls-xxs));
     padding-left: calc(var(--ls-xxs) - #{$decoration-border-width});
 
     &,
