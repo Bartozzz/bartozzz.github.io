@@ -34,11 +34,9 @@ export function PostExcerpt({ link, title, date, authors, content }: Props) {
 
         {authors?.length ? (
           <ul className="visually-hidden">
-            {authors.map((author, index) => (
+            {authors.map((author) => (
               <li key={author}>
-                <p itemProp="author">
-                  {`${index === 0 ? "" : " and "}${author}`}
-                </p>
+                <p itemProp="author">{author}</p>
               </li>
             ))}
           </ul>
