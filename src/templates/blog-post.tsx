@@ -16,7 +16,7 @@ interface Props {
 export function BlogPostTemplate({ data }: Props) {
   const post = data.mdx;
   const { frontmatter, excerpt, body } = post;
-  const { title, date, description, authors } = frontmatter;
+  const { title, date, language, description, authors } = frontmatter;
 
   return (
     <Layout>
@@ -27,6 +27,7 @@ export function BlogPostTemplate({ data }: Props) {
           className="post"
           itemScope
           itemType="http://schema.org/Article"
+          lang={language}
         >
           <header className="post__header">
             <h1 itemProp="headline">{title}</h1>
@@ -51,7 +52,7 @@ export function BlogPostTemplate({ data }: Props) {
           </section>
         </article>
 
-        <Discussion />
+        <Discussion lang={language} />
       </Content>
     </Layout>
   );
@@ -69,6 +70,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         authors
+        language
         description
       }
     }

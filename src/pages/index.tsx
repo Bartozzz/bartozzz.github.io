@@ -68,6 +68,7 @@ export default function IndexPage({ data }: Props) {
                   date={post.frontmatter.date}
                   authors={post.frontmatter.authors}
                   content={post.frontmatter.description || post.excerpt}
+                  language={post.frontmatter.language}
                 />
               </li>
             ))}
@@ -95,6 +96,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           authors
+          language
           description
         }
       }

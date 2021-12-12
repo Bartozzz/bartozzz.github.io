@@ -13,7 +13,7 @@ function sendGiscusMessage<T>(message: T) {
   }
 }
 
-function createGiscusTag({ theme }: { theme: Theme }) {
+function createGiscusTag({ theme, lang }: { theme: Theme; lang: string }) {
   const origin = typeof window !== "undefined" ? window.location.origin : "";
   const lightThemePath = `${origin}/discussion-light.css`;
   const darkThemePath = `${origin}/discussion-dark.css`;
@@ -29,14 +29,14 @@ function createGiscusTag({ theme }: { theme: Theme }) {
       data-reactions-enabled="1"
       data-emit-metadata="0"
       data-theme=${initialTheme}
-      data-lang="en"
+      data-lang=${lang}
       crossorigin="anonymous"
       async>
     </script>
   `;
 }
 
-export function Discussion() {
+export function Discussion({ lang = "en" }: { lang?: string }) {
   const divRef = React.useRef<HTMLDivElement>();
   const [theme] = useTheme();
   const hasTheme = theme !== null;
@@ -50,7 +50,7 @@ export function Discussion() {
 
     console.debug("Rendering Giscus");
 
-    const scriptTag = createGiscusTag({ theme });
+    const scriptTag = createGiscusTag({ theme, lang });
     const slotHtml = document.createRange().createContextualFragment(scriptTag);
 
     div?.appendChild(slotHtml);

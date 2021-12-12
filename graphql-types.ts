@@ -251,6 +251,8 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   jsxRuntime?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -829,6 +831,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
@@ -2151,6 +2155,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___social___Dribbble'
   | 'siteMetadata___social___LinkedIn'
   | 'siteMetadata___social___YouTube'
+  | 'port'
+  | 'host'
   | 'jsxRuntime'
   | 'polyfill'
   | 'pathPrefix'
@@ -2285,6 +2291,8 @@ export type SiteGroupConnectionGroupArgs = {
 export type SiteFilterInput = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
@@ -3745,19 +3753,19 @@ export type Unnamed_1_Query = { site?: { siteMetadata?: { title?: string | null 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null | undefined } | null | undefined } | null | undefined, allMdx: { nodes: Array<{ excerpt: string, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { date?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined } | null | undefined }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined }> } };
+export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null | undefined } | null | undefined } | null | undefined, allMdx: { nodes: Array<{ excerpt: string, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { date?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, description?: string | null | undefined } | null | undefined }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined }> } };
 
 export type PostsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PostsPageQuery = { allMdx: { nodes: Array<{ excerpt: string, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { date?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined } | null | undefined }> } };
+export type PostsPageQuery = { allMdx: { nodes: Array<{ excerpt: string, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { date?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, description?: string | null | undefined } | null | undefined }> } };
 
 export type BlogPostBySlugQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-export type BlogPostBySlugQuery = { mdx?: { id: string, excerpt: string, body: string, frontmatter?: { date?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined } | null | undefined } | null | undefined };
+export type BlogPostBySlugQuery = { mdx?: { id: string, excerpt: string, body: string, frontmatter?: { date?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, description?: string | null | undefined } | null | undefined } | null | undefined };
 
 export type GatsbyImageSharpFixedFragment = { base64?: string | null | undefined, width: number, height: number, src: string, srcSet: string };
 

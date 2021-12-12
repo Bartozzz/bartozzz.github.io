@@ -7,15 +7,24 @@ interface Props {
   title: string;
   date: string;
   content: string;
+  language: string;
   authors?: string[];
 }
 
-export function PostExcerpt({ link, title, date, authors, content }: Props) {
+export function PostExcerpt({
+  link,
+  title,
+  date,
+  authors,
+  content,
+  language,
+}: Props) {
   return (
     <article
       itemScope
       itemType="http://schema.org/Article"
       className={css.postExcerpt__wrapper}
+      lang={language}
     >
       <header>
         <time
