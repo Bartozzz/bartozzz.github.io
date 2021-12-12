@@ -1,3 +1,4 @@
+import { Content } from "../components/Content";
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 
@@ -6,8 +7,29 @@ export default function NotFoundPage() {
     <Layout>
       <SEO title="Not Found" />
 
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <Content>
+        <h1
+          style={{
+            fontFamily: "var(--fn-mono)",
+            fontSize: "var(--fs-xl)",
+            lineHeight: "var(--lh-xl)",
+            color: "var(--text-primary)",
+            margin: "var(--cs-xl) 0",
+          }}
+        >
+          404: Not Found
+        </h1>
+        <p
+          style={{
+            fontSize: "var(--fs-md)",
+            lineHeight: "var(--lh-md)",
+            color: "var(--text-secondary)",
+            margin: 0,
+          }}
+        >
+          You just hit a page that does not exist…
+        </p>
+      </Content>
     </Layout>
   );
 }
