@@ -85,67 +85,68 @@ Une fois qu’un bloc est rempli avec un nombre de transactions suffisant, d’a
 
 #### Implementation basique
 
-{% highlight javascript %}
+```js
 class Block {
-constructor(index, previousHash, data) {
-// Le numéro du bloc
-this.index = index;
-// Transactions
-this.data = data;
-// Date de création
-this.date = new Date();
-// Le hash du bloc précédent
-this.prevHash = previousHash;
-}
+  constructor(index, previousHash, data) {
+    // Le numéro du bloc
+    this.index = index;
+    // Transactions
+    this.data = data;
+    // Date de création
+    this.date = new Date();
+    // Le hash du bloc précédent
+    this.prevHash = previousHash;
+  }
 
-get hash() {
-return sha256(
-this.index + this.date + this.prevHash + JSON.stringify(this.data)
-);
-}
+  get hash() {
+    return sha256(
+      this.index + this.date + this.prevHash + JSON.stringify(this.data)
+    );
+  }
 }
 
 class Blockchain {
-constructor(genesisBlock) {
-// Le bloc initial, sans référence au bloc précédent
-this.blockchain = [genesisBlock];
-}
+  constructor(genesisBlock) {
+    // Le bloc initial, sans référence au bloc précédent
+    this.blockchain = [genesisBlock];
+  }
 
-addBlock(data) {
-const index = this.blockchain.length;
-const oldBlock = this.blockchain[index - 1];
-const newBlock = new Block(index, oldBlock.hash, data);
+  addBlock(data) {
+    const index = this.blockchain.length;
+    const oldBlock = this.blockchain[index - 1];
+    const newBlock = new Block(index, oldBlock.hash, data);
 
     if (this.checkValidity(newBlock, oldBlock)) {
       this.blockchain.push(newBlock);
     }
+  }
 
-}
+  checkValidity(newBlock, oldBlock) {
+    if (newBlock.index !== oldBlock.index + 1) {
+      throw new Error("Invalid index");
+    }
 
-checkValidity(newBlock, oldBlock) {
-if (newBlock.index !== oldBlock.index + 1)
-throw new Error("Invalid index");
-
-    if (newBlock.previousHash !== oldBlock.hash)
+    if (newBlock.previousHash !== oldBlock.hash) {
       throw new Error("Invalid hash");
-
-    return true;
-
-}
-
-checkIntegrality() {
-for (let i = 1; i < this.blockchain.length; i++) {
-const prev = this.blockchain[i - 1];
-const next = this.blockchain[i];
-
-      if (!this.checkValidity(next, prev)) return false;
     }
 
     return true;
+  }
 
+  checkIntegrality() {
+    for (let i = 1; i < this.blockchain.length; i++) {
+      const prev = this.blockchain[i - 1];
+      const next = this.blockchain[i];
+
+      if (!this.checkValidity(next, prev)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 }
-}
-{% endhighlight %}
+```
 
 #### Synchronisation des bases de données
 
@@ -194,16 +195,16 @@ Pour calculer la signature (_s_), nous effectuons une dernière opération:
 
 Pour vérifier les transactions on utilise les propriétés du système RSA. Il est ainsi possible de vérifier que l’auteur de la transaction est en possession de la clé privée qui correspond à sa clé publique et donc que c’est lui qui a effectué la transaction. Le champ data d’un bloc peut ressembler à celui-ci:
 
-{% highlight json %}
+```json
 {
-"receiver": "1HPs4CYgxpR3MP4…kfBciJBfKLUT",
-"sender": "14uGXpDoZxFsjzT…R4mLi8ay4aAy",
-"amount": "0.0015",
-"N": "12S…036",
-"h": "11bf52e5ef03cb40d7473…5266df0360fcd613fdc6b85",
-"s": "809…fc4"
+  "receiver": "1HPs4CYgxpR3MP4…kfBciJBfKLUT",
+  "sender": "14uGXpDoZxFsjzT…R4mLi8ay4aAy",
+  "amount": "0.0015",
+  "N": "12S…036",
+  "h": "11bf52e5ef03cb40d7473…5266df0360fcd613fdc6b85",
+  "s": "809…fc4"
 }
-{% endhighlight %}
+```
 
 ---
 
