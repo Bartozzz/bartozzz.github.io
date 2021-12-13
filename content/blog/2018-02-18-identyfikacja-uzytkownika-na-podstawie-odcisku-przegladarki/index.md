@@ -53,8 +53,6 @@ AJAX daje dostęp do większej ilości danych, ponieważ służy do pobierania c
 
 Zmienny adres IP, usuwanie danych przeglądania, aktualizacja oprogramowania, a nawet zmiana rozdzielczości ekranu może mieć znaczny wpływ na odcisk naszej przeglądarki, dlatego ważne jest, aby algorytm był stabilny i przygotowany na takie okoliczności. Przykładowa implementacja takiego algorytmu została opisana w sekcji 5.2. publikacji [„How Unique Is Your Web Browser?”][3] autorstwa Petera Eckersley.
 
-Dodatkowo, polecam zapoznać się z artykułem [_„Jak dużo mogę wiedzieć o Tobie?”_][16] autorstwa Rekseto który dogłębniej porusza temat agregacji ww. charakterystyk. Prócz podstawowych informacji, Rekseto pokazuje jak sprawdzić, czy użytkownik jest zalogowany na portalu Facebook oraz jakiej karty graficznej używa.
-
 ## Jak się bronić przed „Browser Fingerprint”?
 
 Paradoksalnie, stworzenie wtyczki, która zapobiegłaby identyfikacji naszej przeglądarki w sieci, niekoniecznie rozwiązałoby problem. Aby narzędzie było skutecznie, musiałoby z niego korzystać wystarczająco dużo użytkowników. W przeciwnym wypadku identyfikacja nadal będzie możliwa, lecz posłużą ku temu fałszywe dane dostarczone przez oprogramowanie.
