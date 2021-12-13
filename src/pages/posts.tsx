@@ -1,10 +1,11 @@
 import { graphql } from "gatsby";
+
 import { PostsPageQuery } from "../../graphql-types";
 
-import { Layout } from "../components/Layout";
-import { SEO } from "../components/SEO";
-import { PostExcerpt } from "../components/PostExcerpt";
 import { Content } from "../components/Content";
+import { Layout } from "../components/Layout";
+import { PostExcerpt } from "../components/PostExcerpt";
+import { SEO } from "../components/SEO";
 
 interface Props {
   data: PostsPageQuery;

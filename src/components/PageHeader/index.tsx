@@ -1,9 +1,11 @@
 import * as css from "./index.module.scss";
 
-import React from "react";
+import * as React from "react";
+
 import { Link } from "gatsby";
-import { Toggle } from "../Toggle";
+
 import { useTheme } from "../../hooks/useTheme";
+import { Toggle } from "../Toggle";
 
 export function PageHeader() {
   const [theme, setTheme] = useTheme();

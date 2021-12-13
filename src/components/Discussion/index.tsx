@@ -1,6 +1,7 @@
 import "./index.scss";
 
 import * as React from "react";
+
 import { useTheme } from "../../hooks/useTheme";
 
 function sendGiscusMessage<T>(message: T) {
@@ -48,8 +49,6 @@ export function Discussion({ lang = "en" }: { lang?: string }) {
       return;
     }
 
-    console.debug("Rendering Giscus");
-
     const scriptTag = createGiscusTag({ theme, lang });
     const slotHtml = document.createRange().createContextualFragment(scriptTag);
 
@@ -69,9 +68,10 @@ export function Discussion({ lang = "en" }: { lang?: string }) {
     sendGiscusMessage({
       setConfig: {
         theme: newTheme,
+        lang,
       },
     });
-  }, [theme]);
+  }, [theme, lang]);
 
   return (
     <>

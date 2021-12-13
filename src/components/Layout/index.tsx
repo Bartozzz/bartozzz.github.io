@@ -1,8 +1,9 @@
 import * as css from "./index.module.scss";
 
 import * as React from "react";
-import { PageHeader } from "../PageHeader";
+
 import { PageFooter } from "../PageFooter";
+import { PageHeader } from "../PageHeader";
 
 export function Layout({ children }: React.PropsWithChildren<unknown>) {
   return (

@@ -1,7 +1,8 @@
 import * as css from "./index.module.scss";
-import { FooterDataQuery } from "../../../graphql-types";
 
 import { useStaticQuery, graphql } from "gatsby";
+
+import { FooterDataQuery } from "../../../graphql-types";
 
 import DribbbleIcon from "../../assets/icons/dribbble.svg";
 import GitHubIcon from "../../assets/icons/github.svg";

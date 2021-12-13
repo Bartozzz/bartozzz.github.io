@@ -1,15 +1,16 @@
 import "../styles/pages/index.scss";
 
 import { graphql } from "gatsby";
+
 import { IndexPageQuery } from "../../graphql-types";
 
-import { Layout } from "../components/Layout";
-import { SEO } from "../components/SEO";
-import { PostExcerpt } from "../components/PostExcerpt";
-import { Hero } from "../components/Hero";
 import { Content } from "../components/Content";
-import { Repository } from "../components/Repository";
 import { Heading } from "../components/Heading";
+import { Hero } from "../components/Hero";
+import { Layout } from "../components/Layout";
+import { PostExcerpt } from "../components/PostExcerpt";
+import { Repository } from "../components/Repository";
+import { SEO } from "../components/SEO";
 
 interface Props {
   data: IndexPageQuery;

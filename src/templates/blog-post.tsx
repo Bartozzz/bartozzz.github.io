@@ -2,12 +2,13 @@ import "./blog-post.scss";
 
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+
 import { BlogPostBySlugQuery } from "../../graphql-types";
 
-import { Layout } from "../components/Layout";
-import { SEO } from "../components/SEO";
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
+import { Layout } from "../components/Layout";
+import { SEO } from "../components/SEO";
 
 interface Props {
   data: BlogPostBySlugQuery;

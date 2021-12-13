@@ -35,22 +35,7 @@ module.exports = {
   },
 
   rules: {
-    "no-console": [0],
-    "no-param-reassign": [0],
-    "no-else-return": [0],
-    "no-confusing-arrow": [0],
-    "no-prototype-builtins": [0],
-
     "prettier/prettier": [2],
-
-    "import/named": [0],
-    "import/first": [0],
-    "import/prefer-default-export": [0],
-    "import/no-extraneous-dependencies": [0],
-    "import/no-named-as-default": [0],
-
-    "react/prop-types": [0],
-    "react/display-name": [0],
 
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
@@ -59,5 +44,36 @@ module.exports = {
     "@typescript-eslint/no-empty-function": [0],
     "@typescript-eslint/no-empty-interface": [0],
     "@typescript-eslint/explicit-module-boundary-types": [0],
+
+    "import/order": [
+      2,
+      {
+        "newlines-between": "always-and-inside-groups",
+        alphabetize: { order: "asc" },
+        groups: [
+          "unknown",
+          "builtin",
+          "external",
+          "internal",
+          "index",
+          "sibling",
+          "parent",
+          "object",
+        ],
+        pathGroups: [
+          {
+            pattern: "./*.scss",
+            group: "unknown",
+            position: "before",
+          },
+          {
+            pattern: "react*",
+            group: "builtin",
+            position: "before",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["react", "builtin"],
+      },
+    ],
   },
 };
