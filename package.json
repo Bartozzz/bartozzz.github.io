@@ -47,7 +47,7 @@
     "sass": "^1.45.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.0.1",
+    "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
@@ -69,7 +69,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
     "prettier": "^2.5.1",
-    "semantic-release": "^17.4.7",
+    "semantic-release": "^18.0.1",
     "typescript": "^4.5.3"
   },
   "husky": {
