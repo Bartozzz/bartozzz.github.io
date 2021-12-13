@@ -31,7 +31,7 @@ As a developer, you need to find the perfect balance between initial and dynamic
 
 ## Solutions
 
-Concurrent React can partially render a tre without committing the result.
+Concurrent React can partially render a tree without committing the result.
 
 ### Code splitting
 
