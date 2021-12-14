@@ -243,6 +243,13 @@
     .attr-name {
       color: var(--color-prettylights-syntax-constant);
     }
+    // CSS:
+    .selector {
+      color: var(--color-prettylights-syntax-constant);
+    }
+    .rule {
+      color: var(--color-prettylights-syntax-keyword);
+    }
     // JSX tag names:
     .tag > .tag {
       color: var(--color-prettylights-syntax-entity-tag);
