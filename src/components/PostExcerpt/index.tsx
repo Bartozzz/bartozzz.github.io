@@ -36,7 +36,7 @@ export function PostExcerpt({
         </time>
 
         <h2 className={css.postExcerpt__title}>
-          <Link to={link} itemProp="url">
+          <Link to={link} itemProp="url" rel="bookmark">
             <span itemProp="headline">{title}</span>
           </Link>
         </h2>
