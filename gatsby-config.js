@@ -2,7 +2,7 @@ module.exports = {
   jsxRuntime: "automatic",
   siteMetadata: {
     title: `Bartosz Łaniewski`,
-    description: `Bartosz Łaniewski – Creative designer &amp; developer.`,
+    description: `Creative designer & developer based in Poland. Passionate about architecture and beautiful software.`,
     siteUrl: `https://laniewski.me/`,
     siteRepo: `https://github.com/Bartozzz/bartozzz.github.io`,
     contact: `hi@laniewski.me`,
@@ -141,7 +141,7 @@ module.exports = {
       options: {
         name: `Bartosz Łaniewski`,
         short_name: `Bart`,
-        description: `Creative designer &amp; developer.`,
+        description: `Creative designer & developer.`,
         start_url: `/`,
         display: `standalone`,
         icon: `src/assets/favicon.svg`,
