@@ -137,6 +137,21 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Bartosz Łaniewski`,
+        short_name: `Bart`,
+        description: `Creative designer &amp; developer.`,
+        start_url: `/`,
+        display: `standalone`,
+        icon: `src/assets/favicon.svg`,
+        legacy: false, // this will not add apple-touch-icon links to <head>
+        background_color: `#ffffff`,
+        theme_color: `#fc8c03`,
+        theme_color_in_head: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-minify-html`,
     },
   ],
