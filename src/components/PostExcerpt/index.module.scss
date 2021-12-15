@@ -28,10 +28,8 @@
   color: var(--text-secondary);
 }
 
-.post-excerpt__date {
+.post-excerpt__info {
   @include vr-font("sm");
-
-  display: block;
 
   font-family: var(--fn-mono);
   color: var(--text-secondary);

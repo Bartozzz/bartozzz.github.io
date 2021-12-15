@@ -8,6 +8,7 @@ interface Props {
   date: string;
   content: string;
   language: string;
+  timeToRead: number;
   authors?: string[];
 }
 
@@ -18,6 +19,7 @@ export function PostExcerpt({
   authors,
   content,
   language,
+  timeToRead,
 }: Props) {
   return (
     <article
@@ -27,13 +29,19 @@ export function PostExcerpt({
       lang={language}
     >
       <header>
-        <time
-          className={css.postExcerpt__date}
-          dateTime={date}
-          itemProp="datePublished"
-        >
-          {date}
-        </time>
+        <p className={css.postExcerpt__info}>
+          <time dateTime={date} itemProp="datePublished">
+            {date}
+          </time>
+
+          {timeToRead ? (
+            <>
+              {" • "}
+              <span itemProp="timeRequired">{timeToRead * 2} min</span>
+              {" read "}
+            </>
+          ) : null}
+        </p>
 
         <h2 className={css.postExcerpt__title}>
           <Link to={link} itemProp="url" rel="bookmark">

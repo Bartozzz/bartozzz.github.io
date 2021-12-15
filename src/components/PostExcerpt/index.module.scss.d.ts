@@ -2,4 +2,4 @@
 export const postExcerpt__title: string;
 export const postExcerpt__wrapper: string;
 export const postExcerpt__content: string;
-export const postExcerpt__date: string;
+export const postExcerpt__info: string;

@@ -70,6 +70,7 @@ export default function IndexPage({ data }: Props) {
                   authors={post.frontmatter.authors}
                   content={post.frontmatter.description || post.excerpt}
                   language={post.frontmatter.language}
+                  timeToRead={post.timeToRead}
                 />
               </li>
             ))}
@@ -90,6 +91,7 @@ export const pageQuery = graphql`
     allMdx(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
+        timeToRead
         fields {
           slug
         }
