@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.2.1...v1.3.0) (2021-12-15)
+
+
+### Features
+
+* implement time to read ([6d56da5](https://github.com/Bartozzz/bartozzz.github.io/commit/6d56da5d4f907f6587731f626408fa06c1274206))
+
 ## [1.2.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.2.0...v1.2.1) (2021-12-09)
 
 
