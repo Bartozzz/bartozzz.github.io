@@ -48,7 +48,7 @@
     "sass": "^1.45.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^15.0.0",
+    "@commitlint/cli": "^16.0.0",
     "@commitlint/config-conventional": "^15.0.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
