@@ -34,3 +34,13 @@
   font-family: var(--fn-mono);
   color: var(--text-secondary);
 }
+
+.post-excerpt__keyword {
+  text-decoration: underline;
+  color: var(--text-secondary);
+
+  &:hover,
+  &:focus {
+    color: var(--primary-500);
+  }
+}

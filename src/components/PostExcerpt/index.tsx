@@ -1,12 +1,17 @@
 import * as css from "./index.module.scss";
 
+import React from "react";
+
 import { Link } from "gatsby";
+
+import { mapKeywordToSlug } from "../../../gatsby/helpers/mapKeywordToSlug";
 
 interface Props {
   link: string;
   title: string;
   date: string;
   content: string;
+  keywords: string[];
   language: string;
   timeToRead: number;
   authors?: string[];
@@ -19,6 +24,7 @@ export function PostExcerpt({
   authors,
   content,
   language,
+  keywords,
   timeToRead,
 }: Props) {
   return (
@@ -36,9 +42,27 @@ export function PostExcerpt({
 
           {timeToRead ? (
             <>
-              {" • "}
+              <span aria-hidden>{" • "}</span>
               <span itemProp="timeRequired">{timeToRead * 2} min</span>
               {" read "}
+            </>
+          ) : null}
+
+          {keywords?.length > 0 ? (
+            <>
+              <span aria-hidden>{" • "}</span>
+              {keywords.map((keyword, index) => (
+                <React.Fragment key={keyword}>
+                  <Link
+                    to={`/posts/${mapKeywordToSlug(keyword)}`}
+                    title={`Category: ${keyword}`}
+                    className={css.postExcerpt__keyword}
+                  >
+                    {keyword}
+                  </Link>
+                  {index !== keywords.length - 1 ? ", " : null}
+                </React.Fragment>
+              ))}
             </>
           ) : null}
         </p>

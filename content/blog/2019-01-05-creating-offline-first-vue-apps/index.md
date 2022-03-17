@@ -1,9 +1,11 @@
 ---
-title: Creating offline-first Progressive Web Applications in Vue.js
-date: 2019-01-05 00:00:00 +0100
-language: en
+title: Creating offline-first Progressive Web Applications in Vue
 authors: ["Bartosz Łaniewski"]
-keywords: ["Vue.js", "PWA", "Offline-first"]
+keywords: ["Vue", "PWA"]
+language: en
+dateCreated: 2019-01-05 00:00:00 +0100
+dateUpdated: 2019-01-05 00:00:00 +0100
+datePublished: 2019-01-05 00:00:00 +0100
 ---
 
 With JavaScript increasingly gaining popularity, Progressive Web Apps (_PWAs_) might replace native mobile & desktops apps in the future. In this post, we will learn how to develop and test offline-first, Vue-based Progressive Web Applications and why it is worth-it.
@@ -488,7 +490,7 @@ export default {
 
 ## Testing offline-first applications
 
-Google Chrome's DevTools offer a lot of functions test the PWA features of your web application. However, some of them require HTTPS certificates, even on localhost. Let’s see how to properly set-up a testing environment to test our Vue.js application.
+Google Chrome's DevTools offer a lot of functions test the PWA features of your web application. However, some of them require HTTPS certificates, even on localhost. Let’s see how to properly set-up a testing environment to test our Vue application.
 
 ### Creating a development environment with HTTPS
 
@@ -561,6 +563,6 @@ You can test your Progressive Web Applications directly in the browser, without 
 
 ## Conclusion
 
-In this article, we learned how to create a great base for offline-first, PWAs using Vue.js, web manifest and other standards. There's a lot more to consider to make a great native-like feeling and keep your user engaged. Here are some points to consider:
+In this article, we learned how to create a great base for offline-first, PWAs using Vue, web manifest and other standards. There's a lot more to consider to make a great native-like feeling and keep your user engaged. Here are some points to consider:
 - Keyboard shortcuts;
 - Notification & icon badges;

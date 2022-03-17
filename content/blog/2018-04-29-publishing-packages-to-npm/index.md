@@ -1,9 +1,11 @@
 ---
 title: Publishing tree shaking friendly npm packages
-date: 2018-04-29 00:00:00 +0100
-language: en
 authors: ["Bartosz Łaniewski"]
-keywords: ["JavaScript", "Node.js", "npm"]
+keywords: ["JavaScript", "npm"]
+language: en
+dateCreated: 2018-04-29 00:00:00 +0100
+dateUpdated: 2018-04-29 00:00:00 +0100
+datePublished: 2018-04-29 00:00:00 +0100
 ---
 
 With the rise of ES2015, modules have officially become an integral part of JavaScript. By their nature, ES2015 modules are static and can get optimized at the compile time. Various tools and techniques have been created to minimize the total size of generated bundles. The one described in this article is called tree shaking.

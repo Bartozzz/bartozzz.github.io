@@ -1,9 +1,11 @@
 ---
 title: Exporting Flow definitions in npm packages
-date: 2018-05-13 00:00:00 +0100
-language: en
 authors: ["Bartosz Łaniewski"]
 keywords: ["JavaScript", "Flow", "npm"]
+language: en
+dateCreated: 2018-05-13 00:00:00 +0100
+dateUpdated: 2018-05-13 00:00:00 +0100
+datePublished: 2018-05-13 00:00:00 +0100
 ---
 
 There are more than [31000 repositories on GitHub][1] using Flow but only a few ones export Flow definitions. In this article, we will see how to export Flow definitions for a module. Before getting started, I encourage you to read my previous article about „_[Publishing tree shaking friendly packages to npm](/javascript/2018/04/29/publishing-packages-to-npm.html)_”.
