@@ -1,9 +1,9 @@
 import { GatsbyNode } from "gatsby";
 import { createFilePath } from "gatsby-source-filesystem";
 
-import { getAllPosts, getAllPostsByKeyword } from "./data/queries";
-import { createBlogPostPage } from "./helpers/createBlogPostPage";
-import { createBlogPostsPage } from "./helpers/createBlogPostsPage";
+import { getAllPosts, getAllPostsByKeyword } from "./gatsby/data/queries";
+import { createBlogPostPage } from "./gatsby/helpers/createBlogPostPage";
+import { createBlogPostsPage } from "./gatsby/helpers/createBlogPostsPage";
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,

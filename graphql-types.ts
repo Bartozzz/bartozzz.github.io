@@ -256,6 +256,7 @@ export type Site = Node & {
   jsxRuntime?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
+  trailingSlash?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -863,6 +864,7 @@ export type QuerySiteArgs = {
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -2196,6 +2198,7 @@ export type SiteFieldsEnum =
   | 'jsxRuntime'
   | 'polyfill'
   | 'pathPrefix'
+  | 'trailingSlash'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2332,6 +2335,7 @@ export type SiteFilterInput = {
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;

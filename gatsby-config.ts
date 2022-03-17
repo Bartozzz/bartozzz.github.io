@@ -2,7 +2,7 @@ import path from "path";
 
 import { GatsbyConfig } from "gatsby";
 
-export default {
+const config: GatsbyConfig = {
   jsxRuntime: "automatic",
   siteMetadata: {
     title: `Bartosz Łaniewski`,
@@ -32,21 +32,21 @@ export default {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.join(__dirname, `../content/blog`),
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.join(__dirname, `../content`),
+        path: path.resolve(`./content`),
         name: `content`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.join(__dirname, `../src/assets`),
+        path: path.resolve(`./content/blog`),
+        name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve(`./src/assets`),
         name: `images`,
       },
     },
@@ -159,4 +159,6 @@ export default {
       resolve: `gatsby-plugin-minify-html`,
     },
   ],
-} as GatsbyConfig;
+};
+
+export default config;
