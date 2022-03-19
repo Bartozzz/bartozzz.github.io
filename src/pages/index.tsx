@@ -89,7 +89,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      limit: 3
+      sort: { fields: [frontmatter___datePublished], order: DESC }
+    ) {
       nodes {
         excerpt
         timeToRead
