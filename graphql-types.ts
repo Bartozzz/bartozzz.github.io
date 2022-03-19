@@ -256,6 +256,7 @@ export type Site = Node & {
   jsxRuntime?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
+  trailingSlash?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -362,9 +363,9 @@ export type MdxFrontmatter = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
-  language?: Maybe<Scalars['String']>;
   authors?: Maybe<Array<Maybe<Scalars['String']>>>;
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
+  language?: Maybe<Scalars['String']>;
 };
 
 
@@ -836,6 +837,7 @@ export type QuerySiteArgs = {
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -1078,9 +1080,9 @@ export type MdxFrontmatterFilterInput = {
   title?: InputMaybe<StringQueryOperatorInput>;
   description?: InputMaybe<StringQueryOperatorInput>;
   date?: InputMaybe<DateQueryOperatorInput>;
-  language?: InputMaybe<StringQueryOperatorInput>;
   authors?: InputMaybe<StringQueryOperatorInput>;
   keywords?: InputMaybe<StringQueryOperatorInput>;
+  language?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type MdxHeadingMdxFilterListInput = {
@@ -1310,9 +1312,9 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___title'
   | 'childrenMdx___frontmatter___description'
   | 'childrenMdx___frontmatter___date'
-  | 'childrenMdx___frontmatter___language'
   | 'childrenMdx___frontmatter___authors'
   | 'childrenMdx___frontmatter___keywords'
+  | 'childrenMdx___frontmatter___language'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -1370,9 +1372,9 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___description'
   | 'childMdx___frontmatter___date'
-  | 'childMdx___frontmatter___language'
   | 'childMdx___frontmatter___authors'
   | 'childMdx___frontmatter___keywords'
+  | 'childMdx___frontmatter___language'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2160,6 +2162,7 @@ export type SiteFieldsEnum =
   | 'jsxRuntime'
   | 'polyfill'
   | 'pathPrefix'
+  | 'trailingSlash'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2296,6 +2299,7 @@ export type SiteFilterInput = {
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -3196,9 +3200,9 @@ export type MdxFieldsEnum =
   | 'frontmatter___title'
   | 'frontmatter___description'
   | 'frontmatter___date'
-  | 'frontmatter___language'
   | 'frontmatter___authors'
   | 'frontmatter___keywords'
+  | 'frontmatter___language'
   | 'slug'
   | 'body'
   | 'excerpt'

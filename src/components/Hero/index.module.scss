@@ -1,11 +1,14 @@
 @import "../../styles/mixins/mediaquery.scss";
 
 .hero {
-  height: calc(100vh - var(--vr-lh) * 3);
-  min-height: 288px; // 8 * 35
+  --header-height: var(--vr-lh) * 3;
+
+  height: calc(100vh - var(--header-height) * 2);
+  height: calc(100svh - var(--header-height));
+  min-height: calc(var(--vr-unit) * 35); // 8 * 35
 
   @include mediaquery("sm") {
-    height: 480px; // 8 * 60
+    height: calc(var(--vr-unit) * 60); // 8 * 60
   }
 }
 
