@@ -1,4 +1,8 @@
-module.exports = {
+import path from "path";
+
+import { GatsbyConfig } from "gatsby";
+
+const config: GatsbyConfig = {
   jsxRuntime: "automatic",
   siteMetadata: {
     title: `Bartosz Łaniewski`,
@@ -28,22 +32,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content`,
+        path: path.resolve(`./content`),
         name: `content`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: path.resolve(`./content/blog`),
+        name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve(`./src/assets`),
         name: `images`,
-        path: `${__dirname}/src/assets`,
       },
     },
     {
@@ -156,3 +160,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

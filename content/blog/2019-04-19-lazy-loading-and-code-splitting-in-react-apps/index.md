@@ -1,9 +1,11 @@
 ---
 title: Lazy loading and code splitting in React
-date: 2019-04-20 00:00:00 +0100
-language: en
 authors: ["Bartosz Łaniewski"]
 keywords: ["React"]
+language: en
+dateCreated: 2019-04-20 00:00:00 +0100
+dateUpdated: 2019-04-20 00:00:00 +0100
+datePublished: 2019-04-20 00:00:00 +0100
 ---
 
 Lazy loading is a well-known technique for improving performance and reducing the associated resources costs. It's so effective that it's even [being added to the web standard](https://github.com/whatwg/html/pull/3752) via the `loading="lazy"` attribute. In this article we will learn how to perform lazy ressources loading and code splitting in React.

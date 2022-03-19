@@ -23,16 +23,13 @@
   @include vr-font("md");
 
   display: inline-block;
-  margin: 0 var(--cs-sm);
+  margin: 0 var(--cs-sm) 0 var(--cs-md);
 
   font-family: var(--fn-mono);
 
-  @include mediaquery("sm") {
-    margin: 0 var(--cs-md);
-  }
-
   &--contact {
     float: right;
+    margin: 0 var(--cs-md) 0 0;
   }
 
   a {

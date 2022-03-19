@@ -66,10 +66,11 @@ export default function IndexPage({ data }: Props) {
                 <PostExcerpt
                   link={post.fields.slug}
                   title={post.frontmatter.title || post.fields.slug}
-                  date={post.frontmatter.date}
+                  date={post.frontmatter.datePublished}
                   authors={post.frontmatter.authors}
                   content={post.frontmatter.description || post.excerpt}
                   language={post.frontmatter.language}
+                  keywords={post.frontmatter.keywords}
                   timeToRead={post.timeToRead}
                 />
               </li>
@@ -88,7 +89,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      limit: 3
+      sort: { fields: [frontmatter___datePublished], order: DESC }
+    ) {
       nodes {
         excerpt
         timeToRead
@@ -96,10 +100,13 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          dateCreated(formatString: "MMMM DD, YYYY")
+          dateUpdated(formatString: "MMMM DD, YYYY")
+          datePublished(formatString: "MMMM DD, YYYY")
           title
           authors
           language
+          keywords
           description
         }
       }

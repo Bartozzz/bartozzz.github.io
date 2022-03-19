@@ -256,6 +256,7 @@ export type Site = Node & {
   jsxRuntime?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
+  trailingSlash?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -362,13 +363,40 @@ export type MdxFrontmatter = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
-  language?: Maybe<Scalars['String']>;
   authors?: Maybe<Array<Maybe<Scalars['String']>>>;
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
+  language?: Maybe<Scalars['String']>;
+  dateCreated?: Maybe<Scalars['Date']>;
+  dateUpdated?: Maybe<Scalars['Date']>;
+  datePublished?: Maybe<Scalars['Date']>;
 };
 
 
 export type MdxFrontmatterDateArgs = {
+  formatString?: InputMaybe<Scalars['String']>;
+  fromNow?: InputMaybe<Scalars['Boolean']>;
+  difference?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+export type MdxFrontmatterDateCreatedArgs = {
+  formatString?: InputMaybe<Scalars['String']>;
+  fromNow?: InputMaybe<Scalars['Boolean']>;
+  difference?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+export type MdxFrontmatterDateUpdatedArgs = {
+  formatString?: InputMaybe<Scalars['String']>;
+  fromNow?: InputMaybe<Scalars['Boolean']>;
+  difference?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+export type MdxFrontmatterDatePublishedArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
   difference?: InputMaybe<Scalars['String']>;
@@ -836,6 +864,7 @@ export type QuerySiteArgs = {
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -1078,9 +1107,12 @@ export type MdxFrontmatterFilterInput = {
   title?: InputMaybe<StringQueryOperatorInput>;
   description?: InputMaybe<StringQueryOperatorInput>;
   date?: InputMaybe<DateQueryOperatorInput>;
-  language?: InputMaybe<StringQueryOperatorInput>;
   authors?: InputMaybe<StringQueryOperatorInput>;
   keywords?: InputMaybe<StringQueryOperatorInput>;
+  language?: InputMaybe<StringQueryOperatorInput>;
+  dateCreated?: InputMaybe<DateQueryOperatorInput>;
+  dateUpdated?: InputMaybe<DateQueryOperatorInput>;
+  datePublished?: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type MdxHeadingMdxFilterListInput = {
@@ -1310,9 +1342,12 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___title'
   | 'childrenMdx___frontmatter___description'
   | 'childrenMdx___frontmatter___date'
-  | 'childrenMdx___frontmatter___language'
   | 'childrenMdx___frontmatter___authors'
   | 'childrenMdx___frontmatter___keywords'
+  | 'childrenMdx___frontmatter___language'
+  | 'childrenMdx___frontmatter___dateCreated'
+  | 'childrenMdx___frontmatter___dateUpdated'
+  | 'childrenMdx___frontmatter___datePublished'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -1370,9 +1405,12 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___description'
   | 'childMdx___frontmatter___date'
-  | 'childMdx___frontmatter___language'
   | 'childMdx___frontmatter___authors'
   | 'childMdx___frontmatter___keywords'
+  | 'childMdx___frontmatter___language'
+  | 'childMdx___frontmatter___dateCreated'
+  | 'childMdx___frontmatter___dateUpdated'
+  | 'childMdx___frontmatter___datePublished'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2160,6 +2198,7 @@ export type SiteFieldsEnum =
   | 'jsxRuntime'
   | 'polyfill'
   | 'pathPrefix'
+  | 'trailingSlash'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2296,6 +2335,7 @@ export type SiteFilterInput = {
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -3196,9 +3236,12 @@ export type MdxFieldsEnum =
   | 'frontmatter___title'
   | 'frontmatter___description'
   | 'frontmatter___date'
-  | 'frontmatter___language'
   | 'frontmatter___authors'
   | 'frontmatter___keywords'
+  | 'frontmatter___language'
+  | 'frontmatter___dateCreated'
+  | 'frontmatter___dateUpdated'
+  | 'frontmatter___datePublished'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -3753,19 +3796,7 @@ export type Unnamed_1_Query = { site?: { siteMetadata?: { title?: string | null 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null | undefined } | null | undefined } | null | undefined, allMdx: { nodes: Array<{ excerpt: string, timeToRead?: number | null | undefined, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { date?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, description?: string | null | undefined } | null | undefined }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined }> } };
-
-export type PostsPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type PostsPageQuery = { allMdx: { nodes: Array<{ excerpt: string, timeToRead?: number | null | undefined, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { date?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, description?: string | null | undefined } | null | undefined }> } };
-
-export type BlogPostBySlugQueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-export type BlogPostBySlugQuery = { mdx?: { id: string, excerpt: string, body: string, frontmatter?: { date?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, description?: string | null | undefined } | null | undefined } | null | undefined };
+export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null | undefined } | null | undefined } | null | undefined, allMdx: { nodes: Array<{ excerpt: string, timeToRead?: number | null | undefined, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { dateCreated?: any | null | undefined, dateUpdated?: any | null | undefined, datePublished?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined } | null | undefined }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined }> } };
 
 export type GatsbyImageSharpFixedFragment = { base64?: string | null | undefined, width: number, height: number, src: string, srcSet: string };
 

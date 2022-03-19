@@ -1,9 +1,11 @@
 ---
 title: Enterprise-scale React & Redux project architecture
-date: 2019-03-01 00:00:00 +0100
-language: en
 authors: ["Bartosz Łaniewski"]
-keywords: ["React", "Redux", "Architecture"]
+keywords: ["React", "Architecture"]
+language: en
+dateCreated: 2019-03-01 00:00:00 +0100
+dateUpdated: 2019-03-01 00:00:00 +0100
+datePublished: 2019-03-01 00:00:00 +0100
 ---
 
 Maintaining large React projects can be a difficult task. Below are a few practices I’ve adapted over the years working with React projects of all scales. A low of those practices were directly taken or inspired by excellent resources found in the React/Redux community, precisely:

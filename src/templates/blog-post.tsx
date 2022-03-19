@@ -1,9 +1,8 @@
 import "./blog-post.scss";
 
-import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
-import { BlogPostBySlugQuery } from "../../graphql-types";
+import { BlogPost } from "../../gatsby/types/queries";
 
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
@@ -11,13 +10,15 @@ import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 
 interface Props {
-  data: BlogPostBySlugQuery;
+  pageContext: {
+    data: BlogPost;
+  };
 }
 
-export function BlogPostTemplate({ data }: Props) {
-  const post = data.mdx;
+export default function BlogPostTemplate({ pageContext }: Props) {
+  const post = pageContext.data;
   const { frontmatter, excerpt, body } = post;
-  const { title, date, language, description, authors } = frontmatter;
+  const { title, datePublished, language, description, authors } = frontmatter;
 
   return (
     <Layout>
@@ -33,8 +34,8 @@ export function BlogPostTemplate({ data }: Props) {
           <header className="post__header">
             <h1 itemProp="headline">{title}</h1>
 
-            <time dateTime={date} itemProp="datePublished">
-              {date}
+            <time dateTime={datePublished} itemProp="datePublished">
+              {datePublished}
             </time>
 
             {authors?.length ? (
@@ -58,22 +59,3 @@ export function BlogPostTemplate({ data }: Props) {
     </Layout>
   );
 }
-
-export default BlogPostTemplate;
-
-export const pageQuery = graphql`
-  query BlogPostBySlug($id: String!) {
-    mdx(id: { eq: $id }) {
-      id
-      excerpt(pruneLength: 160)
-      body
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        authors
-        language
-        description
-      }
-    }
-  }
-`;
