@@ -4,20 +4,25 @@ import { Actions } from "gatsby";
 
 import { mapKeywordToSlug } from "./mapKeywordToSlug";
 
-const template = path.resolve(`./src/templates/blog-posts.tsx`);
+import { BlogPost } from "../types/queries";
 
-export async function createBlogPostsPage(
+interface Context {
+  keyword?: string;
+}
+
+export async function createAllBlogPostsPage(
   actions: Actions,
-  data: any,
-  context: any = {}
+  data: BlogPost[],
+  context: Context = {}
 ) {
   const { keyword } = context;
-  const path = keyword ? `/posts/${mapKeywordToSlug(keyword)}/` : `/posts/`;
+  const slug = keyword ? `/posts/${mapKeywordToSlug(keyword)}/` : `/posts/`;
+  const template = path.resolve(`./src/templates/blog-posts.tsx`);
 
   console.info(`Creating blog posts listing at ${path}`);
 
   return actions.createPage({
-    path: path,
+    path: slug,
     component: template,
     context: {
       keyword,

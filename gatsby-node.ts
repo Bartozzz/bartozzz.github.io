@@ -2,8 +2,8 @@ import { GatsbyNode } from "gatsby";
 import { createFilePath } from "gatsby-source-filesystem";
 
 import { getAllPosts, getAllPostsByKeyword } from "./gatsby/data/queries";
+import { createAllBlogPostsPage } from "./gatsby/helpers/createAllBlogPostsPage";
 import { createBlogPostPage } from "./gatsby/helpers/createBlogPostPage";
-import { createBlogPostsPage } from "./gatsby/helpers/createBlogPostsPage";
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -33,7 +33,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     const result = await getAllPosts(graphql);
     const data = result.allMdx.nodes;
 
-    return await createBlogPostsPage(actions, data);
+    return await createAllBlogPostsPage(actions, data);
   })();
 
   // Create page for listing all blog posts by keyword:
@@ -42,7 +42,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       const result = await getAllPostsByKeyword(graphql, keyword);
       const data = result.allMdx.nodes;
 
-      await createBlogPostsPage(actions, data, { keyword });
+      await createAllBlogPostsPage(actions, data, { keyword });
     });
 
     return await Promise.all(tasks);
