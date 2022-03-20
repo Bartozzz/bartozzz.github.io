@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.3.0...v1.4.0) (2022-03-20)
+
+
+### Features
+
+* create posts by keyword pages ([#194](https://github.com/Bartozzz/bartozzz.github.io/issues/194)) ([3a432f9](https://github.com/Bartozzz/bartozzz.github.io/commit/3a432f9e4abe9a677f792d2d5e04957ed578d2ae))
+
 # [1.3.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.2.1...v1.3.0) (2021-12-15)
 
 
