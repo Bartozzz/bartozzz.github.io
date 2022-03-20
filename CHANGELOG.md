@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.4.0...v1.4.1) (2022-03-20)
+
+
+### Bug Fixes
+
+* theme mixin classname resolution in CSS modules ([#206](https://github.com/Bartozzz/bartozzz.github.io/issues/206)) ([7b5ea72](https://github.com/Bartozzz/bartozzz.github.io/commit/7b5ea724302a98e464238b1c5b3645357c7e4741))
+
 # [1.4.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.3.0...v1.4.0) (2022-03-20)
 
 
