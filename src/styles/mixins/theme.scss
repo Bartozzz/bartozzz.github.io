@@ -2,8 +2,13 @@
   $themes: "dark" "light";
 
   @if index($themes, $theme) != null {
-    .#{$theme} {
-      @content;
+    // https://tahoeninjas.blog/2019/07/28/prevent-scss-from-changing-your-css-class-names/
+    :global {
+      .#{$theme} {
+        :local {
+          @content;
+        }
+      }
     }
   } @else {
     @error "ERROR: Theme '#{$theme}' is not defined";
