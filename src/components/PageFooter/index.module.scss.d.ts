@@ -3,7 +3,7 @@ export const footer__source: string;
 export const footer__item: string;
 export const footer: string;
 export const footer__menu: string;
-export const footer__itemContact: string;
+export const footer__itemRight: string;
 export const footer__itemText: string;
 export const footer__itemIcon: string;
 export const footer__itemIconYoutube: string;

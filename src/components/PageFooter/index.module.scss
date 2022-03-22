@@ -4,32 +4,29 @@
 
 .footer {
   margin: 0 auto;
-  padding: var(--ls-lg) 0;
+  padding: var(--ls-lg) var(--cs-md);
 
   max-width: var(--mw-md);
-  width: 100%;
 }
 
 .footer__menu {
   padding: 0;
-  margin: 0 var(--cs-sm) var(--cs-xl);
-
-  @include mediaquery("sm") {
-    margin: 0 0 var(--cs-xl);
-  }
+  margin: 0 0 var(--cs-xl);
 }
 
 .footer__item {
   @include vr-font("md");
 
   display: inline-block;
-  margin: 0 var(--cs-sm) 0 var(--cs-md);
+  margin-left: 0;
+  margin-right: var(--cs-xl);
 
   font-family: var(--fn-mono);
 
-  &--contact {
+  &--right {
     float: right;
-    margin: 0 var(--cs-md) 0 0;
+    margin-left: var(--cs-xl);
+    margin-right: 0;
   }
 
   a {
@@ -64,7 +61,7 @@
 .footer__source {
   @include vr-font("md");
 
-  margin: var(--cs-xl) var(--cs-md) 0;
+  margin: var(--cs-xl) 0 0;
 
   color: var(--text-primary);
 

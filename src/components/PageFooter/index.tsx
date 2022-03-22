@@ -1,6 +1,6 @@
 import * as css from "./index.module.scss";
 
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 
 import { FooterDataQuery } from "../../../graphql-types";
 
@@ -69,7 +69,11 @@ export function PageFooter() {
             </li>
           ))}
 
-          <li className={`${css.footer__item} ${css.footer__itemContact}`}>
+          <li className={`${css.footer__item} ${css.footer__itemRight}`}>
+            <Link to="rss.xml">RSS</Link>
+          </li>
+
+          <li className={`${css.footer__item} ${css.footer__itemRight}`}>
             <a
               target="_blank"
               itemProp="email"
