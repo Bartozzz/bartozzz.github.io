@@ -76,6 +76,15 @@ body.dark {
   --primary-300: hsl(266 48% 35%);
   --primary-500: hsl(266 48% 50%);
 
+  --color-success: hsl(142 76% 36%);
+  --color-success-background: hsl(142 76% 36% / 0.1);
+  --color-failure: hsl(0 74% 42%);
+  --color-failure-background: hsl(0 74% 42% / 0.1);
+  --color-warning: hsl(32 95% 44%);
+  --color-warning-background: hsl(32 95% 44% / 0.1);
+  --color-info: hsl(224 76% 48%);
+  --color-info-background: hsl(224 76% 48% / 0.1);
+
   --color-prettylights-syntax-comment: #768390;
   --color-prettylights-syntax-constant: #6cb6ff;
   --color-prettylights-syntax-entity: #dcbdfb;
@@ -122,6 +131,15 @@ body.light {
   --primary-100: hsl(33 98% 96%);
   --primary-300: hsl(33 98% 75%);
   --primary-500: hsl(33 98% 50%);
+
+  --color-success: hsl(142 76% 36%);
+  --color-success-background: hsl(142 76% 36% / 0.1);
+  --color-failure: hsl(0 74% 42%);
+  --color-failure-background: hsl(0 74% 42% / 0.1);
+  --color-warning: hsl(32 95% 44%);
+  --color-warning-background: hsl(32 95% 44% / 0.1);
+  --color-info: hsl(224 76% 48%);
+  --color-info-background: hsl(224 76% 48% / 0.1);
 
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;

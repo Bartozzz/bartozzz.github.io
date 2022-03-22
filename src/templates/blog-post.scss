@@ -152,12 +152,19 @@
 
   blockquote {
     $decoration-border-width: 5px;
+    $padding-vertical: var(--cs-xxs);
+    $padding-horizontal: var(--ls-xxs);
+    $margin-vertical: var(--ls-md);
+    $margin-horizontal: calc(-1 * $padding-horizontal);
 
     border-left-width: $decoration-border-width;
     border-left-style: solid;
     border-left-color: var(--text-secondary);
 
-    margin: var(--ls-md) 0 var(--ls-md) calc(-1 * var(--ls-xxs));
+    margin: $margin-vertical $margin-horizontal;
+    padding-top: $padding-vertical;
+    padding-bottom: $padding-vertical;
+    padding-right: var(--ls-xxs);
     padding-left: calc(var(--ls-xxs) - #{$decoration-border-width});
 
     &,
