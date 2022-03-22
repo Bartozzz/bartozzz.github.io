@@ -6,8 +6,6 @@
   position: sticky;
   top: 0;
 
-  padding: var(--cs-xl) 0;
-
   width: 100%;
 
   background-color: hsla(var(--background-100-shade) / 0.85);
@@ -39,10 +37,8 @@
   align-items: center;
 
   margin: 0 auto;
-  padding: 0 var(--cs-md);
+  padding: var(--cs-xl) var(--cs-md);
 
-  height: 100%;
-  width: 100%;
   max-width: var(--mw-md);
 
   list-style: none;
