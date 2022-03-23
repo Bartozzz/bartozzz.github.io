@@ -1,9 +1,11 @@
 import "./blog-post.scss";
 
+import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import { BlogPost } from "../../gatsby/types/queries";
 
+import { Alert } from "../components/Alert";
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
 import { Layout } from "../components/Layout";
@@ -50,7 +52,9 @@ export default function BlogPostTemplate({ pageContext }: Props) {
           </header>
 
           <section itemProp="articleBody" className="post__content">
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXProvider components={{ Alert }}>
+              <MDXRenderer>{body}</MDXRenderer>
+            </MDXProvider>
           </section>
         </article>
 

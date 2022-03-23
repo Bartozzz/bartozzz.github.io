@@ -41,7 +41,12 @@ Bazując się na wyżej wymienionych informacjach, bardzo łatwo można wygenero
 
 1.  **Adres IP** oraz ISP: należy używać ostrożnie — dynamiczna alokacja adresów IP przez dostawców może być problematyczna. Z tego powodu, adresy IP są częściej używane do blokowania dostępu aniżeli identyfikacji maszyn.
 2.  **Ciasteczka**: najczęściej wykorzystywane przez narzędzia do analizy ruchu i dostawców reklam. Wraz z przepisami znowelizowanej ustawy [Prawa Telekomunikacyjnego][5] coraz więcej osób decyduje się jednak na ich blokowanie.
-3.  **Przeglądarka**: zgodnie ze specyfikacją [RFC 7231 (5.5.3)][6], nagłówek `User-Agent` zawiera informacje pozwalające na rozpoznanie programu, z którego klient wykonał zapytanie.
+3.  **Przeglądarka**: zgodnie ze specyfikacją [RFC 7231 (5.5.3)][6], nagłówek HTTP `User-Agent` zawiera informacje pozwalające na rozpoznanie programu, z którego klient wykonał zapytanie.
+
+<Alert>
+
+  Przeglądarka Google Chrome [planuje zredukować](https://developer.chrome.com/docs/privacy-sandbox/user-agent/) informacje wysyłane w nagłówku HTTP `User-Agent` oraz w obiekcie `navigator`. Ma to na celu zredukowanie informacji służących do identyfikacji użytkowników na podstawie odcisku przeglądarki.
+</Alert>
 
 [Preferowane języki][7] użytkownika, [rozszerzenia][8], dostępne czcionki, wsparcie przeglądarki oraz reszta danych systemowych są również powszechnie przetwarzane. Pełną listę charakterystyk, wraz z technicznym opisem oraz metodami ich pozyskania można znaleźć w artykule [_„Technical analysis of client identification mechanisms”_][4] autorstwa Artura Janc i Michała Zalewskiego.
 
