@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.4.1...v1.5.0) (2022-03-23)
+
+
+### Features
+
+* create Alert component ([#209](https://github.com/Bartozzz/bartozzz.github.io/issues/209)) ([61ba6e4](https://github.com/Bartozzz/bartozzz.github.io/commit/61ba6e4361bcd41d10f1f28356f8c85053b26916))
+
 ## [1.4.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.4.0...v1.4.1) (2022-03-20)
 
 
