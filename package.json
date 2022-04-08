@@ -30,7 +30,7 @@
     "gatsby-plugin-sass": "^5.10.2",
     "gatsby-plugin-sharp": "^4.11.1",
     "gatsby-plugin-sitemap": "^5.10.2",
-    "gatsby-remark-images": "^6.10.2",
+    "gatsby-remark-images": "^6.11.1",
     "gatsby-remark-prismjs": "^6.11.0",
     "gatsby-source-filesystem": "^4.11.1",
     "gatsby-transformer-json": "^4.11.0",
