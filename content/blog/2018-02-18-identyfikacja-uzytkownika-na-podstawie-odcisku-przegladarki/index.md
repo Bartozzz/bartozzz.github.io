@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Security", "Privacy"]
 language: pl
 dateCreated: 2018-02-18 00:00:00 +0100
-dateUpdated: 2018-02-18 00:00:00 +0100
+dateUpdated: 2022-04-17 00:00:00 +0100
 datePublished: 2018-02-18 00:00:00 +0100
 ---
 
@@ -69,6 +69,7 @@ Poniższe rozszerzenia powinny jednak poradzić sobie z wieloma metodami śledze
 1.  [`uBlock Origin`][11]: _„An efficient blocker: easy on memory and CPU footprint, and yet can load and enforce thousands more filters than other popular blockers.”_.
 2.  [`noscript`][12]: _„Provides extra protection: allows JavaScript, Java, Flash and other plugins to be executed only by trusted web sites of your choice.”_.
 3.  [`blender`][13]: _„Blend in the crowd by faking to be the most common Firefox browser version, operating system and other stuff.”_.
+4.  [`ClearURLs`][17]: _„Automatically removes tracking elements from URLs to help protect your privacy when browsing through the internet.”_.
 
 Dodaj filtry z [`easylist` i `easyprivacy`][14]: _„The EasyList filter lists are sets of rules originally designed for Adblock that automatically remove unwanted content from the internet, including annoying adverts, bothersome banners and troublesome tracking.”_.
 
@@ -98,6 +99,7 @@ Dodaj filtry z [`easylist` i `easyprivacy`][14]: _„The EasyList filter lists a
 [14]: https://easylist.to/
 [15]: https://github.com/StevenBlack/hosts
 [16]: https://rekseto.github.io/eksperymenty/inne/javascript/2018/06/04/jak-duzo-o-tobie-wiem.html
+[17]: https://docs.clearurls.xyz/
 
 *[ISP]: od Internet service provider – dostawca usług internetowych
 *[API]: od Application Programming Interface – interfejs programowania aplikacji
