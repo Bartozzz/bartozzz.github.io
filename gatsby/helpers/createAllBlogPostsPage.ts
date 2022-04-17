@@ -19,7 +19,7 @@ export async function createAllBlogPostsPage(
   const slug = keyword ? `/posts/${mapKeywordToSlug(keyword)}/` : `/posts/`;
   const template = path.resolve(`./src/templates/blog-posts.tsx`);
 
-  console.info(`Creating blog posts listing at ${path}`);
+  console.info(`Creating blog posts listing at ${slug}`);
 
   return actions.createPage({
     path: slug,
