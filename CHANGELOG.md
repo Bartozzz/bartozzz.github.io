@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.5.0...v1.5.1) (2022-04-17)
+
+
+### Bug Fixes
+
+* fix blockquote spacing ([0bb75cc](https://github.com/Bartozzz/bartozzz.github.io/commit/0bb75cc0b340420cfa43437a95142dac19bebaae))
+
 # [1.5.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.4.1...v1.5.0) (2022-03-23)
 
 
