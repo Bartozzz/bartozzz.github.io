@@ -38,7 +38,7 @@
     "gatsby-transformer-yaml": "^4.11.0",
     "normalize.css": "^8.0.1",
     "param-case": "^3.0.4",
-    "prismjs": "^1.27.0",
+    "prismjs": "^1.28.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
