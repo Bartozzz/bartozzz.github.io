@@ -34,7 +34,7 @@
     "gatsby-remark-prismjs": "^6.12.1",
     "gatsby-source-filesystem": "^4.12.1",
     "gatsby-transformer-json": "^4.12.1",
-    "gatsby-transformer-sharp": "^4.11.0",
+    "gatsby-transformer-sharp": "^4.12.1",
     "gatsby-transformer-yaml": "^4.12.1",
     "normalize.css": "^8.0.1",
     "param-case": "^3.0.4",
