@@ -2,21 +2,11 @@ import PropTypes from "prop-types";
 
 export default function HTML(props) {
   return (
-    <html
-      lang="en"
-      dir="ltr"
-      vocab="http://schema.org"
-      itemType="http://schema.org/WebPage"
-      itemScope
-      {...props.htmlAttributes}
-    >
+    <html lang="en" dir="ltr" {...props.htmlAttributes}>
       <head>
         <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no, minimal-ui"
-        />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel="prefetch" href="/discussion-dark.css" as="style" />
         <link rel="prefetch" href="/discussion-light.css" as="style" />
