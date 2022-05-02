@@ -1,0 +1,34 @@
+- name: Stacker
+  desc: Stack the blocks! Tap on the screen to make the block fall and build a tower.
+  path: https://stacker.laniewski.me
+  icon: https://play-lh.googleusercontent.com/_4UYfKH8jEhw52BhEfmdk3P3LwNYhn0By9m53ZlVXn2HVy1torRy-bbluOHQowEWrg=s500-rw
+  color: "#3b1019"
+  textColor: "#fff"
+
+- name: Filler
+  desc: Fill the board! Pressing any of the cells will toggle it and the adjacent cells.
+  path: https://filler.laniewski.me
+  icon: https://play-lh.googleusercontent.com/Z7XYHVNgONnRlEVFo4hyBZzfm3R74dVLaOFM1r3COqxvETeVYg5RwAhbBWx3Q85d72A=s500-rw
+  color: "#fff2dc"
+  textColor: "#000"
+
+- name: Make 0!
+  desc: Slide numbers to combine them and fill the board with 0s!
+  path: https://make0.laniewski.me
+  icon: https://play-lh.googleusercontent.com/nZPs85a2YOFDwvbClZj8CSKxyJCtGq0rrMao3Q1_vPshcmEQUvH9b_QGiTHPS01UJmk=s500-rw
+  color: "#000"
+  textColor: "#fff"
+
+- name: Słowo
+  desc: Polska gra językowa polegającą na zgadywaniu ukrytych słów w 6-ciu próbach!
+  path: https://slowo.laniewski.me
+  icon: https://play-lh.googleusercontent.com/vviOHFrnskMRApgkBYDm_3lz-Bz8Hja_VDXBJgAD5KpJclDTCZsGvoVuCQZhx4A6CQ=s500-rw
+  color: "#000"
+  textColor: "#fff"
+
+- name: Tilt copters
+  desc: Fly to the moon and beyond! The higher you get, the faster the game is!
+  path: https://tiltcopters.laniewski.me
+  icon: https://play-lh.googleusercontent.com/KXNdorq6TnulbxzrTuKtIBPiyALl5rAhJOrrjGN8i4p0mowWGrGt0DBgmGbjN01SyQ=s500-rw
+  color: "#2196cd"
+  textColor: "#fff"

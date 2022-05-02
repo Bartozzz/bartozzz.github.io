@@ -71,6 +71,10 @@ export type File = Node & {
   childrenRepositoriesYaml?: Maybe<Array<Maybe<RepositoriesYaml>>>;
   /** Returns the first child node of type RepositoriesYaml or null if there are no children of given type on this node */
   childRepositoriesYaml?: Maybe<RepositoriesYaml>;
+  /** Returns all children nodes filtered by type GamesYaml */
+  childrenGamesYaml?: Maybe<Array<Maybe<GamesYaml>>>;
+  /** Returns the first child node of type GamesYaml or null if there are no children of given type on this node */
+  childGamesYaml?: Maybe<GamesYaml>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -729,6 +733,19 @@ export type RepositoriesYaml = Node & {
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
+export type GamesYaml = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  name?: Maybe<Scalars['String']>;
+  desc?: Maybe<Scalars['String']>;
+  path?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
+  color?: Maybe<Scalars['String']>;
+  textColor?: Maybe<Scalars['String']>;
+};
+
 export type Query = {
   file?: Maybe<File>;
   allFile: FileConnection;
@@ -750,6 +767,8 @@ export type Query = {
   allImageSharp: ImageSharpConnection;
   repositoriesYaml?: Maybe<RepositoriesYaml>;
   allRepositoriesYaml: RepositoriesYamlConnection;
+  gamesYaml?: Maybe<GamesYaml>;
+  allGamesYaml: GamesYamlConnection;
 };
 
 
@@ -794,6 +813,8 @@ export type QueryFileArgs = {
   childImageSharp?: InputMaybe<ImageSharpFilterInput>;
   childrenRepositoriesYaml?: InputMaybe<RepositoriesYamlFilterListInput>;
   childRepositoriesYaml?: InputMaybe<RepositoriesYamlFilterInput>;
+  childrenGamesYaml?: InputMaybe<GamesYamlFilterListInput>;
+  childGamesYaml?: InputMaybe<GamesYamlFilterInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -1037,6 +1058,28 @@ export type QueryAllRepositoriesYamlArgs = {
   limit?: InputMaybe<Scalars['Int']>;
 };
 
+
+export type QueryGamesYamlArgs = {
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+  name?: InputMaybe<StringQueryOperatorInput>;
+  desc?: InputMaybe<StringQueryOperatorInput>;
+  path?: InputMaybe<StringQueryOperatorInput>;
+  icon?: InputMaybe<StringQueryOperatorInput>;
+  color?: InputMaybe<StringQueryOperatorInput>;
+  textColor?: InputMaybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllGamesYamlArgs = {
+  filter?: InputMaybe<GamesYamlFilterInput>;
+  sort?: InputMaybe<GamesYamlSortInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+};
+
 export type StringQueryOperatorInput = {
   eq?: InputMaybe<Scalars['String']>;
   ne?: InputMaybe<Scalars['String']>;
@@ -1244,6 +1287,23 @@ export type RepositoriesYamlFilterInput = {
   desc?: InputMaybe<StringQueryOperatorInput>;
   path?: InputMaybe<StringQueryOperatorInput>;
   keywords?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type GamesYamlFilterListInput = {
+  elemMatch?: InputMaybe<GamesYamlFilterInput>;
+};
+
+export type GamesYamlFilterInput = {
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+  name?: InputMaybe<StringQueryOperatorInput>;
+  desc?: InputMaybe<StringQueryOperatorInput>;
+  path?: InputMaybe<StringQueryOperatorInput>;
+  icon?: InputMaybe<StringQueryOperatorInput>;
+  color?: InputMaybe<StringQueryOperatorInput>;
+  textColor?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type FileConnection = {
@@ -1689,6 +1749,95 @@ export type FileFieldsEnum =
   | 'childRepositoriesYaml___desc'
   | 'childRepositoriesYaml___path'
   | 'childRepositoriesYaml___keywords'
+  | 'childrenGamesYaml'
+  | 'childrenGamesYaml___id'
+  | 'childrenGamesYaml___parent___id'
+  | 'childrenGamesYaml___parent___parent___id'
+  | 'childrenGamesYaml___parent___parent___children'
+  | 'childrenGamesYaml___parent___children'
+  | 'childrenGamesYaml___parent___children___id'
+  | 'childrenGamesYaml___parent___children___children'
+  | 'childrenGamesYaml___parent___internal___content'
+  | 'childrenGamesYaml___parent___internal___contentDigest'
+  | 'childrenGamesYaml___parent___internal___description'
+  | 'childrenGamesYaml___parent___internal___fieldOwners'
+  | 'childrenGamesYaml___parent___internal___ignoreType'
+  | 'childrenGamesYaml___parent___internal___mediaType'
+  | 'childrenGamesYaml___parent___internal___owner'
+  | 'childrenGamesYaml___parent___internal___type'
+  | 'childrenGamesYaml___children'
+  | 'childrenGamesYaml___children___id'
+  | 'childrenGamesYaml___children___parent___id'
+  | 'childrenGamesYaml___children___parent___children'
+  | 'childrenGamesYaml___children___children'
+  | 'childrenGamesYaml___children___children___id'
+  | 'childrenGamesYaml___children___children___children'
+  | 'childrenGamesYaml___children___internal___content'
+  | 'childrenGamesYaml___children___internal___contentDigest'
+  | 'childrenGamesYaml___children___internal___description'
+  | 'childrenGamesYaml___children___internal___fieldOwners'
+  | 'childrenGamesYaml___children___internal___ignoreType'
+  | 'childrenGamesYaml___children___internal___mediaType'
+  | 'childrenGamesYaml___children___internal___owner'
+  | 'childrenGamesYaml___children___internal___type'
+  | 'childrenGamesYaml___internal___content'
+  | 'childrenGamesYaml___internal___contentDigest'
+  | 'childrenGamesYaml___internal___description'
+  | 'childrenGamesYaml___internal___fieldOwners'
+  | 'childrenGamesYaml___internal___ignoreType'
+  | 'childrenGamesYaml___internal___mediaType'
+  | 'childrenGamesYaml___internal___owner'
+  | 'childrenGamesYaml___internal___type'
+  | 'childrenGamesYaml___name'
+  | 'childrenGamesYaml___desc'
+  | 'childrenGamesYaml___path'
+  | 'childrenGamesYaml___icon'
+  | 'childrenGamesYaml___color'
+  | 'childrenGamesYaml___textColor'
+  | 'childGamesYaml___id'
+  | 'childGamesYaml___parent___id'
+  | 'childGamesYaml___parent___parent___id'
+  | 'childGamesYaml___parent___parent___children'
+  | 'childGamesYaml___parent___children'
+  | 'childGamesYaml___parent___children___id'
+  | 'childGamesYaml___parent___children___children'
+  | 'childGamesYaml___parent___internal___content'
+  | 'childGamesYaml___parent___internal___contentDigest'
+  | 'childGamesYaml___parent___internal___description'
+  | 'childGamesYaml___parent___internal___fieldOwners'
+  | 'childGamesYaml___parent___internal___ignoreType'
+  | 'childGamesYaml___parent___internal___mediaType'
+  | 'childGamesYaml___parent___internal___owner'
+  | 'childGamesYaml___parent___internal___type'
+  | 'childGamesYaml___children'
+  | 'childGamesYaml___children___id'
+  | 'childGamesYaml___children___parent___id'
+  | 'childGamesYaml___children___parent___children'
+  | 'childGamesYaml___children___children'
+  | 'childGamesYaml___children___children___id'
+  | 'childGamesYaml___children___children___children'
+  | 'childGamesYaml___children___internal___content'
+  | 'childGamesYaml___children___internal___contentDigest'
+  | 'childGamesYaml___children___internal___description'
+  | 'childGamesYaml___children___internal___fieldOwners'
+  | 'childGamesYaml___children___internal___ignoreType'
+  | 'childGamesYaml___children___internal___mediaType'
+  | 'childGamesYaml___children___internal___owner'
+  | 'childGamesYaml___children___internal___type'
+  | 'childGamesYaml___internal___content'
+  | 'childGamesYaml___internal___contentDigest'
+  | 'childGamesYaml___internal___description'
+  | 'childGamesYaml___internal___fieldOwners'
+  | 'childGamesYaml___internal___ignoreType'
+  | 'childGamesYaml___internal___mediaType'
+  | 'childGamesYaml___internal___owner'
+  | 'childGamesYaml___internal___type'
+  | 'childGamesYaml___name'
+  | 'childGamesYaml___desc'
+  | 'childGamesYaml___path'
+  | 'childGamesYaml___icon'
+  | 'childGamesYaml___color'
+  | 'childGamesYaml___textColor'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -1858,6 +2007,8 @@ export type FileFilterInput = {
   childImageSharp?: InputMaybe<ImageSharpFilterInput>;
   childrenRepositoriesYaml?: InputMaybe<RepositoriesYamlFilterListInput>;
   childRepositoriesYaml?: InputMaybe<RepositoriesYamlFilterInput>;
+  childrenGamesYaml?: InputMaybe<GamesYamlFilterListInput>;
+  childGamesYaml?: InputMaybe<GamesYamlFilterInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -3783,6 +3934,191 @@ export type RepositoriesYamlSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
+export type GamesYamlConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<GamesYamlEdge>;
+  nodes: Array<GamesYaml>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<GamesYamlGroupConnection>;
+};
+
+
+export type GamesYamlConnectionDistinctArgs = {
+  field: GamesYamlFieldsEnum;
+};
+
+
+export type GamesYamlConnectionMaxArgs = {
+  field: GamesYamlFieldsEnum;
+};
+
+
+export type GamesYamlConnectionMinArgs = {
+  field: GamesYamlFieldsEnum;
+};
+
+
+export type GamesYamlConnectionSumArgs = {
+  field: GamesYamlFieldsEnum;
+};
+
+
+export type GamesYamlConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: GamesYamlFieldsEnum;
+};
+
+export type GamesYamlEdge = {
+  next?: Maybe<GamesYaml>;
+  node: GamesYaml;
+  previous?: Maybe<GamesYaml>;
+};
+
+export type GamesYamlFieldsEnum =
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'name'
+  | 'desc'
+  | 'path'
+  | 'icon'
+  | 'color'
+  | 'textColor';
+
+export type GamesYamlGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<GamesYamlEdge>;
+  nodes: Array<GamesYaml>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<GamesYamlGroupConnection>;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+
+export type GamesYamlGroupConnectionDistinctArgs = {
+  field: GamesYamlFieldsEnum;
+};
+
+
+export type GamesYamlGroupConnectionMaxArgs = {
+  field: GamesYamlFieldsEnum;
+};
+
+
+export type GamesYamlGroupConnectionMinArgs = {
+  field: GamesYamlFieldsEnum;
+};
+
+
+export type GamesYamlGroupConnectionSumArgs = {
+  field: GamesYamlFieldsEnum;
+};
+
+
+export type GamesYamlGroupConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: GamesYamlFieldsEnum;
+};
+
+export type GamesYamlSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<GamesYamlFieldsEnum>>>;
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
 export type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3796,7 +4132,7 @@ export type Unnamed_1_Query = { site?: { siteMetadata?: { title?: string | null 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null | undefined } | null | undefined } | null | undefined, allMdx: { nodes: Array<{ excerpt: string, timeToRead?: number | null | undefined, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { dateCreated?: any | null | undefined, dateUpdated?: any | null | undefined, datePublished?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined } | null | undefined }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined }> } };
+export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null | undefined } | null | undefined } | null | undefined, allMdx: { nodes: Array<{ excerpt: string, timeToRead?: number | null | undefined, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { dateCreated?: any | null | undefined, dateUpdated?: any | null | undefined, datePublished?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined } | null | undefined }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined }> }, allGamesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, icon?: string | null | undefined, color?: string | null | undefined, textColor?: string | null | undefined }> } };
 
 export type GatsbyImageSharpFixedFragment = { base64?: string | null | undefined, width: number, height: number, src: string, srcSet: string };
 

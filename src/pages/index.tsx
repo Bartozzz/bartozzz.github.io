@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 import { IndexPageQuery } from "../../graphql-types";
 
 import { Content } from "../components/Content";
+import { GameCard } from "../components/GameCard";
 import { Heading } from "../components/Heading";
 import { Hero } from "../components/Hero";
 import { Layout } from "../components/Layout";
@@ -18,6 +19,7 @@ interface Props {
 
 export default function IndexPage({ data }: Props) {
   const posts = data.allMdx.nodes;
+  const games = data.allGamesYaml.nodes;
   const repositories = data.allRepositoriesYaml.nodes;
 
   return (
@@ -50,7 +52,34 @@ export default function IndexPage({ data }: Props) {
             ))}
           </ol>
         </article>
+      </Content>
 
+      <article>
+        <Heading>
+          <Heading.H2>Hand-crafted games</Heading.H2>
+          <Heading.H3>
+            I create mobile games from scratch! I learn most by experimenting
+            and game development makes me experiment a lot!
+          </Heading.H3>
+        </Heading>
+
+        <ol className="games list">
+          {games.map((repository) => (
+            <GameCard
+              as="li"
+              key={repository.id}
+              link={repository.path}
+              name={repository.name}
+              icon={repository.icon}
+              color={repository.color}
+              textColor={repository.textColor}
+              description={repository.desc}
+            />
+          ))}
+        </ol>
+      </article>
+
+      <Content>
         <article>
           <Heading>
             <Heading.H2>Newest articles</Heading.H2>
@@ -118,6 +147,17 @@ export const pageQuery = graphql`
         desc
         path
         keywords
+      }
+    }
+    allGamesYaml {
+      nodes {
+        id
+        name
+        desc
+        path
+        icon
+        color
+        textColor
       }
     }
   }
