@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.6.0...v1.7.0) (2022-05-03)
+
+
+### Features
+
+* add keywords on posts pages ([c7ee8c8](https://github.com/Bartozzz/bartozzz.github.io/commit/c7ee8c84c833879138cac268e4686e83d5ee345e))
+
 # [1.6.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.5.1...v1.6.0) (2022-05-02)
 
 
