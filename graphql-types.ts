@@ -4134,6 +4134,11 @@ export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null | undefined } | null | undefined } | null | undefined, allMdx: { nodes: Array<{ excerpt: string, timeToRead?: number | null | undefined, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { dateCreated?: any | null | undefined, dateUpdated?: any | null | undefined, datePublished?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined } | null | undefined }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined }> }, allGamesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, icon?: string | null | undefined, color?: string | null | undefined, textColor?: string | null | undefined }> } };
 
+export type AllKeywordsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllKeywordsQuery = { allMdx: { nodes: Array<{ frontmatter?: { keywords?: Array<string | null | undefined> | null | undefined } | null | undefined }> } };
+
 export type GatsbyImageSharpFixedFragment = { base64?: string | null | undefined, width: number, height: number, src: string, srcSet: string };
 
 export type GatsbyImageSharpFixed_TracedSvgFragment = { tracedSVG?: string | null | undefined, width: number, height: number, src: string, srcSet: string };
