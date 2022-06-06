@@ -21,7 +21,7 @@
     "gatsby-plugin-dts-css-modules": "^2.2.0",
     "gatsby-plugin-feed": "^4.15.1",
     "gatsby-plugin-graphql-codegen": "^3.1.1",
-    "gatsby-plugin-image": "^2.14.1",
+    "gatsby-plugin-image": "^2.15.1",
     "gatsby-plugin-manifest": "^4.15.0",
     "gatsby-plugin-mdx": "^3.15.0",
     "gatsby-plugin-minify-html": "^1.0.4",
