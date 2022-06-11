@@ -1,3 +1,11 @@
+## [1.7.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.7.0...v1.7.1) (2022-06-11)
+
+
+### Bug Fixes
+
+* **dependabot:** merge only successful workflows ([d517d6f](https://github.com/Bartozzz/bartozzz.github.io/commit/d517d6ffadce3610b3d72b6b5c35b317b269d3df))
+* migrate to yarn ([2b4a370](https://github.com/Bartozzz/bartozzz.github.io/commit/2b4a3709c5cce3b0d6ff7c4263761df932211d45))
+
 # [1.7.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.6.0...v1.7.0) (2022-05-03)
 
 
