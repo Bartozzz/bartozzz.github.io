@@ -19,6 +19,7 @@ export type Scalars = {
   Date: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
+  GatsbyImageData: any;
 };
 
 export type File = Node & {
@@ -261,6 +262,7 @@ export type Site = Node & {
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   trailingSlash?: Maybe<Scalars['String']>;
+  graphqlTypegen?: Maybe<Scalars['Boolean']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -528,7 +530,7 @@ export type Potrace = {
 export type ImageSharp = Node & {
   fixed?: Maybe<ImageSharpFixed>;
   fluid?: Maybe<ImageSharpFluid>;
-  gatsbyImageData: Scalars['JSON'];
+  gatsbyImageData: Scalars['GatsbyImageData'];
   original?: Maybe<ImageSharpOriginal>;
   resize?: Maybe<ImageSharpResize>;
   id: Scalars['ID'];
@@ -886,6 +888,7 @@ export type QuerySiteArgs = {
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   trailingSlash?: InputMaybe<StringQueryOperatorInput>;
+  graphqlTypegen?: InputMaybe<BooleanQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -1021,7 +1024,7 @@ export type QueryAllMdxArgs = {
 export type QueryImageSharpArgs = {
   fixed?: InputMaybe<ImageSharpFixedFilterInput>;
   fluid?: InputMaybe<ImageSharpFluidFilterInput>;
-  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>;
+  gatsbyImageData?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
   original?: InputMaybe<ImageSharpOriginalFilterInput>;
   resize?: InputMaybe<ImageSharpResizeFilterInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -1222,7 +1225,7 @@ export type ImageSharpFilterListInput = {
 export type ImageSharpFilterInput = {
   fixed?: InputMaybe<ImageSharpFixedFilterInput>;
   fluid?: InputMaybe<ImageSharpFluidFilterInput>;
-  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>;
+  gatsbyImageData?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
   original?: InputMaybe<ImageSharpOriginalFilterInput>;
   resize?: InputMaybe<ImageSharpResizeFilterInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -1257,6 +1260,13 @@ export type ImageSharpFluidFilterInput = {
   originalName?: InputMaybe<StringQueryOperatorInput>;
   presentationWidth?: InputMaybe<IntQueryOperatorInput>;
   presentationHeight?: InputMaybe<IntQueryOperatorInput>;
+};
+
+export type GatsbyImageDataQueryOperatorInput = {
+  eq?: InputMaybe<Scalars['GatsbyImageData']>;
+  ne?: InputMaybe<Scalars['GatsbyImageData']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
+  nin?: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
 };
 
 export type ImageSharpOriginalFilterInput = {
@@ -2350,6 +2360,7 @@ export type SiteFieldsEnum =
   | 'polyfill'
   | 'pathPrefix'
   | 'trailingSlash'
+  | 'graphqlTypegen'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2487,6 +2498,7 @@ export type SiteFilterInput = {
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   trailingSlash?: InputMaybe<StringQueryOperatorInput>;
+  graphqlTypegen?: InputMaybe<BooleanQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -4122,45 +4134,45 @@ export type GamesYamlSortInput = {
 export type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FooterDataQuery = { site?: { siteMetadata?: { siteRepo?: string | null | undefined, contact?: string | null | undefined, social?: { GitHub?: string | null | undefined, LinkedIn?: string | null | undefined, YouTube?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined };
+export type FooterDataQuery = { site?: { siteMetadata?: { siteRepo?: string | null, contact?: string | null, social?: { GitHub?: string | null, LinkedIn?: string | null, YouTube?: string | null } | null } | null } | null };
 
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { site?: { siteMetadata?: { title?: string | null | undefined, description?: string | null | undefined } | null | undefined } | null | undefined };
+export type Unnamed_1_Query = { site?: { siteMetadata?: { title?: string | null, description?: string | null } | null } | null };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null | undefined } | null | undefined } | null | undefined, allMdx: { nodes: Array<{ excerpt: string, timeToRead?: number | null | undefined, fields?: { slug?: string | null | undefined } | null | undefined, frontmatter?: { dateCreated?: any | null | undefined, dateUpdated?: any | null | undefined, datePublished?: any | null | undefined, title?: string | null | undefined, authors?: Array<string | null | undefined> | null | undefined, language?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined } | null | undefined }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined }> }, allGamesYaml: { nodes: Array<{ id: string, name?: string | null | undefined, desc?: string | null | undefined, path?: string | null | undefined, icon?: string | null | undefined, color?: string | null | undefined, textColor?: string | null | undefined }> } };
+export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, allMdx: { nodes: Array<{ excerpt: string, timeToRead?: number | null, fields?: { slug?: string | null } | null, frontmatter?: { dateCreated?: any | null, dateUpdated?: any | null, datePublished?: any | null, title?: string | null, authors?: Array<string | null> | null, language?: string | null, keywords?: Array<string | null> | null, description?: string | null } | null }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null, desc?: string | null, path?: string | null, keywords?: Array<string | null> | null }> }, allGamesYaml: { nodes: Array<{ id: string, name?: string | null, desc?: string | null, path?: string | null, icon?: string | null, color?: string | null, textColor?: string | null }> } };
 
 export type AllKeywordsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllKeywordsQuery = { allMdx: { nodes: Array<{ frontmatter?: { keywords?: Array<string | null | undefined> | null | undefined } | null | undefined }> } };
+export type AllKeywordsQuery = { allMdx: { nodes: Array<{ frontmatter?: { keywords?: Array<string | null> | null } | null }> } };
 
-export type GatsbyImageSharpFixedFragment = { base64?: string | null | undefined, width: number, height: number, src: string, srcSet: string };
+export type GatsbyImageSharpFixedFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string };
 
-export type GatsbyImageSharpFixed_TracedSvgFragment = { tracedSVG?: string | null | undefined, width: number, height: number, src: string, srcSet: string };
+export type GatsbyImageSharpFixed_TracedSvgFragment = { tracedSVG?: string | null, width: number, height: number, src: string, srcSet: string };
 
-export type GatsbyImageSharpFixed_WithWebpFragment = { base64?: string | null | undefined, width: number, height: number, src: string, srcSet: string, srcWebp?: string | null | undefined, srcSetWebp?: string | null | undefined };
+export type GatsbyImageSharpFixed_WithWebpFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null };
 
-export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = { tracedSVG?: string | null | undefined, width: number, height: number, src: string, srcSet: string, srcWebp?: string | null | undefined, srcSetWebp?: string | null | undefined };
+export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = { tracedSVG?: string | null, width: number, height: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null };
 
 export type GatsbyImageSharpFixed_NoBase64Fragment = { width: number, height: number, src: string, srcSet: string };
 
-export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = { width: number, height: number, src: string, srcSet: string, srcWebp?: string | null | undefined, srcSetWebp?: string | null | undefined };
+export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = { width: number, height: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null };
 
-export type GatsbyImageSharpFluidFragment = { base64?: string | null | undefined, aspectRatio: number, src: string, srcSet: string, sizes: string };
+export type GatsbyImageSharpFluidFragment = { base64?: string | null, aspectRatio: number, src: string, srcSet: string, sizes: string };
 
 export type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: number, maxWidth: number };
 
-export type GatsbyImageSharpFluid_TracedSvgFragment = { tracedSVG?: string | null | undefined, aspectRatio: number, src: string, srcSet: string, sizes: string };
+export type GatsbyImageSharpFluid_TracedSvgFragment = { tracedSVG?: string | null, aspectRatio: number, src: string, srcSet: string, sizes: string };
 
-export type GatsbyImageSharpFluid_WithWebpFragment = { base64?: string | null | undefined, aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null | undefined, srcSetWebp?: string | null | undefined, sizes: string };
+export type GatsbyImageSharpFluid_WithWebpFragment = { base64?: string | null, aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null, sizes: string };
 
-export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = { tracedSVG?: string | null | undefined, aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null | undefined, srcSetWebp?: string | null | undefined, sizes: string };
+export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = { tracedSVG?: string | null, aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null, sizes: string };
 
 export type GatsbyImageSharpFluid_NoBase64Fragment = { aspectRatio: number, src: string, srcSet: string, sizes: string };
 
-export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = { aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null | undefined, srcSetWebp?: string | null | undefined, sizes: string };
+export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = { aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null, sizes: string };
