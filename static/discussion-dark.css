@@ -1,4 +1,4 @@
-main {
+:root {
   /* Copy from global.scss – we cannot share CSS variables between webpage and iframe */
   --fn-main: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif;
@@ -78,33 +78,44 @@ main {
   --color-fg-default: var(--text-primary);
   --color-fg-muted: var(--text-secondary);
   --color-fg-subtle: var(--text-secondary);
-  --color-canvas-default: var(--background-100) /* BG: main */;
-  --color-canvas-overlay: var(--background-100); /* BG: popup */
-  --color-canvas-inset: var(
-    --background-300
-  ); /* BG: comment textarea, comment */
-  --color-canvas-subtle: var(
-    --background-300
-  ); /* BG: tabs, code, reply textarea */
-  --color-border-default: var(--background-500); /* Comment border */
-  --color-border-muted: var(--background-500); /* Comment timeline */
-  --color-neutral-muted: var(--background-300); /* BG: inline code */
+  --color-canvas-default: var(--background-100)
+    /* BG: main */
+  ;
+  --color-canvas-overlay: var(--background-100);
+  /* BG: popup */
+  --color-canvas-inset: var(--background-300);
+  /* BG: comment textarea, comment */
+  --color-canvas-subtle: var(--background-300);
+  /* BG: tabs, code, reply textarea */
+  --color-border-default: var(--background-500);
+  /* Comment border */
+  --color-border-muted: var(--background-500);
+  /* Comment timeline */
+  --color-neutral-muted: var(--background-300);
+  /* BG: inline code */
   --color-neutral-subtle: red;
-  --color-accent-muted: var(--background-500); /* Box border */
-  --color-accent-emphasis: var(--primary-300); /* Input focus border */
-  --color-primer-shadow-focus: 0 0 0 3px var(--primary-100); /* Input focus shadow */
+  --color-accent-muted: var(--background-500);
+  /* Box border */
+  --color-accent-emphasis: var(--primary-300);
+  /* Input focus border */
+  --color-primer-shadow-focus: 0 0 0 3px var(--primary-100);
+  /* Input focus shadow */
   --color-success-fg: #57ab5a;
   --color-danger-fg: #e5534b;
 
   /*! Reactions: */
-  --color-accent-fg: var(--primary-100); /* Reaction text color */
-  --color-accent-subtle: var(
-    --primary-500
-  ); /* Reaction bg color when reacted */
+  --color-accent-fg: var(--primary-100);
+  /* Reaction text color */
+  --color-accent-subtle: var(--primary-500);
+  /* Reaction bg color when reacted */
   --color-social-reaction-border: var(--background-500);
   --color-social-reaction-bg: var(--background-100);
   --color-social-reaction-bg-hover: var(--background-300);
   --color-social-reaction-bg-reacted-hover: var(--background-300);
+}
+
+html {
+  background-color: var(--background-300);
 }
 
 main .pagination-loader-container {
@@ -113,7 +124,7 @@ main .pagination-loader-container {
 
 /* Custom CSS */
 main {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 .gsc-reactions-count {
@@ -130,6 +141,7 @@ main {
   border: 0;
   height: 0;
 }
+
 .gsc-comment-box-separator::before {
   display: inline-block;
   position: relative;
@@ -146,16 +158,16 @@ main {
   content: "Comments";
 }
 
-.gsc-comments > .gsc-header {
+.gsc-comments>.gsc-header {
   order: 1;
 }
 
-.gsc-comments > .gsc-comment-box {
+.gsc-comments>.gsc-comment-box {
   order: 2;
   margin-bottom: 1rem;
 }
 
-.gsc-comments > .gsc-timeline {
+.gsc-comments>.gsc-timeline {
   order: 3;
 }
 
