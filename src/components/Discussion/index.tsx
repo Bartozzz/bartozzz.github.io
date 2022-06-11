@@ -29,8 +29,8 @@ function createGiscusTag({ theme, lang }: { theme: Theme; lang: string }) {
       data-mapping="pathname"
       data-reactions-enabled="1"
       data-emit-metadata="0"
-      data-theme=${initialTheme}
-      data-lang=${lang}
+      data-theme="${initialTheme}"
+      data-lang="${lang}"
       crossorigin="anonymous"
       async>
     </script>
