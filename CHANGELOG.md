@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.7.1...v1.7.2) (2022-06-12)
+
+
+### Bug Fixes
+
+* **discussions:** update discussions background ([77cc53c](https://github.com/Bartozzz/bartozzz.github.io/commit/77cc53c788239944e6eb42aea2852c789d52ae7e))
+
 ## [1.7.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.7.0...v1.7.1) (2022-06-11)
 
 
