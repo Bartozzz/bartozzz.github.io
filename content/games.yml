@@ -26,7 +26,7 @@
   color: "#000"
   textColor: "#fff"
 
-- name: Tilt copters
+- name: Tilt Copters
   desc: Fly to the moon and beyond! The higher you get, the faster the game is!
   path: https://tiltcopters.laniewski.me
   icon: https://play-lh.googleusercontent.com/KXNdorq6TnulbxzrTuKtIBPiyALl5rAhJOrrjGN8i4p0mowWGrGt0DBgmGbjN01SyQ=s500-rw
