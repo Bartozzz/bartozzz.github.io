@@ -110,6 +110,10 @@
     @include vr-font("lg");
     margin-top: var(--ls-sm);
   }
+  h5,
+  h6 {
+    margin-top: var(--ls-sm);
+  }
 
   b,
   strong {
