@@ -10,6 +10,7 @@ import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
+import { TableOfContents } from "../components/TableOfContents";
 
 interface Props {
   pageContext: {
@@ -19,7 +20,7 @@ interface Props {
 
 export default function BlogPostTemplate({ pageContext }: Props) {
   const post = pageContext.data;
-  const { frontmatter, excerpt, body } = post;
+  const { frontmatter, headings, excerpt, body } = post;
   const { title, datePublished, language, description, authors } = frontmatter;
 
   return (
@@ -51,14 +52,22 @@ export default function BlogPostTemplate({ pageContext }: Props) {
             ) : null}
           </header>
 
-          <section itemProp="articleBody" className="post__content">
-            <MDXProvider components={{ Alert }}>
-              <MDXRenderer>{body}</MDXRenderer>
-            </MDXProvider>
-          </section>
-        </article>
+          <div className="post__wrapper">
+            <div className="post__toc">
+              <TableOfContents headings={headings} />
+            </div>
 
-        <Discussion lang={language} />
+            <div className="post__content">
+              <div itemProp="articleBody">
+                <MDXProvider components={{ Alert }}>
+                  <MDXRenderer>{body}</MDXRenderer>
+                </MDXProvider>
+              </div>
+
+              <Discussion lang={language} />
+            </div>
+          </div>
+        </article>
       </Content>
     </Layout>
   );

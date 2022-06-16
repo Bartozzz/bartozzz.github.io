@@ -56,6 +56,7 @@ const config: GatsbyConfig = {
         extensions: [".md", ".mdx"],
         remarkPlugins: [
           // See: https://github.com/remarkjs/remark/blob/main/doc/plugins.md
+          require("remark-slug"),
           require("remark-abbr"),
           require("remark-copy-linked-files"),
           // Needs ESM Support in Gatsby: https://github.com/gatsbyjs/gatsby/discussions/31599

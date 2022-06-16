@@ -38,6 +38,7 @@ body {
   --lh-xxl: calc(var(--vr-lh) * 2);
 
   /* Border radius */
+  --br-sm: calc(var(--vr-unit) * 1);
   --br-md: calc(var(--vr-unit) * 2);
 
   /* Component spacings: */
@@ -51,13 +52,12 @@ body {
   --ls-sm: calc(var(--vr-unit) * 4);
   --ls-md: calc(var(--vr-unit) * 6);
   --ls-lg: calc(var(--vr-unit) * 8);
-  --ls-xl: calc(var(--vr-unit) * 12);
-  --ls-xxl: calc(var(--vr-unit) * 20);
+  --ls-xl: calc(var(--vr-unit) * 10);
 
   /* Max widths: */
   --mw-xxs: calc(var(--vr-unit) * 54); // ~432px – Page heading
   --mw-xs: calc(var(--vr-unit) * 74); // ~592px – Post excerpt
-  --mw-sm: calc(var(--vr-unit) * 107); // ~856px – Post content
+  --mw-sm: calc(var(--vr-unit) * 106); // ~848px – Post content
   --mw-md: calc(var(--vr-unit) * 156); // ~1248px – Page content
 }
 
@@ -69,7 +69,7 @@ body.dark {
 
   --background-100-shade: 0 0% 7%;
   --background-100: hsl(var(--background-100-shade));
-  --background-300: hsl(0 0% 7%);
+  --background-300: hsl(var(--background-100-shade));
   --background-500: hsl(0 0% 15%);
 
   --primary-100: hsl(266 48% 15%);

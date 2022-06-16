@@ -32,6 +32,10 @@ export async function getAllPosts(graphql: GraphqlType) {
           excerpt
           body
           timeToRead
+          headings {
+            depth
+            value
+          }
           fields {
             slug
           }
@@ -70,6 +74,10 @@ export async function getAllPostsByKeyword(
             excerpt
             body
             timeToRead
+            headings {
+              depth
+              value
+            }
             fields {
               slug
             }

@@ -3,6 +3,10 @@ export interface BlogPost {
   excerpt: string;
   body: string;
   timeToRead: number;
+  headings: Array<{
+    depth: number;
+    value: string;
+  }>;
   fields: {
     slug: string;
   };

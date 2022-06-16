@@ -12,6 +12,12 @@
 
   color: var(--text-primary);
 
+  h1 {
+    @include vr-font("xxl");
+    @extend %text-heading;
+    margin: 0;
+  }
+
   time {
     @include vr-font("md");
 
@@ -20,31 +26,17 @@
   }
 }
 
-.post {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    @extend %text-heading;
-  }
+.post__wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+}
 
-  h1 {
-    @include vr-font("xxl");
-  }
+.post__toc {
+  display: none;
 
-  h2 {
-    @include vr-font("xl");
-  }
-
-  h3 {
-    @include vr-font("lg");
-  }
-
-  h4 {
-    @include vr-font("lg");
+  @include mediaquery("xxl") {
+    display: block;
   }
 }
 
@@ -59,6 +51,10 @@
   max-width: var(--mw-sm);
 
   color: var(--text-primary);
+
+  @include mediaquery("xxl") {
+    margin: 0 auto 0 0;
+  }
 
   a {
     border-width: 0 0 1px;
@@ -90,13 +86,28 @@
     cursor: help;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    @extend %text-heading;
+  }
+  h1 {
+    @include vr-font("xxl");
+  }
   h2 {
+    @include vr-font("xl");
     margin-top: var(--ls-md);
   }
   h3 {
+    @include vr-font("lg");
     margin-top: var(--ls-md);
   }
   h4 {
+    @include vr-font("lg");
     margin-top: var(--ls-sm);
   }
 
