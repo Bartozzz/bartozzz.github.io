@@ -340,4 +340,46 @@
       content: "...";
     }
   }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    margin: var(--ls-sm) 0;
+
+    // Zebra striping
+    // tr:nth-of-type(odd) {
+    //   background: var(--background-300);
+    // }
+
+    tbody tr:hover {
+      background: var(--background-300);
+    }
+
+    td, th {
+      @extend %text-word-wrap;
+      @extend %text-paragraph;
+
+      padding: var(--cs-sm) var(--cs-md);
+      padding-top: calc(var(--cs-sm) - 1px); // because of the border
+
+      text-align: left;
+
+      border-width: 1px;
+      border-style: solid;
+      border-color: var(--background-500);
+
+      &:first-of-type {
+        border-left-width: 0;
+      }
+      &:last-of-type {
+        border-right-width: 0;
+      }
+    }
+
+    th {
+      font-weight: bold;
+      border-width: 0;
+    }
+  }
 }
