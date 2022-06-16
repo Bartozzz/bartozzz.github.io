@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.7.2...v1.8.0) (2022-06-16)
+
+
+### Features
+
+* implement table of contents ([072c42e](https://github.com/Bartozzz/bartozzz.github.io/commit/072c42e258850c573e78192f90b1130d9a2dd31d))
+
 ## [1.7.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.7.1...v1.7.2) (2022-06-12)
 
 
