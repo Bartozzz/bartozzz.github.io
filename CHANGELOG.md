@@ -1,3 +1,13 @@
+## [1.8.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.0...v1.8.1) (2022-06-16)
+
+
+### Bug Fixes
+
+* add blog post table styles ([2db9f36](https://github.com/Bartozzz/bartozzz.github.io/commit/2db9f362b6a33c5094ee65d786c729134064b795))
+* add top margin for h5, h6 ([b5c5b53](https://github.com/Bartozzz/bartozzz.github.io/commit/b5c5b538c73e363ece43a808ee5b54513be1168f))
+* remove headings prefixs for h4, h5, h6 ([a456a96](https://github.com/Bartozzz/bartozzz.github.io/commit/a456a96ae079d83cf629d9557b6c4cd7f2ed1506))
+* vertical rhythm in code blocks inside paragraphs ([dee619c](https://github.com/Bartozzz/bartozzz.github.io/commit/dee619c3ccfcf491e41e348511e052945d1f86ae))
+
 # [1.8.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.7.2...v1.8.0) (2022-06-16)
 
 
