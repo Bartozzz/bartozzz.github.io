@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.2...v1.8.3) (2022-06-17)
+
+
+### Bug Fixes
+
+* add lastmod to sitemap ([9a5e4d1](https://github.com/Bartozzz/bartozzz.github.io/commit/9a5e4d1aaf1ffdcd44bc8fc8608c5bc688400b57))
+
 ## [1.8.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.1...v1.8.2) (2022-06-17)
 
 
