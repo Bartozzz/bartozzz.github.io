@@ -1,3 +1,10 @@
+## [1.8.5](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.4...v1.8.5) (2022-06-17)
+
+
+### Bug Fixes
+
+* remove gatsby-plugin-minify-html ([57976d5](https://github.com/Bartozzz/bartozzz.github.io/commit/57976d5ee83b9184b19e8813297bb6c3b04f26a7)), closes [#425](https://github.com/Bartozzz/bartozzz.github.io/issues/425) [#423](https://github.com/Bartozzz/bartozzz.github.io/issues/423) [#418](https://github.com/Bartozzz/bartozzz.github.io/issues/418)
+
 ## [1.8.4](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.3...v1.8.4) (2022-06-17)
 
 
