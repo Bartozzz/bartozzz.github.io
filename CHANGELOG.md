@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.3...v1.8.4) (2022-06-17)
+
+
+### Bug Fixes
+
+* add description for post feeds ([f64a227](https://github.com/Bartozzz/bartozzz.github.io/commit/f64a22735753dde437a3e5ec5d58262549dda7ad))
+
 ## [1.8.3](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.2...v1.8.3) (2022-06-17)
 
 
