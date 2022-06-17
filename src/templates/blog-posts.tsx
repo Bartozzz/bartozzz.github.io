@@ -22,12 +22,11 @@ interface Props {
 }
 
 export default function BlogPostsTemplate({ data, pageContext }: Props) {
-  const posts = pageContext.data;
-  const keywords = data.allMdx.nodes.flatMap(
-    (node) => node.frontmatter.keywords
-  );
+  const pagePosts = pageContext.data;
+  const pageKeyword = pageContext.keyword;
 
-  const uniqueSortedKeywords = keywords
+  const uniqueSortedKeywords = data.allMdx.nodes
+    .flatMap((node) => node.frontmatter.keywords)
     .reduce<Array<{ quantity: number; keyword: string }>>((acc, val) => {
       const dupeIndex = acc.findIndex((accItem) => accItem.keyword === val);
 
@@ -44,19 +43,26 @@ export default function BlogPostsTemplate({ data, pageContext }: Props) {
 
   return (
     <Layout>
-      <SEO title={pageContext.keyword ?? "All posts"} />
+      <SEO
+        title={pageKeyword ? `${pageKeyword} posts` : "All posts"}
+        description={
+          pageKeyword
+            ? `My latest posts, updates, and stories about ${pageKeyword} for developers`
+            : "My latest posts, updates, and stories about software engineering for developers"
+        }
+      />
 
       <Content>
         <ul className="keywords">
           <Link to="/posts">
-            <Keyword wide outlined={pageContext.keyword ? true : false}>
+            <Keyword wide outlined={pageKeyword ? true : false}>
               All
             </Keyword>
           </Link>
 
           {uniqueSortedKeywords.map((keyword) => (
             <Link key={keyword} to={`/posts/${mapKeywordToSlug(keyword)}`}>
-              <Keyword wide outlined={keyword !== pageContext.keyword}>
+              <Keyword wide outlined={keyword !== pageKeyword}>
                 {keyword}
               </Keyword>
             </Link>
@@ -64,7 +70,7 @@ export default function BlogPostsTemplate({ data, pageContext }: Props) {
         </ul>
 
         <ol className="list">
-          {posts.map((post) => (
+          {pagePosts.map((post) => (
             <li key={post.fields.slug}>
               <PostExcerpt
                 link={post.fields.slug}
