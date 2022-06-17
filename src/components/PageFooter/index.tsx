@@ -70,7 +70,7 @@ export function PageFooter() {
           ))}
 
           <li className={`${css.footer__item} ${css.footer__itemRight}`}>
-            <Link to="rss.xml">RSS</Link>
+            <Link to="/rss.xml">RSS</Link>
           </li>
 
           <li className={`${css.footer__item} ${css.footer__itemRight}`}>
