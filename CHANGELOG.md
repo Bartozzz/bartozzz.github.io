@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.1...v1.8.2) (2022-06-17)
+
+
+### Bug Fixes
+
+* update RSS link ([e251e32](https://github.com/Bartozzz/bartozzz.github.io/commit/e251e32f3a2db0ddc8fcefbc497d0709bf9f4500))
+
 ## [1.8.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.0...v1.8.1) (2022-06-16)
 
 
