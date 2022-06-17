@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `Bartosz Łaniewski`,
     description: `Creative designer & developer based in Poland. Passionate about architecture and beautiful software.`,
-    siteUrl: `https://laniewski.me/`,
+    siteUrl: `https://laniewski.me/`, // keep the trailing /
     siteRepo: `https://github.com/Bartozzz/bartozzz.github.io`,
     contact: `hi@laniewski.me`,
     social: {
@@ -18,7 +18,6 @@ const config: GatsbyConfig = {
     },
   },
   plugins: [
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
     {
@@ -88,6 +87,57 @@ const config: GatsbyConfig = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+          allMdx {
+            nodes {
+              slug
+              frontmatter {
+                dateUpdated
+              }
+            }
+          }
+        }
+      `,
+        resolvePages: ({
+          allSitePage: { nodes: allSitePages },
+          allMdx: { nodes: allMdxNodes },
+        }) => {
+          const mdxNodeMap = allMdxNodes.reduce(
+            (acc, node) => ({
+              ...acc,
+              [`/${node.slug}`]: node.frontmatter,
+            }),
+            {}
+          );
+
+          return allSitePages.map((page) => ({
+            ...page,
+            ...mdxNodeMap[page.path],
+          }));
+        },
+        serialize: ({ path, dateUpdated }) => {
+          if (dateUpdated) {
+            return { url: path, lastmod: dateUpdated };
+          } else {
+            return { url: path };
+          }
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
@@ -105,16 +155,14 @@ const config: GatsbyConfig = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.nodes.map((node) => {
-                return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
-                  title: node.frontmatter.title,
-                  date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
-                });
-              });
+              return allMdx.nodes.map((node) => ({
+                description: node.excerpt,
+                title: node.frontmatter.title,
+                date: node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + node.fields.slug,
+                guid: site.siteMetadata.siteUrl + node.fields.slug,
+                custom_elements: [{ "content:encoded": node.html }],
+              }));
             },
             query: `
               {
