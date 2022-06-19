@@ -10,7 +10,17 @@ declare global {
   }
 }
 
-export function useTheme() {
+const ThemeContext = React.createContext<{
+  theme: Theme | null;
+  setTheme: (theme: Theme) => void;
+}>({
+  theme: null,
+  setTheme: () => void 0,
+});
+
+export function ThemeProvider({
+  children,
+}: React.PropsWithChildren<Record<string, unknown>>) {
   const [theme, setTheme] = React.useState<Theme | null>(null);
 
   const setAndPersistTheme = React.useCallback((theme: Theme) => {
@@ -28,5 +38,20 @@ export function useTheme() {
     };
   }, []);
 
-  return [theme, setAndPersistTheme] as const;
+  return (
+    <ThemeContext.Provider
+      value={{
+        theme,
+        setTheme: setAndPersistTheme,
+      }}
+    >
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+export function useTheme() {
+  const { theme, setTheme } = React.useContext(ThemeContext);
+
+  return [theme, setTheme] as const;
 }
