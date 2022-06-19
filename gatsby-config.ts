@@ -63,12 +63,6 @@ const config: GatsbyConfig = {
           // require("remark-toc"),
         ],
         gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 630,
-            },
-          },
           // TODO: migrate to custom component
           `gatsby-remark-prismjs`,
         ],
@@ -84,7 +78,16 @@ const config: GatsbyConfig = {
     `gatsby-transformer-yaml`,
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          quality: 70,
+          formats: ["auto", "webp", "avif"],
+          placeholder: "blurred",
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-sitemap`,

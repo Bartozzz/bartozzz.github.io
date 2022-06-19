@@ -1,3 +1,7 @@
+import { ImageDataLike } from "gatsby-plugin-image";
+
+type Images = ImageDataLike[] | null;
+
 export interface BlogPost {
   id: string;
   excerpt: string;
@@ -19,7 +23,9 @@ export interface BlogPost {
     language: string;
     keywords: string[];
     description: string;
+    embeddedImagesLocal: Images;
   };
+  embeddedImagesRemote: Images;
 }
 
 export interface AllPostsQuery {

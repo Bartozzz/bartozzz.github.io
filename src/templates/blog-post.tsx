@@ -8,6 +8,7 @@ import { BlogPost } from "../../gatsby/types/queries";
 import { Alert } from "../components/Alert";
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
+import { Image } from "../components/Image";
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { TableOfContents } from "../components/TableOfContents";
@@ -20,8 +21,15 @@ interface Props {
 
 export default function BlogPostTemplate({ pageContext }: Props) {
   const post = pageContext.data;
-  const { frontmatter, headings, excerpt, body } = post;
-  const { title, datePublished, language, description, authors } = frontmatter;
+  const { frontmatter, headings, excerpt, body, embeddedImagesRemote } = post;
+  const {
+    title,
+    datePublished,
+    language,
+    description,
+    authors,
+    embeddedImagesLocal,
+  } = frontmatter;
 
   return (
     <Layout>
@@ -59,8 +67,13 @@ export default function BlogPostTemplate({ pageContext }: Props) {
 
             <div className="post__content">
               <div itemProp="articleBody">
-                <MDXProvider components={{ Alert }}>
-                  <MDXRenderer>{body}</MDXRenderer>
+                <MDXProvider components={{ Alert, Image }}>
+                  <MDXRenderer
+                    remoteImages={embeddedImagesRemote}
+                    localImages={embeddedImagesLocal}
+                  >
+                    {body}
+                  </MDXRenderer>
                 </MDXProvider>
               </div>
 

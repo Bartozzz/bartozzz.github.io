@@ -1,5 +1,5 @@
 import { GatsbyNode } from "gatsby";
-import { createFilePath } from "gatsby-source-filesystem";
+import { createFilePath, createRemoteFileNode } from "gatsby-source-filesystem";
 
 import { getAllPosts, getAllPostsByKeyword } from "./gatsby/data/queries";
 import { createAllBlogPostsPage } from "./gatsby/helpers/createAllBlogPostsPage";
@@ -49,12 +49,45 @@ export const createPages: GatsbyNode["createPages"] = async ({
   })();
 };
 
-export const onCreateNode: GatsbyNode["onCreateNode"] = ({
+export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   node,
   actions,
+  cache,
   getNode,
+  createNodeId,
 }) => {
-  const { createNodeField } = actions;
+  const { createNode, createNodeField } = actions;
+  const frontmatter = node.frontmatter as any;
+
+  if (
+    node.internal.type === "Mdx" &&
+    frontmatter &&
+    frontmatter.embeddedImagesRemote
+  ) {
+    const embeddedImagesRemote = await Promise.all(
+      frontmatter.embeddedImagesRemote.map((url) => {
+        try {
+          return createRemoteFileNode({
+            url,
+            parentNodeId: node.id,
+            createNode,
+            createNodeId,
+            cache,
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      })
+    );
+
+    if (embeddedImagesRemote) {
+      createNodeField({
+        node,
+        name: "embeddedImagesRemote",
+        value: embeddedImagesRemote.map((image) => image.id),
+      });
+    }
+  }
 
   if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode });
@@ -88,12 +121,15 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
       type Mdx implements Node {
         frontmatter: MdxFrontmatter
+        embeddedImagesRemote: [File] @link(from: "fields.embeddedImagesRemote")
       }
 
       type MdxFrontmatter {
-        title: String
+        title: String!
         description: String
         date: Date @dateformat
+        embeddedImagesLocal: [File] @fileByRelativePath
+        embeddedImagesRemote: [String]
       }
     `);
   };

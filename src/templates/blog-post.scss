@@ -120,6 +120,13 @@
     font-weight: 700;
   }
 
+  .gatsby-image-wrapper {
+    max-width: 100%;
+    height: auto;
+
+    margin: var(--ls-md) auto;
+  }
+
   p {
     @extend %text-paragraph;
 
@@ -127,13 +134,6 @@
 
     margin-top: var(--ls-xxs);
     margin-bottom: 0;
-
-    img {
-      max-width: 100%;
-      height: auto;
-
-      margin: var(--ls-sm) auto var(--ls-xxs);
-    }
   }
 
   a,

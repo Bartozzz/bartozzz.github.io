@@ -256,6 +256,8 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   jsxRuntime?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -364,9 +366,11 @@ export type GatsbyImagePlaceholder =
   | 'NONE';
 
 export type MdxFrontmatter = {
-  title?: Maybe<Scalars['String']>;
+  title: Scalars['String'];
   description?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
+  embeddedImagesLocal?: Maybe<Array<Maybe<File>>>;
+  embeddedImagesRemote?: Maybe<Array<Maybe<Scalars['String']>>>;
   authors?: Maybe<Array<Maybe<Scalars['String']>>>;
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
   language?: Maybe<Scalars['String']>;
@@ -439,6 +443,7 @@ export type Mdx = Node & {
   tableOfContents?: Maybe<Scalars['JSON']>;
   timeToRead?: Maybe<Scalars['Int']>;
   wordCount?: Maybe<MdxWordCount>;
+  embeddedImagesRemote?: Maybe<Array<Maybe<File>>>;
   fields?: Maybe<MdxFields>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -880,6 +885,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
@@ -1001,6 +1008,7 @@ export type QueryMdxArgs = {
   tableOfContents?: InputMaybe<JsonQueryOperatorInput>;
   timeToRead?: InputMaybe<IntQueryOperatorInput>;
   wordCount?: InputMaybe<MdxWordCountFilterInput>;
+  embeddedImagesRemote?: InputMaybe<FileFilterListInput>;
   fields?: InputMaybe<MdxFieldsFilterInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
@@ -1138,6 +1146,7 @@ export type MdxFilterInput = {
   tableOfContents?: InputMaybe<JsonQueryOperatorInput>;
   timeToRead?: InputMaybe<IntQueryOperatorInput>;
   wordCount?: InputMaybe<MdxWordCountFilterInput>;
+  embeddedImagesRemote?: InputMaybe<FileFilterListInput>;
   fields?: InputMaybe<MdxFieldsFilterInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
@@ -1149,6 +1158,8 @@ export type MdxFrontmatterFilterInput = {
   title?: InputMaybe<StringQueryOperatorInput>;
   description?: InputMaybe<StringQueryOperatorInput>;
   date?: InputMaybe<DateQueryOperatorInput>;
+  embeddedImagesLocal?: InputMaybe<FileFilterListInput>;
+  embeddedImagesRemote?: InputMaybe<StringQueryOperatorInput>;
   authors?: InputMaybe<StringQueryOperatorInput>;
   keywords?: InputMaybe<StringQueryOperatorInput>;
   language?: InputMaybe<StringQueryOperatorInput>;
@@ -1157,61 +1168,57 @@ export type MdxFrontmatterFilterInput = {
   datePublished?: InputMaybe<DateQueryOperatorInput>;
 };
 
-export type MdxHeadingMdxFilterListInput = {
-  elemMatch?: InputMaybe<MdxHeadingMdxFilterInput>;
+export type FileFilterListInput = {
+  elemMatch?: InputMaybe<FileFilterInput>;
 };
 
-export type MdxHeadingMdxFilterInput = {
-  value?: InputMaybe<StringQueryOperatorInput>;
-  depth?: InputMaybe<IntQueryOperatorInput>;
-};
-
-export type JsonQueryOperatorInput = {
-  eq?: InputMaybe<Scalars['JSON']>;
-  ne?: InputMaybe<Scalars['JSON']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  nin?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  regex?: InputMaybe<Scalars['JSON']>;
-  glob?: InputMaybe<Scalars['JSON']>;
-};
-
-export type MdxWordCountFilterInput = {
-  paragraphs?: InputMaybe<IntQueryOperatorInput>;
-  sentences?: InputMaybe<IntQueryOperatorInput>;
-  words?: InputMaybe<IntQueryOperatorInput>;
-};
-
-export type MdxFieldsFilterInput = {
-  slug?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type NodeFilterInput = {
+export type FileFilterInput = {
+  sourceInstanceName?: InputMaybe<StringQueryOperatorInput>;
+  absolutePath?: InputMaybe<StringQueryOperatorInput>;
+  relativePath?: InputMaybe<StringQueryOperatorInput>;
+  extension?: InputMaybe<StringQueryOperatorInput>;
+  size?: InputMaybe<IntQueryOperatorInput>;
+  prettySize?: InputMaybe<StringQueryOperatorInput>;
+  modifiedTime?: InputMaybe<DateQueryOperatorInput>;
+  accessTime?: InputMaybe<DateQueryOperatorInput>;
+  changeTime?: InputMaybe<DateQueryOperatorInput>;
+  birthTime?: InputMaybe<DateQueryOperatorInput>;
+  root?: InputMaybe<StringQueryOperatorInput>;
+  dir?: InputMaybe<StringQueryOperatorInput>;
+  base?: InputMaybe<StringQueryOperatorInput>;
+  ext?: InputMaybe<StringQueryOperatorInput>;
+  name?: InputMaybe<StringQueryOperatorInput>;
+  relativeDirectory?: InputMaybe<StringQueryOperatorInput>;
+  dev?: InputMaybe<IntQueryOperatorInput>;
+  mode?: InputMaybe<IntQueryOperatorInput>;
+  nlink?: InputMaybe<IntQueryOperatorInput>;
+  uid?: InputMaybe<IntQueryOperatorInput>;
+  gid?: InputMaybe<IntQueryOperatorInput>;
+  rdev?: InputMaybe<IntQueryOperatorInput>;
+  ino?: InputMaybe<FloatQueryOperatorInput>;
+  atimeMs?: InputMaybe<FloatQueryOperatorInput>;
+  mtimeMs?: InputMaybe<FloatQueryOperatorInput>;
+  ctimeMs?: InputMaybe<FloatQueryOperatorInput>;
+  atime?: InputMaybe<DateQueryOperatorInput>;
+  mtime?: InputMaybe<DateQueryOperatorInput>;
+  ctime?: InputMaybe<DateQueryOperatorInput>;
+  birthtime?: InputMaybe<DateQueryOperatorInput>;
+  birthtimeMs?: InputMaybe<FloatQueryOperatorInput>;
+  blksize?: InputMaybe<IntQueryOperatorInput>;
+  blocks?: InputMaybe<IntQueryOperatorInput>;
+  publicURL?: InputMaybe<StringQueryOperatorInput>;
+  childrenMdx?: InputMaybe<MdxFilterListInput>;
+  childMdx?: InputMaybe<MdxFilterInput>;
+  childrenImageSharp?: InputMaybe<ImageSharpFilterListInput>;
+  childImageSharp?: InputMaybe<ImageSharpFilterInput>;
+  childrenRepositoriesYaml?: InputMaybe<RepositoriesYamlFilterListInput>;
+  childRepositoriesYaml?: InputMaybe<RepositoriesYamlFilterInput>;
+  childrenGamesYaml?: InputMaybe<GamesYamlFilterListInput>;
+  childGamesYaml?: InputMaybe<GamesYamlFilterInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
-};
-
-export type NodeFilterListInput = {
-  elemMatch?: InputMaybe<NodeFilterInput>;
-};
-
-export type InternalFilterInput = {
-  content?: InputMaybe<StringQueryOperatorInput>;
-  contentDigest?: InputMaybe<StringQueryOperatorInput>;
-  description?: InputMaybe<StringQueryOperatorInput>;
-  fieldOwners?: InputMaybe<StringQueryOperatorInput>;
-  ignoreType?: InputMaybe<BooleanQueryOperatorInput>;
-  mediaType?: InputMaybe<StringQueryOperatorInput>;
-  owner?: InputMaybe<StringQueryOperatorInput>;
-  type?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type BooleanQueryOperatorInput = {
-  eq?: InputMaybe<Scalars['Boolean']>;
-  ne?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  nin?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
 };
 
 export type ImageSharpFilterListInput = {
@@ -1280,6 +1287,35 @@ export type ImageSharpResizeFilterInput = {
   originalName?: InputMaybe<StringQueryOperatorInput>;
 };
 
+export type NodeFilterInput = {
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+};
+
+export type NodeFilterListInput = {
+  elemMatch?: InputMaybe<NodeFilterInput>;
+};
+
+export type InternalFilterInput = {
+  content?: InputMaybe<StringQueryOperatorInput>;
+  contentDigest?: InputMaybe<StringQueryOperatorInput>;
+  description?: InputMaybe<StringQueryOperatorInput>;
+  fieldOwners?: InputMaybe<StringQueryOperatorInput>;
+  ignoreType?: InputMaybe<BooleanQueryOperatorInput>;
+  mediaType?: InputMaybe<StringQueryOperatorInput>;
+  owner?: InputMaybe<StringQueryOperatorInput>;
+  type?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type BooleanQueryOperatorInput = {
+  eq?: InputMaybe<Scalars['Boolean']>;
+  ne?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
+  nin?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
+};
+
 export type RepositoriesYamlFilterListInput = {
   elemMatch?: InputMaybe<RepositoriesYamlFilterInput>;
 };
@@ -1310,6 +1346,34 @@ export type GamesYamlFilterInput = {
   icon?: InputMaybe<StringQueryOperatorInput>;
   color?: InputMaybe<StringQueryOperatorInput>;
   textColor?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type MdxHeadingMdxFilterListInput = {
+  elemMatch?: InputMaybe<MdxHeadingMdxFilterInput>;
+};
+
+export type MdxHeadingMdxFilterInput = {
+  value?: InputMaybe<StringQueryOperatorInput>;
+  depth?: InputMaybe<IntQueryOperatorInput>;
+};
+
+export type JsonQueryOperatorInput = {
+  eq?: InputMaybe<Scalars['JSON']>;
+  ne?: InputMaybe<Scalars['JSON']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  nin?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
+  regex?: InputMaybe<Scalars['JSON']>;
+  glob?: InputMaybe<Scalars['JSON']>;
+};
+
+export type MdxWordCountFilterInput = {
+  paragraphs?: InputMaybe<IntQueryOperatorInput>;
+  sentences?: InputMaybe<IntQueryOperatorInput>;
+  words?: InputMaybe<IntQueryOperatorInput>;
+};
+
+export type MdxFieldsFilterInput = {
+  slug?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type FileConnection = {
@@ -1408,6 +1472,48 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___title'
   | 'childrenMdx___frontmatter___description'
   | 'childrenMdx___frontmatter___date'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___sourceInstanceName'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___absolutePath'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___relativePath'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___extension'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___size'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___prettySize'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___modifiedTime'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___accessTime'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___changeTime'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___birthTime'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___root'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___dir'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___base'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___ext'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___name'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___relativeDirectory'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___dev'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___mode'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___nlink'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___uid'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___gid'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___rdev'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___ino'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___atimeMs'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___mtimeMs'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___ctimeMs'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___atime'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___mtime'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___ctime'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___birthtime'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___birthtimeMs'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___blksize'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___blocks'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___publicURL'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___childrenMdx'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___childrenImageSharp'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___childrenRepositoriesYaml'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___childrenGamesYaml'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___id'
+  | 'childrenMdx___frontmatter___embeddedImagesLocal___children'
+  | 'childrenMdx___frontmatter___embeddedImagesRemote'
   | 'childrenMdx___frontmatter___authors'
   | 'childrenMdx___frontmatter___keywords'
   | 'childrenMdx___frontmatter___language'
@@ -1427,6 +1533,119 @@ export type FileFieldsEnum =
   | 'childrenMdx___wordCount___paragraphs'
   | 'childrenMdx___wordCount___sentences'
   | 'childrenMdx___wordCount___words'
+  | 'childrenMdx___embeddedImagesRemote'
+  | 'childrenMdx___embeddedImagesRemote___sourceInstanceName'
+  | 'childrenMdx___embeddedImagesRemote___absolutePath'
+  | 'childrenMdx___embeddedImagesRemote___relativePath'
+  | 'childrenMdx___embeddedImagesRemote___extension'
+  | 'childrenMdx___embeddedImagesRemote___size'
+  | 'childrenMdx___embeddedImagesRemote___prettySize'
+  | 'childrenMdx___embeddedImagesRemote___modifiedTime'
+  | 'childrenMdx___embeddedImagesRemote___accessTime'
+  | 'childrenMdx___embeddedImagesRemote___changeTime'
+  | 'childrenMdx___embeddedImagesRemote___birthTime'
+  | 'childrenMdx___embeddedImagesRemote___root'
+  | 'childrenMdx___embeddedImagesRemote___dir'
+  | 'childrenMdx___embeddedImagesRemote___base'
+  | 'childrenMdx___embeddedImagesRemote___ext'
+  | 'childrenMdx___embeddedImagesRemote___name'
+  | 'childrenMdx___embeddedImagesRemote___relativeDirectory'
+  | 'childrenMdx___embeddedImagesRemote___dev'
+  | 'childrenMdx___embeddedImagesRemote___mode'
+  | 'childrenMdx___embeddedImagesRemote___nlink'
+  | 'childrenMdx___embeddedImagesRemote___uid'
+  | 'childrenMdx___embeddedImagesRemote___gid'
+  | 'childrenMdx___embeddedImagesRemote___rdev'
+  | 'childrenMdx___embeddedImagesRemote___ino'
+  | 'childrenMdx___embeddedImagesRemote___atimeMs'
+  | 'childrenMdx___embeddedImagesRemote___mtimeMs'
+  | 'childrenMdx___embeddedImagesRemote___ctimeMs'
+  | 'childrenMdx___embeddedImagesRemote___atime'
+  | 'childrenMdx___embeddedImagesRemote___mtime'
+  | 'childrenMdx___embeddedImagesRemote___ctime'
+  | 'childrenMdx___embeddedImagesRemote___birthtime'
+  | 'childrenMdx___embeddedImagesRemote___birthtimeMs'
+  | 'childrenMdx___embeddedImagesRemote___blksize'
+  | 'childrenMdx___embeddedImagesRemote___blocks'
+  | 'childrenMdx___embeddedImagesRemote___publicURL'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___rawBody'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___fileAbsolutePath'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___slug'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___body'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___excerpt'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___headings'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___html'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___mdxAST'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___tableOfContents'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___timeToRead'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___embeddedImagesRemote'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___id'
+  | 'childrenMdx___embeddedImagesRemote___childrenMdx___children'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___rawBody'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___fileAbsolutePath'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___slug'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___body'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___excerpt'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___headings'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___html'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___mdxAST'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___tableOfContents'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___timeToRead'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___embeddedImagesRemote'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___id'
+  | 'childrenMdx___embeddedImagesRemote___childMdx___children'
+  | 'childrenMdx___embeddedImagesRemote___childrenImageSharp'
+  | 'childrenMdx___embeddedImagesRemote___childrenImageSharp___gatsbyImageData'
+  | 'childrenMdx___embeddedImagesRemote___childrenImageSharp___id'
+  | 'childrenMdx___embeddedImagesRemote___childrenImageSharp___children'
+  | 'childrenMdx___embeddedImagesRemote___childImageSharp___gatsbyImageData'
+  | 'childrenMdx___embeddedImagesRemote___childImageSharp___id'
+  | 'childrenMdx___embeddedImagesRemote___childImageSharp___children'
+  | 'childrenMdx___embeddedImagesRemote___childrenRepositoriesYaml'
+  | 'childrenMdx___embeddedImagesRemote___childrenRepositoriesYaml___id'
+  | 'childrenMdx___embeddedImagesRemote___childrenRepositoriesYaml___children'
+  | 'childrenMdx___embeddedImagesRemote___childrenRepositoriesYaml___name'
+  | 'childrenMdx___embeddedImagesRemote___childrenRepositoriesYaml___desc'
+  | 'childrenMdx___embeddedImagesRemote___childrenRepositoriesYaml___path'
+  | 'childrenMdx___embeddedImagesRemote___childrenRepositoriesYaml___keywords'
+  | 'childrenMdx___embeddedImagesRemote___childRepositoriesYaml___id'
+  | 'childrenMdx___embeddedImagesRemote___childRepositoriesYaml___children'
+  | 'childrenMdx___embeddedImagesRemote___childRepositoriesYaml___name'
+  | 'childrenMdx___embeddedImagesRemote___childRepositoriesYaml___desc'
+  | 'childrenMdx___embeddedImagesRemote___childRepositoriesYaml___path'
+  | 'childrenMdx___embeddedImagesRemote___childRepositoriesYaml___keywords'
+  | 'childrenMdx___embeddedImagesRemote___childrenGamesYaml'
+  | 'childrenMdx___embeddedImagesRemote___childrenGamesYaml___id'
+  | 'childrenMdx___embeddedImagesRemote___childrenGamesYaml___children'
+  | 'childrenMdx___embeddedImagesRemote___childrenGamesYaml___name'
+  | 'childrenMdx___embeddedImagesRemote___childrenGamesYaml___desc'
+  | 'childrenMdx___embeddedImagesRemote___childrenGamesYaml___path'
+  | 'childrenMdx___embeddedImagesRemote___childrenGamesYaml___icon'
+  | 'childrenMdx___embeddedImagesRemote___childrenGamesYaml___color'
+  | 'childrenMdx___embeddedImagesRemote___childrenGamesYaml___textColor'
+  | 'childrenMdx___embeddedImagesRemote___childGamesYaml___id'
+  | 'childrenMdx___embeddedImagesRemote___childGamesYaml___children'
+  | 'childrenMdx___embeddedImagesRemote___childGamesYaml___name'
+  | 'childrenMdx___embeddedImagesRemote___childGamesYaml___desc'
+  | 'childrenMdx___embeddedImagesRemote___childGamesYaml___path'
+  | 'childrenMdx___embeddedImagesRemote___childGamesYaml___icon'
+  | 'childrenMdx___embeddedImagesRemote___childGamesYaml___color'
+  | 'childrenMdx___embeddedImagesRemote___childGamesYaml___textColor'
+  | 'childrenMdx___embeddedImagesRemote___id'
+  | 'childrenMdx___embeddedImagesRemote___parent___id'
+  | 'childrenMdx___embeddedImagesRemote___parent___children'
+  | 'childrenMdx___embeddedImagesRemote___children'
+  | 'childrenMdx___embeddedImagesRemote___children___id'
+  | 'childrenMdx___embeddedImagesRemote___children___children'
+  | 'childrenMdx___embeddedImagesRemote___internal___content'
+  | 'childrenMdx___embeddedImagesRemote___internal___contentDigest'
+  | 'childrenMdx___embeddedImagesRemote___internal___description'
+  | 'childrenMdx___embeddedImagesRemote___internal___fieldOwners'
+  | 'childrenMdx___embeddedImagesRemote___internal___ignoreType'
+  | 'childrenMdx___embeddedImagesRemote___internal___mediaType'
+  | 'childrenMdx___embeddedImagesRemote___internal___owner'
+  | 'childrenMdx___embeddedImagesRemote___internal___type'
   | 'childrenMdx___fields___slug'
   | 'childrenMdx___id'
   | 'childrenMdx___parent___id'
@@ -1471,6 +1690,48 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___description'
   | 'childMdx___frontmatter___date'
+  | 'childMdx___frontmatter___embeddedImagesLocal'
+  | 'childMdx___frontmatter___embeddedImagesLocal___sourceInstanceName'
+  | 'childMdx___frontmatter___embeddedImagesLocal___absolutePath'
+  | 'childMdx___frontmatter___embeddedImagesLocal___relativePath'
+  | 'childMdx___frontmatter___embeddedImagesLocal___extension'
+  | 'childMdx___frontmatter___embeddedImagesLocal___size'
+  | 'childMdx___frontmatter___embeddedImagesLocal___prettySize'
+  | 'childMdx___frontmatter___embeddedImagesLocal___modifiedTime'
+  | 'childMdx___frontmatter___embeddedImagesLocal___accessTime'
+  | 'childMdx___frontmatter___embeddedImagesLocal___changeTime'
+  | 'childMdx___frontmatter___embeddedImagesLocal___birthTime'
+  | 'childMdx___frontmatter___embeddedImagesLocal___root'
+  | 'childMdx___frontmatter___embeddedImagesLocal___dir'
+  | 'childMdx___frontmatter___embeddedImagesLocal___base'
+  | 'childMdx___frontmatter___embeddedImagesLocal___ext'
+  | 'childMdx___frontmatter___embeddedImagesLocal___name'
+  | 'childMdx___frontmatter___embeddedImagesLocal___relativeDirectory'
+  | 'childMdx___frontmatter___embeddedImagesLocal___dev'
+  | 'childMdx___frontmatter___embeddedImagesLocal___mode'
+  | 'childMdx___frontmatter___embeddedImagesLocal___nlink'
+  | 'childMdx___frontmatter___embeddedImagesLocal___uid'
+  | 'childMdx___frontmatter___embeddedImagesLocal___gid'
+  | 'childMdx___frontmatter___embeddedImagesLocal___rdev'
+  | 'childMdx___frontmatter___embeddedImagesLocal___ino'
+  | 'childMdx___frontmatter___embeddedImagesLocal___atimeMs'
+  | 'childMdx___frontmatter___embeddedImagesLocal___mtimeMs'
+  | 'childMdx___frontmatter___embeddedImagesLocal___ctimeMs'
+  | 'childMdx___frontmatter___embeddedImagesLocal___atime'
+  | 'childMdx___frontmatter___embeddedImagesLocal___mtime'
+  | 'childMdx___frontmatter___embeddedImagesLocal___ctime'
+  | 'childMdx___frontmatter___embeddedImagesLocal___birthtime'
+  | 'childMdx___frontmatter___embeddedImagesLocal___birthtimeMs'
+  | 'childMdx___frontmatter___embeddedImagesLocal___blksize'
+  | 'childMdx___frontmatter___embeddedImagesLocal___blocks'
+  | 'childMdx___frontmatter___embeddedImagesLocal___publicURL'
+  | 'childMdx___frontmatter___embeddedImagesLocal___childrenMdx'
+  | 'childMdx___frontmatter___embeddedImagesLocal___childrenImageSharp'
+  | 'childMdx___frontmatter___embeddedImagesLocal___childrenRepositoriesYaml'
+  | 'childMdx___frontmatter___embeddedImagesLocal___childrenGamesYaml'
+  | 'childMdx___frontmatter___embeddedImagesLocal___id'
+  | 'childMdx___frontmatter___embeddedImagesLocal___children'
+  | 'childMdx___frontmatter___embeddedImagesRemote'
   | 'childMdx___frontmatter___authors'
   | 'childMdx___frontmatter___keywords'
   | 'childMdx___frontmatter___language'
@@ -1490,6 +1751,119 @@ export type FileFieldsEnum =
   | 'childMdx___wordCount___paragraphs'
   | 'childMdx___wordCount___sentences'
   | 'childMdx___wordCount___words'
+  | 'childMdx___embeddedImagesRemote'
+  | 'childMdx___embeddedImagesRemote___sourceInstanceName'
+  | 'childMdx___embeddedImagesRemote___absolutePath'
+  | 'childMdx___embeddedImagesRemote___relativePath'
+  | 'childMdx___embeddedImagesRemote___extension'
+  | 'childMdx___embeddedImagesRemote___size'
+  | 'childMdx___embeddedImagesRemote___prettySize'
+  | 'childMdx___embeddedImagesRemote___modifiedTime'
+  | 'childMdx___embeddedImagesRemote___accessTime'
+  | 'childMdx___embeddedImagesRemote___changeTime'
+  | 'childMdx___embeddedImagesRemote___birthTime'
+  | 'childMdx___embeddedImagesRemote___root'
+  | 'childMdx___embeddedImagesRemote___dir'
+  | 'childMdx___embeddedImagesRemote___base'
+  | 'childMdx___embeddedImagesRemote___ext'
+  | 'childMdx___embeddedImagesRemote___name'
+  | 'childMdx___embeddedImagesRemote___relativeDirectory'
+  | 'childMdx___embeddedImagesRemote___dev'
+  | 'childMdx___embeddedImagesRemote___mode'
+  | 'childMdx___embeddedImagesRemote___nlink'
+  | 'childMdx___embeddedImagesRemote___uid'
+  | 'childMdx___embeddedImagesRemote___gid'
+  | 'childMdx___embeddedImagesRemote___rdev'
+  | 'childMdx___embeddedImagesRemote___ino'
+  | 'childMdx___embeddedImagesRemote___atimeMs'
+  | 'childMdx___embeddedImagesRemote___mtimeMs'
+  | 'childMdx___embeddedImagesRemote___ctimeMs'
+  | 'childMdx___embeddedImagesRemote___atime'
+  | 'childMdx___embeddedImagesRemote___mtime'
+  | 'childMdx___embeddedImagesRemote___ctime'
+  | 'childMdx___embeddedImagesRemote___birthtime'
+  | 'childMdx___embeddedImagesRemote___birthtimeMs'
+  | 'childMdx___embeddedImagesRemote___blksize'
+  | 'childMdx___embeddedImagesRemote___blocks'
+  | 'childMdx___embeddedImagesRemote___publicURL'
+  | 'childMdx___embeddedImagesRemote___childrenMdx'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___rawBody'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___fileAbsolutePath'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___slug'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___body'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___excerpt'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___headings'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___html'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___mdxAST'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___tableOfContents'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___timeToRead'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___embeddedImagesRemote'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___id'
+  | 'childMdx___embeddedImagesRemote___childrenMdx___children'
+  | 'childMdx___embeddedImagesRemote___childMdx___rawBody'
+  | 'childMdx___embeddedImagesRemote___childMdx___fileAbsolutePath'
+  | 'childMdx___embeddedImagesRemote___childMdx___slug'
+  | 'childMdx___embeddedImagesRemote___childMdx___body'
+  | 'childMdx___embeddedImagesRemote___childMdx___excerpt'
+  | 'childMdx___embeddedImagesRemote___childMdx___headings'
+  | 'childMdx___embeddedImagesRemote___childMdx___html'
+  | 'childMdx___embeddedImagesRemote___childMdx___mdxAST'
+  | 'childMdx___embeddedImagesRemote___childMdx___tableOfContents'
+  | 'childMdx___embeddedImagesRemote___childMdx___timeToRead'
+  | 'childMdx___embeddedImagesRemote___childMdx___embeddedImagesRemote'
+  | 'childMdx___embeddedImagesRemote___childMdx___id'
+  | 'childMdx___embeddedImagesRemote___childMdx___children'
+  | 'childMdx___embeddedImagesRemote___childrenImageSharp'
+  | 'childMdx___embeddedImagesRemote___childrenImageSharp___gatsbyImageData'
+  | 'childMdx___embeddedImagesRemote___childrenImageSharp___id'
+  | 'childMdx___embeddedImagesRemote___childrenImageSharp___children'
+  | 'childMdx___embeddedImagesRemote___childImageSharp___gatsbyImageData'
+  | 'childMdx___embeddedImagesRemote___childImageSharp___id'
+  | 'childMdx___embeddedImagesRemote___childImageSharp___children'
+  | 'childMdx___embeddedImagesRemote___childrenRepositoriesYaml'
+  | 'childMdx___embeddedImagesRemote___childrenRepositoriesYaml___id'
+  | 'childMdx___embeddedImagesRemote___childrenRepositoriesYaml___children'
+  | 'childMdx___embeddedImagesRemote___childrenRepositoriesYaml___name'
+  | 'childMdx___embeddedImagesRemote___childrenRepositoriesYaml___desc'
+  | 'childMdx___embeddedImagesRemote___childrenRepositoriesYaml___path'
+  | 'childMdx___embeddedImagesRemote___childrenRepositoriesYaml___keywords'
+  | 'childMdx___embeddedImagesRemote___childRepositoriesYaml___id'
+  | 'childMdx___embeddedImagesRemote___childRepositoriesYaml___children'
+  | 'childMdx___embeddedImagesRemote___childRepositoriesYaml___name'
+  | 'childMdx___embeddedImagesRemote___childRepositoriesYaml___desc'
+  | 'childMdx___embeddedImagesRemote___childRepositoriesYaml___path'
+  | 'childMdx___embeddedImagesRemote___childRepositoriesYaml___keywords'
+  | 'childMdx___embeddedImagesRemote___childrenGamesYaml'
+  | 'childMdx___embeddedImagesRemote___childrenGamesYaml___id'
+  | 'childMdx___embeddedImagesRemote___childrenGamesYaml___children'
+  | 'childMdx___embeddedImagesRemote___childrenGamesYaml___name'
+  | 'childMdx___embeddedImagesRemote___childrenGamesYaml___desc'
+  | 'childMdx___embeddedImagesRemote___childrenGamesYaml___path'
+  | 'childMdx___embeddedImagesRemote___childrenGamesYaml___icon'
+  | 'childMdx___embeddedImagesRemote___childrenGamesYaml___color'
+  | 'childMdx___embeddedImagesRemote___childrenGamesYaml___textColor'
+  | 'childMdx___embeddedImagesRemote___childGamesYaml___id'
+  | 'childMdx___embeddedImagesRemote___childGamesYaml___children'
+  | 'childMdx___embeddedImagesRemote___childGamesYaml___name'
+  | 'childMdx___embeddedImagesRemote___childGamesYaml___desc'
+  | 'childMdx___embeddedImagesRemote___childGamesYaml___path'
+  | 'childMdx___embeddedImagesRemote___childGamesYaml___icon'
+  | 'childMdx___embeddedImagesRemote___childGamesYaml___color'
+  | 'childMdx___embeddedImagesRemote___childGamesYaml___textColor'
+  | 'childMdx___embeddedImagesRemote___id'
+  | 'childMdx___embeddedImagesRemote___parent___id'
+  | 'childMdx___embeddedImagesRemote___parent___children'
+  | 'childMdx___embeddedImagesRemote___children'
+  | 'childMdx___embeddedImagesRemote___children___id'
+  | 'childMdx___embeddedImagesRemote___children___children'
+  | 'childMdx___embeddedImagesRemote___internal___content'
+  | 'childMdx___embeddedImagesRemote___internal___contentDigest'
+  | 'childMdx___embeddedImagesRemote___internal___description'
+  | 'childMdx___embeddedImagesRemote___internal___fieldOwners'
+  | 'childMdx___embeddedImagesRemote___internal___ignoreType'
+  | 'childMdx___embeddedImagesRemote___internal___mediaType'
+  | 'childMdx___embeddedImagesRemote___internal___owner'
+  | 'childMdx___embeddedImagesRemote___internal___type'
   | 'childMdx___fields___slug'
   | 'childMdx___id'
   | 'childMdx___parent___id'
@@ -1972,55 +2346,6 @@ export type FileGroupConnectionGroupArgs = {
   field: FileFieldsEnum;
 };
 
-export type FileFilterInput = {
-  sourceInstanceName?: InputMaybe<StringQueryOperatorInput>;
-  absolutePath?: InputMaybe<StringQueryOperatorInput>;
-  relativePath?: InputMaybe<StringQueryOperatorInput>;
-  extension?: InputMaybe<StringQueryOperatorInput>;
-  size?: InputMaybe<IntQueryOperatorInput>;
-  prettySize?: InputMaybe<StringQueryOperatorInput>;
-  modifiedTime?: InputMaybe<DateQueryOperatorInput>;
-  accessTime?: InputMaybe<DateQueryOperatorInput>;
-  changeTime?: InputMaybe<DateQueryOperatorInput>;
-  birthTime?: InputMaybe<DateQueryOperatorInput>;
-  root?: InputMaybe<StringQueryOperatorInput>;
-  dir?: InputMaybe<StringQueryOperatorInput>;
-  base?: InputMaybe<StringQueryOperatorInput>;
-  ext?: InputMaybe<StringQueryOperatorInput>;
-  name?: InputMaybe<StringQueryOperatorInput>;
-  relativeDirectory?: InputMaybe<StringQueryOperatorInput>;
-  dev?: InputMaybe<IntQueryOperatorInput>;
-  mode?: InputMaybe<IntQueryOperatorInput>;
-  nlink?: InputMaybe<IntQueryOperatorInput>;
-  uid?: InputMaybe<IntQueryOperatorInput>;
-  gid?: InputMaybe<IntQueryOperatorInput>;
-  rdev?: InputMaybe<IntQueryOperatorInput>;
-  ino?: InputMaybe<FloatQueryOperatorInput>;
-  atimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  mtimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  ctimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  atime?: InputMaybe<DateQueryOperatorInput>;
-  mtime?: InputMaybe<DateQueryOperatorInput>;
-  ctime?: InputMaybe<DateQueryOperatorInput>;
-  birthtime?: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs?: InputMaybe<FloatQueryOperatorInput>;
-  blksize?: InputMaybe<IntQueryOperatorInput>;
-  blocks?: InputMaybe<IntQueryOperatorInput>;
-  publicURL?: InputMaybe<StringQueryOperatorInput>;
-  childrenMdx?: InputMaybe<MdxFilterListInput>;
-  childMdx?: InputMaybe<MdxFilterInput>;
-  childrenImageSharp?: InputMaybe<ImageSharpFilterListInput>;
-  childImageSharp?: InputMaybe<ImageSharpFilterInput>;
-  childrenRepositoriesYaml?: InputMaybe<RepositoriesYamlFilterListInput>;
-  childRepositoriesYaml?: InputMaybe<RepositoriesYamlFilterInput>;
-  childrenGamesYaml?: InputMaybe<GamesYamlFilterListInput>;
-  childGamesYaml?: InputMaybe<GamesYamlFilterInput>;
-  id?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-};
-
 export type FileSortInput = {
   fields?: InputMaybe<Array<InputMaybe<FileFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
@@ -2350,6 +2675,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___social___Dribbble'
   | 'siteMetadata___social___LinkedIn'
   | 'siteMetadata___social___YouTube'
+  | 'port'
+  | 'host'
   | 'jsxRuntime'
   | 'polyfill'
   | 'pathPrefix'
@@ -2486,6 +2813,8 @@ export type SiteGroupConnectionGroupArgs = {
 export type SiteFilterInput = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
@@ -3391,6 +3720,120 @@ export type MdxFieldsEnum =
   | 'frontmatter___title'
   | 'frontmatter___description'
   | 'frontmatter___date'
+  | 'frontmatter___embeddedImagesLocal'
+  | 'frontmatter___embeddedImagesLocal___sourceInstanceName'
+  | 'frontmatter___embeddedImagesLocal___absolutePath'
+  | 'frontmatter___embeddedImagesLocal___relativePath'
+  | 'frontmatter___embeddedImagesLocal___extension'
+  | 'frontmatter___embeddedImagesLocal___size'
+  | 'frontmatter___embeddedImagesLocal___prettySize'
+  | 'frontmatter___embeddedImagesLocal___modifiedTime'
+  | 'frontmatter___embeddedImagesLocal___accessTime'
+  | 'frontmatter___embeddedImagesLocal___changeTime'
+  | 'frontmatter___embeddedImagesLocal___birthTime'
+  | 'frontmatter___embeddedImagesLocal___root'
+  | 'frontmatter___embeddedImagesLocal___dir'
+  | 'frontmatter___embeddedImagesLocal___base'
+  | 'frontmatter___embeddedImagesLocal___ext'
+  | 'frontmatter___embeddedImagesLocal___name'
+  | 'frontmatter___embeddedImagesLocal___relativeDirectory'
+  | 'frontmatter___embeddedImagesLocal___dev'
+  | 'frontmatter___embeddedImagesLocal___mode'
+  | 'frontmatter___embeddedImagesLocal___nlink'
+  | 'frontmatter___embeddedImagesLocal___uid'
+  | 'frontmatter___embeddedImagesLocal___gid'
+  | 'frontmatter___embeddedImagesLocal___rdev'
+  | 'frontmatter___embeddedImagesLocal___ino'
+  | 'frontmatter___embeddedImagesLocal___atimeMs'
+  | 'frontmatter___embeddedImagesLocal___mtimeMs'
+  | 'frontmatter___embeddedImagesLocal___ctimeMs'
+  | 'frontmatter___embeddedImagesLocal___atime'
+  | 'frontmatter___embeddedImagesLocal___mtime'
+  | 'frontmatter___embeddedImagesLocal___ctime'
+  | 'frontmatter___embeddedImagesLocal___birthtime'
+  | 'frontmatter___embeddedImagesLocal___birthtimeMs'
+  | 'frontmatter___embeddedImagesLocal___blksize'
+  | 'frontmatter___embeddedImagesLocal___blocks'
+  | 'frontmatter___embeddedImagesLocal___publicURL'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___rawBody'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___fileAbsolutePath'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___slug'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___body'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___excerpt'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___headings'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___html'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___mdxAST'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___tableOfContents'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___timeToRead'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___embeddedImagesRemote'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___id'
+  | 'frontmatter___embeddedImagesLocal___childrenMdx___children'
+  | 'frontmatter___embeddedImagesLocal___childMdx___rawBody'
+  | 'frontmatter___embeddedImagesLocal___childMdx___fileAbsolutePath'
+  | 'frontmatter___embeddedImagesLocal___childMdx___slug'
+  | 'frontmatter___embeddedImagesLocal___childMdx___body'
+  | 'frontmatter___embeddedImagesLocal___childMdx___excerpt'
+  | 'frontmatter___embeddedImagesLocal___childMdx___headings'
+  | 'frontmatter___embeddedImagesLocal___childMdx___html'
+  | 'frontmatter___embeddedImagesLocal___childMdx___mdxAST'
+  | 'frontmatter___embeddedImagesLocal___childMdx___tableOfContents'
+  | 'frontmatter___embeddedImagesLocal___childMdx___timeToRead'
+  | 'frontmatter___embeddedImagesLocal___childMdx___embeddedImagesRemote'
+  | 'frontmatter___embeddedImagesLocal___childMdx___id'
+  | 'frontmatter___embeddedImagesLocal___childMdx___children'
+  | 'frontmatter___embeddedImagesLocal___childrenImageSharp'
+  | 'frontmatter___embeddedImagesLocal___childrenImageSharp___gatsbyImageData'
+  | 'frontmatter___embeddedImagesLocal___childrenImageSharp___id'
+  | 'frontmatter___embeddedImagesLocal___childrenImageSharp___children'
+  | 'frontmatter___embeddedImagesLocal___childImageSharp___gatsbyImageData'
+  | 'frontmatter___embeddedImagesLocal___childImageSharp___id'
+  | 'frontmatter___embeddedImagesLocal___childImageSharp___children'
+  | 'frontmatter___embeddedImagesLocal___childrenRepositoriesYaml'
+  | 'frontmatter___embeddedImagesLocal___childrenRepositoriesYaml___id'
+  | 'frontmatter___embeddedImagesLocal___childrenRepositoriesYaml___children'
+  | 'frontmatter___embeddedImagesLocal___childrenRepositoriesYaml___name'
+  | 'frontmatter___embeddedImagesLocal___childrenRepositoriesYaml___desc'
+  | 'frontmatter___embeddedImagesLocal___childrenRepositoriesYaml___path'
+  | 'frontmatter___embeddedImagesLocal___childrenRepositoriesYaml___keywords'
+  | 'frontmatter___embeddedImagesLocal___childRepositoriesYaml___id'
+  | 'frontmatter___embeddedImagesLocal___childRepositoriesYaml___children'
+  | 'frontmatter___embeddedImagesLocal___childRepositoriesYaml___name'
+  | 'frontmatter___embeddedImagesLocal___childRepositoriesYaml___desc'
+  | 'frontmatter___embeddedImagesLocal___childRepositoriesYaml___path'
+  | 'frontmatter___embeddedImagesLocal___childRepositoriesYaml___keywords'
+  | 'frontmatter___embeddedImagesLocal___childrenGamesYaml'
+  | 'frontmatter___embeddedImagesLocal___childrenGamesYaml___id'
+  | 'frontmatter___embeddedImagesLocal___childrenGamesYaml___children'
+  | 'frontmatter___embeddedImagesLocal___childrenGamesYaml___name'
+  | 'frontmatter___embeddedImagesLocal___childrenGamesYaml___desc'
+  | 'frontmatter___embeddedImagesLocal___childrenGamesYaml___path'
+  | 'frontmatter___embeddedImagesLocal___childrenGamesYaml___icon'
+  | 'frontmatter___embeddedImagesLocal___childrenGamesYaml___color'
+  | 'frontmatter___embeddedImagesLocal___childrenGamesYaml___textColor'
+  | 'frontmatter___embeddedImagesLocal___childGamesYaml___id'
+  | 'frontmatter___embeddedImagesLocal___childGamesYaml___children'
+  | 'frontmatter___embeddedImagesLocal___childGamesYaml___name'
+  | 'frontmatter___embeddedImagesLocal___childGamesYaml___desc'
+  | 'frontmatter___embeddedImagesLocal___childGamesYaml___path'
+  | 'frontmatter___embeddedImagesLocal___childGamesYaml___icon'
+  | 'frontmatter___embeddedImagesLocal___childGamesYaml___color'
+  | 'frontmatter___embeddedImagesLocal___childGamesYaml___textColor'
+  | 'frontmatter___embeddedImagesLocal___id'
+  | 'frontmatter___embeddedImagesLocal___parent___id'
+  | 'frontmatter___embeddedImagesLocal___parent___children'
+  | 'frontmatter___embeddedImagesLocal___children'
+  | 'frontmatter___embeddedImagesLocal___children___id'
+  | 'frontmatter___embeddedImagesLocal___children___children'
+  | 'frontmatter___embeddedImagesLocal___internal___content'
+  | 'frontmatter___embeddedImagesLocal___internal___contentDigest'
+  | 'frontmatter___embeddedImagesLocal___internal___description'
+  | 'frontmatter___embeddedImagesLocal___internal___fieldOwners'
+  | 'frontmatter___embeddedImagesLocal___internal___ignoreType'
+  | 'frontmatter___embeddedImagesLocal___internal___mediaType'
+  | 'frontmatter___embeddedImagesLocal___internal___owner'
+  | 'frontmatter___embeddedImagesLocal___internal___type'
+  | 'frontmatter___embeddedImagesRemote'
   | 'frontmatter___authors'
   | 'frontmatter___keywords'
   | 'frontmatter___language'
@@ -3410,6 +3853,415 @@ export type MdxFieldsEnum =
   | 'wordCount___paragraphs'
   | 'wordCount___sentences'
   | 'wordCount___words'
+  | 'embeddedImagesRemote'
+  | 'embeddedImagesRemote___sourceInstanceName'
+  | 'embeddedImagesRemote___absolutePath'
+  | 'embeddedImagesRemote___relativePath'
+  | 'embeddedImagesRemote___extension'
+  | 'embeddedImagesRemote___size'
+  | 'embeddedImagesRemote___prettySize'
+  | 'embeddedImagesRemote___modifiedTime'
+  | 'embeddedImagesRemote___accessTime'
+  | 'embeddedImagesRemote___changeTime'
+  | 'embeddedImagesRemote___birthTime'
+  | 'embeddedImagesRemote___root'
+  | 'embeddedImagesRemote___dir'
+  | 'embeddedImagesRemote___base'
+  | 'embeddedImagesRemote___ext'
+  | 'embeddedImagesRemote___name'
+  | 'embeddedImagesRemote___relativeDirectory'
+  | 'embeddedImagesRemote___dev'
+  | 'embeddedImagesRemote___mode'
+  | 'embeddedImagesRemote___nlink'
+  | 'embeddedImagesRemote___uid'
+  | 'embeddedImagesRemote___gid'
+  | 'embeddedImagesRemote___rdev'
+  | 'embeddedImagesRemote___ino'
+  | 'embeddedImagesRemote___atimeMs'
+  | 'embeddedImagesRemote___mtimeMs'
+  | 'embeddedImagesRemote___ctimeMs'
+  | 'embeddedImagesRemote___atime'
+  | 'embeddedImagesRemote___mtime'
+  | 'embeddedImagesRemote___ctime'
+  | 'embeddedImagesRemote___birthtime'
+  | 'embeddedImagesRemote___birthtimeMs'
+  | 'embeddedImagesRemote___blksize'
+  | 'embeddedImagesRemote___blocks'
+  | 'embeddedImagesRemote___publicURL'
+  | 'embeddedImagesRemote___childrenMdx'
+  | 'embeddedImagesRemote___childrenMdx___rawBody'
+  | 'embeddedImagesRemote___childrenMdx___fileAbsolutePath'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___title'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___description'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___date'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___embeddedImagesLocal'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___embeddedImagesRemote'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___authors'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___keywords'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___language'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___dateCreated'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___dateUpdated'
+  | 'embeddedImagesRemote___childrenMdx___frontmatter___datePublished'
+  | 'embeddedImagesRemote___childrenMdx___slug'
+  | 'embeddedImagesRemote___childrenMdx___body'
+  | 'embeddedImagesRemote___childrenMdx___excerpt'
+  | 'embeddedImagesRemote___childrenMdx___headings'
+  | 'embeddedImagesRemote___childrenMdx___headings___value'
+  | 'embeddedImagesRemote___childrenMdx___headings___depth'
+  | 'embeddedImagesRemote___childrenMdx___html'
+  | 'embeddedImagesRemote___childrenMdx___mdxAST'
+  | 'embeddedImagesRemote___childrenMdx___tableOfContents'
+  | 'embeddedImagesRemote___childrenMdx___timeToRead'
+  | 'embeddedImagesRemote___childrenMdx___wordCount___paragraphs'
+  | 'embeddedImagesRemote___childrenMdx___wordCount___sentences'
+  | 'embeddedImagesRemote___childrenMdx___wordCount___words'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___sourceInstanceName'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___absolutePath'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___relativePath'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___extension'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___size'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___prettySize'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___modifiedTime'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___accessTime'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___changeTime'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___birthTime'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___root'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___dir'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___base'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___ext'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___name'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___relativeDirectory'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___dev'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___mode'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___nlink'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___uid'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___gid'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___rdev'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___ino'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___atimeMs'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___mtimeMs'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___ctimeMs'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___atime'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___mtime'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___ctime'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___birthtime'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___birthtimeMs'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___blksize'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___blocks'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___publicURL'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___childrenMdx'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___childrenImageSharp'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___childrenRepositoriesYaml'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___childrenGamesYaml'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___id'
+  | 'embeddedImagesRemote___childrenMdx___embeddedImagesRemote___children'
+  | 'embeddedImagesRemote___childrenMdx___fields___slug'
+  | 'embeddedImagesRemote___childrenMdx___id'
+  | 'embeddedImagesRemote___childrenMdx___parent___id'
+  | 'embeddedImagesRemote___childrenMdx___parent___children'
+  | 'embeddedImagesRemote___childrenMdx___children'
+  | 'embeddedImagesRemote___childrenMdx___children___id'
+  | 'embeddedImagesRemote___childrenMdx___children___children'
+  | 'embeddedImagesRemote___childrenMdx___internal___content'
+  | 'embeddedImagesRemote___childrenMdx___internal___contentDigest'
+  | 'embeddedImagesRemote___childrenMdx___internal___description'
+  | 'embeddedImagesRemote___childrenMdx___internal___fieldOwners'
+  | 'embeddedImagesRemote___childrenMdx___internal___ignoreType'
+  | 'embeddedImagesRemote___childrenMdx___internal___mediaType'
+  | 'embeddedImagesRemote___childrenMdx___internal___owner'
+  | 'embeddedImagesRemote___childrenMdx___internal___type'
+  | 'embeddedImagesRemote___childMdx___rawBody'
+  | 'embeddedImagesRemote___childMdx___fileAbsolutePath'
+  | 'embeddedImagesRemote___childMdx___frontmatter___title'
+  | 'embeddedImagesRemote___childMdx___frontmatter___description'
+  | 'embeddedImagesRemote___childMdx___frontmatter___date'
+  | 'embeddedImagesRemote___childMdx___frontmatter___embeddedImagesLocal'
+  | 'embeddedImagesRemote___childMdx___frontmatter___embeddedImagesRemote'
+  | 'embeddedImagesRemote___childMdx___frontmatter___authors'
+  | 'embeddedImagesRemote___childMdx___frontmatter___keywords'
+  | 'embeddedImagesRemote___childMdx___frontmatter___language'
+  | 'embeddedImagesRemote___childMdx___frontmatter___dateCreated'
+  | 'embeddedImagesRemote___childMdx___frontmatter___dateUpdated'
+  | 'embeddedImagesRemote___childMdx___frontmatter___datePublished'
+  | 'embeddedImagesRemote___childMdx___slug'
+  | 'embeddedImagesRemote___childMdx___body'
+  | 'embeddedImagesRemote___childMdx___excerpt'
+  | 'embeddedImagesRemote___childMdx___headings'
+  | 'embeddedImagesRemote___childMdx___headings___value'
+  | 'embeddedImagesRemote___childMdx___headings___depth'
+  | 'embeddedImagesRemote___childMdx___html'
+  | 'embeddedImagesRemote___childMdx___mdxAST'
+  | 'embeddedImagesRemote___childMdx___tableOfContents'
+  | 'embeddedImagesRemote___childMdx___timeToRead'
+  | 'embeddedImagesRemote___childMdx___wordCount___paragraphs'
+  | 'embeddedImagesRemote___childMdx___wordCount___sentences'
+  | 'embeddedImagesRemote___childMdx___wordCount___words'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___sourceInstanceName'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___absolutePath'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___relativePath'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___extension'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___size'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___prettySize'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___modifiedTime'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___accessTime'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___changeTime'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___birthTime'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___root'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___dir'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___base'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___ext'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___name'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___relativeDirectory'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___dev'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___mode'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___nlink'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___uid'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___gid'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___rdev'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___ino'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___atimeMs'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___mtimeMs'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___ctimeMs'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___atime'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___mtime'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___ctime'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___birthtime'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___birthtimeMs'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___blksize'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___blocks'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___publicURL'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___childrenMdx'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___childrenImageSharp'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___childrenRepositoriesYaml'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___childrenGamesYaml'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___id'
+  | 'embeddedImagesRemote___childMdx___embeddedImagesRemote___children'
+  | 'embeddedImagesRemote___childMdx___fields___slug'
+  | 'embeddedImagesRemote___childMdx___id'
+  | 'embeddedImagesRemote___childMdx___parent___id'
+  | 'embeddedImagesRemote___childMdx___parent___children'
+  | 'embeddedImagesRemote___childMdx___children'
+  | 'embeddedImagesRemote___childMdx___children___id'
+  | 'embeddedImagesRemote___childMdx___children___children'
+  | 'embeddedImagesRemote___childMdx___internal___content'
+  | 'embeddedImagesRemote___childMdx___internal___contentDigest'
+  | 'embeddedImagesRemote___childMdx___internal___description'
+  | 'embeddedImagesRemote___childMdx___internal___fieldOwners'
+  | 'embeddedImagesRemote___childMdx___internal___ignoreType'
+  | 'embeddedImagesRemote___childMdx___internal___mediaType'
+  | 'embeddedImagesRemote___childMdx___internal___owner'
+  | 'embeddedImagesRemote___childMdx___internal___type'
+  | 'embeddedImagesRemote___childrenImageSharp'
+  | 'embeddedImagesRemote___childrenImageSharp___fixed___base64'
+  | 'embeddedImagesRemote___childrenImageSharp___fixed___tracedSVG'
+  | 'embeddedImagesRemote___childrenImageSharp___fixed___aspectRatio'
+  | 'embeddedImagesRemote___childrenImageSharp___fixed___width'
+  | 'embeddedImagesRemote___childrenImageSharp___fixed___height'
+  | 'embeddedImagesRemote___childrenImageSharp___fixed___src'
+  | 'embeddedImagesRemote___childrenImageSharp___fixed___srcSet'
+  | 'embeddedImagesRemote___childrenImageSharp___fixed___srcWebp'
+  | 'embeddedImagesRemote___childrenImageSharp___fixed___srcSetWebp'
+  | 'embeddedImagesRemote___childrenImageSharp___fixed___originalName'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___base64'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___tracedSVG'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___aspectRatio'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___src'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___srcSet'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___srcWebp'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___srcSetWebp'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___sizes'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___originalImg'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___originalName'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___presentationWidth'
+  | 'embeddedImagesRemote___childrenImageSharp___fluid___presentationHeight'
+  | 'embeddedImagesRemote___childrenImageSharp___gatsbyImageData'
+  | 'embeddedImagesRemote___childrenImageSharp___original___width'
+  | 'embeddedImagesRemote___childrenImageSharp___original___height'
+  | 'embeddedImagesRemote___childrenImageSharp___original___src'
+  | 'embeddedImagesRemote___childrenImageSharp___resize___src'
+  | 'embeddedImagesRemote___childrenImageSharp___resize___tracedSVG'
+  | 'embeddedImagesRemote___childrenImageSharp___resize___width'
+  | 'embeddedImagesRemote___childrenImageSharp___resize___height'
+  | 'embeddedImagesRemote___childrenImageSharp___resize___aspectRatio'
+  | 'embeddedImagesRemote___childrenImageSharp___resize___originalName'
+  | 'embeddedImagesRemote___childrenImageSharp___id'
+  | 'embeddedImagesRemote___childrenImageSharp___parent___id'
+  | 'embeddedImagesRemote___childrenImageSharp___parent___children'
+  | 'embeddedImagesRemote___childrenImageSharp___children'
+  | 'embeddedImagesRemote___childrenImageSharp___children___id'
+  | 'embeddedImagesRemote___childrenImageSharp___children___children'
+  | 'embeddedImagesRemote___childrenImageSharp___internal___content'
+  | 'embeddedImagesRemote___childrenImageSharp___internal___contentDigest'
+  | 'embeddedImagesRemote___childrenImageSharp___internal___description'
+  | 'embeddedImagesRemote___childrenImageSharp___internal___fieldOwners'
+  | 'embeddedImagesRemote___childrenImageSharp___internal___ignoreType'
+  | 'embeddedImagesRemote___childrenImageSharp___internal___mediaType'
+  | 'embeddedImagesRemote___childrenImageSharp___internal___owner'
+  | 'embeddedImagesRemote___childrenImageSharp___internal___type'
+  | 'embeddedImagesRemote___childImageSharp___fixed___base64'
+  | 'embeddedImagesRemote___childImageSharp___fixed___tracedSVG'
+  | 'embeddedImagesRemote___childImageSharp___fixed___aspectRatio'
+  | 'embeddedImagesRemote___childImageSharp___fixed___width'
+  | 'embeddedImagesRemote___childImageSharp___fixed___height'
+  | 'embeddedImagesRemote___childImageSharp___fixed___src'
+  | 'embeddedImagesRemote___childImageSharp___fixed___srcSet'
+  | 'embeddedImagesRemote___childImageSharp___fixed___srcWebp'
+  | 'embeddedImagesRemote___childImageSharp___fixed___srcSetWebp'
+  | 'embeddedImagesRemote___childImageSharp___fixed___originalName'
+  | 'embeddedImagesRemote___childImageSharp___fluid___base64'
+  | 'embeddedImagesRemote___childImageSharp___fluid___tracedSVG'
+  | 'embeddedImagesRemote___childImageSharp___fluid___aspectRatio'
+  | 'embeddedImagesRemote___childImageSharp___fluid___src'
+  | 'embeddedImagesRemote___childImageSharp___fluid___srcSet'
+  | 'embeddedImagesRemote___childImageSharp___fluid___srcWebp'
+  | 'embeddedImagesRemote___childImageSharp___fluid___srcSetWebp'
+  | 'embeddedImagesRemote___childImageSharp___fluid___sizes'
+  | 'embeddedImagesRemote___childImageSharp___fluid___originalImg'
+  | 'embeddedImagesRemote___childImageSharp___fluid___originalName'
+  | 'embeddedImagesRemote___childImageSharp___fluid___presentationWidth'
+  | 'embeddedImagesRemote___childImageSharp___fluid___presentationHeight'
+  | 'embeddedImagesRemote___childImageSharp___gatsbyImageData'
+  | 'embeddedImagesRemote___childImageSharp___original___width'
+  | 'embeddedImagesRemote___childImageSharp___original___height'
+  | 'embeddedImagesRemote___childImageSharp___original___src'
+  | 'embeddedImagesRemote___childImageSharp___resize___src'
+  | 'embeddedImagesRemote___childImageSharp___resize___tracedSVG'
+  | 'embeddedImagesRemote___childImageSharp___resize___width'
+  | 'embeddedImagesRemote___childImageSharp___resize___height'
+  | 'embeddedImagesRemote___childImageSharp___resize___aspectRatio'
+  | 'embeddedImagesRemote___childImageSharp___resize___originalName'
+  | 'embeddedImagesRemote___childImageSharp___id'
+  | 'embeddedImagesRemote___childImageSharp___parent___id'
+  | 'embeddedImagesRemote___childImageSharp___parent___children'
+  | 'embeddedImagesRemote___childImageSharp___children'
+  | 'embeddedImagesRemote___childImageSharp___children___id'
+  | 'embeddedImagesRemote___childImageSharp___children___children'
+  | 'embeddedImagesRemote___childImageSharp___internal___content'
+  | 'embeddedImagesRemote___childImageSharp___internal___contentDigest'
+  | 'embeddedImagesRemote___childImageSharp___internal___description'
+  | 'embeddedImagesRemote___childImageSharp___internal___fieldOwners'
+  | 'embeddedImagesRemote___childImageSharp___internal___ignoreType'
+  | 'embeddedImagesRemote___childImageSharp___internal___mediaType'
+  | 'embeddedImagesRemote___childImageSharp___internal___owner'
+  | 'embeddedImagesRemote___childImageSharp___internal___type'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___id'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___parent___id'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___parent___children'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___children'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___children___id'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___children___children'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___internal___content'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___internal___contentDigest'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___internal___description'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___internal___fieldOwners'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___internal___ignoreType'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___internal___mediaType'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___internal___owner'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___internal___type'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___name'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___desc'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___path'
+  | 'embeddedImagesRemote___childrenRepositoriesYaml___keywords'
+  | 'embeddedImagesRemote___childRepositoriesYaml___id'
+  | 'embeddedImagesRemote___childRepositoriesYaml___parent___id'
+  | 'embeddedImagesRemote___childRepositoriesYaml___parent___children'
+  | 'embeddedImagesRemote___childRepositoriesYaml___children'
+  | 'embeddedImagesRemote___childRepositoriesYaml___children___id'
+  | 'embeddedImagesRemote___childRepositoriesYaml___children___children'
+  | 'embeddedImagesRemote___childRepositoriesYaml___internal___content'
+  | 'embeddedImagesRemote___childRepositoriesYaml___internal___contentDigest'
+  | 'embeddedImagesRemote___childRepositoriesYaml___internal___description'
+  | 'embeddedImagesRemote___childRepositoriesYaml___internal___fieldOwners'
+  | 'embeddedImagesRemote___childRepositoriesYaml___internal___ignoreType'
+  | 'embeddedImagesRemote___childRepositoriesYaml___internal___mediaType'
+  | 'embeddedImagesRemote___childRepositoriesYaml___internal___owner'
+  | 'embeddedImagesRemote___childRepositoriesYaml___internal___type'
+  | 'embeddedImagesRemote___childRepositoriesYaml___name'
+  | 'embeddedImagesRemote___childRepositoriesYaml___desc'
+  | 'embeddedImagesRemote___childRepositoriesYaml___path'
+  | 'embeddedImagesRemote___childRepositoriesYaml___keywords'
+  | 'embeddedImagesRemote___childrenGamesYaml'
+  | 'embeddedImagesRemote___childrenGamesYaml___id'
+  | 'embeddedImagesRemote___childrenGamesYaml___parent___id'
+  | 'embeddedImagesRemote___childrenGamesYaml___parent___children'
+  | 'embeddedImagesRemote___childrenGamesYaml___children'
+  | 'embeddedImagesRemote___childrenGamesYaml___children___id'
+  | 'embeddedImagesRemote___childrenGamesYaml___children___children'
+  | 'embeddedImagesRemote___childrenGamesYaml___internal___content'
+  | 'embeddedImagesRemote___childrenGamesYaml___internal___contentDigest'
+  | 'embeddedImagesRemote___childrenGamesYaml___internal___description'
+  | 'embeddedImagesRemote___childrenGamesYaml___internal___fieldOwners'
+  | 'embeddedImagesRemote___childrenGamesYaml___internal___ignoreType'
+  | 'embeddedImagesRemote___childrenGamesYaml___internal___mediaType'
+  | 'embeddedImagesRemote___childrenGamesYaml___internal___owner'
+  | 'embeddedImagesRemote___childrenGamesYaml___internal___type'
+  | 'embeddedImagesRemote___childrenGamesYaml___name'
+  | 'embeddedImagesRemote___childrenGamesYaml___desc'
+  | 'embeddedImagesRemote___childrenGamesYaml___path'
+  | 'embeddedImagesRemote___childrenGamesYaml___icon'
+  | 'embeddedImagesRemote___childrenGamesYaml___color'
+  | 'embeddedImagesRemote___childrenGamesYaml___textColor'
+  | 'embeddedImagesRemote___childGamesYaml___id'
+  | 'embeddedImagesRemote___childGamesYaml___parent___id'
+  | 'embeddedImagesRemote___childGamesYaml___parent___children'
+  | 'embeddedImagesRemote___childGamesYaml___children'
+  | 'embeddedImagesRemote___childGamesYaml___children___id'
+  | 'embeddedImagesRemote___childGamesYaml___children___children'
+  | 'embeddedImagesRemote___childGamesYaml___internal___content'
+  | 'embeddedImagesRemote___childGamesYaml___internal___contentDigest'
+  | 'embeddedImagesRemote___childGamesYaml___internal___description'
+  | 'embeddedImagesRemote___childGamesYaml___internal___fieldOwners'
+  | 'embeddedImagesRemote___childGamesYaml___internal___ignoreType'
+  | 'embeddedImagesRemote___childGamesYaml___internal___mediaType'
+  | 'embeddedImagesRemote___childGamesYaml___internal___owner'
+  | 'embeddedImagesRemote___childGamesYaml___internal___type'
+  | 'embeddedImagesRemote___childGamesYaml___name'
+  | 'embeddedImagesRemote___childGamesYaml___desc'
+  | 'embeddedImagesRemote___childGamesYaml___path'
+  | 'embeddedImagesRemote___childGamesYaml___icon'
+  | 'embeddedImagesRemote___childGamesYaml___color'
+  | 'embeddedImagesRemote___childGamesYaml___textColor'
+  | 'embeddedImagesRemote___id'
+  | 'embeddedImagesRemote___parent___id'
+  | 'embeddedImagesRemote___parent___parent___id'
+  | 'embeddedImagesRemote___parent___parent___children'
+  | 'embeddedImagesRemote___parent___children'
+  | 'embeddedImagesRemote___parent___children___id'
+  | 'embeddedImagesRemote___parent___children___children'
+  | 'embeddedImagesRemote___parent___internal___content'
+  | 'embeddedImagesRemote___parent___internal___contentDigest'
+  | 'embeddedImagesRemote___parent___internal___description'
+  | 'embeddedImagesRemote___parent___internal___fieldOwners'
+  | 'embeddedImagesRemote___parent___internal___ignoreType'
+  | 'embeddedImagesRemote___parent___internal___mediaType'
+  | 'embeddedImagesRemote___parent___internal___owner'
+  | 'embeddedImagesRemote___parent___internal___type'
+  | 'embeddedImagesRemote___children'
+  | 'embeddedImagesRemote___children___id'
+  | 'embeddedImagesRemote___children___parent___id'
+  | 'embeddedImagesRemote___children___parent___children'
+  | 'embeddedImagesRemote___children___children'
+  | 'embeddedImagesRemote___children___children___id'
+  | 'embeddedImagesRemote___children___children___children'
+  | 'embeddedImagesRemote___children___internal___content'
+  | 'embeddedImagesRemote___children___internal___contentDigest'
+  | 'embeddedImagesRemote___children___internal___description'
+  | 'embeddedImagesRemote___children___internal___fieldOwners'
+  | 'embeddedImagesRemote___children___internal___ignoreType'
+  | 'embeddedImagesRemote___children___internal___mediaType'
+  | 'embeddedImagesRemote___children___internal___owner'
+  | 'embeddedImagesRemote___children___internal___type'
+  | 'embeddedImagesRemote___internal___content'
+  | 'embeddedImagesRemote___internal___contentDigest'
+  | 'embeddedImagesRemote___internal___description'
+  | 'embeddedImagesRemote___internal___fieldOwners'
+  | 'embeddedImagesRemote___internal___ignoreType'
+  | 'embeddedImagesRemote___internal___mediaType'
+  | 'embeddedImagesRemote___internal___owner'
+  | 'embeddedImagesRemote___internal___type'
   | 'fields___slug'
   | 'id'
   | 'parent___id'
@@ -4136,7 +4988,7 @@ export type Unnamed_1_Query = { site?: { siteMetadata?: { title?: string | null,
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, allMdx: { nodes: Array<{ excerpt: string, timeToRead?: number | null, fields?: { slug?: string | null } | null, frontmatter?: { dateCreated?: any | null, dateUpdated?: any | null, datePublished?: any | null, title?: string | null, authors?: Array<string | null> | null, language?: string | null, keywords?: Array<string | null> | null, description?: string | null } | null }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null, desc?: string | null, path?: string | null, keywords?: Array<string | null> | null }> }, allGamesYaml: { nodes: Array<{ id: string, name?: string | null, desc?: string | null, path?: string | null, icon?: string | null, color?: string | null, textColor?: string | null }> } };
+export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, allMdx: { nodes: Array<{ excerpt: string, timeToRead?: number | null, fields?: { slug?: string | null } | null, frontmatter?: { dateCreated?: any | null, dateUpdated?: any | null, datePublished?: any | null, title: string, authors?: Array<string | null> | null, language?: string | null, keywords?: Array<string | null> | null, description?: string | null } | null }> }, allRepositoriesYaml: { nodes: Array<{ id: string, name?: string | null, desc?: string | null, path?: string | null, keywords?: Array<string | null> | null }> }, allGamesYaml: { nodes: Array<{ id: string, name?: string | null, desc?: string | null, path?: string | null, icon?: string | null, color?: string | null, textColor?: string | null }> } };
 
 export type AllKeywordsQueryVariables = Exact<{ [key: string]: never; }>;
 

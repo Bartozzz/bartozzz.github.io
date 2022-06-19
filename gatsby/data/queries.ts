@@ -48,6 +48,16 @@ export async function getAllPosts(graphql: GraphqlType) {
             language
             keywords
             description
+            embeddedImagesLocal {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
+            }
+          }
+          embeddedImagesRemote {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH)
+            }
           }
         }
       }
@@ -90,6 +100,16 @@ export async function getAllPostsByKeyword(
               language
               keywords
               description
+              embeddedImagesLocal {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+            }
+            embeddedImagesRemote {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
             }
           }
         }
