@@ -41,8 +41,8 @@ Let's start by analyzing the elements and features that we have in the game. We 
 - a collision system that handles pipes & coins collisions;
 
 <Image
-  image={props.localImages[0]}
-  imageDark={props.localImages[1]}
+  image={props?.localImages?.[0]}
+  imageDark={props?.localImages?.[1]}
   alt="High level architecture"
 />
 
