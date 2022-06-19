@@ -1,3 +1,15 @@
+# [1.9.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.5...v1.9.0) (2022-06-19)
+
+
+### Bug Fixes
+
+* move theme to context ([41fb278](https://github.com/Bartozzz/bartozzz.github.io/commit/41fb2783518bb2f0c39f9e2f2d4eed5a098d0baa))
+
+
+### Features
+
+* add support for Images in MDX ([53713e0](https://github.com/Bartozzz/bartozzz.github.io/commit/53713e03ff06bfafb9317e949ed7a5bc1e9a3f62))
+
 ## [1.8.5](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.4...v1.8.5) (2022-06-17)
 
 
