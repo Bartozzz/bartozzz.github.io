@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.9.0...v1.10.0) (2022-06-19)
+
+
+### Features
+
+* create Tilt Copters case study ([160f3b0](https://github.com/Bartozzz/bartozzz.github.io/commit/160f3b02c2ea8e0bb34dd3ea616fa8f053a45783))
+
 # [1.9.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.8.5...v1.9.0) (2022-06-19)
 
 
