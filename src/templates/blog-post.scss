@@ -213,7 +213,7 @@
   pre {
     min-width: 100%;
 
-    margin: var(--ls-md) calc(-1 * var(--ls-xxs));
+    margin: var(--ls-sm) calc(-1 * var(--ls-xxs));
     padding: var(--ls-xs) var(--ls-xxs);
 
     background-color: var(--background-300);
@@ -222,7 +222,7 @@
     overflow: auto;
 
     @include mediaquery("lg") {
-      margin: var(--ls-md) 0;
+      margin: var(--ls-sm) 0;
       padding: var(--ls-xs);
 
       border-radius: var(--br-md);
