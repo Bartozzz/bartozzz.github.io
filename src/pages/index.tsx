@@ -2,8 +2,6 @@ import "../styles/pages/index.scss";
 
 import { graphql } from "gatsby";
 
-import { IndexPageQuery } from "../../graphql-types";
-
 import { Content } from "../components/Content";
 import { GameCard } from "../components/GameCard";
 import { Heading } from "../components/Heading";
@@ -12,6 +10,53 @@ import { Layout } from "../components/Layout";
 import { PostExcerpt } from "../components/PostExcerpt";
 import { Repository } from "../components/Repository";
 import { SEO } from "../components/SEO";
+
+interface IndexPageQuery {
+  site?: {
+    siteMetadata?: {
+      title?: string;
+    };
+  };
+  allMdx: {
+    nodes: Array<{
+      excerpt: string;
+      timeToRead?: number;
+      fields?: {
+        slug?: string;
+      };
+      frontmatter?: {
+        dateCreated?: any;
+        dateUpdated?: any;
+        datePublished?: any;
+        title: string;
+        authors?: Array<string>;
+        language?: string;
+        keywords?: Array<string>;
+        description?: string;
+      };
+    }>;
+  };
+  allRepositoriesYaml: {
+    nodes: Array<{
+      id: string;
+      name?: string;
+      desc?: string;
+      path?: string;
+      keywords?: Array<string>;
+    }>;
+  };
+  allGamesYaml: {
+    nodes: Array<{
+      id: string;
+      name?: string;
+      desc?: string;
+      path?: string;
+      icon?: string;
+      color?: string;
+      textColor?: string;
+    }>;
+  };
+}
 
 interface Props {
   data: IndexPageQuery;

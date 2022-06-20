@@ -2,8 +2,6 @@ import * as css from "./index.module.scss";
 
 import { useStaticQuery, graphql, Link } from "gatsby";
 
-import { FooterDataQuery } from "../../../graphql-types";
-
 import DribbbleIcon from "../../assets/icons/dribbble.svg";
 import GitHubIcon from "../../assets/icons/github.svg";
 import LinkedInIcon from "../../assets/icons/linkedin.svg";
@@ -26,6 +24,20 @@ export function socialKeyToIcon(key: string) {
     default:
       return null;
   }
+}
+
+interface FooterDataQuery {
+  site: {
+    siteMetadata: {
+      siteRepo: string;
+      contact: string;
+      social: {
+        GitHub: string;
+        LinkedIn: string;
+        YouTube: string;
+      };
+    };
+  };
 }
 
 export function PageFooter() {

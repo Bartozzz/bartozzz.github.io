@@ -68,12 +68,6 @@ const config: GatsbyConfig = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-graphql-codegen`,
-      options: {
-        codegenDelay: 60 * 60,
-      },
-    },
     `gatsby-plugin-dts-css-modules`,
     `gatsby-transformer-yaml`,
     `gatsby-transformer-json`,
