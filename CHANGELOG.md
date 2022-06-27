@@ -1,3 +1,10 @@
+## [1.11.3](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.11.2...v1.11.3) (2022-06-27)
+
+
+### Bug Fixes
+
+* update dependabot automerge ([b8083ad](https://github.com/Bartozzz/bartozzz.github.io/commit/b8083ad30315882134c2561c9fd1a679eac84761))
+
 ## [1.11.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.11.1...v1.11.2) (2022-06-27)
 
 
