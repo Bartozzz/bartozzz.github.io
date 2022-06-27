@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.10.0...v1.11.0) (2022-06-27)
+
+
+### Features
+
+* create Filler case study ([4843593](https://github.com/Bartozzz/bartozzz.github.io/commit/48435931641f246a42926237fb0606d3b6a0fc12))
+
 # [1.10.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.9.0...v1.10.0) (2022-06-19)
 
 
