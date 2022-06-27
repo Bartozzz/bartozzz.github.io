@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.11.0...v1.11.1) (2022-06-27)
+
+
+### Bug Fixes
+
+* run automerge when tests complete ([3444078](https://github.com/Bartozzz/bartozzz.github.io/commit/34440787329292e305eb779fe4ea0b0bee4a930a))
+
 # [1.11.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.10.0...v1.11.0) (2022-06-27)
 
 
