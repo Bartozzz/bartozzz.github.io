@@ -2,12 +2,9 @@ name: Dependabot auto-merge
 
 on:
   workflow_run:
-    workflows:
-      - Tests
-    types:
-      - completed
-    branches:
-      - dependabot/**
+    workflows: [Tests]
+    types: [completed]
+    branches: [dependabot/**]
 
 permissions:
   contents: write
