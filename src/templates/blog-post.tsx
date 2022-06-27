@@ -8,6 +8,7 @@ import { BlogPost } from "../../gatsby/types/queries";
 import { Alert } from "../components/Alert";
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
+import { Formula } from "../components/Formula";
 import { Image } from "../components/Image";
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
@@ -67,7 +68,7 @@ export default function BlogPostTemplate({ pageContext }: Props) {
 
             <div className="post__content">
               <div itemProp="articleBody">
-                <MDXProvider components={{ Alert, Image }}>
+                <MDXProvider components={{ Alert, Image, Formula }}>
                   <MDXRenderer
                     remoteImages={embeddedImagesRemote}
                     localImages={embeddedImagesLocal}
