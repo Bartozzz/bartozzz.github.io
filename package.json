@@ -71,7 +71,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
-    "eslint-plugin-react-hooks": "^4.5.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
     "semantic-release": "^19.0.2",
