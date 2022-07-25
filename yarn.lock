@@ -7849,10 +7849,10 @@ gatsby-telemetry@^3.17.0:
     lodash "^4.17.21"
     node-fetch "^2.6.7"
 
-gatsby-transformer-json@^4.17.0:
-  version "4.17.0"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-json/-/gatsby-transformer-json-4.17.0.tgz#2bdaaf01e9daa3c430d923f23f42cfbe3de9419f"
-  integrity sha512-PQ7wSDN2KgQkV3RkkNjqBYnsWKqhU5iiqQEPV28WFS3HRgmq8RWuONc3dBlvBztNSDGtKrwFngbRlEsze7PbOw==
+gatsby-transformer-json@^4.19.0:
+  version "4.19.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-json/-/gatsby-transformer-json-4.19.0.tgz#2016e67cfb787dcde122f7b617c0982a873e4828"
+  integrity sha512-0Bw0n6JLNBDt2a/cC4HMANSOWSlLidSi4HW6d2L47EPu0TXgouJWJ3cNqi6MiBerb2XT9eJuhFVfS8RkjX34aA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     bluebird "^3.7.2"
