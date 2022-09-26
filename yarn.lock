@@ -7725,10 +7725,10 @@ gatsby-plugin-sharp@^4.17.0:
     sharp "^0.30.3"
     svgo "1.3.2"
 
-gatsby-plugin-sitemap@^5.17.0:
-  version "5.17.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-5.17.0.tgz#56db908f8c9aaa359601fe1a7d36034b76dd1344"
-  integrity sha512-/rnzUvpTsflcwOzbeurq2CahtDv0JQ/+lzqI3evJQUfFW2SZ9aJFETR2RJ0WTXgPkCy9EMlyawQHkX12X7AVhg==
+gatsby-plugin-sitemap@^5.23.1:
+  version "5.23.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-5.23.1.tgz#2682d6864b2526960fcdc11b2d5244951560e6b0"
+  integrity sha512-7oq5jkn5FNHM3EqwnfOIpAx6eycKWtKubS09A4SGVREdbDryBpoNHt8nGtWH1BtCtSIZvm3mtZKPbGNeWzdxAQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
     common-tags "^1.8.2"
