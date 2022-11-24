@@ -7238,27 +7238,6 @@ gatsby-core-utils@^3.17.0, gatsby-core-utils@^3.24.0:
     tmp "^0.2.1"
     xdg-basedir "^4.0.0"
 
-gatsby-core-utils@^3.24.0:
-  version "3.24.0"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.24.0.tgz#0e757bac28ad953a929046138403b3663b733cf7"
-  integrity sha512-P4tbcYOJ1DSYKRP4gIAR9Xta/d/AzjmsK2C6PzX7sNcGnviDKtAIoeV9sE0kNXOqBfUCez25zmAi2cq8NlaxKw==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    ci-info "2.0.0"
-    configstore "^5.0.1"
-    fastq "^1.13.0"
-    file-type "^16.5.3"
-    fs-extra "^10.1.0"
-    got "^11.8.5"
-    import-from "^4.0.0"
-    lmdb "2.5.3"
-    lock "^1.1.0"
-    node-object-hash "^2.3.10"
-    proper-lockfile "^4.1.2"
-    resolve-from "^5.0.0"
-    tmp "^0.2.1"
-    xdg-basedir "^4.0.0"
-
 gatsby-graphiql-explorer@^2.17.0:
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-2.17.0.tgz#128a4dc46ae48c31d858b0c9524344ec6904cb43"
@@ -7328,16 +7307,16 @@ gatsby-plugin-dts-css-modules@^2.2.0:
   dependencies:
     dts-css-modules-loader "1.2.4"
 
-gatsby-plugin-feed@^4.17.0:
-  version "4.17.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-4.17.0.tgz#59a1a3f5e371015a871866433e20a425c25f842a"
-  integrity sha512-qX23BiO8Tfu8ekW5Fuj2FqdD1sm8vFVyWlfLiQ4jIf4uwd7imIZ0FFucfIWI7X5toVhHLevgo52bzAwnL0AwjQ==
+gatsby-plugin-feed@^4.24.0:
+  version "4.24.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-4.24.0.tgz#c6b2674b45dd2b8037e301daaab62d57a2dd5ee3"
+  integrity sha512-lTCpIjvgZZjkciBm2jsibk6+5Opd9ToQWrb363Y/7Mm26TYK/xuLLCuFBuAi76YekbBZJc5HnMcZcFHB4lIIUw==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@hapi/joi" "^15.1.1"
     common-tags "^1.8.2"
     fs-extra "^10.1.0"
-    gatsby-plugin-utils "^3.11.0"
+    gatsby-plugin-utils "^3.18.0"
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
