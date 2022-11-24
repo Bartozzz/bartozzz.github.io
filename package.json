@@ -35,7 +35,7 @@
     "gatsby-transformer-json": "^4.24.0",
     "gatsby-transformer-sharp": "^4.24.0",
     "gatsby-transformer-yaml": "^4.24.0",
-    "github-slugger": "^1.4.0",
+    "github-slugger": "^2.0.0",
     "katex": "^0.16.3",
     "normalize.css": "^8.0.1",
     "param-case": "^3.0.4",
