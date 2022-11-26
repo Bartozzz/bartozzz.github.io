@@ -36,20 +36,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve(`./content/blog`),
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve(`./src/assets`),
-        name: `images`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [".md", ".mdx"],
