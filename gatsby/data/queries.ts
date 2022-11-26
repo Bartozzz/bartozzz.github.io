@@ -31,7 +31,7 @@ export async function getAllPosts(graphql: GraphqlType) {
           id
           excerpt
           body
-          tableOfContents
+          tableOfContents(maxDepth: 3)
           fields {
             slug
             timeToRead {
@@ -75,7 +75,7 @@ export async function getAllPostsByKeyword(
             id
             excerpt
             body
-            tableOfContents
+            tableOfContents(maxDepth: 3)
             fields {
               slug
               timeToRead {

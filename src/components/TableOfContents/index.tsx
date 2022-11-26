@@ -8,10 +8,9 @@ import { TableOfContents as TTableOfContents } from "../../../gatsby/types/queri
 
 interface Props {
   data: TTableOfContents;
-  maxDepth?: number;
 }
 
-export function TableOfContents({ data, maxDepth = 2 }: Props) {
+export function TableOfContents({ data }: Props) {
   const [activeHeadingId, setActiveHeadingId] = React.useState();
 
   // React.useEffect(() => {
