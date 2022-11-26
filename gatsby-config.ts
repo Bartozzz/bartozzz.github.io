@@ -61,7 +61,12 @@ const config: GatsbyConfig = {
         },
         gatsbyRemarkPlugins: [
           // TODO: migrate to custom component
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+            },
+          },
         ],
       },
     },
