@@ -69,8 +69,6 @@ export default function IndexPage({ data }: Props) {
 
   return (
     <Layout>
-      <SEO />
-
       <Hero />
 
       <Content>
@@ -154,6 +152,10 @@ export default function IndexPage({ data }: Props) {
       </Content>
     </Layout>
   );
+}
+
+export function Head() {
+  return <SEO />;
 }
 
 export const pageQuery = graphql`

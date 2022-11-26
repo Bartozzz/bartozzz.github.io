@@ -28,15 +28,6 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
 
   return (
     <Layout>
-      <SEO
-        title={pageKeyword ? `${pageKeyword} posts` : "All posts"}
-        description={
-          pageKeyword
-            ? `My latest posts, updates, and stories about ${pageKeyword} for developers`
-            : "My latest posts, updates, and stories about software engineering for developers"
-        }
-      />
-
       <Content>
         <ul className="keywords">
           <Link to="/posts">
@@ -72,5 +63,20 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
         </ol>
       </Content>
     </Layout>
+  );
+}
+
+export function Head({ pageContext }: Props) {
+  const pageKeyword = pageContext.keyword;
+
+  return (
+    <SEO
+      title={pageKeyword ? `${pageKeyword} posts` : "All posts"}
+      description={
+        pageKeyword
+          ? `My latest posts, updates, and stories about ${pageKeyword} for developers`
+          : "My latest posts, updates, and stories about software engineering for developers"
+      }
+    />
   );
 }

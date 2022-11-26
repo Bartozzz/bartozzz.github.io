@@ -22,20 +22,12 @@ interface Props {
 
 export default function BlogPostTemplate({ pageContext }: Props) {
   const post = pageContext.data;
-  const { frontmatter, headings, excerpt, body, embeddedImagesRemote } = post;
-  const {
-    title,
-    datePublished,
-    language,
-    description,
-    authors,
-    embeddedImagesLocal,
-  } = frontmatter;
+  const { frontmatter, headings, body, embeddedImagesRemote } = post;
+  const { title, datePublished, language, authors, embeddedImagesLocal } =
+    frontmatter;
 
   return (
     <Layout>
-      <SEO title={title} description={description || excerpt} />
-
       <Content>
         <article
           className="post"
@@ -85,4 +77,12 @@ export default function BlogPostTemplate({ pageContext }: Props) {
       </Content>
     </Layout>
   );
+}
+
+export function Head({ pageContext }: Props) {
+  const post = pageContext.data;
+  const { excerpt } = post;
+  const { title, description } = post.frontmatter;
+
+  return <SEO title={title} description={description || excerpt} />;
 }

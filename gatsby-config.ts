@@ -82,7 +82,6 @@ const config: GatsbyConfig = {
         },
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

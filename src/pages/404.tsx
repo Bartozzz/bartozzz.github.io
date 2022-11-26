@@ -5,8 +5,6 @@ import { SEO } from "../components/SEO";
 export default function NotFoundPage() {
   return (
     <Layout>
-      <SEO title="Not Found" />
-
       <Content>
         <h1
           style={{
@@ -32,4 +30,8 @@ export default function NotFoundPage() {
       </Content>
     </Layout>
   );
+}
+
+export function Head() {
+  return <SEO title="Not Found" />;
 }
