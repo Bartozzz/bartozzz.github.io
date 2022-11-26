@@ -327,4 +327,8 @@ A nice video explaining this in detail can be found [here](https://www.youtube.c
 
 It was a fun experience to rebuild the same game several years later after gathering all of my commercial experience and still being able to learn new things along the journey. So far, I've got 200+ downloads and generated $0.20 in ad revenue, but hey, the learnings are priceless!
 
-*[ISP]: Time to Interaction
+{
+  /**
+   * *[TTI]: Time to Interaction
+   */
+}

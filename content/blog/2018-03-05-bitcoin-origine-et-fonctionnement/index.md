@@ -243,5 +243,10 @@ Pour vérifier les transactions on utilise les propriétés du système RSA. Il 
 [19]: https://thebalance.com/is-bitcoin-the-answer-in-a-financial-crisis-391275 "“Bitcoin and Financial Crisis“ – Danny Bradbury"
 [20]: https://www.cs.cornell.edu/home/rvr/papers/flowgossip.pdf "“Efficient Reconciliation and Flow Control for Anti-Entropy Protocols“ – Robbert van Renesse"
 
-*[hash]: Valeur de sortie d’une fonction de hachage cryptographique, c’est-à-dire une fonction qui à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu'elle est pratiquement impossible à inverser.
-*[RSA]: Le chiffrement RSA (nommé par les initiales de ses trois inventeurs) est un algorithme de cryptographie asymétrique, très utilisé dans le commerce électronique, et plus généralement pour échanger des données confidentielles sur Internet.
+
+{
+  /**
+   * *[hash]: Valeur de sortie d’une fonction de hachage cryptographique, c’est-à-dire une fonction qui à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu'elle est pratiquement impossible à inverser.
+   * *[RSA]: Le chiffrement RSA (nommé par les initiales de ses trois inventeurs) est un algorithme de cryptographie asymétrique, très utilisé dans le commerce électronique, et plus généralement pour échanger des données confidentielles sur Internet.
+   */
+}
