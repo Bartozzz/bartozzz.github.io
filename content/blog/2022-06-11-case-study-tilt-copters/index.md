@@ -6,9 +6,6 @@ language: en
 dateCreated: 2022-06-11 00:00:00 +0100
 dateUpdated: 2022-06-11 00:00:00 +0100
 datePublished: 2022-06-11 00:00:00 +0100
-embeddedImagesLocal:
-  - ./assets/architecture.png
-  - ./assets/architecture-dark.png
 ---
 
 [Tilt Copters] is a relatively simple game created with [pixi.js] and Expo. This is a project I've started to learn more about porting web libraries to React Native but also about game architecture and monetization.

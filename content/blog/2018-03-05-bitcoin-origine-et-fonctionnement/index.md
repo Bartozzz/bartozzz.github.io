@@ -185,15 +185,15 @@ Nous disposons de 3 nombres:
 
 Pour calculer une signature, il est nécessaire d’utiliser les 3 nombres et masquer la clé privée. Pour cela, on effectue l'opération suivante:
 
-<p style="text-align: center">N = p × q</p>
+<p style={{ textAlign: "center" }}>N = p × q</p>
 
 Ainsi on obtient un 4<sup>eme</sup> nombre contenant la clé privée cachée. Avec les moyens technologiques dont nous disposons aujourd’hui, il est impossible d’extraire cette clé sans la connaître à l’avance. Il est cependant très facile de vérifier, si (_N_) cache bien notre clé privée en effectuant l'opération inverse:
 
-<p style="text-align: center">q = N / p</p>
+<p style={{ textAlign: "center" }}>q = N / p</p>
 
 Pour calculer la signature (_s_), nous effectuons une dernière opération:
 
-<p style="text-align: center">s = h × N</p>
+<p style={{ textAlign: "center" }}>s = h × N</p>
 
 Pour vérifier les transactions on utilise les propriétés du système RSA. Il est ainsi possible de vérifier que l’auteur de la transaction est en possession de la clé privée qui correspond à sa clé publique et donc que c’est lui qui a effectué la transaction. Le champ data d’un bloc peut ressembler à celui-ci:
 

@@ -1,5 +1,6 @@
 import { GatsbyNode } from "gatsby";
-import { createFilePath, createRemoteFileNode } from "gatsby-source-filesystem";
+import { createFilePath } from "gatsby-source-filesystem";
+import readingTime from "reading-time";
 
 import { getAllPosts, getAllPostsByKeyword } from "./gatsby/data/queries";
 import { createAllBlogPostsPage } from "./gatsby/helpers/createAllBlogPostsPage";
@@ -52,50 +53,21 @@ export const createPages: GatsbyNode["createPages"] = async ({
 export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   node,
   actions,
-  cache,
   getNode,
-  createNodeId,
 }) => {
-  const { createNode, createNodeField } = actions;
-  const frontmatter = node.frontmatter as any;
-
-  if (
-    node.internal.type === "Mdx" &&
-    frontmatter &&
-    frontmatter.embeddedImagesRemote
-  ) {
-    const embeddedImagesRemote = await Promise.all(
-      frontmatter.embeddedImagesRemote.map((url) => {
-        try {
-          return createRemoteFileNode({
-            url,
-            parentNodeId: node.id,
-            createNode,
-            createNodeId,
-            cache,
-          });
-        } catch (error) {
-          console.error(error);
-        }
-      })
-    );
-
-    if (embeddedImagesRemote) {
-      createNodeField({
-        node,
-        name: "embeddedImagesRemote",
-        value: embeddedImagesRemote.map((image) => image.id),
-      });
-    }
-  }
+  const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
-    const value = createFilePath({ node, getNode });
+    createNodeField({
+      node,
+      name: `timeToRead`,
+      value: readingTime(node.body as string),
+    });
 
     createNodeField({
-      name: `slug`,
       node,
-      value,
+      name: `slug`,
+      value: createFilePath({ node, getNode }),
     });
   }
 };
@@ -121,15 +93,12 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
       type Mdx implements Node {
         frontmatter: MdxFrontmatter
-        embeddedImagesRemote: [File] @link(from: "fields.embeddedImagesRemote")
       }
 
       type MdxFrontmatter {
         title: String!
         description: String
         date: Date @dateformat
-        embeddedImagesLocal: [File] @fileByRelativePath
-        embeddedImagesRemote: [String]
       }
     `);
   };

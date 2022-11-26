@@ -53,15 +53,17 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [".md", ".mdx"],
-        remarkPlugins: [
-          // See: https://github.com/remarkjs/remark/blob/main/doc/plugins.md
-          require("remark-slug"),
-          require("remark-abbr"),
-          require("remark-copy-linked-files"),
-          // Needs ESM Support in Gatsby: https://github.com/gatsbyjs/gatsby/discussions/31599
-          // require("remark-smartypants"),
-          // require("remark-toc"),
-        ],
+        mdxOptions: {
+          remarkPlugins: [
+            // See: https://github.com/remarkjs/remark/blob/main/doc/plugins.md
+            // require("remark-slug"),
+            // require("remark-abbr"),
+            // require("remark-copy-linked-files"),
+            // Needs ESM Support in Gatsby: https://github.com/gatsbyjs/gatsby/discussions/31599
+            // require("remark-smartypants"),
+            // require("remark-toc"),
+          ],
+        },
         gatsbyRemarkPlugins: [
           // TODO: migrate to custom component
           `gatsby-remark-prismjs`,
@@ -85,6 +87,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
+        output: "/sitemap/",
         query: `
         {
           site {
@@ -163,7 +166,7 @@ const config: GatsbyConfig = {
             query: `
               {
                 allMdx(
-                  sort: { order: DESC, fields: [frontmatter___date] },
+                  sort: { frontmatter: { date: DESC } },
                 ) {
                   nodes {
                     excerpt

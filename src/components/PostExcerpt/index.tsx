@@ -43,7 +43,7 @@ export function PostExcerpt({
           {timeToRead ? (
             <>
               <span aria-hidden>{" • "}</span>
-              <span itemProp="timeRequired">{timeToRead * 2} min</span>
+              <span itemProp="timeRequired">{Math.ceil(timeToRead)} min</span>
               {" read "}
             </>
           ) : null}

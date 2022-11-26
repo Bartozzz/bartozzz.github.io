@@ -12,7 +12,7 @@ export async function createBlogPostPage(actions: Actions, data: BlogPost) {
 
   return actions.createPage({
     path: slug,
-    component: template,
+    component: `${template}?__contentFilePath=${data.internal.contentFilePath}`,
     context: {
       data,
     },

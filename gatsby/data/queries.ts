@@ -25,19 +25,18 @@ function processQueryResult<TData>(result: QueryResult<TData>) {
 export async function getAllPosts(graphql: GraphqlType) {
   const result = await graphql<AllPostsQuery>(`
     query AllPostsQuery {
-      allMdx(sort: { fields: [frontmatter___datePublished], order: DESC }) {
+      allMdx(sort: { frontmatter: { datePublished: DESC } }) {
         totalCount
         nodes {
           id
           excerpt
           body
-          timeToRead
-          headings {
-            depth
-            value
-          }
+          tableOfContents
           fields {
             slug
+            timeToRead {
+              minutes
+            }
           }
           frontmatter {
             dateCreated(formatString: "MMMM DD, YYYY")
@@ -48,16 +47,9 @@ export async function getAllPosts(graphql: GraphqlType) {
             language
             keywords
             description
-            embeddedImagesLocal {
-              childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
-            }
           }
-          embeddedImagesRemote {
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
-            }
+          internal {
+            contentFilePath
           }
         }
       }
@@ -75,7 +67,7 @@ export async function getAllPostsByKeyword(
     `
       query PostsByKeywordQuery($keyword: String) {
         allMdx(
-          sort: { fields: [frontmatter___datePublished], order: DESC }
+          sort: { frontmatter: { datePublished: DESC } }
           filter: { frontmatter: { keywords: { in: [$keyword] } } }
         ) {
           totalCount
@@ -83,13 +75,12 @@ export async function getAllPostsByKeyword(
             id
             excerpt
             body
-            timeToRead
-            headings {
-              depth
-              value
-            }
+            tableOfContents
             fields {
               slug
+              timeToRead {
+                minutes
+              }
             }
             frontmatter {
               dateCreated(formatString: "MMMM DD, YYYY")
@@ -100,16 +91,9 @@ export async function getAllPostsByKeyword(
               language
               keywords
               description
-              embeddedImagesLocal {
-                childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH)
-                }
-              }
             }
-            embeddedImagesRemote {
-              childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
+            internal {
+              contentFilePath
             }
           }
         }
