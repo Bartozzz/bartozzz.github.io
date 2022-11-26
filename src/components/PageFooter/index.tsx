@@ -65,7 +65,7 @@ export function PageFooter() {
       itemType="http://schema.org/WPFooter"
       itemScope
     >
-      <nav typeof="http://schema.org/ContactPoint" itemScope>
+      <nav itemType="http://schema.org/ContactPoint" itemScope>
         <ul className={`${css.footer__menu} list`}>
           {Object.entries(site.siteMetadata.social).map(([name, link]) => (
             <li key={name} className={css.footer__item}>
