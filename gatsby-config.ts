@@ -60,7 +60,7 @@ const config: GatsbyConfig = {
           ],
         },
         gatsbyRemarkPlugins: [
-          // TODO: migrate to custom component
+          // TODO: migrate to custom component or https://codehike.org/
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
