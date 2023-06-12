@@ -71,7 +71,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
-    "semantic-release": "^21.0.3",
+    "semantic-release": "^21.0.5",
     "typescript": "^5.1.3"
   }
 }
