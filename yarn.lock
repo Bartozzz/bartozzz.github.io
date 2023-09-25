@@ -2624,22 +2624,6 @@
     semver "^7.1.2"
     tempy "^3.0.0"
 
-"@semantic-release/release-notes-generator@^11.0.7":
-  version "11.0.7"
-  resolved "https://registry.yarnpkg.com/@semantic-release/release-notes-generator/-/release-notes-generator-11.0.7.tgz#2193b8aa6b8b40297b6cbc5156bc9a7e5cdb9bbd"
-  integrity sha512-T09QB9ImmNx7Q6hY6YnnEbw/rEJ6a+22LBxfZq+pSAXg/OL/k0siwEm5cK4k1f9dE2Z2mPIjJKKohzUm0jbxcQ==
-  dependencies:
-    conventional-changelog-angular "^6.0.0"
-    conventional-changelog-writer "^6.0.0"
-    conventional-commits-filter "^4.0.0"
-    conventional-commits-parser "^5.0.0"
-    debug "^4.0.0"
-    get-stream "^7.0.0"
-    import-from "^4.0.0"
-    into-stream "^7.0.0"
-    lodash-es "^4.17.21"
-    read-pkg-up "^10.0.0"
-
 "@semantic-release/release-notes-generator@^12.0.0":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/release-notes-generator/-/release-notes-generator-12.0.0.tgz#1882d6d797e1176b9f836caf7ed787325c8ddb4b"
@@ -5262,19 +5246,6 @@ conventional-changelog-conventionalcommits@^6.1.0:
   dependencies:
     compare-func "^2.0.0"
 
-conventional-changelog-writer@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/conventional-changelog-writer/-/conventional-changelog-writer-6.0.0.tgz#8c8dea0441c6e648c9b25bb784e750d02f8002d5"
-  integrity sha512-8PyWTnn7zBIt9l4hj4UusFs1TyG+9Ulu1zlOAc72L7Sdv9Hsc8E86ot7htY3HXCVhXHB/NO0pVGvZpwsyJvFfw==
-  dependencies:
-    conventional-commits-filter "^3.0.0"
-    dateformat "^3.0.3"
-    handlebars "^4.7.7"
-    json-stringify-safe "^5.0.1"
-    meow "^8.1.2"
-    semver "^6.3.0"
-    split "^1.0.1"
-
 conventional-changelog-writer@^7.0.0:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/conventional-changelog-writer/-/conventional-changelog-writer-7.0.1.tgz#e64ef74fa8e773cab4124af217f3f02b29eb0a9c"
@@ -5703,11 +5674,6 @@ date-fns@^2.25.0:
   version "2.28.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
   integrity sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==
-
-dateformat@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
-  integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
 debug@2, debug@2.6.9, debug@^2.2.0, debug@^2.6.0:
   version "2.6.9"
@@ -14282,13 +14248,6 @@ split2@~1.0.0:
   dependencies:
     through2 "~2.0.0"
 
-split@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/split/-/split-1.0.1.tgz#605bd9be303aa59fb35f9229fbea0ddec9ea07d9"
-  integrity sha512-mTyOoPbrivtXnwnIxZRFYRrPNtEFKlpB2fvjSnCQUiAA6qAZzqwna5envK4uk6OIeP17CsdF3rSBGYVBsU0Tkg==
-  dependencies:
-    through "2"
-
 sponge-case@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sponge-case/-/sponge-case-1.0.1.tgz#260833b86453883d974f84854cdb63aecc5aef4c"
@@ -14900,7 +14859,7 @@ through2@~2.0.0:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
-through@2, "through@>=2.2.7 <3", through@^2.3.6:
+"through@>=2.2.7 <3", through@^2.3.6:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==
