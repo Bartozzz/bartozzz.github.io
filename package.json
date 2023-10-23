@@ -47,7 +47,7 @@
     "remark-slug": "7.0.1",
     "remark-smartypants": "^2.0.0",
     "remark-toc": "^9.0.0",
-    "sass": "^1.69.3"
+    "sass": "^1.69.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
