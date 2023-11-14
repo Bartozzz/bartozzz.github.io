@@ -27,9 +27,9 @@ interface IndexPageQuery {
         };
       };
       frontmatter?: {
-        dateCreated?: any;
-        dateUpdated?: any;
-        datePublished?: any;
+        dateCreated?: unknown;
+        dateUpdated?: unknown;
+        datePublished?: unknown;
         title: string;
         authors?: Array<string>;
         language?: string;

@@ -6,7 +6,7 @@ import { useTheme } from "../../hooks/useTheme";
 
 function sendGiscusMessage<T>(message: T) {
   const iframe = document.querySelector<HTMLIFrameElement>(
-    "iframe.giscus-frame"
+    "iframe.giscus-frame",
   );
 
   if (iframe) {

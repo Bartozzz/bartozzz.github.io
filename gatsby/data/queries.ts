@@ -7,7 +7,7 @@ type QueryResult<TData> = {
 
 type GraphqlType = <TData, TVariables = any>(
   query: string,
-  variables?: TVariables
+  variables?: TVariables,
 ) => Promise<QueryResult<TData>>;
 
 function processQueryResult<TData>(result: QueryResult<TData>) {
@@ -61,7 +61,7 @@ export async function getAllPosts(graphql: GraphqlType) {
 
 export async function getAllPostsByKeyword(
   graphql: GraphqlType,
-  keyword: string
+  keyword: string,
 ) {
   const result = await graphql<PostsByKeywordQuery>(
     `
@@ -101,7 +101,7 @@ export async function getAllPostsByKeyword(
     `,
     {
       keyword,
-    }
+    },
   );
 
   return processQueryResult(result);

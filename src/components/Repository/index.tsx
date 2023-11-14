@@ -23,7 +23,7 @@ export function Repository({
     props: React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
-    >
+    >,
   ) => React.createElement(as, props);
 
   return (

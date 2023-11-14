@@ -41,23 +41,21 @@ interface FooterDataQuery {
 }
 
 export function PageFooter() {
-  const { site } = useStaticQuery<FooterDataQuery>(
-    graphql`
-      query FooterData {
-        site {
-          siteMetadata {
-            siteRepo
-            contact
-            social {
-              GitHub
-              LinkedIn
-              YouTube
-            }
+  const { site } = useStaticQuery<FooterDataQuery>(graphql`
+    query FooterData {
+      site {
+        siteMetadata {
+          siteRepo
+          contact
+          social {
+            GitHub
+            LinkedIn
+            YouTube
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   return (
     <footer
