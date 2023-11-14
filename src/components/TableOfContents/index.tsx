@@ -4,45 +4,60 @@ import * as React from "react";
 
 import { Link } from "gatsby";
 
-import { TableOfContents as TTableOfContents } from "../../../gatsby/types/queries";
+import {
+  TableOfContents as TTableOfContents,
+  TableOfContentItem,
+} from "../../../gatsby/types/queries";
 
 interface Props {
   data: TTableOfContents;
 }
 
-export function TableOfContents({ data }: Props) {
-  const [activeHeadingId, setActiveHeadingId] = React.useState();
+function flattenTableOfContents(
+  input: TableOfContentItem[],
+): TableOfContentItem[] {
+  return input.flatMap(({ url, title, items }) => [
+    { url, title },
+    ...(items ? flattenTableOfContents(items) : []),
+  ]);
+}
 
-  // React.useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           setActiveHeadingId(entry.target.id);
-  //         }
-  //       });
-  //     },
-  //     { rootMargin: `0% 0% -80% 0%` }
-  //   );
-  //
-  //   headingsIds.forEach((id) => {
-  //     const element = document.getElementById(id);
-  //
-  //     if (element) {
-  //       observer.observe(element);
-  //     }
-  //   });
-  //
-  //   return () => {
-  //     headingsIds.forEach((id) => {
-  //       const element = document.getElementById(id);
-  //
-  //       if (element) {
-  //         observer.unobserve(element);
-  //       }
-  //     });
-  //   };
-  // }, [headingsIds]);
+export function TableOfContents({ data }: Props) {
+  const [activeHeadingId, setActiveHeadingId] = React.useState<string>();
+  const headingsIDs = flattenTableOfContents(data.items);
+
+  console.log({ data, activeHeadingId });
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveHeadingId(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: `0% 0% -80% 0%` },
+    );
+
+    headingsIDs.forEach((item) => {
+      const element = document.querySelector(item.url);
+
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      headingsIDs.forEach((item) => {
+        const element = document.querySelector(item.url);
+
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, [headingsIDs]);
 
   return (
     <nav aria-label="On this page" className={css.toc}>
