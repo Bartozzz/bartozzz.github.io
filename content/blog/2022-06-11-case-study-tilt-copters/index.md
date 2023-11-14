@@ -37,12 +37,6 @@ Let's start by analyzing the elements and features that we have in the game. We 
 - a controller system that hooks to the device accelerometer;
 - a collision system that handles pipes & coins collisions;
 
-<Image
-  image={props?.localImages?.[0]}
-  imageDark={props?.localImages?.[1]}
-  alt="High level architecture"
-/>
-
 #### Game Manager
 
 The Game Manager is a [mediator](https://refactoring.guru/design-patterns/mediator) and serves as an aggregator for the Game Objects.

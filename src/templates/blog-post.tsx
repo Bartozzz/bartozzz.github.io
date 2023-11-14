@@ -8,7 +8,6 @@ import { Alert } from "../components/Alert";
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
 import { Formula } from "../components/Formula";
-import { Image } from "../components/Image";
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { TableOfContents } from "../components/TableOfContents";
@@ -61,7 +60,7 @@ export default function BlogPostTemplate({
 
             <div className="post__content">
               <div itemProp="articleBody">
-                <MDXProvider components={{ Alert, Image, Formula }}>
+                <MDXProvider components={{ Alert, Formula }}>
                   {children}
                 </MDXProvider>
               </div>
