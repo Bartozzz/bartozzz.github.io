@@ -1,8 +1,8 @@
 import path from "path";
 
-import { GatsbyConfig } from "gatsby";
+import rehypeSlug from "rehype-slug";
 
-const config: GatsbyConfig = {
+const config = {
   jsxRuntime: "automatic",
   siteMetadata: {
     title: `Bartosz Łaniewski`,
@@ -39,9 +39,9 @@ const config: GatsbyConfig = {
       options: {
         extensions: [".md", ".mdx"],
         mdxOptions: {
-          remarkPlugins: [
+          rehypePlugins: [
             // See: https://github.com/remarkjs/remark/blob/main/doc/plugins.md
-            require("remark-slug"),
+            rehypeSlug,
           ],
         },
         gatsbyRemarkPlugins: [

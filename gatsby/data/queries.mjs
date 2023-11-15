@@ -1,16 +1,4 @@
-import { AllPostsQuery, PostsByKeywordQuery } from "../types/queries";
-
-type QueryResult<TData> = {
-  errors?: any;
-  data?: TData;
-};
-
-type GraphqlType = <TData, TVariables = any>(
-  query: string,
-  variables?: TVariables,
-) => Promise<QueryResult<TData>>;
-
-function processQueryResult<TData>(result: QueryResult<TData>) {
+function processQueryResult(result) {
   if (result.errors) {
     console.error("Error while processing query results:", result.errors);
     throw Error(result.errors);
@@ -22,8 +10,8 @@ function processQueryResult<TData>(result: QueryResult<TData>) {
   }
 }
 
-export async function getAllPosts(graphql: GraphqlType) {
-  const result = await graphql<AllPostsQuery>(`
+export async function getAllPosts(graphql) {
+  const result = await graphql(`
     query AllPostsQuery {
       allMdx(sort: { frontmatter: { datePublished: DESC } }) {
         totalCount
@@ -59,11 +47,8 @@ export async function getAllPosts(graphql: GraphqlType) {
   return processQueryResult(result);
 }
 
-export async function getAllPostsByKeyword(
-  graphql: GraphqlType,
-  keyword: string,
-) {
-  const result = await graphql<PostsByKeywordQuery>(
+export async function getAllPostsByKeyword(graphql, keyword) {
+  const result = await graphql(
     `
       query PostsByKeywordQuery($keyword: String) {
         allMdx(

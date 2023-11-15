@@ -4,7 +4,7 @@ import React from "react";
 
 import { Link } from "gatsby";
 
-import { mapKeywordToSlug } from "../../../gatsby/helpers/mapKeywordToSlug";
+import { mapKeywordToSlug } from "../../../gatsby/helpers/mapKeywordToSlug.mjs";
 
 interface Props {
   link: string;

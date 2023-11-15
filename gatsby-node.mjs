@@ -1,17 +1,13 @@
-import { GatsbyNode } from "gatsby";
 import { createFilePath } from "gatsby-source-filesystem";
 import readingTime from "reading-time";
 
-import { getAllPosts, getAllPostsByKeyword } from "./gatsby/data/queries";
-import { createAllBlogPostsPage } from "./gatsby/helpers/createAllBlogPostsPage";
-import { createBlogPostPage } from "./gatsby/helpers/createBlogPostPage";
+import { getAllPosts, getAllPostsByKeyword } from "./gatsby/data/queries.mjs";
+import { createAllBlogPostsPage } from "./gatsby/helpers/createAllBlogPostsPage.mjs";
+import { createBlogPostPage } from "./gatsby/helpers/createBlogPostPage.mjs";
 
-export const createPages: GatsbyNode["createPages"] = async ({
-  graphql,
-  actions,
-}) => {
+export const createPages = async ({ graphql, actions }) => {
   // Create a list of unique keywords from blog posts:
-  const keywords = new Set<string>();
+  const keywords = new Set();
 
   // Create pages for blog posts:
   await (async function () {
@@ -50,18 +46,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
   })();
 };
 
-export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
-  node,
-  actions,
-  getNode,
-}) => {
+export const onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
     createNodeField({
       node,
       name: `timeToRead`,
-      value: readingTime(node.body as string),
+      value: readingTime(node.body),
     });
 
     createNodeField({
@@ -72,11 +64,10 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   }
 };
 
-export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
-  ({ actions }) => {
-    const { createTypes } = actions;
+export const createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
 
-    createTypes(`
+  createTypes(`
       type SiteSiteMetadata {
         siteUrl: String
         siteRepo: String
@@ -101,4 +92,4 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date @dateformat
       }
     `);
-  };
+};

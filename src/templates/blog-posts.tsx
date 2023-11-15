@@ -2,7 +2,7 @@ import "./blog-posts.scss";
 
 import { Link } from "gatsby";
 
-import { mapKeywordToSlug } from "../../gatsby/helpers/mapKeywordToSlug";
+import { mapKeywordToSlug } from "../../gatsby/helpers/mapKeywordToSlug.mjs";
 
 import { BlogPost } from "../../gatsby/types/queries";
 
