@@ -101,8 +101,12 @@ Dodaj filtry z [`easylist` i `easyprivacy`][14]: _„The EasyList filter lists a
 [16]: https://rekseto.github.io/eksperymenty/inne/javascript/2018/06/04/jak-duzo-o-tobie-wiem.html
 [17]: https://docs.clearurls.xyz/
 
-*[ISP]: od Internet service provider – dostawca usług internetowych
-*[API]: od Application Programming Interface – interfejs programowania aplikacji
-*[RFC]: od Request for Comments – zbiór technicznych dokumentów związanych z Internetem
-*[HTTP]: od Hypertext Transfer Protocol
-*[AJAX]: od Asynchronous JavaScript and XML – asynchroniczny JavaScript i XML
+{
+  /**
+   * *[ISP]: od Internet service provider – dostawca usług internetowych
+   * *[API]: od Application Programming Interface – interfejs programowania aplikacji
+   * *[RFC]: od Request for Comments – zbiór technicznych dokumentów związanych z Internetem
+   * *[HTTP]: od Hypertext Transfer Protocol
+   * *[AJAX]: od Asynchronous JavaScript and XML – asynchroniczny JavaScript i XML
+   */
+}

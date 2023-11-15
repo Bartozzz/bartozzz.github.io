@@ -14,7 +14,7 @@ export function PageHeader() {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setTheme(event.target.checked ? "dark" : "light");
     },
-    [setTheme]
+    [setTheme],
   );
 
   return (

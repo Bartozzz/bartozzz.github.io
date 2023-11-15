@@ -20,14 +20,16 @@ interface IndexPageQuery {
   allMdx: {
     nodes: Array<{
       excerpt: string;
-      timeToRead?: number;
       fields?: {
         slug?: string;
+        timeToRead?: {
+          minutes: number;
+        };
       };
       frontmatter?: {
-        dateCreated?: any;
-        dateUpdated?: any;
-        datePublished?: any;
+        dateCreated?: unknown;
+        dateUpdated?: unknown;
+        datePublished?: unknown;
         title: string;
         authors?: Array<string>;
         language?: string;
@@ -137,13 +139,13 @@ export default function IndexPage({ data }: Props) {
               <li key={post.fields.slug}>
                 <PostExcerpt
                   link={post.fields.slug}
+                  timeToRead={post.fields.timeToRead?.minutes}
                   title={post.frontmatter.title || post.fields.slug}
                   date={post.frontmatter.datePublished}
                   authors={post.frontmatter.authors}
                   content={post.frontmatter.description || post.excerpt}
                   language={post.frontmatter.language}
                   keywords={post.frontmatter.keywords}
-                  timeToRead={post.timeToRead}
                 />
               </li>
             ))}
@@ -165,15 +167,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(
-      limit: 3
-      sort: { fields: [frontmatter___datePublished], order: DESC }
-    ) {
+    allMdx(limit: 3, sort: { frontmatter: { datePublished: DESC } }) {
       nodes {
         excerpt
-        timeToRead
         fields {
           slug
+          timeToRead {
+            minutes
+          }
         }
         frontmatter {
           dateCreated(formatString: "MMMM DD, YYYY")

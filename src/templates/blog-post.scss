@@ -120,13 +120,6 @@
     font-weight: 700;
   }
 
-  .gatsby-image-wrapper {
-    max-width: 100%;
-    height: auto;
-
-    margin: var(--ls-md) auto;
-  }
-
   p {
     @extend %text-paragraph;
 

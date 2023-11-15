@@ -1,18 +1,21 @@
-import { ImageDataLike } from "gatsby-plugin-image";
+export interface TableOfContents {
+  items?: TableOfContentItem[];
+}
 
-type Images = ImageDataLike[] | null;
+export interface TableOfContentItem extends TableOfContents {
+  url: string;
+  title: string;
+}
 
 export interface BlogPost {
   id: string;
   excerpt: string;
-  body: string;
-  timeToRead: number;
-  headings: Array<{
-    depth: number;
-    value: string;
-  }>;
+  tableOfContents: TableOfContents;
   fields: {
     slug: string;
+    timeToRead?: {
+      minutes: number;
+    };
   };
   frontmatter: {
     dateCreated: string;
@@ -23,9 +26,10 @@ export interface BlogPost {
     language: string;
     keywords: string[];
     description: string;
-    embeddedImagesLocal: Images;
   };
-  embeddedImagesRemote: Images;
+  internal: {
+    contentFilePath: string;
+  };
 }
 
 export interface AllPostsQuery {

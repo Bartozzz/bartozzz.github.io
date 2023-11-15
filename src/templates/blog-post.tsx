@@ -1,7 +1,6 @@
 import "./blog-post.scss";
 
 import { MDXProvider } from "@mdx-js/react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import { BlogPost } from "../../gatsby/types/queries";
 
@@ -9,7 +8,6 @@ import { Alert } from "../components/Alert";
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
 import { Formula } from "../components/Formula";
-import { Image } from "../components/Image";
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { TableOfContents } from "../components/TableOfContents";
@@ -20,11 +18,13 @@ interface Props {
   };
 }
 
-export default function BlogPostTemplate({ pageContext }: Props) {
+export default function BlogPostTemplate({
+  pageContext,
+  children,
+}: React.PropsWithChildren<Props>) {
   const post = pageContext.data;
-  const { frontmatter, headings, body, embeddedImagesRemote } = post;
-  const { title, datePublished, language, authors, embeddedImagesLocal } =
-    frontmatter;
+  const { frontmatter, tableOfContents } = post;
+  const { title, datePublished, language, authors } = frontmatter;
 
   return (
     <Layout>
@@ -55,18 +55,13 @@ export default function BlogPostTemplate({ pageContext }: Props) {
 
           <div className="post__wrapper">
             <div className="post__toc">
-              <TableOfContents headings={headings} />
+              <TableOfContents data={tableOfContents} />
             </div>
 
             <div className="post__content">
               <div itemProp="articleBody">
-                <MDXProvider components={{ Alert, Image, Formula }}>
-                  <MDXRenderer
-                    remoteImages={embeddedImagesRemote}
-                    localImages={embeddedImagesLocal}
-                  >
-                    {body}
-                  </MDXRenderer>
+                <MDXProvider components={{ Alert, Formula }}>
+                  {children}
                 </MDXProvider>
               </div>
 

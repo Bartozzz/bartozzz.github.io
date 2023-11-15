@@ -11,19 +11,17 @@ interface KeywordsDataQuery {
 }
 
 export function useKeywords() {
-  const query = useStaticQuery<KeywordsDataQuery>(
-    graphql`
-      query KeywordsData {
-        allMdx {
-          nodes {
-            frontmatter {
-              keywords
-            }
+  const query = useStaticQuery<KeywordsDataQuery>(graphql`
+    query KeywordsData {
+      allMdx {
+        nodes {
+          frontmatter {
+            keywords
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   const uniqueSortedKeywords = query.allMdx.nodes
     .flatMap((node) => node.frontmatter.keywords)

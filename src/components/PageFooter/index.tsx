@@ -1,6 +1,6 @@
 import * as css from "./index.module.scss";
 
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
 import DribbbleIcon from "../../assets/icons/dribbble.svg";
 import GitHubIcon from "../../assets/icons/github.svg";
@@ -41,23 +41,21 @@ interface FooterDataQuery {
 }
 
 export function PageFooter() {
-  const { site } = useStaticQuery<FooterDataQuery>(
-    graphql`
-      query FooterData {
-        site {
-          siteMetadata {
-            siteRepo
-            contact
-            social {
-              GitHub
-              LinkedIn
-              YouTube
-            }
+  const { site } = useStaticQuery<FooterDataQuery>(graphql`
+    query FooterData {
+      site {
+        siteMetadata {
+          siteRepo
+          contact
+          social {
+            GitHub
+            LinkedIn
+            YouTube
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   return (
     <footer
@@ -80,10 +78,6 @@ export function PageFooter() {
               </a>
             </li>
           ))}
-
-          <li className={`${css.footer__item} ${css.footer__itemRight}`}>
-            <Link to="/rss.xml">RSS</Link>
-          </li>
 
           <li className={`${css.footer__item} ${css.footer__itemRight}`}>
             <a

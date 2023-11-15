@@ -2,7 +2,7 @@ import "./blog-posts.scss";
 
 import { Link } from "gatsby";
 
-import { mapKeywordToSlug } from "../../gatsby/helpers/mapKeywordToSlug";
+import { mapKeywordToSlug } from "../../gatsby/helpers/mapKeywordToSlug.mjs";
 
 import { BlogPost } from "../../gatsby/types/queries";
 
@@ -50,13 +50,13 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
             <li key={post.fields.slug}>
               <PostExcerpt
                 link={post.fields.slug}
+                timeToRead={post.fields.timeToRead?.minutes}
                 title={post.frontmatter.title || post.fields.slug}
                 date={post.frontmatter.datePublished}
                 authors={post.frontmatter.authors}
                 content={post.frontmatter.description || post.excerpt}
                 language={post.frontmatter.language}
                 keywords={post.frontmatter.keywords}
-                timeToRead={post.timeToRead}
               />
             </li>
           ))}

@@ -1,16 +1,4 @@
-import { AllPostsQuery, PostsByKeywordQuery } from "../types/queries";
-
-type QueryResult<TData> = {
-  errors?: any;
-  data?: TData;
-};
-
-type GraphqlType = <TData, TVariables = any>(
-  query: string,
-  variables?: TVariables
-) => Promise<QueryResult<TData>>;
-
-function processQueryResult<TData>(result: QueryResult<TData>) {
+function processQueryResult(result) {
   if (result.errors) {
     console.error("Error while processing query results:", result.errors);
     throw Error(result.errors);
@@ -22,22 +10,21 @@ function processQueryResult<TData>(result: QueryResult<TData>) {
   }
 }
 
-export async function getAllPosts(graphql: GraphqlType) {
-  const result = await graphql<AllPostsQuery>(`
+export async function getAllPosts(graphql) {
+  const result = await graphql(`
     query AllPostsQuery {
-      allMdx(sort: { fields: [frontmatter___datePublished], order: DESC }) {
+      allMdx(sort: { frontmatter: { datePublished: DESC } }) {
         totalCount
         nodes {
           id
           excerpt
           body
-          timeToRead
-          headings {
-            depth
-            value
-          }
+          tableOfContents(maxDepth: 3)
           fields {
             slug
+            timeToRead {
+              minutes
+            }
           }
           frontmatter {
             dateCreated(formatString: "MMMM DD, YYYY")
@@ -48,16 +35,9 @@ export async function getAllPosts(graphql: GraphqlType) {
             language
             keywords
             description
-            embeddedImagesLocal {
-              childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
-            }
           }
-          embeddedImagesRemote {
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
-            }
+          internal {
+            contentFilePath
           }
         }
       }
@@ -67,15 +47,12 @@ export async function getAllPosts(graphql: GraphqlType) {
   return processQueryResult(result);
 }
 
-export async function getAllPostsByKeyword(
-  graphql: GraphqlType,
-  keyword: string
-) {
-  const result = await graphql<PostsByKeywordQuery>(
+export async function getAllPostsByKeyword(graphql, keyword) {
+  const result = await graphql(
     `
       query PostsByKeywordQuery($keyword: String) {
         allMdx(
-          sort: { fields: [frontmatter___datePublished], order: DESC }
+          sort: { frontmatter: { datePublished: DESC } }
           filter: { frontmatter: { keywords: { in: [$keyword] } } }
         ) {
           totalCount
@@ -83,13 +60,12 @@ export async function getAllPostsByKeyword(
             id
             excerpt
             body
-            timeToRead
-            headings {
-              depth
-              value
-            }
+            tableOfContents(maxDepth: 3)
             fields {
               slug
+              timeToRead {
+                minutes
+              }
             }
             frontmatter {
               dateCreated(formatString: "MMMM DD, YYYY")
@@ -100,16 +76,9 @@ export async function getAllPostsByKeyword(
               language
               keywords
               description
-              embeddedImagesLocal {
-                childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH)
-                }
-              }
             }
-            embeddedImagesRemote {
-              childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
+            internal {
+              contentFilePath
             }
           }
         }
@@ -117,7 +86,7 @@ export async function getAllPostsByKeyword(
     `,
     {
       keyword,
-    }
+    },
   );
 
   return processQueryResult(result);

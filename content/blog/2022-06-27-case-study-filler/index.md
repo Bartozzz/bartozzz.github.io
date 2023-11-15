@@ -305,7 +305,7 @@ class Sound {
 
 I wanted to create a solver to monetize the game. It turned out to be quite a popular problem with a lot of resources online, so I won't go into much details. It just required a bit of linear algebra.
 
-A board can be modeled mathematically as a vector over <Formula>\mathbb{F}_2</Formula>, a [field](https://en.wikipedia.org/wiki/GF(2)) containing only the elements 0 and 1 (for light on and off respectively). We can write each possible board position and each possible move as a vector over <Formula>\mathbb{F}_2</Formula>. That means that:
+A board can be modeled mathematically as a vector over <Formula>{`\\mathbb{F}_2`}</Formula>, a [field](https://en.wikipedia.org/wiki/GF(2)) containing only the elements 0 and 1 (for light on and off respectively). We can write each possible board position and each possible move as a vector over <Formula>{`\\mathbb{F}_2`}</Formula>. That means that:
 - pressing a cell an even number of times has no effect;
 - the order in which we press the cells does not matter;
 
@@ -327,4 +327,8 @@ A nice video explaining this in detail can be found [here](https://www.youtube.c
 
 It was a fun experience to rebuild the same game several years later after gathering all of my commercial experience and still being able to learn new things along the journey. So far, I've got 200+ downloads and generated $0.20 in ad revenue, but hey, the learnings are priceless!
 
-*[ISP]: Time to Interaction
+{
+  /**
+   * *[TTI]: Time to Interaction
+   */
+}
