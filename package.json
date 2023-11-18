@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.1.0",
   "description": "Personal portfolio",
+  "engines": {
+    "npm": ">=1.22.19",
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0",
