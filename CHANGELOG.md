@@ -1,3 +1,11 @@
+# [1.12.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.11.3...v1.12.0) (2023-11-18)
+
+
+### Features
+
+* migrate react-helmet to gatsby-head ([9434948](https://github.com/Bartozzz/bartozzz.github.io/commit/9434948d41f5939d2bbcc9f4f8925ab4c5cacee6))
+* migrate to Gatsby V5 ([#645](https://github.com/Bartozzz/bartozzz.github.io/issues/645)) ([74db428](https://github.com/Bartozzz/bartozzz.github.io/commit/74db4284e6094b4ade360bf51c7b023b6f1adf9d))
+
 ## [1.11.3](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.11.2...v1.11.3) (2022-06-27)
 
 
