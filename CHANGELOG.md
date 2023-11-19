@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.15.0...v1.15.1) (2023-11-19)
+
+
+### Bug Fixes
+
+* robots.txt sitemap ([6a21856](https://github.com/Bartozzz/bartozzz.github.io/commit/6a21856c395f83ce482ea7829d3de631f6e1aee6))
+
 # [1.15.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.14.1...v1.15.0) (2023-11-19)
 
 
