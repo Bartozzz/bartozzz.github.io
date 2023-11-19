@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.14.1...v1.15.0) (2023-11-19)
+
+
+### Features
+
+* implement sitemap plugin ([d46a5aa](https://github.com/Bartozzz/bartozzz.github.io/commit/d46a5aa6bd9ec4e1c8e3e5445c6f31a6b514eff7))
+
 ## [1.14.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.14.0...v1.14.1) (2023-11-19)
 
 
