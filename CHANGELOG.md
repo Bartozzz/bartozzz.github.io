@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.12.0...v1.13.0) (2023-11-19)
+
+
+### Features
+
+* write about zod validation ([8120fd9](https://github.com/Bartozzz/bartozzz.github.io/commit/8120fd9efe3a8bdc823329a64762fcfb95212000))
+
 # [1.12.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.11.3...v1.12.0) (2023-11-18)
 
 
