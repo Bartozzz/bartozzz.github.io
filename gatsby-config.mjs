@@ -57,6 +57,7 @@ const config = {
     },
     "gatsby-transformer-yaml",
     "gatsby-transformer-json",
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
