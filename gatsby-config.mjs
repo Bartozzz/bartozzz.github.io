@@ -59,6 +59,13 @@ const config = {
     "gatsby-transformer-json",
     "gatsby-plugin-sitemap",
     {
+      resolve: "gatsby-plugin-canonical-urls",
+      options: {
+        siteUrl: "https://laniewski.me/",
+        stripQueryString: true,
+      },
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: "Bartosz Łaniewski",
