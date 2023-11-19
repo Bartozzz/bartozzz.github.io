@@ -196,7 +196,7 @@ export const canvas = {
 
 Then, I just had to set the [`PIXI.Application`](https://pixijs.download/v4.8.9/docs/PIXI.Application.html#Application) `width`, `height` and `resolution` as follows:
 
-```ts{7-9}
+```ts {7-9}
 export class GameManager {
   private application!: PIXI.Application;
 
@@ -251,7 +251,7 @@ export const useGameStore = create(gameStore);
 
 #### Usage in managers
 
-```ts{2-4, 8, 14, 18}
+```ts {2-4, 8, 14, 18}
 export class GameManager {
   private get store() {
     return gameStore.getState();
@@ -277,7 +277,7 @@ export class GameManager {
 
 #### Usage in React
 
-```tsx{2}
+```tsx {2}
 export function GameScore() {
   const score = useGameStore((state) => state.score);
 
@@ -455,7 +455,7 @@ The issue is that in production, images are moved to the `res/drawables` directo
 
 I don't know any viable workaround for this issue. What worked for me was changing the images extensions to `.xjpg` and `.xpng`. I also had to update the `textureFromAssetAsync` to change `asset.type` to the correct extension and recalculate `asset.width` and `asset.height` as follows:
 
-```ts{22,24-26}
+```ts {22,24-26}
 // https://github.com/expo/expo/blob/main/packages/expo-asset/src/ImageAssets.ts
 function getImageInfo(url: string): Promise<{
   width: number;

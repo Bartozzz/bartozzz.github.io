@@ -20,7 +20,7 @@ Lazy loading is a well-known technique for improving performance and reducing th
 
 ## Problem
 
-A lot of SPAs nowadays are "monolithic" – there's a giant JavaScript bundle which contains all of the application's files. This bundle is required via a `<script>` tag, gets downloaded on the initial visit and hopefully cached. This results in:
+A lot of <abbr title="Single-Page Application: a web application that load once and dynamically update as the response for user interactions.">SPAs</abbr> nowadays are "monolithic" – there's a giant JavaScript bundle which contains all of the application's files. This bundle is required via a `<script>` tag, gets downloaded on the initial visit and hopefully cached. This results in:
 
 - a **longer initial load**: we download all of the app's code, even if it's not needed to perform the initial render or not used at all;
 - **faster application rendering and in-app navigation**: all of the components are already downloaded and don't need to be lazy fetched.
@@ -148,9 +148,3 @@ There's a GitHub project named `the-platform` which turns Web API's into React H
 3. https://github.com/palmerhq/the-platform
 4. https://youtube.com/watch?v=SCQgE4mTnjU
 5. https://www.youtube.com/watch?v=ByBPyMBTzM0
-
-{
-  /**
-   * *[SPAs]: Single-Page Application: a web application that load once and dynamically update as the response for user interactions.
-   */
-}

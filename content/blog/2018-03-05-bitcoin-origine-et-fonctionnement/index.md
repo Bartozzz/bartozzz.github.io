@@ -59,7 +59,7 @@ Le Bitcoin vérifie toutes ces règles et résout plus efficacement d’autres p
 - **Sécurité.**
   Au cœur des crypto-monnaies se trouve une technologie nommée _blockchain_. Il s’agit d’un système qui joue le rôle du registre des transactions. Il peut être imaginé comme un livre de comptabilité collectif diffus dans le réseau. Il est ouvert à tous, mais ne peut être corrompu, car il est protégé par des outils cryptographiques puissants. Une fois une transaction enregistrée dans le registre, elle ne peut pas être annulée.
 - **Anonymat.**
-  L'émetteur et le destinataire sont identifiés par une [clé publique][13] mais leur vraie identité n’est connue de personne à part eux. En tant qu’utilisateur, nous ne sommes donc qu’une chaîne de caractères et de nombres aux yeux des autres internautes. Il n’y a aucun moyen de retrouver notre vraie identité en s’appuyant sur les hash du registre public qui sont gérés par la _blockchain_.
+  L'émetteur et le destinataire sont identifiés par une [clé publique][13] mais leur vraie identité n’est connue de personne à part eux. En tant qu’utilisateur, nous ne sommes donc qu’une chaîne de caractères et de nombres aux yeux des autres internautes. Il n’y a aucun moyen de retrouver notre vraie identité en s’appuyant sur les <abbr title="Valeur de sortie d’une fonction de hachage cryptographique, c’est-à-dire une fonction qui à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu'elle est pratiquement impossible à inverser.">hash</abbr> du registre public qui sont gérés par la _blockchain_.
 - **Divisibilité.**
   Le prix d’un Bitcoin dépasse le budget de la plupart des personnes qui sont potentiellement intéressées dans son achat. Le grand avantage du Bitcoin est sa divisibilité. Ainsi, il est possible d’acheter 0,00000001 BTC ([jusqu'à 8 chiffres après la virgule][14]).
 - **Décentralisation.**
@@ -173,7 +173,7 @@ Jean envoie 5 BTC a Pierre
 Marie envoie 2 BTC a Lucie
 ```
 
-Pour vérifier que c’est bien Jean et Marie qui ont envoyé de l’argent, dans chaque transaction on ajoute une signature ([digital signature][17]) générée par notre portefeuille. Il s’agit d’un système cryptographique classique appelé [RSA][18]. À notre compte est attribué une clé privée (_q_) et une clé publique (_p_). Ce sont de grand nombres premiers, issus d’une courbe elliptique. De plus, nous disposons du hash (_h_) de la transaction.
+Pour vérifier que c’est bien Jean et Marie qui ont envoyé de l’argent, dans chaque transaction on ajoute une signature ([digital signature][17]) générée par notre portefeuille. Il s’agit d’un système cryptographique classique appelé [<abbr title="Le chiffrement RSA (nommé par les initiales de ses trois inventeurs) est un algorithme de cryptographie asymétrique, très utilisé dans le commerce électronique, et plus généralement pour échanger des données confidentielles sur Internet.">RSA</abbr>][18]. À notre compte est attribué une clé privée (_q_) et une clé publique (_p_). Ce sont de grand nombres premiers, issus d’une courbe elliptique. De plus, nous disposons du hash (_h_) de la transaction.
 
 #### Vérification de la signature
 
@@ -242,11 +242,3 @@ Pour vérifier les transactions on utilise les propriétés du système RSA. Il 
 [18]: https://fr.wikipedia.org/wiki/Chiffrement_RSA "Chiffrement RSA"
 [19]: https://thebalance.com/is-bitcoin-the-answer-in-a-financial-crisis-391275 "“Bitcoin and Financial Crisis“ – Danny Bradbury"
 [20]: https://www.cs.cornell.edu/home/rvr/papers/flowgossip.pdf "“Efficient Reconciliation and Flow Control for Anti-Entropy Protocols“ – Robbert van Renesse"
-
-
-{
-  /**
-   * *[hash]: Valeur de sortie d’une fonction de hachage cryptographique, c’est-à-dire une fonction qui à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu'elle est pratiquement impossible à inverser.
-   * *[RSA]: Le chiffrement RSA (nommé par les initiales de ses trois inventeurs) est un algorithme de cryptographie asymétrique, très utilisé dans le commerce électronique, et plus généralement pour échanger des données confidentielles sur Internet.
-   */
-}

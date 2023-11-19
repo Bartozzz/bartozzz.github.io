@@ -87,7 +87,7 @@ I used [`react-native-reanimated`](https://github.com/software-mansion/react-nat
 
 I used the imperative functions and hooks for the `GridCell` component. I wanted to interpolate between two colors based on the `checked` prop. It was possible thanks to the `interpolateColor` helper:
 
-```tsx{2, 5-11, 15}
+```tsx {2, 5-11, 15}
 function GridCell({ checked }: { checked: boolean }) {
   const colorProgress = useSharedValue(checked ? 1 : 0);
 
@@ -113,7 +113,7 @@ function GridCell({ checked }: { checked: boolean }) {
 
 There's also a higher-level API that I used to progressively reveal content on the success screen. I didn't need anything fancy here, just some entering animations with delays and the declarative API does a great job for such things:
 
-```tsx{6, 10, 14}
+```tsx {6, 10, 14}
 function ScoreStars({ score }: { score: number }) {
   const delay = 250;
 
@@ -246,7 +246,7 @@ I use my old [Asus ZenFone 3 Max 5.2](https://www.gsmchoice.com/en/catalogue/asu
 It was quite hard to achieve at first for several reasons:
 1. **Initially, I used [`react-native-animatable`](https://github.com/oblador/react-native-animatable) for animations:** it had noticeably worse performance than `react-native-reanimated`;
 2. **There were some redundant re-renders:** once I memorized some expensive components and calculation results, it improved the performance;
-3. **I was using JSC instead of [Hermes](https://engineering.fb.com/2019/07/12/android/hermes/):** once I migrated to Hermes, the performance improved greatly. Also, TTI, application size and memory utilization decreased a lot;
+3. **I was using JSC instead of [Hermes](https://engineering.fb.com/2019/07/12/android/hermes/):** once I migrated to Hermes, the performance improved greatly. Also, <abbr title="Time to Interaction">TTI</abbr>, application size and memory utilization decreased a lot;
 
 It turned out that React Native with Hermes can perform well enough to provide a nice UX, even on my old phone.
 
@@ -326,9 +326,3 @@ A nice video explaining this in detail can be found [here](https://www.youtube.c
 ## Conclusion
 
 It was a fun experience to rebuild the same game several years later after gathering all of my commercial experience and still being able to learn new things along the journey. So far, I've got 200+ downloads and generated $0.20 in ad revenue, but hey, the learnings are priceless!
-
-{
-  /**
-   * *[TTI]: Time to Interaction
-   */
-}

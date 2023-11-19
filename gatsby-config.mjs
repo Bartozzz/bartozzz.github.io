@@ -1,6 +1,9 @@
 import path from "path";
 
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
+import remarkSmartypants from "remark-smartypants";
 
 const config = {
   jsxRuntime: "automatic",
@@ -39,20 +42,17 @@ const config = {
       options: {
         extensions: [".md", ".mdx"],
         mdxOptions: {
-          rehypePlugins: [
+          remarkPlugins: [
             // See: https://github.com/remarkjs/remark/blob/main/doc/plugins.md
+            remarkSmartypants,
+          ],
+          rehypePlugins: [
+            // See: https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins
+            rehypePrism,
             rehypeSlug,
+            rehypeAutolinkHeadings,
           ],
         },
-        gatsbyRemarkPlugins: [
-          // TODO: migrate to custom component or https://codehike.org/
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              noInlineHighlight: true,
-            },
-          },
-        ],
       },
     },
     `gatsby-transformer-yaml`,

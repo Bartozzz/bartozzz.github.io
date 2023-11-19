@@ -12,7 +12,7 @@ Odwiedzając strony internetowe, użytkownicy udzielają dostępu do unikalnych,
 
 ## Czym jest „Web Tracking”?
 
-Termin ten odnosi się do procesu generowania trwałego, unikalnego identyfikatora w celu rozpoznawania maszyn na podstawie „odcisku” przeglądarki oraz danych, które ta udostępnia na poziomie swojego API. Do takich danych należą m.in. informacje dot. systemu operacyjnego, zainstalowanych rozszerzeń oraz komponentów maszyny użytkownika. Najprostsza implementacja takiego narzędzia śledzącego opiera się o ustandaryzowany [obiekt `navigator`][2]:
+Termin ten odnosi się do procesu generowania trwałego, unikalnego identyfikatora w celu rozpoznawania maszyn na podstawie „odcisku” przeglądarki oraz danych, które ta udostępnia na poziomie swojego <abbr title="od Application Programming Interface – interfejs programowania aplikacji">API</abbr>. Do takich danych należą m.in. informacje dot. systemu operacyjnego, zainstalowanych rozszerzeń oraz komponentów maszyny użytkownika. Najprostsza implementacja takiego narzędzia śledzącego opiera się o ustandaryzowany [obiekt `navigator`][2]:
 
 ```json
 {
@@ -39,9 +39,9 @@ Bazując się na wyżej wymienionych informacjach, bardzo łatwo można wygenero
 
 ### Jakie dane są wykorzystywane do rozpoznawania użytkownika?
 
-1.  **Adres IP** oraz ISP: należy używać ostrożnie — dynamiczna alokacja adresów IP przez dostawców może być problematyczna. Z tego powodu, adresy IP są częściej używane do blokowania dostępu aniżeli identyfikacji maszyn.
+1.  **Adres IP** oraz <abbr title="od Internet service provider – dostawca usług internetowych">ISP</abbr>: należy używać ostrożnie — dynamiczna alokacja adresów IP przez dostawców może być problematyczna. Z tego powodu, adresy IP są częściej używane do blokowania dostępu aniżeli identyfikacji maszyn.
 2.  **Ciasteczka**: najczęściej wykorzystywane przez narzędzia do analizy ruchu i dostawców reklam. Wraz z przepisami znowelizowanej ustawy [Prawa Telekomunikacyjnego][5] coraz więcej osób decyduje się jednak na ich blokowanie.
-3.  **Przeglądarka**: zgodnie ze specyfikacją [RFC 7231 (5.5.3)][6], nagłówek HTTP `User-Agent` zawiera informacje pozwalające na rozpoznanie programu, z którego klient wykonał zapytanie.
+3.  **Przeglądarka**: zgodnie ze specyfikacją [<attr title="od Request for Comments – zbiór technicznych dokumentów związanych z Internetem">RFC</attr> 7231 (5.5.3)][6], nagłówek <attr title="od Hypertext Transfer Protocol">HTTP</attr> `User-Agent` zawiera informacje pozwalające na rozpoznanie programu, z którego klient wykonał zapytanie.
 
 <Alert>
 
@@ -52,7 +52,7 @@ Bazując się na wyżej wymienionych informacjach, bardzo łatwo można wygenero
 
 ### Jak wygląda „Web Tracking” pod maską?
 
-Do rozpoznawania użytkownika używa się algorytmu, który kolekcjonuje i przetwarza udostępnione przez przeglądarkę charakterystyki. Na ich podstawie jest wyliczany unikalny, stabilny identyfikator przypisany dla konkretnego klienta. Charakterystyki mogą być przesyłane na dwa sposoby – _statycznie_, poprzez zapytanie HTTP, oraz _dynamicznie_, poprzez AJAX.
+Do rozpoznawania użytkownika używa się algorytmu, który kolekcjonuje i przetwarza udostępnione przez przeglądarkę charakterystyki. Na ich podstawie jest wyliczany unikalny, stabilny identyfikator przypisany dla konkretnego klienta. Charakterystyki mogą być przesyłane na dwa sposoby – _statycznie_, poprzez zapytanie HTTP, oraz _dynamicznie_, poprzez <attr title="od Asynchronous JavaScript and XML – asynchroniczny JavaScript i XML">AJAX</attr>.
 
 AJAX daje dostęp do większej ilości danych, ponieważ służy do pobierania charakterystyk bezpośrednio z API przeglądarki. Do takich informacji wliczamy listy [dostępnych czcionek][9], wtyczek, strefę czasową oraz rozdzielczość ekranu. Co więcej, wiele narzędzi posuwa się nawet do [śledzenie kliknięć oraz ruchów kursora][10]:
 
@@ -101,12 +101,4 @@ Dodaj filtry z [`easylist` i `easyprivacy`][14]: _„The EasyList filter lists a
 [16]: https://rekseto.github.io/eksperymenty/inne/javascript/2018/06/04/jak-duzo-o-tobie-wiem.html
 [17]: https://docs.clearurls.xyz/
 
-{
-  /**
-   * *[ISP]: od Internet service provider – dostawca usług internetowych
-   * *[API]: od Application Programming Interface – interfejs programowania aplikacji
-   * *[RFC]: od Request for Comments – zbiór technicznych dokumentów związanych z Internetem
-   * *[HTTP]: od Hypertext Transfer Protocol
-   * *[AJAX]: od Asynchronous JavaScript and XML – asynchroniczny JavaScript i XML
-   */
-}
+
