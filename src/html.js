@@ -11,6 +11,8 @@ export default function HTML(props) {
         <link rel="prefetch" href="/discussion-dark.css" as="style" />
         <link rel="prefetch" href="/discussion-light.css" as="style" />
 
+        <meta name="theme-color" content="#fc8c03" />
+
         {props.headComponents}
       </head>
 
@@ -25,6 +27,10 @@ export default function HTML(props) {
                 window.__theme = newTheme;
                 preferredTheme = newTheme;
                 document.body.className = newTheme;
+
+                var themeColor = newTheme === "light" ? "#fc8c03" : "#7742bd";
+                document.querySelector('meta[name="theme-color"]')?.setAttribute('content', themeColor);
+
                 window.__onThemeChange(newTheme);
               }
 

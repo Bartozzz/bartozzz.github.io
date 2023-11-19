@@ -69,7 +69,7 @@ const config = {
         legacy: false, // this will not add apple-touch-icon links to <head>
         background_color: "#ffffff",
         theme_color: "#fc8c03",
-        theme_color_in_head: false,
+        theme_color_in_head: false, // This will avoid adding theme-color meta tag
       },
     },
     {
