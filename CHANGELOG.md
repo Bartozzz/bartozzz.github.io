@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.13.0...v1.14.0) (2023-11-19)
+
+
+### Features
+
+* implement Google Analytics ([a6ba209](https://github.com/Bartozzz/bartozzz.github.io/commit/a6ba20919ea72fa13819bcbf4f8da35602c458a4))
+
 # [1.13.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.12.0...v1.13.0) (2023-11-19)
 
 
