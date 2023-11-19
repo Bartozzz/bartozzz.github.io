@@ -31,14 +31,14 @@ const config = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
         path: path.resolve(`./content`),
         name: `content`,
       },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [".md", ".mdx"],
         mdxOptions: {
@@ -55,21 +55,30 @@ const config = {
         },
       },
     },
-    `gatsby-transformer-yaml`,
-    `gatsby-transformer-json`,
+    "gatsby-transformer-yaml",
+    "gatsby-transformer-json",
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: `Bartosz Łaniewski`,
-        short_name: `Bart`,
-        description: `Creative designer & developer.`,
-        start_url: `/`,
-        display: `standalone`,
-        icon: `src/assets/favicon.svg`,
+        name: "Bartosz Łaniewski",
+        short_name: "Bart",
+        description: "Creative designer & developer.",
+        start_url: "/",
+        display: "standalone",
+        icon: "src/assets/favicon.svg",
         legacy: false, // this will not add apple-touch-icon links to <head>
-        background_color: `#ffffff`,
-        theme_color: `#fc8c03`,
+        background_color: "#ffffff",
+        theme_color: "#fc8c03",
         theme_color_in_head: false,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["G-N3PHFLJDNK"],
+        pluginConfig: {
+          respectDNT: true,
+        },
       },
     },
   ],
