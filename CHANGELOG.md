@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.14.0...v1.14.1) (2023-11-19)
+
+
+### Bug Fixes
+
+* theme color on dark mode ([ab98f00](https://github.com/Bartozzz/bartozzz.github.io/commit/ab98f00fae6b53b4025c674bdb95bf7cd0d8836c))
+
 # [1.14.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.13.0...v1.14.0) (2023-11-19)
 
 
