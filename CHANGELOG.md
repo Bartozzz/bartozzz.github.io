@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.15.1...v1.16.0) (2023-11-20)
+
+
+### Features
+
+* implement canonical URLs ([b580bf2](https://github.com/Bartozzz/bartozzz.github.io/commit/b580bf296294d2b72e8ed2e8664c9be79a802575))
+
 ## [1.15.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.15.0...v1.15.1) (2023-11-19)
 
 
