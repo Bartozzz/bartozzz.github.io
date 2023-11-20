@@ -54,7 +54,7 @@ export function PostExcerpt({
               {keywords.map((keyword, index) => (
                 <React.Fragment key={keyword}>
                   <Link
-                    to={`/posts/${mapKeywordToSlug(keyword)}`}
+                    to={`/posts/${mapKeywordToSlug(keyword)}/`}
                     title={`Category: ${keyword}`}
                     className={css.postExcerpt__keyword}
                   >

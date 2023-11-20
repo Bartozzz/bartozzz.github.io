@@ -30,14 +30,14 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
     <Layout>
       <Content>
         <ul className="keywords">
-          <Link to="/posts">
+          <Link to="/posts/">
             <Keyword wide outlined={pageKeyword ? true : false}>
               All
             </Keyword>
           </Link>
 
           {keywords.map((keyword) => (
-            <Link key={keyword} to={`/posts/${mapKeywordToSlug(keyword)}`}>
+            <Link key={keyword} to={`/posts/${mapKeywordToSlug(keyword)}/`}>
               <Keyword wide outlined={keyword !== pageKeyword}>
                 {keyword}
               </Keyword>
