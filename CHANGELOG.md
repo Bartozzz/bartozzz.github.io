@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.16.0...v1.16.1) (2023-11-20)
+
+
+### Bug Fixes
+
+* add trailing slashes where needed ([1f4b218](https://github.com/Bartozzz/bartozzz.github.io/commit/1f4b2180889155e4bbdbd47344d35deaccadd00a))
+
 # [1.16.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.15.1...v1.16.0) (2023-11-20)
 
 
