@@ -21,7 +21,7 @@ type Props = PageProps<
   }
 >;
 
-export default function BlogPostsTemplate({ pageContext, location }: Props) {
+export default function BlogPostsTemplate({ pageContext }: Props) {
   const keywords = useKeywords();
 
   const pagePosts = pageContext.data;
