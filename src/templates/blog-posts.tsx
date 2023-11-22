@@ -40,9 +40,20 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
           </Link>
 
           {keywords.map((keyword) => (
-            <Link key={keyword} to={`/posts/${mapKeywordToSlug(keyword)}/`}>
-              <Keyword wide outlined={keyword !== pageKeyword}>
-                {keyword}
+            <Link
+              key={keyword.name}
+              to={`/posts/${mapKeywordToSlug(keyword.name)}/`}
+            >
+              <Keyword
+                wide
+                outlined={keyword.name !== pageKeyword}
+                title={`${keyword.name} category contains ${
+                  keyword.quantity === 1
+                    ? "1 post"
+                    : `${keyword.quantity} posts`
+                }`}
+              >
+                {keyword.name}
               </Keyword>
             </Link>
           ))}
