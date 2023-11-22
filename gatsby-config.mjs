@@ -9,7 +9,8 @@ const config = {
   jsxRuntime: "automatic",
   siteMetadata: {
     title: "Bartosz Łaniewski",
-    description: "Creative designer & developer based in Poland. Passionate about architecture and beautiful software.",
+    description:
+      "Creative designer & developer based in Poland. Passionate about architecture and beautiful software.",
     siteUrl: "https://laniewski.me/", // keep the trailing /
     siteRepo: "https://github.com/Bartozzz/bartozzz.github.io",
     contact: "hi@laniewski.me",
