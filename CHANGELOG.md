@@ -1,3 +1,11 @@
+# [1.17.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.16.1...v1.17.0) (2023-11-22)
+
+
+### Features
+
+* add blog heading on blog page ([f540ac3](https://github.com/Bartozzz/bartozzz.github.io/commit/f540ac3272f93f5240dfbe027e58c37c460fa082))
+* improve keywords categories on blog view ([1ab0508](https://github.com/Bartozzz/bartozzz.github.io/commit/1ab0508b62a30a6169b2543423327febd8bf39f6))
+
 ## [1.16.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.16.0...v1.16.1) (2023-11-20)
 
 
