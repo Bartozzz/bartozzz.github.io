@@ -1,3 +1,6 @@
+# Generated images
+static/thumbnails/*.png
+
 # Logs
 logs
 *.log
