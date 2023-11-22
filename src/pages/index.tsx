@@ -1,6 +1,6 @@
 import "../styles/pages/index.scss";
 
-import { graphql } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 
 import { Content } from "../components/Content";
 import { GameCard } from "../components/GameCard";
@@ -60,9 +60,7 @@ interface IndexPageQuery {
   };
 }
 
-interface Props {
-  data: IndexPageQuery;
-}
+type Props = PageProps<IndexPageQuery>;
 
 export default function IndexPage({ data }: Props) {
   const posts = data.allMdx.nodes;
@@ -156,7 +154,7 @@ export default function IndexPage({ data }: Props) {
   );
 }
 
-export function Head() {
+export function Head({}: Props) {
   return <SEO />;
 }
 

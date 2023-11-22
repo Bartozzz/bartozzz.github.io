@@ -1,6 +1,6 @@
 import "./blog-posts.scss";
 
-import { Link } from "gatsby";
+import { Link, PageProps } from "gatsby";
 
 import { mapKeywordToSlug } from "../../gatsby/helpers/mapKeywordToSlug.mjs";
 
@@ -13,14 +13,15 @@ import { PostExcerpt } from "../components/PostExcerpt";
 import { SEO } from "../components/SEO";
 import { useKeywords } from "../hooks/useKeywords";
 
-interface Props {
-  pageContext: {
+type Props = PageProps<
+  unknown,
+  {
     data: BlogPost[];
     keyword?: string;
-  };
-}
+  }
+>;
 
-export default function BlogPostsTemplate({ pageContext }: Props) {
+export default function BlogPostsTemplate({ pageContext, location }: Props) {
   const keywords = useKeywords();
 
   const pagePosts = pageContext.data;

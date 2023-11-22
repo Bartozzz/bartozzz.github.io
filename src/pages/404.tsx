@@ -1,8 +1,12 @@
+import { PageProps } from "gatsby";
+
 import { Content } from "../components/Content";
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 
-export default function NotFoundPage() {
+type Props = PageProps;
+
+export default function NotFoundPage({}: Props) {
   return (
     <Layout>
       <Content>
@@ -32,6 +36,6 @@ export default function NotFoundPage() {
   );
 }
 
-export function Head() {
+export function Head({}: Props) {
   return <SEO title="Not Found" />;
 }

@@ -2,6 +2,8 @@ import "./blog-post.scss";
 
 import { MDXProvider } from "@mdx-js/react";
 
+import { PageProps } from "gatsby";
+
 import { BlogPost } from "../../gatsby/types/queries";
 
 import { Alert } from "../components/Alert";
@@ -12,16 +14,9 @@ import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { TableOfContents } from "../components/TableOfContents";
 
-interface Props {
-  pageContext: {
-    data: BlogPost;
-  };
-}
+type Props = PageProps<unknown, { data: BlogPost }>;
 
-export default function BlogPostTemplate({
-  pageContext,
-  children,
-}: React.PropsWithChildren<Props>) {
+export default function BlogPostTemplate({ pageContext, children }: Props) {
   const post = pageContext.data;
   const { frontmatter, tableOfContents } = post;
   const { title, datePublished, language, authors } = frontmatter;
