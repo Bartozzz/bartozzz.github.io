@@ -31,7 +31,7 @@ export function PageHeader() {
         </li>
 
         <li className={css.header__item}>
-          <Link to="/posts/">Devblog</Link>
+          <Link to="/posts/">Blog</Link>
         </li>
 
         <li className={css.header__item}>

@@ -1,3 +1,12 @@
+@import "../styles/extends/text-heading";
+@import "../styles/mixins/vertical-rhythm";
+
+.heading {
+  @include vr-font("xxl");
+  @extend %text-heading;
+  margin: 0;
+}
+
 .keywords {
   max-width: var(--mw-sm);
 

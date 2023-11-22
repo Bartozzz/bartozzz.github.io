@@ -30,6 +30,8 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
   return (
     <Layout>
       <Content>
+        <h1 className="heading">Blog</h1>
+
         <ul className="keywords">
           <Link to="/posts/">
             <Keyword wide outlined={pageKeyword ? true : false}>
