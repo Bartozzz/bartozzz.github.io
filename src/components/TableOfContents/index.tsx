@@ -26,8 +26,6 @@ export function TableOfContents({ data }: Props) {
   const [activeHeadingId, setActiveHeadingId] = React.useState<string>();
   const headingsIDs = flattenTableOfContents(data.items);
 
-  console.log({ data, activeHeadingId });
-
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
