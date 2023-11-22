@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.17.0...v1.18.0) (2023-11-22)
+
+
+### Features
+
+* generate thumbnails ([#941](https://github.com/Bartozzz/bartozzz.github.io/issues/941)) ([6255d4d](https://github.com/Bartozzz/bartozzz.github.io/commit/6255d4dde9bfc947072ba4d917b146ea79bc3481))
+
 # [1.17.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.16.1...v1.17.0) (2023-11-22)
 
 
