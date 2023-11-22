@@ -14,15 +14,14 @@ export const createPages = async ({ graphql, actions }) => {
     const result = await getAllPosts(graphql);
     const posts = result.allMdx.nodes;
 
-    const tasks = posts.map(async (data) => {
+    // Run sequentially because we need to generate images for each post:
+    for (const data of posts) {
       data.frontmatter.keywords.forEach((keyword) => {
         keywords.add(keyword);
       });
 
       await createBlogPostPage(actions, data);
-    });
-
-    return await Promise.all(tasks);
+    }
   })();
 
   // Create page for listing all blog posts:
@@ -49,16 +48,16 @@ export const createPages = async ({ graphql, actions }) => {
 export const onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === `Mdx`) {
+  if (node.internal.type === "Mdx") {
     createNodeField({
       node,
-      name: `timeToRead`,
+      name: "timeToRead",
       value: readingTime(node.body),
     });
 
     createNodeField({
       node,
-      name: `slug`,
+      name: "slug",
       value: createFilePath({ node, getNode }),
     });
   }
