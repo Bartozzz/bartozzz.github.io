@@ -8,20 +8,20 @@ import remarkSmartypants from "remark-smartypants";
 const config = {
   jsxRuntime: "automatic",
   siteMetadata: {
-    title: `Bartosz Łaniewski`,
-    description: `Creative designer & developer based in Poland. Passionate about architecture and beautiful software.`,
-    siteUrl: `https://laniewski.me/`, // keep the trailing /
-    siteRepo: `https://github.com/Bartozzz/bartozzz.github.io`,
-    contact: `hi@laniewski.me`,
+    title: "Bartosz Łaniewski",
+    description: "Creative designer & developer based in Poland. Passionate about architecture and beautiful software.",
+    siteUrl: "https://laniewski.me/", // keep the trailing /
+    siteRepo: "https://github.com/Bartozzz/bartozzz.github.io",
+    contact: "hi@laniewski.me",
     social: {
-      GitHub: `https://github.com/Bartozzz`,
-      Dribbble: `https://dribbble.com/bartozzz`,
-      LinkedIn: `https://linkedin.com/in/bartozzz`,
-      YouTube: `https://youtube.com/channel/UCIC1vaSJwSJ2sqKWC3wTTmQ`,
+      GitHub: "https://github.com/Bartozzz",
+      Dribbble: "https://dribbble.com/bartozzz",
+      LinkedIn: "https://linkedin.com/in/bartozzz/",
+      YouTube: "https://www.youtube.com/@bartosz.laniewski",
     },
   },
   plugins: [
-    `gatsby-plugin-sass`,
+    "gatsby-plugin-sass",
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -33,8 +33,8 @@ const config = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: path.resolve(`./content`),
-        name: `content`,
+        path: path.resolve("./content"),
+        name: "content",
       },
     },
     {
