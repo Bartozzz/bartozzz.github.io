@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.18.0...v1.19.0) (2023-11-23)
+
+
+### Features
+
+* add OpenGraph meta tags ([52d3587](https://github.com/Bartozzz/bartozzz.github.io/commit/52d3587bdf1edcf6dcbd9899fde7dc9e9dd4cc24))
+
 # [1.18.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.17.0...v1.18.0) (2023-11-22)
 
 
