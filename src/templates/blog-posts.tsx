@@ -80,11 +80,13 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
   );
 }
 
-export function Head({ pageContext }: Props) {
+export function Head({ pageContext, location }: Props) {
   const pageKeyword = pageContext.keyword;
+  const slug = location.pathname;
 
   return (
     <SEO
+      url={`https://laniewski.me${slug}`}
       title={pageKeyword ? `${pageKeyword} posts` : "All posts"}
       description={
         pageKeyword

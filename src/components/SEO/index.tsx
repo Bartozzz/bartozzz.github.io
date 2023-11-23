@@ -1,27 +1,28 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-import { useTheme } from "../../hooks/useTheme";
-
 interface Props {
+  url?: string;
+  image?: string;
   title?: string;
   description?: string;
 }
 
-export function SEO({ title, description }: Props) {
-  const [theme] = useTheme();
-
+export function SEO({ url, image, title, description }: Props) {
   const { site } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
           title
           description
+          siteUrl
         }
       }
     }
   `);
 
+  const metaUrl = url || site.siteMetadata.siteUrl;
   const metaDescription = description || site.siteMetadata.description;
+  const metaImage = image || "https://laniewski.me/thumbnail.png";
   const metaTitle = title
     ? `${title} • ${site.siteMetadata.title}`
     : `${site.siteMetadata.title}`;
@@ -30,12 +31,14 @@ export function SEO({ title, description }: Props) {
     <>
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} />
-      {theme !== null ? (
-        <meta
-          name="theme-color"
-          content={theme === "light" ? "#ffffff" : "#121212"}
-        />
-      ) : null}
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content="@blaniewski" />
+      <meta name="og:url" content={metaUrl} />
+      <meta name="og:type" content="website" />
+      <meta name="og:image" content={metaImage} />
+      <meta name="og:title" content={metaTitle} />
+      <meta name="og:description" content={metaDescription} />
     </>
   );
 }

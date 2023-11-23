@@ -4,6 +4,7 @@ import { MDXProvider } from "@mdx-js/react";
 
 import { PageProps } from "gatsby";
 
+import { mapSlugToImageName } from "../../gatsby/helpers/mapSlugToImageName.mjs";
 import { BlogPost } from "../../gatsby/types/queries";
 
 import { Alert } from "../components/Alert";
@@ -14,7 +15,13 @@ import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { TableOfContents } from "../components/TableOfContents";
 
-type Props = PageProps<unknown, { data: BlogPost }>;
+type Props = PageProps<
+  unknown,
+  {
+    data: BlogPost;
+    slug: string;
+  }
+>;
 
 export default function BlogPostTemplate({ pageContext, children }: Props) {
   const post = pageContext.data;
@@ -69,10 +76,20 @@ export default function BlogPostTemplate({ pageContext, children }: Props) {
   );
 }
 
-export function Head({ pageContext }: Props) {
+export function Head({ pageContext, location }: Props) {
   const post = pageContext.data;
+  const slug = location.pathname;
   const { excerpt } = post;
   const { title, description } = post.frontmatter;
 
-  return <SEO title={title} description={description || excerpt} />;
+  console.log({ location });
+
+  return (
+    <SEO
+      url={`https://laniewski.me${slug}`}
+      title={title}
+      image={`https://laniewski.me/thumbnails/${mapSlugToImageName(slug)}.png`}
+      description={description || excerpt}
+    />
+  );
 }

@@ -1,6 +1,6 @@
 import nodeHtmlToImage from "node-html-to-image";
 
-function generateHtml({ title, imgWidth = 1600, imgHeight = 900 }) {
+function generateHtml({ title, link, imgWidth = 1600, imgHeight = 900 }) {
   return `
     <html>
       <head>
@@ -8,6 +8,10 @@ function generateHtml({ title, imgWidth = 1600, imgHeight = 900 }) {
           :root {
             --imgWidth: ${imgWidth};
             --imgHeight: ${imgHeight};
+
+            --vr-unit: 0.8rem;
+            --vr-fs: calc(var(--vr-unit) * 2);
+            --vr-lh: calc(var(--vr-unit) * 3);
           }
 
           * {
@@ -19,52 +23,81 @@ function generateHtml({ title, imgWidth = 1600, imgHeight = 900 }) {
             margin: 0;
           }
 
+          html {
+            font-size: 62.5%;
+          }
+
           body {
             width: var(--imgWidth);
             height: var(--imgHeight);
+            font-size: var(--vr-fs);
             background-color: #121212;
           }
 
           .container {
             display: flex;
             flex-flow: column;
-            align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+
             width: 100%;
             height: 100%;
-            padding: 80px;
+
+            padding-block: calc(var(--vr-unit) * 12);
+            padding-inline:  calc(var(--vr-unit) * 14);
+          }
+
+          .text {
+            margin-bottom: calc(var(--vr-unit) * 3);
+
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+            font-size: calc(var(--vr-fs) * 3);
+            line-height: calc(var(--vr-lh) * 2);
+            color: #9e9e9e;
           }
 
           .title {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
-            font-size: 80px;
-            text-align: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 700;
+            font-size: calc(var(--vr-fs) * 5);
+            line-height: calc(var(--vr-lh) * 5);
             text-transform: uppercase;
             color: #e8e8e8;
-
-            margin-bottom: 50px;
           }
 
+          .author {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+            font-size: calc(var(--vr-fs) * 1.5);
+            line-height: calc(var(--vr-lh) * 2);
+            color: #9e9e9e;
+          }
           .domain {
             font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
-            font-size: 20px;
+            font-size: calc(var(--vr-fs) * 1.5);
+            line-height: calc(var(--vr-lh) * 2);
             color: #9e9e9e;
           }
         </style>
       </head>
       <body>
         <div class='container'>
-          <div class='title'>${title}</div>
-          <div class='domain'>https://laniewski.me</div>
+          <div>
+            <div class='text'>Check out</div>
+            <div class='title'>${title}</div>
+          </div>
+          <div>
+            <div class='author'>Bartosz Łaniewski</div>
+            <div class='domain'>${link}</div>
+          </div>
         </div>
       </body>
     </html>
   `;
 }
 
-export function createImage({ title, output }) {
+export function createImage({ title, link, output }) {
   const html = generateHtml({
     title,
+    link,
   });
 
   return nodeHtmlToImage({ output, html });
