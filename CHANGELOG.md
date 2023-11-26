@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.19.0...v1.20.0) (2023-11-26)
+
+
+### Features
+
+* add redirects from outdated URLs ([e7546ab](https://github.com/Bartozzz/bartozzz.github.io/commit/e7546ab661693be3064c927dd2df53730d02245e))
+
 # [1.19.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.18.0...v1.19.0) (2023-11-23)
 
 
