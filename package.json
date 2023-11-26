@@ -27,6 +27,7 @@
     "gatsby-plugin-google-gtag": "^5.12.3",
     "gatsby-plugin-manifest": "^5.12.3",
     "gatsby-plugin-mdx": "^5.12.3",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sass": "^6.12.3",
     "gatsby-plugin-sitemap": "^6.12.3",

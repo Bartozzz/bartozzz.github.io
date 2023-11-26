@@ -90,6 +90,8 @@ const config = {
         },
       },
     },
+    // Make sure to put last in the array:
+    "gatsby-plugin-meta-redirect",
   ],
 };
 

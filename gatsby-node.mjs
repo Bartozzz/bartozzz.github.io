@@ -4,6 +4,7 @@ import readingTime from "reading-time";
 import { getAllPosts, getAllPostsByKeyword } from "./gatsby/data/queries.mjs";
 import { createAllBlogPostsPage } from "./gatsby/helpers/createAllBlogPostsPage.mjs";
 import { createBlogPostPage } from "./gatsby/helpers/createBlogPostPage.mjs";
+import { redirects } from "./redirects.mjs";
 
 export const createPages = async ({ graphql, actions }) => {
   // Create a list of unique keywords from blog posts:
@@ -43,6 +44,15 @@ export const createPages = async ({ graphql, actions }) => {
 
     return await Promise.all(tasks);
   })();
+
+  // Create redirects:
+  redirects.forEach((redirect) => {
+    actions.createRedirect({
+      fromPath: redirect.from,
+      toPath: redirect.to,
+      isPermanent: true,
+    });
+  });
 };
 
 export const onCreateNode = async ({ node, actions, getNode }) => {
