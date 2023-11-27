@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.20.0...v1.21.0) (2023-11-27)
+
+
+### Features
+
+* handle external and internal links in posts ([611b1f4](https://github.com/Bartozzz/bartozzz.github.io/commit/611b1f445308a57b0453e06ec1493abaf92c67fe))
+
 # [1.20.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.19.0...v1.20.0) (2023-11-26)
 
 
