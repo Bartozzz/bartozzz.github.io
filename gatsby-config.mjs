@@ -1,6 +1,7 @@
 import path from "path";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeExternalLinks from "rehype-external-links";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import remarkSmartypants from "remark-smartypants";
@@ -52,10 +53,12 @@ const config = {
             rehypePrism,
             rehypeSlug,
             rehypeAutolinkHeadings,
+            rehypeExternalLinks,
           ],
         },
       },
     },
+    "gatsby-plugin-catch-links",
     "gatsby-transformer-yaml",
     "gatsby-transformer-json",
     "gatsby-plugin-sitemap",
