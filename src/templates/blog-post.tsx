@@ -82,8 +82,6 @@ export function Head({ pageContext, location }: Props) {
   const { excerpt } = post;
   const { title, description } = post.frontmatter;
 
-  console.log({ location });
-
   return (
     <SEO
       url={`https://laniewski.me${slug}`}
