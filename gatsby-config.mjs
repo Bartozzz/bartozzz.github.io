@@ -61,7 +61,68 @@ const config = {
     "gatsby-plugin-catch-links",
     "gatsby-transformer-yaml",
     "gatsby-transformer-json",
-    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+            allMdx {
+              nodes {
+                fields {
+                  slug
+                }
+                frontmatter {
+                  dateUpdated
+                }
+              }
+            }
+          }
+        `,
+        resolvePages: ({
+          allSitePage: { nodes: allSitePages },
+          allMdx: { nodes: allMdxNodes },
+        }) => {
+          const mdxNodeMap = allMdxNodes.reduce(
+            (acc, node) => ({
+              ...acc,
+              [node.fields.slug]: node.frontmatter,
+            }),
+            {},
+          );
+
+          return allSitePages.map((page) => ({
+            ...page,
+            ...mdxNodeMap[page.path],
+          }));
+        },
+        serialize: ({ path, dateUpdated }) => {
+          if (dateUpdated) {
+            return {
+              url: path,
+              lastmod: dateUpdated,
+              priority: 0.7,
+              changefreq: "daily",
+            };
+          } else {
+            return {
+              url: path,
+              priority: 0.5,
+              changefreq: "daily",
+            };
+          }
+        },
+      },
+    },
     {
       resolve: "gatsby-plugin-canonical-urls",
       options: {
