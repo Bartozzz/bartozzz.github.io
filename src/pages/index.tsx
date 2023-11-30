@@ -165,7 +165,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(limit: 3, sort: { frontmatter: { datePublished: DESC } }) {
+    allMdx(limit: 5, sort: { frontmatter: { datePublished: DESC } }) {
       nodes {
         excerpt
         fields {
