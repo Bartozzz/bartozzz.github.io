@@ -1,3 +1,22 @@
+# [1.22.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.21.0...v1.22.0) (2023-12-01)
+
+
+### Bug Fixes
+
+* add width/height attributes for GameCard image ([fb92a4f](https://github.com/Bartozzz/bartozzz.github.io/commit/fb92a4fa53899273b38e9e8bef3e0a60b697e95e))
+* blog-posts accessibility issues ([8bc0c22](https://github.com/Bartozzz/bartozzz.github.io/commit/8bc0c22f86da12b9fc6190f56aa74e03a6917d0d))
+* change invalid attr tags to abbr ([6fbec85](https://github.com/Bartozzz/bartozzz.github.io/commit/6fbec85bdb8caafe0b082bdb5bbc6d81b010650b))
+* comments accessibility issues ([926d3d6](https://github.com/Bartozzz/bartozzz.github.io/commit/926d3d6ff127d0b2680b182dd77e7be3fcd8bb84))
+* keyword accessibility issues ([758c372](https://github.com/Bartozzz/bartozzz.github.io/commit/758c372f39d6b32112a24b60373bac4c5948e381))
+* remove aria labels from GameCard and Repository ([dc32367](https://github.com/Bartozzz/bartozzz.github.io/commit/dc32367e0e9d8f7cec750a7de4d4f5104ea4c060))
+
+
+### Features
+
+* add lastmod to sitemap ([75d2f16](https://github.com/Bartozzz/bartozzz.github.io/commit/75d2f167d39b5e2f4099d17ee9361f585e5200ad))
+* prevent usage of lorem ipsum ([f17fcf1](https://github.com/Bartozzz/bartozzz.github.io/commit/f17fcf17637fe2722499a7521ac0979e6e4744a0))
+* use custom canonical links ([a39f251](https://github.com/Bartozzz/bartozzz.github.io/commit/a39f2510273b6587672a596c68c5599e7dc49550))
+
 # [1.21.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.20.0...v1.21.0) (2023-11-27)
 
 
