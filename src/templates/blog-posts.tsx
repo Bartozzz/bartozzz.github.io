@@ -39,29 +39,30 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
         <h1 className="heading">Blog</h1>
 
         <ul className="keywords">
-          <Link to="/posts/">
-            <Keyword wide outlined={pageKeyword ? true : false}>
-              All
-            </Keyword>
-          </Link>
-
-          {keywords.map((keyword) => (
-            <Link
-              key={keyword.name}
-              to={`/posts/${mapKeywordToSlug(keyword.name)}/`}
-            >
-              <Keyword
-                wide
-                outlined={keyword.name !== pageKeyword}
-                title={`${keyword.name} category contains ${
-                  keyword.quantity === 1
-                    ? "1 post"
-                    : `${keyword.quantity} posts`
-                }`}
-              >
-                {keyword.name}
+          <li>
+            <Link to="/posts/">
+              <Keyword wide outlined={pageKeyword ? true : false}>
+                All
               </Keyword>
             </Link>
+          </li>
+
+          {keywords.map((keyword) => (
+            <li key={keyword.name}>
+              <Link to={`/posts/${mapKeywordToSlug(keyword.name)}/`}>
+                <Keyword
+                  wide
+                  outlined={keyword.name !== pageKeyword}
+                  title={`${keyword.name} category contains ${
+                    keyword.quantity === 1
+                      ? "1 post"
+                      : `${keyword.quantity} posts`
+                  }`}
+                >
+                  {keyword.name}
+                </Keyword>
+              </Link>
+            </li>
           ))}
         </ul>
 

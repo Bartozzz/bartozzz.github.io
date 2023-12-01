@@ -4,6 +4,7 @@
 .heading {
   @include vr-font("xxl");
   @extend %text-heading;
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -12,4 +13,10 @@
 
   margin: var(--ls-md) 0;
   padding: 0;
+
+  list-style: none;
+
+  & > li {
+    display: inline;
+  }
 }
