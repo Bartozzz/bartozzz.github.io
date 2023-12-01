@@ -40,7 +40,6 @@ export function Repository({
         target="_blank"
         rel="noopener noreferrer"
         href={link}
-        aria-label={description}
       >
         <h4 className={css.repository__name} itemProp="name">
           {name}

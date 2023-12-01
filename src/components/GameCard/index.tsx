@@ -30,7 +30,7 @@ export function GameCard({
 
   return (
     <Wrapper className={css.game__wrapper}>
-      <a className={css.game__link} href={link} aria-label={description}>
+      <a className={css.game__link} href={link}>
         <figure
           className={css.game__card}
           style={{
