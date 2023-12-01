@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski", "Tao Schreiner"]
 keywords: ["Blockchain", "Cryptocurrency"]
 language: fr
 dateCreated: 2018-03-05 00:00:00 +0100
-dateUpdated: 2018-03-05 00:00:00 +0100
+dateUpdated: 2023-12-01 00:00:00 +0100
 datePublished: 2018-03-05 00:00:00 +0100
 ---
 
@@ -40,15 +40,15 @@ Le marché du Bitcoin est perçu, selon une majeure partie des économistes, com
 
 ### Les débuts du Bitcoin sur le marché
 
-Le Bitcoin est [l’une des premières][10] crypto-monnaies crées. C’est aussi la première crypto-monnaie qui eu un succès au niveau international. Pour bien expliquer le phénomène du Bitcoin, il faut remonter à 2008, quand l’une des plus grandes crises financières s’est produite. Des dizaines de devises ont commencé à perdre de leur valeur – les méthodes traditionnelles d'évaluation monétaire et leur dépendance ont contribuées à une [catastrophe économique][11].
+Le Bitcoin est [l’une des premières][10] crypto-monnaies crées. C’est aussi la première crypto-monnaie qui eu un succès au niveau international. Pour bien expliquer le phénomène du Bitcoin, il faut remonter à 2008, quand l’une des plus grandes crises financières s’est produite. Des dizaines de devises ont commencé à perdre de leur valeur – les méthodes traditionnelles d’évaluation monétaire et leur dépendance ont contribuées à une [catastrophe économique][11].
 
-À cette periode, la monnaie virtuelle semblait être une idée abstraite d’Internet. Cela se voyait particulièrement avec les faibles cotations du Bitcoin quand il a fait ses débuts sur le marché boursier de [_MtGox_][12] et ne valait que 0.063 USD par unité. Le Bitcoin était alors la seule monnaie ne pouvant pas être confisquée par les forces d’état (gouvernements, banques, huissiers de justice, etc.). Il fournissait une garantie de possession d’argent qui s'avéra particulièrement utile dans les pays les plus touchés par la crise comme la Grèce.
+À cette periode, la monnaie virtuelle semblait être une idée abstraite d’Internet. Cela se voyait particulièrement avec les faibles cotations du Bitcoin quand il a fait ses débuts sur le marché boursier de [_MtGox_][12] et ne valait que 0.063 USD par unité. Le Bitcoin était alors la seule monnaie ne pouvant pas être confisquée par les forces d’état (gouvernements, banques, huissiers de justice, etc.). Il fournissait une garantie de possession d’argent qui s’avéra particulièrement utile dans les pays les plus touchés par la crise comme la Grèce.
 
 > If people lose faith in a currency, the typical reaction is to start using another one. Traditionally, money has simply flung to the most stable currency, which has typically been the dollar. But Bitcoin has a couple of advantages over old-fashioned cash. The first advantage is that it is not controlled by any central authority. In countries where people are increasingly distrustful of how central banks and governments manage the economy, Bitcoin may seem like a more sensible alternative. ~ [Danny Bradbury][19]
 
 ### Comparaison avec les monnaies classiques
 
-L’argent est une marchandise reconnue comme le résultat d’un consentement général et en tant que moyen d'échange économique. L’argent est donc tout ce qui fait l’objet d’un contrat entre deux personnes et est échangeable contre d’autres biens. C’est par exemple le cas des billets de banque ou encore des virements électroniques. Chaque monnaie doit se soumettre à trois règles:
+L’argent est une marchandise reconnue comme le résultat d’un consentement général et en tant que moyen d’échange économique. L’argent est donc tout ce qui fait l’objet d’un contrat entre deux personnes et est échangeable contre d’autres biens. C’est par exemple le cas des billets de banque ou encore des virements électroniques. Chaque monnaie doit se soumettre à trois règles:
 
 1. Il doit être possible de montrer qu’**une somme d’argent appartient à son propriétaire**.
 2. Il doit être possible de **transférer une somme d’argent** d’un propriétaire à un autre.
@@ -59,13 +59,13 @@ Le Bitcoin vérifie toutes ces règles et résout plus efficacement d’autres p
 - **Sécurité.**
   Au cœur des crypto-monnaies se trouve une technologie nommée _blockchain_. Il s’agit d’un système qui joue le rôle du registre des transactions. Il peut être imaginé comme un livre de comptabilité collectif diffus dans le réseau. Il est ouvert à tous, mais ne peut être corrompu, car il est protégé par des outils cryptographiques puissants. Une fois une transaction enregistrée dans le registre, elle ne peut pas être annulée.
 - **Anonymat.**
-  L'émetteur et le destinataire sont identifiés par une [clé publique][13] mais leur vraie identité n’est connue de personne à part eux. En tant qu’utilisateur, nous ne sommes donc qu’une chaîne de caractères et de nombres aux yeux des autres internautes. Il n’y a aucun moyen de retrouver notre vraie identité en s’appuyant sur les <abbr title="Valeur de sortie d’une fonction de hachage cryptographique, c’est-à-dire une fonction qui à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu'elle est pratiquement impossible à inverser.">hash</abbr> du registre public qui sont gérés par la _blockchain_.
+  L’émetteur et le destinataire sont identifiés par une [clé publique][13] mais leur vraie identité n’est connue de personne à part eux. En tant qu’utilisateur, nous ne sommes donc qu’une chaîne de caractères et de nombres aux yeux des autres internautes. Il n’y a aucun moyen de retrouver notre vraie identité en s’appuyant sur les <abbr title="Valeur de sortie d’une fonction de hachage cryptographique, c’est-à-dire une fonction qui à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu’elle est pratiquement impossible à inverser.">hash</abbr> du registre public qui sont gérés par la _blockchain_.
 - **Divisibilité.**
-  Le prix d’un Bitcoin dépasse le budget de la plupart des personnes qui sont potentiellement intéressées dans son achat. Le grand avantage du Bitcoin est sa divisibilité. Ainsi, il est possible d’acheter 0,00000001 BTC ([jusqu'à 8 chiffres après la virgule][14]).
+  Le prix d’un Bitcoin dépasse le budget de la plupart des personnes qui sont potentiellement intéressées dans son achat. Le grand avantage du Bitcoin est sa divisibilité. Ainsi, il est possible d’acheter 0,00000001 BTC ([jusqu’à 8 chiffres après la virgule][14]).
 - **Décentralisation.**
   Les crypto-monnaies reposent sur un système informatique décentralisé (de type pair-à-pair) et souvent avec un code source publié sous une licence libre ([MIT][15] pour le Bitcoin). Tout le monde peut utiliser sa machine pour aider à améliorer l’infrastructure.
 - **Facilité de transferts.**
-  Il est possible d’effectuer des transferts d’argent dans le monde entier à un prix très bas. Le coût de transaction est redistribué entre les «mineurs» une fois la transaction validée. En moyenne, un transfert dure 30 minutes ([jusqu'à 16 heures dans les cas extrêmes][16]). Plus le coût de transaction est grand, plus vite le transfert est effectué.
+  Il est possible d’effectuer des transferts d’argent dans le monde entier à un prix très bas. Le coût de transaction est redistribué entre les «mineurs» une fois la transaction validée. En moyenne, un transfert dure 30 minutes ([jusqu’à 16 heures dans les cas extrêmes][16]). Plus le coût de transaction est grand, plus vite le transfert est effectué.
 
 Le Bitcoin est une technologie révolutionnaire qui va changer le monde de la finance, tout comme l’e-mail a changé la façon dont les gens communiquent.
 
@@ -77,7 +77,7 @@ Dans cette partie, nous verrons comment est stocké l’argent sur un portefeuil
 
 ### Blockchain
 
-La _blockchain_ est une technologie basée sur un réseau de type pair-à-pair (sans serveur central) qui sert d'une interface entre notre base de données locale et les bases de données des autres peers. Chaque machine dans le réseau peut participer à la création de la _blockchain_. Ce système forme une chaîne de blocs qui sont connectés les uns aux autres. Chaque bloc contient plusieurs informations. Dans le cas des monnaies virtuelles, les plus importantes sont:
+La _blockchain_ est une technologie basée sur un réseau de type pair-à-pair (sans serveur central) qui sert d’une interface entre notre base de données locale et les bases de données des autres peers. Chaque machine dans le réseau peut participer à la création de la _blockchain_. Ce système forme une chaîne de blocs qui sont connectés les uns aux autres. Chaque bloc contient plusieurs informations. Dans le cas des monnaies virtuelles, les plus importantes sont:
 
 1. le **nombre total** de transactions qui ont été enregistrées dans le bloc;
 2. le **détail** de chaque transaction enregistrée;
@@ -152,20 +152,20 @@ class Blockchain {
 
 #### Synchronisation des bases de données
 
-La synchronisation de notre base de données locale avec les bases de données des autres paires connectés au réseau n'est pas une tâche triviale. Le protocole de réplication doit assurer:
+La synchronisation de notre base de données locale avec les bases de données des autres paires connectés au réseau n’est pas une tâche triviale. Le protocole de réplication doit assurer:
 
-- **la cohérence**, c'est-à-dire la capacité de notre système à refléter sur la copie d'une donnée les modifications intervenues sur d'autre copies de cette donnée;
-- **la scalabilité**, c'est-à-dire la capacité de notre système à s'adapter à un changement d'ordre de grandeur de la demande, en particulier sa capacité à maintenir ses fonctionnalités et ses performances en cas de forte demande.
+- **la cohérence**, c’est-à-dire la capacité de notre système à refléter sur la copie d’une donnée les modifications intervenues sur d’autre copies de cette donnée;
+- **la scalabilité**, c’est-à-dire la capacité de notre système à s’adapter à un changement d’ordre de grandeur de la demande, en particulier sa capacité à maintenir ses fonctionnalités et ses performances en cas de forte demande.
 
-Il s'agit d'une communication à double-sens: notre système doit envoyer toutes les modifications pour les inclure dans la blockchain principale et fusionner les changements rencontrés chez les autres pairs pour les inclure dans la blockchain locale. À notre rescousse viennent les «_Gossip protocols_».
+Il s’agit d’une communication à double-sens: notre système doit envoyer toutes les modifications pour les inclure dans la blockchain principale et fusionner les changements rencontrés chez les autres pairs pour les inclure dans la blockchain locale. À notre rescousse viennent les «_Gossip protocols_».
 
-L'information se propage comme une épidémie dans le réseau en _O(log(n))_. L'implementation de ce protocole est décrite par Robbert van Renesse, Dan Dumitriu, Valient Gough et Chris Thomas dans leur publication [«_Efficient Reconciliation and Flow Control for Anti-Entropy Protocols_»][20]:
+L’information se propage comme une épidémie dans le réseau en _O(log(n))_. L’implementation de ce protocole est décrite par Robbert van Renesse, Dan Dumitriu, Valient Gough et Chris Thomas dans leur publication [«_Efficient Reconciliation and Flow Control for Anti-Entropy Protocols_»][20]:
 
 > With few limitations, updates spread in expected time that grows logarithmic in the number of participating hosts, even in the face of host failures and message loss. The behavior of update propagation is easily modeled with well-known epidemic analysis techniques. As a result, many distributed applications use gossip to contain various inconsistencies.
 
 ### Transactions
 
-Dans la _blockchain_, toute information est publique. C’est l’une des caractéristiques révolutionnaires de la _blockchain_ qui fait tout son intérêt – chaque transaction (partie élémentaire d’un bloc) peut être vérifiée par n’importe qui, sans banque centrale. L'implémentation la plus simple pourrait être:
+Dans la _blockchain_, toute information est publique. C’est l’une des caractéristiques révolutionnaires de la _blockchain_ qui fait tout son intérêt – chaque transaction (partie élémentaire d’un bloc) peut être vérifiée par n’importe qui, sans banque centrale. L’implémentation la plus simple pourrait être:
 
 ```
 Jean envoie 5 BTC a Pierre
@@ -183,11 +183,11 @@ Nous disposons de 3 nombres:
 - p: clé publique, utilisée pour effectuer des transactions;
 - h: hash de la transaction;
 
-Pour calculer une signature, il est nécessaire d’utiliser les 3 nombres et masquer la clé privée. Pour cela, on effectue l'opération suivante:
+Pour calculer une signature, il est nécessaire d’utiliser les 3 nombres et masquer la clé privée. Pour cela, on effectue l’opération suivante:
 
 <p style={{ textAlign: "center" }}>N = p × q</p>
 
-Ainsi on obtient un 4<sup>eme</sup> nombre contenant la clé privée cachée. Avec les moyens technologiques dont nous disposons aujourd’hui, il est impossible d’extraire cette clé sans la connaître à l’avance. Il est cependant très facile de vérifier, si (_N_) cache bien notre clé privée en effectuant l'opération inverse:
+Ainsi on obtient un 4<sup>eme</sup> nombre contenant la clé privée cachée. Avec les moyens technologiques dont nous disposons aujourd’hui, il est impossible d’extraire cette clé sans la connaître à l’avance. Il est cependant très facile de vérifier, si (_N_) cache bien notre clé privée en effectuant l’opération inverse:
 
 <p style={{ textAlign: "center" }}>q = N / p</p>
 
@@ -216,7 +216,7 @@ Pour vérifier les transactions on utilise les propriétés du système RSA. Il 
 2. [”BitPay Signs 1,000 Merchants to Accept Bitcoin Payments” – Brian Browdie][6]
 3. [“Le Bitcoin, première crypto-monnaie” – Jean-Paul Delahaye][7]
 4. [“The price of bitcoin has doubled in two weeks“ – Lucas Matney][8]
-5. [“Why Is Bitcoin's Value So Volatile” – Jonathan Todd Barker][9]
+5. [“Why Is Bitcoin’s Value So Volatile” – Jonathan Todd Barker][9]
 6. [“Terrorist Use of Cyberspace and Cyber Terrorism: New Challenges and Responses” – M.N. Ogun][12]
 7. [“Bitcoin public and private keys” – Prypto][13]
 8. [“How long do Bitcoin transactions take?“ – Steven Buchko][16]
@@ -230,9 +230,9 @@ Pour vérifier les transactions on utilise les propriétés du système RSA. Il 
 [6]: https://americanbanker.com/news/bitpay-signs-1-000-merchants-to-accept-bitcoin-payments "”BitPay Signs 1,000 Merchants to Accept Bitcoin Payments” – Brian Browdie"
 [7]: http://www.societe-informatique-de-france.fr/wp-content/uploads/2014/10/1024-4-delahaye.pdf "“Le Bitcoin, première crypto-monnaie” – Jean-Paul Delahaye"
 [8]: https://techcrunch.com/2017/12/07/the-price-of-bitcoin-has-doubled-in-two-weeks-now-above-16k/ "“The price of bitcoin has doubled in two weeks“ – Lucas Matney"
-[9]: https://www.investopedia.com/articles/investing/052014/why-bitcoins-value-so-volatile.asp "“Why Is Bitcoin's Value So Volatile” –  Jonathan Todd Barker"
+[9]: https://www.investopedia.com/articles/investing/052014/why-bitcoins-value-so-volatile.asp "“Why Is Bitcoin’s Value So Volatile” –  Jonathan Todd Barker"
 [10]: http://www.societe-informatique-de-france.fr/wp-content/uploads/2014/10/1024-4-delahaye.pdf "“Le Bitcoin, première crypto-monnaie” – Jean-Paul Delahaye"
-[11]: https://fr.wikipedia.org/wiki/Crise_bancaire_et_financi%C3%A8re_de_l%27automne_2008 "Crise bancaire et financière de l'automne 2008"
+[11]: https://fr.wikipedia.org/wiki/Crise_bancaire_et_financi%C3%A8re_de_l%27automne_2008 "Crise bancaire et financière de l’automne 2008"
 [12]: https://books.google.fr/books?id=oPboDAAAQBAJ&lpg=PA47&vq=3.%20the%20fall%20of%20mt.%20gox&dq=mt.%20gox%2070&pg=PA47&q=3.%20the%20fall%20of%20mt.%20gox "“Terrorist Use of Cyberspace and Cyber Terrorism: New Challenges and Responses” – M.N. Ogun"
 [13]: http://www.dummies.com/software/other-software/bitcoin-public-private-keys/ "“Bitcoin public and private keys” – Prypto"
 [14]: https://en.bitcoin.it/wiki/Satoshi_(unit) "Satoshi (unit)"

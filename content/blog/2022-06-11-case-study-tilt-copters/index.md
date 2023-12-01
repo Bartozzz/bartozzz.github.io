@@ -1,14 +1,14 @@
 ---
-title: "Case study: Tilt Copters (a Expo/React Native game)"
+title: "Case study: Tilt Copters (a React Native game)"
 authors: ["Bartosz Łaniewski"]
 keywords: ["Case Study", "Gamedev", "React Native"]
 language: en
 dateCreated: 2022-06-11 00:00:00 +0100
-dateUpdated: 2022-06-11 00:00:00 +0100
+dateUpdated: 2023-12-01 00:00:00 +0100
 datePublished: 2022-06-11 00:00:00 +0100
 ---
 
-[Tilt Copters] is a relatively simple game created with [pixi.js] and Expo. This is a project I've started to learn more about porting web libraries to React Native but also about game architecture and monetization.
+[Tilt Copters] is a relatively simple game created with [pixi.js] and Expo. This is a project I’ve started to learn more about porting web libraries to React Native but also about game architecture and monetization.
 
 ## Introduction
 
@@ -28,14 +28,14 @@ Technology stack:
 
 I am well aware that React Native might not be ready for game development just yet. I picked it out of curiosity – I wanted to see where the limits of this technology are.
 
-Nevertheless, React Native has its benefits. The main advantage over native solutions is that it's easy to make cross-platform applications for mobile, desktop and web while still having the option to interop native code when necessary. It has an established ecosystem, community and is backed by a lot of big companies (industry momentum).
+Nevertheless, React Native has its benefits. The main advantage over native solutions is that it’s easy to make cross-platform applications for mobile, desktop, and web while still having the option to interop native code when necessary. It has an established ecosystem, community and is backed by a lot of big companies (industry momentum).
 
 ### Architecture
 
-Let's start by analyzing the elements and features that we have in the game. We have:
-- a character and a map defined by a background, pipes and coins;
+Let’s start by analyzing the elements and features that we have in the game. We have:
+- a character and a map defined by a background, pipes, and coins;
 - a controller system that hooks to the device accelerometer;
-- a collision system that handles pipes & coins collisions;
+- a collision system that handles pipes and coin collisions;
 
 #### Game Manager
 
@@ -124,7 +124,7 @@ export interface GameObject {
 
 I used [`@react-navigation/stack`](https://reactnavigation.org/docs/stack-navigator/) to handle all in-game navigation. I created [custom interpolators](https://reactnavigation.org/docs/stack-navigator/#animations) to give the user an illusion that the entire game is one big canvas just sliding down or up based on the view that we want to show.
 
-Below is the code that I used to customize the transition when navigating from menu to the shop and vice-versa:
+Below is the code that I used to customize the transition when navigating from the menu to the shop and vice-versa:
 
 ```ts
 export function forShopInterpolator({
@@ -174,9 +174,9 @@ export function forShopInterpolator({
 
 ### Responsiveness
 
-Unlike most game engines, `pixi.js` does not handle multiple resolutions out of the box. You'll have to manually stretch the game viewport to match the device screen size.
+Unlike most game engines, `pixi.js` does not handle multiple resolutions out of the box. You’ll have to manually stretch the game viewport to match the device screen size.
 
-My approach is to use a single base resolution and then fit it to everything else. The one I picked is 375x812pt (iPhone X). Think of this setting as the "design size", i.e. the size of the area that you work with when creating textures.
+My approach is to use a single base resolution and then fit it into everything else. The one I picked is 375x812pt (iPhone X). Think of this setting as the "design size", i.e. the size of the area that you work with when creating textures.
 
 ```ts
 import { Dimensions } from "react-native";
@@ -211,11 +211,11 @@ export class GameManager {
 }
 ```
 
-`resolution` will stretch the canvas to fit the whole screen while maintaining aspect ratios no matter the resolution. The scene is rendered, then scaled to fit the screen.
+`resolution` will stretch the canvas to fit the whole screen while maintaining aspect ratios no matter the resolution. The scene is rendered and then scaled to fit the screen.
 
 ### State management
 
-I used [zustand](https://github.com/pmndrs/zustand) for game state management. It is a bearbones state-management solution using simplified flux principles. It's really easy to use and framework agnostic (no context providers are necessary), so I can use it in React (UI) and game managers (logic). My game store looks as follows:
+I used [zustand](https://github.com/pmndrs/zustand) for game state management. It is a barebones state-management solution using simplified flux principles. It’s really easy to use and framework agnostic (no context providers are necessary), so I can use it in React (UI) and game managers (logic). My game store looks as follows:
 
 ```ts
 import create from "zustand";
@@ -287,14 +287,14 @@ export function GameScore() {
 
 <Alert type="info">
 
-  I used [Redux Toolkit](https://redux-toolkit.js.org/) for the user state (i.e. purchased items) and [`redux-persist`](https://github.com/rt2zz/redux-persist) for persistence. There are no particular reasons why I used Redux over zustand or any other solution.
+  I used [Redux Toolkit](https://redux-toolkit.js.org/) for the user state (i.e. purchased items) and [`redux-persist`](https://github.com/rt2zz/redux-persist) for persistence. There are no particular reasons why I used Redux over Zustand or any other solution.
 </Alert>
 
 ## Challenges
 
 ### Expo and libraries
 
-There's an official library called [`expo-pixi`](https://github.com/expo/expo-pixi) originally developed by Evan Bacon. This is the first search result when looking for pixi.js for Expo/React Native. I tried using this library but quickly abandoned it because of plenty of issues it has. Instead, I created my port with better compatibility. It can be found on [`Bartozzz/expo-pixi`](https://github.com/Bartozzz/expo-pixi).
+There’s an official library called [`expo-pixi`](https://github.com/expo/expo-pixi) originally developed by Evan Bacon. This is the first search result when looking for PixiJS for Expo/React Native. I tried using this library but quickly abandoned it because of plenty of issues it has. Instead, I created my port with better compatibility. It can be found on [`Bartozzz/expo-pixi`](https://github.com/Bartozzz/expo-pixi).
 
 #### Issue #1: incompatible with Expo 43 ([#221](https://github.com/expo/expo-pixi/issues/221))
 
@@ -305,7 +305,7 @@ There's an official library called [`expo-pixi`](https://github.com/expo/expo-pi
 The solution was to migrate from [`expo-asset-utils`](https://github.com/expo/expo-asset-utils) to [`expo-asset`](https://docs.expo.dev/versions/latest/sdk/asset/):
 
 ```diff
--import { resolveAsync } from 'expo-asset-utils';
+-import { resolveAsync } from "expo-asset-utils";
 +import { Asset } from "expo-asset";
 
 const textureFromExpoAsync = async resource => {
@@ -338,7 +338,7 @@ To fix those issues, I updated the dependencies as follows:
 }
 ```
 
-#### Issue #3: side-effects and library overwriting model
+#### Issue #3: side effects and library overwriting model
 
 `expo-pixi` overwrites `pixi.js` methods in a quite ugly way. It mutates the PIXI instance:
 
@@ -360,7 +360,7 @@ PIXI = {
 ```
 
 There are several issues with this approach:
-1. This is causing side-effects, as PIXI is declared in the global scope;
+1. This is causing side effects, as PIXI is declared in the global scope;
 2. There was a mix of web-only and native-only code in a single file;
 
 To solve the first issue, my approach was to simply extend PIXI classes and re-export new PIXI objects:
@@ -406,7 +406,7 @@ With this approach, I could safely remove the `sideEffects` flag from `package.j
 }
 ```
 
-To solve the second issue, I simply moved the web code to `pixi.ts`, and the native code to `pixi.native.ts`. This is described in details in [React Native documentation: Platform-specific extensions](https://reactnative.dev/docs/platform-specific-code#platform-specific-extensions):
+To solve the second issue, I simply moved the web code to `pixi.ts`, and the native code to `pixi.native.ts`. This is described in detail in [React Native documentation: Platform-specific extensions](https://reactnative.dev/docs/platform-specific-code#platform-specific-extensions):
 
 > You can also use the `.native.js` extension when a module needs to be shared between NodeJS/Web and React Native but it has no Android/iOS differences. This is especially useful for projects that have common code shared among React Native and ReactJS.
 
@@ -430,8 +430,8 @@ file:/data/user/0/…/.expo-internal/some-hash.png
 The problem is that [`expo-gl#loadImage`](https://github.com/expo/expo/blob/master/packages/expo-gl-cpp/cpp/EXGLImageUtils.cpp#L126) expects `file://` scheme and not `file:` (note the missing slashes). To solve this issue, we have to manually add the slashes to `asset.localUri`s, as follows:
 
 ```ts
-// It might happen that an asset uri starts with `file:` and not `file://`.
-// `expo-gl` expect a texture asset to have the slashes. Enforce the slashes.
+// An asset uri might start with `file:` and not `file://`.
+// `expo-gl` expects a texture asset to have the slashes. Enforce the slashes.
 function fixFileUri(uri: string) {
   // https://github.com/expo/expo/blob/master/packages/expo-gl-cpp/cpp/EXGLImageUtils.cpp#L126
   return uri.startsWith("file:") && !uri.startsWith("file://")
@@ -453,7 +453,7 @@ When you [bundle assets for your Android APK](https://developer.android.com/guid
 
 The issue is that in production, images are moved to the `res/drawables` directory (as you would expect) but `expo-file-system` [`FileSystem#downloadAsync`](https://github.com/expo/expo/blob/main/packages/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt#L911=) only checks the `raw` directory! Because of that, I was unable to load textures for `expo-pixi` on Android.
 
-I don't know any viable workaround for this issue. What worked for me was changing the images extensions to `.xjpg` and `.xpng`. I also had to update the `textureFromAssetAsync` to change `asset.type` to the correct extension and recalculate `asset.width` and `asset.height` as follows:
+I don’t know any viable workaround for this issue. What worked for me was changing the image extensions to `.xjpg` and `.xpng`. I also had to update the `textureFromAssetAsync` to change `asset.type` to the correct extension and recalculate `asset.width` and `asset.height` as follows:
 
 ```ts {22,24-26}
 // https://github.com/expo/expo/blob/main/packages/expo-asset/src/ImageAssets.ts
@@ -477,7 +477,7 @@ function getImageInfo(url: string): Promise<{
 async function textureFromAssetAsync(resource: string | number) {
   const asset = await Asset.fromModule(resource).downloadAsync();
   asset.localUri = fixFileUri(asset.localUri!);
-  asset.type = asset.type.replace('x', ''); // xpng => png, xjpg => jpg
+  asset.type = asset.type.replace("x", ""); // xpng => png, xjpg => jpg
 
   const { width, height } = await getImageInfo(asset.localUri);
   asset.width = width;
@@ -493,7 +493,7 @@ I also needed to update `metro.config.js` to allow `.xjpg` and `.xpng` extension
 const { getDefaultConfig } = require("@expo/metro-config");
 const defaultConfig = getDefaultConfig(__dirname);
 
-// Added .xjpg and .xpng extension for sprites:
+// Added .xjpg and .xpng extensions for sprites:
 defaultConfig.resolver.assetExts.push("xjpg");
 defaultConfig.resolver.assetExts.push("xpng");
 
@@ -511,13 +511,13 @@ My aim I always to get at least a stable 60 FPS on all of the devices I have. He
 | [Samsung S8](https://www.gsmchoice.com/en/catalogue/samsung/galaxys8/)                    | 50-60     |
 | [Asus ZenFone 3 Max 5.2](https://www.gsmchoice.com/en/catalogue/asus/zenfone3maxzc520tl/) | 40-60     |
 
-Android phones have some troubles with garbage collection and there's a ~10 FPS performance drop when going back and forth from the menu to the game screen.
+Android phones have some troubles with garbage collection and there’s a ~10 FPS performance drop when going back and forth from the menu to the game screen.
 
 ### React Native performance
 
 React Native is performant overall and its capabilities are more than enough for standard user interfaces. However, when combined with game rendering and intensive processing in the game loop, you might want to limit React renders.
 
-I wanted to show the user the distance he flight during the gameplay. The natural place I wanted to put the score was the navigation bar from React Navigation but it resulted in a 10 FPS performance drop. Two options were presented:
+I wanted to show the user the distance he flew during the gameplay. The natural place I wanted to put the score was the navigation bar from React Navigation but it resulted in a 10 FPS performance drop. Two options were presented:
 
 1. I could render the score in a custom component, or,
 2. I could render the score on the canvas;
@@ -536,7 +536,7 @@ Some of the deviations were already described in [Expo and libraries](#expo-and-
 - **Difference in default UI/UX:** by default the stack navigator is configured to have the familiar iOS and Android look & feel: new screens slide in from the right on iOS and use OS default animation on Android. There are also visual differences that need to be patched to provide similar game UI/UX across platforms;
 - **No full fonts support:** `font-weight` and `font-style` [are not supported](https://stackoverflow.com/a/38820631). You have to load all the font variants as separate fonts with a different `font-family` name;
 - **No full shadows support:** Android does not have native support for CSS-like shadows. You have to use the [`elevation`](https://reactnative.dev/docs/view-style-props#elevation-android) property or 3rd party libraries like [`react-native-shadow`](https://www.npmjs.com/package/react-native-shadow-2);
-- **Poor styling support in general**: for example, when making a text outline using `text-shadow`, we have to keep a small blur radius because Android won't render it at all when it's set to 0 (`text-shadow: 0 2px 0.00001px black`);
+- **Poor styling support**: for example, when making a text outline using `text-shadow`, we have to keep a small blur radius because Android won’t render it at all when it’s set to 0 (`text-shadow: 0 2px 0.00001px black`);
 - **Inconsistent API:** on Android devices, the accelerometer data is reversed and we have to normalize it before usage:
     ```ts
     import { Accelerometer } from "expo-sensors";
@@ -566,7 +566,7 @@ Some of the deviations were already described in [Expo and libraries](#expo-and-
 
 ## Conclusion
 
-Making a simple game was a great way to learn the Expo internals and limitations, but `expo-pixi` it's not the best tool for the job:
+Making a simple game was a great way to learn the Expo internals and limitations, but `expo-pixi` it’s not the best tool for the job:
 - there is a lack of support when it comes to `expo-pixi`;
 - there are plenty of bugs, especially on Android devices;
 - the performance is not great overall;
@@ -574,4 +574,4 @@ Making a simple game was a great way to learn the Expo internals and limitations
 Because of that, I started working on my game library for React Native that uses [`react-native-skia`](https://github.com/Shopify/react-native-skia), a high-performance React Native Graphics library under the hood.
 
 [Tilt Copters]: https://tiltcopters.laniewski.me
-[pixi.js]: https://pixijs.com/
+[PixiJS]: https://pixijs.com/

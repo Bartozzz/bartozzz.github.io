@@ -4,18 +4,18 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["JavaScript", "TypeScript"]
 language: en
 dateCreated: 2023-11-20 00:00:00 +0100
-dateUpdated: 2023-11-20 00:00:00 +0100
+dateUpdated: 2023-12-01 00:00:00 +0100
 datePublished: 2023-11-20 00:00:00 +0100
 ---
 
-When implementing applications, we often need to communicate with external services via APIs. In such cases, it's crucial to ensure that the data received from these APIs is valid and conforms to the expected format. It's essential for maintaining the integrity and functionality of various systems.
+When implementing applications, we often need to communicate with external services via APIs. In such cases, it’s crucial to ensure that the data received from these APIs is valid and conforms to the expected format. It’s essential for maintaining the integrity and functionality of various systems.
 
 ## What is Zod
 
-[Zod](https://github.com/colinhacks/zod) is a TypeScript-first schema declaration and validation library. It provides an elegant and expressive syntax for defining data schemas and validating data against those schemas in the runtime. Here's a simple example using TypeScript:
+[Zod](https://github.com/colinhacks/zod) is a TypeScript-first schema declaration and validation library. It provides an elegant and expressive syntax for defining data schemas and validating data against those schemas in the runtime. Here’s a simple example using TypeScript:
 
 ```ts
-import { z } from 'zod';
+import { z } from "zod";
 
 const userSchema = z.object({
   id: z.string().uuid(),
@@ -48,15 +48,15 @@ In this example, `userSchema` defines a schema for user data, specifying the exp
 
 - **Type Safety:** Zod integrates seamlessly with TypeScript, providing strong type checking at compile-time. This helps to catch potential issues early in the development process.
 
-- **Error Reporting:** When validation fails in the run-time, Zod provides detailed error messages, including information about the specific fields that didn't pass validation. This aids in diagnosing and fixing issues efficiently.
+- **Error Reporting:** When validation fails in the run-time, Zod provides detailed error messages, including information about the specific fields that didn’t pass validation. This aids in diagnosing and fixing issues efficiently.
 
-- **Readability and Expressiveness:** Zod's syntax is clean and expressive, making it easy to define and understand complex data structures. This enhances code readability and maintainability.
+- **Readability and Expressiveness:** Zod’s syntax is clean and expressive, making it easy to define and understand complex data structures. This enhances code readability and maintainability.
 
 - **Flexibility:** Zod allows you to create sophisticated validation rules, including custom validation functions, conditional validation, and more. This flexibility is valuable when dealing with diverse and evolving data structures.
 
 ## How to use Zod
 
-In a real application, I'd encourage to encapsulate the utilization of Zod within a generic helper function. Let's examine a refined implementation:
+In a real application, I’d encourage encapsulating the utilization of Zod within a generic helper function. Let’s examine a refined implementation:
 
 ```ts
 // api/validator.ts
@@ -97,7 +97,7 @@ function captureError(message: string, extra = {}): void {
 
 This helper function takes a data transfer object (DTO), a Zod schema, and a schema name as arguments. It then validates the DTO against the schema and returns the validated data if validation succeeds. If validation fails, it logs an error message and throws an error.
 
-With such a function ready, we only have to define a schema for each API response and use the helper function to validate the response data. Here's an example of how that could look like:
+With such a function ready, we only have to define a schema for each API response and use the helper function to validate the response data. Here’s an example of how that could look like:
 
 ```ts
 // api/requests/v1/accountDetails/schema.ts

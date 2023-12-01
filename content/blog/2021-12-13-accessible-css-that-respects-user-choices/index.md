@@ -4,17 +4,17 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["CSS", "Accessibility"]
 language: en
 dateCreated: 2021-12-13 00:00:00 +0100
-dateUpdated: 2021-12-13 00:00:00 +0100
+dateUpdated: 2023-12-01 00:00:00 +0100
 datePublished: 2021-12-13 00:00:00 +0100
 ---
 
-Most of the designs are rarely built with user preferences in mind, it is the appearance that matters after all! Few people realize the way you respect and adapt the design to users’ preferences can have an impact on how accessible your product is. In this article, I'll list out few things to keep in mind when developing inclusive designs.
+Most of the designs are rarely built with user preferences in mind, it is the appearance that matters after all! Few people realize the way you respect and adapt the design to users’ preferences can have an impact on how accessible your product is. In this article, I’ll list out few things to keep in mind when developing inclusive designs.
 
 ## Prevent animations if a user prefers reduced motion
 
 > Some users experience distraction or nausea from animated content. For example, if scrolling a page causes elements to move (other than the essential movement associated with scrolling) it can trigger vestibular disorders. ~ [W3 WCAG](https://www.w3.org/WAI/WCAG21/Techniques/css/C39)
 
-[The `prefers-reduced-motion` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) can be used to detect if the user prefers to limit the amount of non-essential motions. The user can indicate this preference in their operating system. The following CSS code can be applied to disable that motion for users that request it:
+[The `prefers-reduced-motion` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) can be used to detect if the user prefers to limit the amount of non-essential motions. The user can indicate this preference in their operating system. The following CSS code can be applied to disable that motion for users who request it:
 
 ```css
 @media (prefers-reduced-motion: reduced) {
@@ -23,7 +23,7 @@ Most of the designs are rarely built with user preferences in mind, it is the ap
 }
 ```
 
-Personally, I prefer to go the other way around and enable animations for users that have made no preference known to the system.
+I prefer to go the other way around and enable animations for users who have made no preference known to the system.
 
 ```css
 @media (prefers-reduced-motion: no-preference) {
@@ -32,9 +32,9 @@ Personally, I prefer to go the other way around and enable animations for users 
 }
 ```
 
-Keep in mind that reduced motion preference does not only apply to animations – in fact, it can apply to transitions but also GIFs or videos with auto-play. [Val Head created a great article](https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/#section3) in which he points out how to identify potentially triggering animations.
+Keep in mind that reduced motion preference does not only apply to animations – it can apply to transitions but also to GIFs or videos with auto-play. [Val Head created a great article](https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/#section3) in which he points out how to identify potentially triggering animations.
 
-## Size content based on user's preferred font size
+## Size content based on the user’s preferred font size
 
 Users can adjust the preferred font size in the browser setting. The browser font size can be read by using percentage units – setting `font-size: 100%` will make your text 100% of the base font size set in the browser by the user:
 
@@ -63,11 +63,11 @@ html {
 }
 ```
 
-…with that, you should be able to size everything using relative length units without a headache. Keep in mind that you don't have to limit yourself to font sizes. You can use `rem` unit on breakpoints, widths, heights and any other CSS property.
+…with that, you should be able to size everything using relative length units without a headache. Keep in mind that you don’t have to limit yourself to font sizes. You can use `rem` unit on breakpoints, widths, heights, and any other CSS property.
 
-## Use color scheme based on user's preferred theme
+## Use a color scheme based on the user’s preferred theme
 
-[The `prefers-color-scheme` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) can be used to make your website adapt to the user's preferred color scheme. The user might indicate this preference by changing the color scheme in their operating system.
+[The `prefers-color-scheme` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) can be used to make your website adapt to the user’s preferred color scheme. The user might indicate this preference by changing the color scheme in their operating system.
 
 ```css
 @media (prefers-color-scheme: dark) {
@@ -81,11 +81,11 @@ html {
 }
 ```
 
-Light and dark modes have different use cases but both contribute to the [health & well-being](https://www.health.harvard.edu/staying-healthy/blue-light-has-a-dark-side) of the audience. A light mode will be preferred in a well-lit room or in direct sunlight, wherever, dark mode is preferred during the night or when saving the battery life.
+Light and dark modes have different use cases but both contribute to the [health & well-being](https://www.health.harvard.edu/staying-healthy/blue-light-has-a-dark-side) of the audience. A light mode will be preferred in a well-lit room or direct sunlight, whereas dark mode is preferred during the night or when saving the battery life.
 
-## Adapt to the user's preferred contrast level
+## Adapt to the user’s preferred contrast level
 
-[The `prefers-contrast` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast) can be used to make your website adapt to the user's preferred contrast level. The user might indicate this preference by changing the contrast level in their operating system.
+[The `prefers-contrast` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast) can be used to make your website adapt to the user’s preferred contrast level. The user might indicate this preference by changing the contrast level in their operating system.
 
 ```css
 /* When users have no contrast preferences */
@@ -108,9 +108,9 @@ Light and dark modes have different use cases but both contribute to the [health
 }
 ```
 
-## Use a range of colors supported by the user's device
+## Use a range of colors supported by the user’s device
 
-[The `color-gamut` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color-gamut) can be used to detect the approximate range of colors that are supported by the user monitor. You can use it to adapt you color palette adaptively to the user's display.
+[The `color-gamut` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color-gamut) can be used to detect the approximate range of colors that are supported by the user monitor. You can use it to adapt your color palette adaptively to the user’s display.
 
 ```css
 /* Assume the output device can support approximately the sRGB gamut or more */
@@ -118,7 +118,7 @@ Light and dark modes have different use cases but both contribute to the [health
   --primary: …;
 }
 
-/* The device supports p3 gamut: larger than and includes the srgb gamut */
+/* The device supports the p3 gamut: larger than and includes the sRGB gamut */
 @media (color-gamut: p3) {
   :root {
     --primary: …;

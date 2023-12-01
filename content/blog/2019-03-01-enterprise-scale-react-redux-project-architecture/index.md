@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["React", "Architecture"]
 language: en
 dateCreated: 2019-03-01 00:00:00 +0100
-dateUpdated: 2019-03-01 00:00:00 +0100
+dateUpdated: 2023-12-01 00:00:00 +0100
 datePublished: 2019-03-01 00:00:00 +0100
 ---
 
@@ -20,9 +20,9 @@ Maintaining large React projects can be a difficult task. Below are a few practi
 
 ## File structure
 
-Dan Abramov created a [guide](http://react-file-structure.surge.sh/) for organising files and he got a very good point. For months I’ve been following the “good” ways to organise React projects: starting at the separation of concerns with Presentational and Container components, finishing at adapting [ducks](https://github.com/erikras/ducks-modular-redux).
+Dan Abramov created a [guide](http://react-file-structure.surge.sh/) for organizing files and he made a very good point. For months I’ve been following the “good” ways to organize React projects: starting at the separation of concerns with Presentational and Container components and finishing with adapting [ducks](https://github.com/erikras/ducks-modular-redux).
 
-It worked well for small projects, but as they grew to be 30 different, unique screens and over 200 components, it  became more difficult to maintain all of this together. At Milo, we came with a directory structure that is inspired by Django and best-practices from React, taking the separation of concerns to its extreme.
+It worked well for small projects, but as they grew to be 30 different, unique screens and over 200 components, it became more difficult to maintain all of this together. At Milo, we came up with a directory structure that is inspired by Django and best practices from React, taking the separation of concerns to its extreme.
 
 ```
 src/
@@ -54,24 +54,24 @@ src/
 
 ### Shared
 
-This contains the shared code used all across your app. It can include configuration files, primary presentational components (i.e. Buttons, Inputs, Grid, …) helpers to work with the API and pretty much everything that doesn’t fit in other parts of the proposed architecture.
+This contains the shared code used all across your app. It can include configuration files, primary presentational components (i.e. Buttons, Inputs, Grid, …) helpers to work with the API, and pretty much everything that doesn’t fit in other parts of the proposed architecture.
 
 ### Screens
 
-Screens are components which are directly mounted on routes ([`react-router`](https://github.com/ReactTraining/react-router), [`react-navigation`](https://github.com/react-navigation/react-navigation)). They render shared and/or modules’ components.
+Screens are components that are directly mounted on routes ([`react-router`](https://github.com/ReactTraining/react-router), [`react-navigation`](https://github.com/react-navigation/react-navigation)). They render shared and/or module components.
 
 ### Modules
 
 Sometimes, we need to share the logic between web (React) and mobile (React Native) apps. The proposed structure makes it very easy to reuse and maintain the code without influencing other app parts.
 
-The main idea of `modules/` is to group together a strongly coupled part of the application and make it as reusable as possible. It contains all the required components (later used in screens) as well as reducers, action creators and other state-related utilities.
+The main idea of `modules/` is to group a strongly coupled part of the application and make it as reusable as possible. It contains all the required components (later used in screens) as well as reducers, action creators, and other state-related utilities.
 
 - A module must contain the entire logic for handling its concept;
 - A module may contain all the required components to present its concept.
 
 #### Components
 
-We don’t always follow the concept of a container and presentational components – the promoted thing with this concept is the separation of concerns which can be achieved in different, more maintainable ways, for example though the Hooks API. Do what is more suitable for your case.
+We don’t always follow the concept of a container and presentational components – the promoted thing with this concept is the separation of concerns which can be achieved in different, more maintainable ways, for example, through the Hooks API. Do what is more suitable for your case.
 
 > “I don’t suggest splitting your components like this anymore. If you find it natural in your codebase, this pattern can be handy. But I’ve seen it enforced without any necessity and with almost dogmatic fervor far too many times. The main reason I found it useful was because it let me separate complex stateful logic from other aspects of the component. Hooks let me do the same thing without an arbitrary division.” – [Dan Abramov](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
 
@@ -80,7 +80,7 @@ We don’t always follow the concept of a container and presentational component
 The `index.ts` file should expose the public API of a module. Everything that is not exposed in this file should be considered private and never accessed from the outside.
 
 - The default export must be the reducer.
-- It must exports `actions`, `operations`, `selectors` and `types`.
+- It must export `actions`, `operations`, `selectors`, and `types`.
 - It must expose all the components.
 
 ```typescript
@@ -90,7 +90,7 @@ import * as selectors from "./selectors";
 import * as types from "./types";
 import reducer from "./reducers";
 
-// Store/state related stuff:
+// Store/state-related stuff:
 export default reducer;
 export { actions, operations, selectors, types };
 
@@ -101,7 +101,7 @@ export { default as ComponentNameB } from "./components/ComponentNameB";
 
 #### Action Types
 
-Action types are constants used by action creators and reducers. Each action type should be unique, prefixed by the project and module name.
+Action types are constants used by action creators and reducers. Each action type should be unique and prefixed by the project and module name.
 
 ```typescript
 export const POSTS_REQUEST = "@@<project_name>/<module_name>/POSTS_REQUEST";
@@ -178,7 +178,7 @@ export const fetchPosts = (meta: Object) =>
 
 #### Operations
 
-Operations can be [thunks](https://github.com/reduxjs/redux-thunk) or [sagas](https://redux-saga.js.org/) and everything else that delays the action dispatch. An operation is a function which can contain logic, dispatch multiple actions based on some predicates and manipulate their payload.
+Operations can be [thunks](https://github.com/reduxjs/redux-thunk) or [sagas](https://redux-saga.js.org/) and everything else that delays the action dispatch. An operation is a function that can contain logic, dispatch multiple actions based on some predicates, and manipulate their payload.
 
 ```typescript
 import * as Types from "../types";
@@ -264,7 +264,7 @@ const mapStateToProps = state => ({
 });
 ```
 
-The other thing about selectors is that it facilitates the work with a part of the application that was developed by somebody else – you don’t need to know the state’ shape to work with it if the exposed selectors are enough and well documented.
+The other thing about selectors is that they facilitate the work with a part of the application that was developed by somebody else – you don’t need to know the state’s shape to work with it if the exposed selectors are enough and well-documented.
 
 #### Reducers
 
@@ -329,18 +329,18 @@ export type RootAction =
 
 ### Utilities for state management
 
-You can think of Redux as a low-level API – it doesn’t force any particular patterns and allow you pretty much to do whatever you want.
+You can think of Redux as a low-level API – it doesn’t force any particular patterns and allows you pretty much to do whatever you want.
 
 - [Ramda](https://ramdajs.com/): a practical functional library for JavaScript programmers.
 - [Immer](https://github.com/mweststrate/immer): create the next immutable state by mutating the current one.
 
 ### Utilities for creating styles
 
-Creating styles can be a pain, especially in React Native or when you need to create custom styles based on the state. [Styled Components](https://www.styled-components.com/ecosystem) can come handy – they allow you to create styles directly in JavaScript using SCSS syntax.
+Creating styles can be a pain, especially in React Native or when you need to create custom styles based on the state. [Styled Components](https://www.styled-components.com/ecosystem) can come in handy – they allow you to create styles directly in JavaScript using SCSS syntax.
 
 ### Tips and tricks
 
-#### You can use reducers on inner state
+#### You can use reducers on the inner state
 
 Creating reducers to handle the inner component state is a good practice in the case when you have complex state logic – it is easier to test and in most cases, less error-prone. Creating reducers for inner state management is even easier with the new Hooks API.
 
@@ -374,7 +374,7 @@ export default function Counter({initialState}) {
 
 #### Never render a list of children without assigning a unique key to each
 
-This can have a huge impact on the performance, even bigger if you rendering a big list of elements. As from React documentation:
+This can have a huge impact on the performance, even bigger if you render a big list of elements. As from React documentation:
 
 > Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity. The best way to pick a key is to use a string that uniquely identifies a list item among its siblings. Most often you would use IDs from your data as keys.
 
@@ -406,7 +406,7 @@ class FooComponent extends React.Component {
 
 #### Never create functions or objects in props
 
-This can have a huge impact on the performance. If you create new objects or functions in the props, a new reference will be passed down to the child each time its parents re-render, resulting in unnecessary re-renders and probably more unwanted behaviours.
+This can have a huge impact on the performance. If you create new objects or functions in the props, a new reference will be passed down to the child each time its parents re-render, resulting in unnecessary re-renders and probably more unwanted behaviors.
 
 **Don’t:**
 
@@ -444,13 +444,13 @@ class FooComponent extends React.Component {
 
 #### Avoid duplicating data between props and state
 
-If some data can be derived or calculated directly from the props, it’s unnecessary to replicate this data in state. Props should be the only source of truth. In fact – if you want to calculate the state based on the received props, you’ll need to create a `componentDidUpdate` method and keep you state and props in sync – this is an anti-pattern.
+If some data can be derived or calculated directly from the props, it’s unnecessary to replicate this data in the state. Props should be the only source of truth. In fact – if you want to calculate the state based on the received props, you’ll need to create a `componentDidUpdate` method and keep your state and props in sync – this is an anti-pattern.
 
-The only case when assigning props to state is acceptable is to pass initial data to a component which doesn’t need to be in sync with the store, e.g. forms.
+The only case when assigning props to a state is acceptable is to pass initial data to a component that doesn’t need to be in sync with the store, e.g. forms.
 
 **Avoid:**
 
-```typescript
+```jsx
 class FooComponent extends React.Component {
   state = {
     foo: this.props.foo,
@@ -463,7 +463,7 @@ class FooComponent extends React.Component {
 
 As Michael Jackson (React-Router co-creator) said:
 
-> “Next time you think you need a HOC (higher-order component) in, you probably don't. I can do anything you're doing with your HOC using a regular component with a [render prop](https://reactjs.org/docs/render-props.html).“ – [Michael Jackson](https://twitter.com/mjackson/status/885910553432018945)
+> “Next time you think you need a HOC (higher-order component) in, you probably don’t. I can do anything you’re doing with your HOC using a regular component with a [render prop](https://reactjs.org/docs/render-props.html).“ – [Michael Jackson](https://twitter.com/mjackson/status/885910553432018945)
 
 #### Avoid using Components without `shouldComponentUpdate`
 

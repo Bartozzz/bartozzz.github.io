@@ -4,24 +4,24 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Vue", "PWA"]
 language: en
 dateCreated: 2019-01-05 00:00:00 +0100
-dateUpdated: 2019-01-05 00:00:00 +0100
+dateUpdated: 2023-12-01 00:00:00 +0100
 datePublished: 2019-01-05 00:00:00 +0100
 ---
 
-With JavaScript increasingly gaining popularity, Progressive Web Apps (_PWAs_) might replace native mobile & desktops apps in the future. In this post, we will learn how to develop and test offline-first, Vue-based Progressive Web Applications and why it is worth-it.
+With JavaScript increasingly gaining popularity, Progressive Web Apps (_PWAs_) might replace native mobile & desktop apps in the future. In this post, we will learn how to develop and test offline-first, Vue-based Progressive Web Applications and why it is worth it.
 
 ## Introduction to Progressive Web Apps (PWAs)
 
-Progressive Web Apps can be installed on most devices like native apps. They are meant to be **reliable** (work on each platform, even offline), **fast** and provide a **native-like** user experience. These apps combine the best of web and native solutions:
+Progressive Web Apps can be installed on most devices like native apps. They are meant to be **reliable** (work on each platform, even offline), **fast**, and provide a **native-like** user experience. These apps combine the best of web and native solutions:
 
-- They are **rapid to develop**, **cross-platform** and **responsive** by nature. JavaScript provides a lot of frameworks (such as [Vue](https://vuejs.org/), [React](https://reactjs.org/)) and dedicated front-end component libraries to boost productivity (Bootstrap, Material UI). You write your code once and deploy you application on every platform;
-- **Fast load**, **fast response**. Progressive web apps are comparable to native solutions in terms of efficiency. With _service workers_, cache and several optimizations made in engines running JavaScript, Progressive Web Applications' loading and response times are very low.
+- They are **rapid to develop**, **cross-platform** and **responsive** by nature. JavaScript provides a lot of frameworks (such as [Vue](https://vuejs.org/), [React](https://reactjs.org/)) and dedicated front-end component libraries to boost productivity (Bootstrap, Material UI). You write your code once and deploy your application on every platform;
+- **Fast load**, **fast response**. Progressive web apps are comparable to native solutions in terms of efficiency. With _service workers_, cache, and several optimizations made in engines running JavaScript, Progressive Web Applications’ loading and response times are very low.
 
-It is important to notice that if you are planning on making your application a PWA, you don’t have to rewrite all the logic. For example, your application should work offline, but it doesn’t mean that you must set-up a background queue or store your data in a persistent storage – a offline message (e.g. “_You're offline, check your network status._”) is enough.
+It is important to notice that if you are planning on making your application a PWA, you don’t have to rewrite all the logic. For example, your application should work offline, but it doesn’t mean that you must set up a background queue or store your data in a persistent storage – an offline message (e.g. “_You’re offline, check your network status._”) is enough.
 
 ### Browser support
 
-Progressive Web Apps are compatible with every mobile device which support one of the following browsers:
+Progressive Web Apps are compatible with every mobile device that supports one of the following browsers:
 
 - **Google Chrome** (since v40+);
 - **Firefox** (since v44+);
@@ -47,11 +47,11 @@ In this article, we will be using [Vue-CLI](https://cli.vuejs.org/) to create a 
 
 [Service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) (not to be confused with [_Worklets_](https://developer.mozilla.org/en-US/docs/Web/API/Worklet) or raw [_Workers_](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)) represents a proxy between the browser and the network – they allow you to intercept requests made by your application and handle each one separately enabling offline access, browser-level caching and more.
 
-Like Workers, service workers are executed on a different thread and communicate with the main one – your web application, via an API: since Workers are on a different thread, they don't have direct access to any of your web app internals. Workers generally offer more functionality than the standard browser API and Service Workers, i.e. to send push notifications, create periodic background tasks, hook into OS internals ([Share Target API](https://developers.google.com/web/updates/2016/09/navigator-share), …).
+Like Workers, service workers are executed on a different thread and communicate with the main one – your web application, via an API: since Workers are on a different thread, they don’t have direct access to any of your web app internals. Workers generally offer more functionality than the standard browser API and Service Workers, i.e. to send push notifications, create periodic background tasks, hook into OS internals ([Share Target API](https://developers.google.com/web/updates/2016/09/navigator-share), …).
 
-In order to use Workers, your website must be served over HTTPS. Even if service Workers are not compatible with some web browsers, you can safely add them in your application – it will not break the experience for any user (_progressive enhancement_).
+To use Workers, your website must be served over HTTPS. Even if service Workers are not compatible with some web browsers, you can safely add them to your application – it will not break the experience for any user (_progressive enhancement_).
 
-[`@vue/cli-plugin-pwa`](https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-pwa) should take care of creating a Service Worker. The generated Service Worker will cache all builded resources. If you want to create a service worker manually, you can modify this behaviour in the `vue.config.js` file by adding the following lines:
+[`@vue/cli-plugin-pwa`](https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-pwa) should take care of creating a Service Worker. The generated Service Worker will cache all built resources. If you want to create a service worker manually, you can modify this behavior in the `vue.config.js` file by adding the following lines:
 
 ```typescript
 module.exports = {
@@ -64,7 +64,7 @@ module.exports = {
 };
 ```
 
-It is important that the path in `swSrc` option matches the path specified in `registerServiceWorker.ts` file, otherwise you Service Worker will not be registered. You can then use [Workbox](https://developers.google.com/web/tools/workbox/guides/get-started) to define custom rules for request interceptors. Here's an example:
+The path in `swSrc` option must match the path specified in the `registerServiceWorker.ts` file, otherwise, your Service Worker will not be registered. You can then use [Workbox](https://developers.google.com/web/tools/workbox/guides/get-started) to define custom rules for request interceptors. Here’s an example:
 
 ```javascript
 // public/service-worker.js
@@ -108,9 +108,9 @@ Installing a Progressive Web Application works the same way on both mobile and d
 2. Include a web app manifest file;
 3. Have an icon to represent the app on the device;
 4. Have a registered service worker to make the app work offline;
-5. The web app must be served over HTTPS and not being already installed;
+5. The web app must be served over HTTPS and not already installed;
 
-If those criterias are met, web browser will emit a `beforeinstallprompt` event which you can use to notify the user that your app can be installed. The most common way is by adding a button on the website. It is considered best practice to don't show a full page banner or distracting notifications. Let's add some markup for our `InstallBanner` component:
+If those criteria are met, the web browser will emit a `beforeinstallprompt` event which you can use to notify the user that your app can be installed. The most common way is by adding a button on the website. It is considered best practice to not show a full-page banner or distracting notifications. Let’s add some markup for our `InstallBanner` component:
 
 ```html
 <template>
@@ -121,7 +121,7 @@ If those criterias are met, web browser will emit a `beforeinstallprompt` event 
 </template>
 ```
 
-Instead of dealing with adding and removing event listeners for `beforeinstallpromptevent` manually, we can use [`vue-pwa-install`](https://git.milosolutions.com/blaniewski/vue-pwa-install) plugin which I wrote for this article. It will emit a `canInstall` in the root event bus – what you need to do is listen for this particular event in one of your components. First, let's install the `vue-pwa-install` plugin with the following command:
+Instead of dealing with adding and removing event listeners for the `beforeinstallprompt` event manually, we can use the [`vue-pwa-install`](https://github.com/Bartozzz/vue-pwa-install) plugin which I wrote for this article. It will emit a `canInstall` in the root event bus – what you need to do is listen for this particular event in one of your components. First, let’s install the `vue-pwa-install` plugin with the following command:
 
 ```bash
 $ npm install --save vue-pwa-install
@@ -136,7 +136,7 @@ import VueInstall from "vue-pwa-install";
 Vue.use(VueInstall);
 ```
 
-Once registered, we can listen for `canInstall` event in any component and handle the event to show the install prompt. Let's add the following code in our `InstallBanner` component:
+Once registered, we can listen for the `canInstall` event in any component and handle the event to show the install prompt. Let’s add the following code in our `InstallBanner` component:
 
 ```html
 <script lang="ts">
@@ -174,20 +174,20 @@ Once registered, we can listen for `canInstall` event in any component and handl
 </script>
 ```
 
-And that's all. The banner should be displayed on the website once the 5 requirements listed above are met, and when the user click on _Opt for_ button, he will be asked by the browser if he wants to install the app on his local machine.
+And that’s all. The banner should be displayed on the website once the 5 requirements listed above are met, and when the user clicks on _Opt for_ button, he will be asked by the browser if he wants to install the app on his local machine.
 
 ### Prompting the user to update
 
-In `registerServiceWorker.ts` file, you should have a updated handler. This function will be executed each time a new version of your website is available – in order to get the updated version, the user should simply reload the page. It is considered very bad practice to force a page reload, therefore it is advised to create a small banner which will pop-up and inform the user about the update. We can start by creating a banner markup in our `index.html` file, as follows:
+In the `registerServiceWorker.ts` file, you should have an updated handler. This function will be executed each time a new version of your website is available – to get the updated version, the user should simply reload the page. It is considered very bad practice to force a page reload, therefore it is advised to create a small banner that will pop up and inform the user about the update. We can start by creating a banner markup in our `index.html` file, as follows:
 
 ```html
 <div id="update-banner" class="banner" style="display: none">
-  <p>There's a new version of Foo App.</p>
+  <p>There’s a new version of Foo App.</p>
   <button id="update-button">Reload</button>
 </div>
 ```
 
-Next, we need to show this banner when a new update comes in, and add necessary event handlers for the "Reload" button. This can be achieved directly in `updated` function:
+Next, we need to show this banner when a new update comes in and add necessary event handlers for the "Reload" button. This can be achieved directly in the `updated` function:
 
 ```typescript
 updated() {
@@ -202,22 +202,22 @@ updated() {
 }
 ```
 
-Note that you could create a Vue component instead of a pure HTML-based banner, but then you should store `updateAvailable` state in your App' store (e.g. Vuex) and it will require some more work.
+Note that you could create a Vue component instead of a pure HTML-based banner, but then you should store the `updateAvailable` state in your App’ store (e.g. Vuex) and it will require some more work.
 
-If possible, configure your production environment to serve `service-worker.js` with HTTP caching disabled. Otherwise if you visit your web app, and then revisit again before `service-worker.js` has expired from cache, you'll continue to get the update banner showing.
+If possible, configure your production environment to serve `service-worker.js` with HTTP caching disabled. Otherwise, if you visit your web app, and then revisit before `service-worker.js` has expired from the cache, you’ll continue to get the update banner showing.
 
 ### Handling offline-first forms
 
-There are 2 ways of handling offline forms: the first one is by intercepting the request when user is offline and sending it again when there's a internet connection. There are a few problems that you must take care of:
+There are 2 ways of handling offline forms: the first one is by intercepting the request when the user is offline and sending it again when there’s an internet connection. There are a few problems that you must take care of:
 
-1. **Concurrency:** what if the data on remote database has changed when user was offline? Overwriting it might be an unwanted behaviour.
-2. **False positives:** if the user is connected to internet, it doesn't necessary mean that he can send requests yet (i.e. paid hotspots).
-3. **Error handling:** when the request failed, how should we inform the user that the request he tried to made 3 days ago failed?
+1. **Concurrency:** what if the data on the remote database has changed when the user was offline? Overwriting it might be an unwanted behavior.
+2. **False positives:** if the user is connected to the internet, it doesn’t necessarily mean that he can send requests yet (i.e. paid hotspots).
+3. **Error handling:** when the request fails, how should we inform the user that the request he tried to make 3 days ago failed?
 4. **Application architecture:** this kind of offline-first form handling often requires a more complex architecture.
 
-The easier approach is to save the form state in local storage and inform the user that he will be able to submit the form once he'll be online again. This solution can be implemented in a few line for each already existing form.
+The easier approach is to save the form state in local storage and inform the user that he will be able to submit the form once he is online again. This solution can be implemented in a few lines for each already existing form.
 
-Let's start with creating a local store in `store/local.ts`. We will use [`LocalForage`](https://github.com/localForage/localForage) library which wraps IndexedDB, WebSQL, or localStorage using a simple but powerful API. It will allow us to store data in the most suitable local storage available on user's device:
+Let’s start with creating a local store in `store/local.ts`. We will use [`LocalForage`](https://github.com/localForage/localForage) library which wraps IndexedDB, WebSQL, or localStorage using a simple but powerful API. It will allow us to store data in the most suitable local storage available on the user’s device:
 
 ```typescript
 import LocalForage from "localforage";
@@ -316,15 +316,15 @@ Then, we can modify any form to use the local `formStore` when needed, as follow
 
 ### Showing offline information
 
-If your application is not fully offline-first (e.g. you don't save the requests in a queue like in the previous section), it is important to notify the users about their connection status. You can use `navigator.onLine` property and `ononline`, `onoffline` events or let the [`vue-offline`](https://github.com/filrak/vue-offline) plugin take care of all of this.
+If your application is not fully offline first (e.g. you don’t save the requests in a queue like in the previous section), it is important to notify the users about their connection status. You can use the `navigator.onLine` property and `ononline`, and `onoffline` events or let the [`vue-offline`](https://github.com/filrak/vue-offline) plugin take care of all of this.
 
 ```bash
 $ npm install --save vue-offline
 ```
 
-It will add `isOnline`, `isOffline` data properties and `online`, `offline` events via a global mixin. We need to register their plugin in `main.ts`, as follows:
+It will add `isOnline`, and `isOffline` data properties and `online`, and `offline` events via a global mixin. We need to register their plugin in `main.ts`, as follows:
 
-```typescript
+```ts
 import Vue from "vue";
 import VueOffline from "vue-offline";
 
@@ -366,7 +366,7 @@ Then we can safely listen for the online and offline events in our `App.vue`:
 
 ### Making Vuex state persistent
 
-If you want some parts of your data persistent, available in offline mode, you’ll need a persistent store, which replicated and retrieve the Vuex store to/from a local storage. In this article, I’ll focus on a Vuex plugin named [`vuex-persist`](https://github.com/championswimmer/vuex-persist). You can download it with the following command:
+If you want some parts of your data persistent, available in offline mode, you’ll need a persistent store, which replicates and retrieves the Vuex store to/from local storage. In this article, I’ll focus on a Vuex plugin named [`vuex-persist`](https://github.com/championswimmer/vuex-persist). You can download it with the following command:
 
 ```bash
 $ npm install --save vuex-persist
@@ -387,7 +387,7 @@ export default function createPersistedState(options = {}) {
       storage: LocalForage,
       asyncStorage: true,
 
-      // Used to trigger `storageReady` event as soon as the state is loaded
+      // Used to trigger the `storageReady` event as soon as the state is loaded
       // from LocalForage:
       restoreState: (key, storage) =>
         new Promise(resolve => {
@@ -452,7 +452,7 @@ export default new Vuex.Store({
 });
 ```
 
-And voila! Data from foo and bar modules will be persistent, automatically stored and retrieved in/from the local storage. The last this we need to do is wait till the store is rehydrated before rendering the main app component, but since we are emitting a `storageReady` event in our `vuex-persist` wrapper, this should be pretty easy:
+And voila! Data from foo and bar modules will be persistent, automatically stored, and retrieved in/from the local storage. The last thing we need to do is wait till the store is rehydrated before rendering the main app component, but since we are emitting a `storageReady` event in our `vuex-persist` wrapper, this should be pretty easy:
 
 ```html
 <template>
@@ -478,8 +478,8 @@ export default {
   }),
 
   created() {
-    // This event is fired by "persistent" Vuex plugin when state is loaded from
-    // local storage (i.e. IndexedDB):
+    // This event is fired by the "persistent" Vuex plugin when the state is
+    // loaded from local storage (i.e. IndexedDB):
     this.$store._vm.$root.$on("storageReady", () => {
       this.isStateReady = true;
     });
@@ -490,20 +490,20 @@ export default {
 
 ## Testing offline-first applications
 
-Google Chrome's DevTools offer a lot of functions test the PWA features of your web application. However, some of them require HTTPS certificates, even on localhost. Let’s see how to properly set-up a testing environment to test our Vue application.
+Google Chrome’s DevTools offers a lot of functions to test the PWA features of your web application. However, some of them require HTTPS certificates, even on localhost. Let’s see how to properly set up a testing environment to test our Vue application.
 
 ### Creating a development environment with HTTPS
 
-In order to test service workers and other features locally, we will need to generate our own, self-signed certificate and add it to our OS’s trust store. This process is described on [letsencrypt page](https://letsencrypt.org/docs/certificates-for-localhost/) – it requires only the following command to generate certificates:
+To test service workers and other features locally, we will need to generate our own, self-signed certificate and add it to our OS’s trust store. This process is described on [letsencrypt page](https://letsencrypt.org/docs/certificates-for-localhost/) – it requires only the following command to generate certificates:
 
 ```bash
 openssl req -x509 -out localhost.crt -keyout localhost.key \
   -newkey rsa:2048 -nodes -sha256 \
-  -subj '/CN=localhost' -extensions EXT -config <( \
+  -subj "/CN=localhost" -extensions EXT -config <( \
    printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 ```
 
-Once `localhost.crt` installed and trusted on our machine, we can modify `vue.config.js` to use the generated certificates, as follows:
+Once `localhost.crt` is installed and trusted on our machine, we can modify `vue.config.js` to use the generated certificates, as follows:
 
 ```typescript
 const fs = require("fs");
@@ -563,6 +563,6 @@ You can test your Progressive Web Applications directly in the browser, without 
 
 ## Conclusion
 
-In this article, we learned how to create a great base for offline-first, PWAs using Vue, web manifest and other standards. There's a lot more to consider to make a great native-like feeling and keep your user engaged. Here are some points to consider:
+In this article, we learned how to create a great base for offline-first, PWAs using Vue, web manifest, and other standards. There’s a lot more to consider to make a great native-like feeling and keep your user engaged. Here are some points to consider:
 - Keyboard shortcuts;
 - Notification & icon badges;

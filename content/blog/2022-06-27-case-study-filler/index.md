@@ -1,18 +1,18 @@
 ---
-title: "Case study: Filler (a Expo/React Native game)"
+title: "Case study: Filler (a React Native game)"
 authors: ["Bartosz Łaniewski"]
 keywords: ["Case Study", "Gamedev", "React Native"]
 language: en
 dateCreated: 2022-06-27 00:00:00 +0100
-dateUpdated: 2022-06-27 00:00:00 +0100
+dateUpdated: 2023-12-01 00:00:00 +0100
 datePublished: 2022-06-27 00:00:00 +0100
 ---
 
-[Filler](https://filler.laniewski.me/) is the first mobile game I ever created with React Native. It started as an experiment to learn more about algorithms, animations and the platform itself.
+[Filler](https://filler.laniewski.me/) is the first mobile game I ever created with React Native. It started as an experiment to learn more about algorithms, animations, and the platform itself.
 
 ## Introduction
 
-I initially created Filler when I was ~15 years old. The idea came up as I was thinking of simple projects I could work on to learn more about web development and data structures. It was later on that I learned there was already a similar (and quite popular back in the '90s) game, called _"Lights Out"_.
+I initially created Filler when I was ~15 years old. The idea came up as I was thinking of simple projects I could work on to learn more about web development and data structures. It was later on that I learned there was already a similar (and quite popular back in the ’90s) game, called _"Lights Out"_.
 
 > Lights Out is an electronic game released by Tiger Electronics in 1995. The game consists of a 5 by 5 grid of lights. When the game starts, a random number or a stored pattern of these lights is switched on. Pressing any of the lights will toggle it and the adjacent lights. The goal of the puzzle is to switch all the lights off, preferably in as few button presses as possible. – [Wikipedia](https://en.wikipedia.org/wiki/Lights_Out_(game))
 
@@ -55,7 +55,7 @@ export { i18n };
 <Button>{i18n.t("menu.campaignButton")}</Button>
 ```
 
-To make my tests independant of the translations, I mocked the `i18n-js` library and made the `i18n.t` function return the translation key instead of the translation itself:
+To make my tests independent of the translations, I mocked the `i18n-js` library and made the `i18n.t` function return the translation key instead of the translation itself:
 
 ```ts
 jest.mock("i18n-js", () => {
@@ -69,7 +69,7 @@ jest.mock("i18n-js", () => {
 …having that, I could safely update the copy without breaking the integration tests:
 
 ```tsx
-it("should reset the board on 'Reset' button click", () => {
+it("should reset the board on ’Reset’ button click", () => {
   const view = render(<Game />);
 
   fireEvent.press(view.getByText("header.resetBtn"));
@@ -81,7 +81,7 @@ I was not afraid to break anything in the user interface because my application 
 
 ### Animations
 
-I used [`react-native-reanimated`](https://github.com/software-mansion/react-native-reanimated) to create all animations in the game. The main reason behind this choice was that the animations run on the native thread – it's a great animation library performance-wise. It comes with an imperative and a declarative API.
+I used [`react-native-reanimated`](https://github.com/software-mansion/react-native-reanimated) to create all animations in the game. The main reason behind this choice was that the animations run on the native thread – it’s a great animation library performance-wise. It comes with an imperative and a declarative API.
 
 #### Imperative API
 
@@ -111,7 +111,7 @@ function GridCell({ checked }: { checked: boolean }) {
 
 #### Declarative API
 
-There's also a higher-level API that I used to progressively reveal content on the success screen. I didn't need anything fancy here, just some entering animations with delays and the declarative API does a great job for such things:
+There’s also a higher-level API that I used to progressively reveal content on the success screen. I didn’t need anything fancy here, just some entering animations with delays and the declarative API does a great job for such things:
 
 ```tsx {6, 10, 14}
 function ScoreStars({ score }: { score: number }) {
@@ -151,8 +151,8 @@ const Swing = () =>
 
 ### Monetization
 
-After the gameplay was implemented, I started working on integrating ads into the application using Google's AdMob platform. The monetization model is pretty standard in the mobile industry. I decided to show:
-- an Interstitial Ad when the user completes a level (cap at 1 impression / 5 minutes / user);
+After the gameplay was implemented, I started working on integrating ads into the application using Google’s AdMob platform. The monetization model is pretty standard in the mobile industry. I decided to show:
+- an Interstitial Ad when the user completes a level (cap at 1 impression every 5 minutes per user);
 - a Rewarded Ad to unlock the solution w/ solver.
 
 I used [`react-native-google-mobile-ads`](https://github.com/invertase/react-native-google-mobile-ads) (and had a chance to contribute a little bit to the library as well!) to implement the advertising.
@@ -252,7 +252,7 @@ It turned out that React Native with Hermes can perform well enough to provide a
 
 ### Sounds
 
-There's an issue with playing the same [`Audio`](https://docs.expo.dev/versions/latest/sdk/audio/) multiple times: the sound works well the first time, but the other times it seems that the sound isn't playing from the start but with a shift of some milliseconds.
+There’s an issue with playing the same [`Audio`](https://docs.expo.dev/versions/latest/sdk/audio/) multiple times: the sound works well the first time, but the other times it seems that the sound isn’t playing from the start but has a shift of some milliseconds.
 
 The solution I use is to preload multiple copies of [`Audio`](https://docs.expo.dev/versions/latest/sdk/audio/) and play the next sample when needed. My implementation looks as follows:
 
@@ -303,7 +303,7 @@ class Sound {
 
 ### Solver
 
-I wanted to create a solver to monetize the game. It turned out to be quite a popular problem with a lot of resources online, so I won't go into much details. It just required a bit of linear algebra.
+I wanted to create a solver to monetize the game. It turned out to be quite a popular problem with a lot of resources online, so I won’t go into much detail. It just required a bit of linear algebra.
 
 A board can be modeled mathematically as a vector over <Formula>{`\\mathbb{F}_2`}</Formula>, a [field](https://en.wikipedia.org/wiki/GF(2)) containing only the elements 0 and 1 (for light on and off respectively). We can write each possible board position and each possible move as a vector over <Formula>{`\\mathbb{F}_2`}</Formula>. That means that:
 - pressing a cell an even number of times has no effect;
@@ -325,4 +325,4 @@ A nice video explaining this in detail can be found [here](https://www.youtube.c
 
 ## Conclusion
 
-It was a fun experience to rebuild the same game several years later after gathering all of my commercial experience and still being able to learn new things along the journey. So far, I've got 200+ downloads and generated $0.20 in ad revenue, but hey, the learnings are priceless!
+It was a fun experience to rebuild the same game several years later after gathering all of my commercial experience and still being able to learn new things along the journey. So far, I’ve got 200+ downloads and generated $0.20 in ad revenue, but hey, the learnings are priceless!
