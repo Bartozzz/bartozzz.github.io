@@ -41,7 +41,7 @@ Bazując się na wyżej wymienionych informacjach, bardzo łatwo można wygenero
 
 1.  **Adres IP** oraz <abbr title="od Internet service provider – dostawca usług internetowych">ISP</abbr>: należy używać ostrożnie — dynamiczna alokacja adresów IP przez dostawców może być problematyczna. Z tego powodu, adresy IP są częściej używane do blokowania dostępu aniżeli identyfikacji maszyn.
 2.  **Ciasteczka**: najczęściej wykorzystywane przez narzędzia do analizy ruchu i dostawców reklam. Wraz z przepisami znowelizowanej ustawy [Prawa Telekomunikacyjnego][5] coraz więcej osób decyduje się jednak na ich blokowanie.
-3.  **Przeglądarka**: zgodnie ze specyfikacją [<attr title="od Request for Comments – zbiór technicznych dokumentów związanych z Internetem">RFC</attr> 7231 (5.5.3)][6], nagłówek <attr title="od Hypertext Transfer Protocol">HTTP</attr> `User-Agent` zawiera informacje pozwalające na rozpoznanie programu, z którego klient wykonał zapytanie.
+3.  **Przeglądarka**: zgodnie ze specyfikacją [<abbr title="od Request for Comments – zbiór technicznych dokumentów związanych z Internetem">RFC</abbr> 7231 (5.5.3)][6], nagłówek <abbr title="od Hypertext Transfer Protocol">HTTP</abbr> `User-Agent` zawiera informacje pozwalające na rozpoznanie programu, z którego klient wykonał zapytanie.
 
 <Alert>
 
@@ -52,7 +52,7 @@ Bazując się na wyżej wymienionych informacjach, bardzo łatwo można wygenero
 
 ### Jak wygląda „Web Tracking” pod maską?
 
-Do rozpoznawania użytkownika używa się algorytmu, który kolekcjonuje i przetwarza udostępnione przez przeglądarkę charakterystyki. Na ich podstawie jest wyliczany unikalny, stabilny identyfikator przypisany dla konkretnego klienta. Charakterystyki mogą być przesyłane na dwa sposoby – _statycznie_, poprzez zapytanie HTTP, oraz _dynamicznie_, poprzez <attr title="od Asynchronous JavaScript and XML – asynchroniczny JavaScript i XML">AJAX</attr>.
+Do rozpoznawania użytkownika używa się algorytmu, który kolekcjonuje i przetwarza udostępnione przez przeglądarkę charakterystyki. Na ich podstawie jest wyliczany unikalny, stabilny identyfikator przypisany dla konkretnego klienta. Charakterystyki mogą być przesyłane na dwa sposoby – _statycznie_, poprzez zapytanie HTTP, oraz _dynamicznie_, poprzez <abbr title="od Asynchronous JavaScript and XML – asynchroniczny JavaScript i XML">AJAX</abbr>.
 
 AJAX daje dostęp do większej ilości danych, ponieważ służy do pobierania charakterystyk bezpośrednio z API przeglądarki. Do takich informacji wliczamy listy [dostępnych czcionek][9], wtyczek, strefę czasową oraz rozdzielczość ekranu. Co więcej, wiele narzędzi posuwa się nawet do [śledzenie kliknięć oraz ruchów kursora][10]:
 
