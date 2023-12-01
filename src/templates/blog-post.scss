@@ -94,6 +94,7 @@
   h6 {
     margin: 0;
     @extend %text-heading;
+    scroll-margin-top: var(--ls-xl);
   }
   h1 {
     @include vr-font("xxl");

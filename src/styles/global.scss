@@ -1,6 +1,9 @@
 html {
   font-size: 62.5%; // 1rem = 10px
 }
+html.smooth-scroll {
+  scroll-behavior: smooth;
+}
 
 body {
   background-color: var(--background-100);

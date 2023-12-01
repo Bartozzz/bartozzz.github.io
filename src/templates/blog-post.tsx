@@ -97,6 +97,7 @@ export function Head({ data, pageContext, location }: Props) {
       description={description || excerpt}
     >
       <link rel="canonical" href={`${siteUrl}${slug}`} />
+      <html className="smooth-scroll" />
     </SEO>
   );
 }
