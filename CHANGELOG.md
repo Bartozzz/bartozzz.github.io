@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.23.0...v1.24.0) (2023-12-01)
+
+
+### Features
+
+* open outlinks in new tab ([07adba4](https://github.com/Bartozzz/bartozzz.github.io/commit/07adba454546144e6f3b8565f2bf246432b3b922))
+
 # [1.23.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.22.0...v1.23.0) (2023-12-01)
 
 
