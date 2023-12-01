@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.24.0...v1.25.0) (2023-12-01)
+
+
+### Features
+
+* add smooth scroll on blog-post pages ([dbbeece](https://github.com/Bartozzz/bartozzz.github.io/commit/dbbeece7996d9881d3260044bcb994c596151d75))
+
 # [1.24.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.23.0...v1.24.0) (2023-12-01)
 
 
