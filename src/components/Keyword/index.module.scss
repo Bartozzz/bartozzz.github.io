@@ -1,8 +1,6 @@
 @import "../../styles/mixins/vertical-rhythm";
 
 .keyword {
-  --border-width: 2px;
-
   @include vr-font("xs");
 
   display: inline-block;
@@ -10,21 +8,17 @@
   padding: 0 var(--cs-sm);
   margin: 0 0 var(--cs-sm) var(--cs-sm);
 
-  border-width: var(--border-width);
   border-radius: var(--br-md);
-  border-style: solid;
-  border-color: var(--primary-500);
 
-  color: var(--primary-100);
+  color: var(--text-primary);
   background-color: var(--primary-500);
 
   white-space: nowrap;
-  line-height: calc(var(--lh-xs) - var(--border-width) * 2);
+  line-height: calc(var(--lh-xs));
 }
 
 .keyword__outlined {
-  background-color: transparent;
-  color: var(--primary-500);
+  background-color: var(--primary-100);
 }
 
 .keyword__wide {
