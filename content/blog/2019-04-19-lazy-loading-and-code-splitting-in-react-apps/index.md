@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["React"]
 language: en
 dateCreated: 2019-04-20 00:00:00 +0100
-dateUpdated: 2019-04-20 00:00:00 +0100
+dateUpdated: 2023-11-30 00:00:00 +0100
 datePublished: 2019-04-20 00:00:00 +0100
 ---
 
@@ -83,7 +83,7 @@ In our render, we just read the data using the `FooListResource.read`. This meth
 ```jsx
 const FooList = () => {
   const response = FooListResource.read({
-    search: "Lorem ipsum dolor.",
+    search: "search string",
   });
 
   return (
