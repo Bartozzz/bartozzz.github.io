@@ -1,3 +1,11 @@
+# [1.23.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.22.0...v1.23.0) (2023-12-01)
+
+
+### Features
+
+* fix grammar issues in posts ([eb58998](https://github.com/Bartozzz/bartozzz.github.io/commit/eb589980bddc097125b467911ef0e3d3c20460a1))
+* update page titles and descriptions ([ae4743e](https://github.com/Bartozzz/bartozzz.github.io/commit/ae4743ec5de845eed097629554ada3cfd4eb72d3))
+
 # [1.22.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.21.0...v1.22.0) (2023-12-01)
 
 
