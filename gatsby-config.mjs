@@ -9,9 +9,6 @@ import remarkSmartypants from "remark-smartypants";
 const config = {
   jsxRuntime: "automatic",
   siteMetadata: {
-    title: "Bartosz Łaniewski",
-    description:
-      "Creative designer & developer based in Poland. Passionate about architecture and beautiful software.",
     siteUrl: "https://laniewski.me",
     siteRepo: "https://github.com/Bartozzz/bartozzz.github.io",
     contact: "hi@laniewski.me",

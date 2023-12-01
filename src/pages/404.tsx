@@ -37,5 +37,5 @@ export default function NotFoundPage({}: Props) {
 }
 
 export function Head({}: Props) {
-  return <SEO title="Not Found" />;
+  return <SEO title="404: Not Found" />;
 }

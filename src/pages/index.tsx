@@ -159,7 +159,10 @@ export function Head({ data }: Props) {
   const siteUrl = data.site.siteMetadata.siteUrl;
 
   return (
-    <SEO>
+    <SEO
+      title="Bartosz Łaniewski"
+      description="Creative designer & developer based in Poland. Passionate about architecture and beautiful software."
+    >
       <link rel="canonical" href={`${siteUrl}/`} />
     </SEO>
   );
@@ -169,7 +172,6 @@ export const pageQuery = graphql`
   query IndexPage {
     site {
       siteMetadata {
-        title
         siteUrl
       }
     }

@@ -95,7 +95,11 @@ export function Head({ data, pageContext, location }: Props) {
   return (
     <SEO
       url={`${siteUrl}${slug}`}
-      title={pageKeyword ? `${pageKeyword} posts` : "All posts"}
+      title={
+        pageKeyword
+          ? `${pageKeyword} posts by Bartosz Łaniewski`
+          : "Blog by Bartosz Łaniewski"
+      }
       description={
         pageKeyword
           ? `My latest posts, updates, and stories about ${pageKeyword} for developers`
@@ -111,7 +115,6 @@ export const query = graphql`
   {
     site {
       siteMetadata {
-        title
         siteUrl
       }
     }
