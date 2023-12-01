@@ -2,7 +2,7 @@ import "./blog-post.scss";
 
 import { MDXProvider } from "@mdx-js/react";
 
-import { PageProps } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 
 import { mapSlugToImageName } from "../../gatsby/helpers/mapSlugToImageName.mjs";
 import { BlogPost } from "../../gatsby/types/queries";
@@ -16,7 +16,13 @@ import { SEO } from "../components/SEO";
 import { TableOfContents } from "../components/TableOfContents";
 
 type Props = PageProps<
-  unknown,
+  {
+    site: {
+      siteMetadata: {
+        siteUrl: string;
+      };
+    };
+  },
   {
     data: BlogPost;
     slug: string;
@@ -76,18 +82,32 @@ export default function BlogPostTemplate({ pageContext, children }: Props) {
   );
 }
 
-export function Head({ pageContext, location }: Props) {
+export function Head({ data, pageContext, location }: Props) {
   const post = pageContext.data;
+  const siteUrl = data.site.siteMetadata.siteUrl;
   const slug = location.pathname;
   const { excerpt } = post;
   const { title, description } = post.frontmatter;
 
   return (
     <SEO
-      url={`https://laniewski.me${slug}`}
+      url={`${siteUrl}${slug}`}
       title={title}
-      image={`https://laniewski.me/thumbnails/${mapSlugToImageName(slug)}.png`}
+      image={`${siteUrl}/thumbnails/${mapSlugToImageName(slug)}.png`}
       description={description || excerpt}
-    />
+    >
+      <link rel="canonical" href={`${siteUrl}${slug}`} />
+    </SEO>
   );
 }
+
+export const query = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+      }
+    }
+  }
+`;

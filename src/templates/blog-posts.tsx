@@ -1,6 +1,6 @@
 import "./blog-posts.scss";
 
-import { Link, PageProps } from "gatsby";
+import { Link, PageProps, graphql } from "gatsby";
 
 import { mapKeywordToSlug } from "../../gatsby/helpers/mapKeywordToSlug.mjs";
 
@@ -14,7 +14,13 @@ import { SEO } from "../components/SEO";
 import { useKeywords } from "../hooks/useKeywords";
 
 type Props = PageProps<
-  unknown,
+  {
+    site: {
+      siteMetadata: {
+        siteUrl: string;
+      };
+    };
+  },
   {
     data: BlogPost[];
     keyword?: string;
@@ -80,19 +86,33 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
   );
 }
 
-export function Head({ pageContext, location }: Props) {
+export function Head({ data, pageContext, location }: Props) {
   const pageKeyword = pageContext.keyword;
+  const siteUrl = data.site.siteMetadata.siteUrl;
   const slug = location.pathname;
 
   return (
     <SEO
-      url={`https://laniewski.me${slug}`}
+      url={`${siteUrl}${slug}`}
       title={pageKeyword ? `${pageKeyword} posts` : "All posts"}
       description={
         pageKeyword
           ? `My latest posts, updates, and stories about ${pageKeyword} for developers`
           : "My latest posts, updates, and stories about software engineering for developers"
       }
-    />
+    >
+      <link rel="canonical" href={`${siteUrl}/posts/`} />
+    </SEO>
   );
 }
+
+export const query = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+      }
+    }
+  }
+`;

@@ -12,7 +12,7 @@ const config = {
     title: "Bartosz Łaniewski",
     description:
       "Creative designer & developer based in Poland. Passionate about architecture and beautiful software.",
-    siteUrl: "https://laniewski.me/", // keep the trailing /
+    siteUrl: "https://laniewski.me",
     siteRepo: "https://github.com/Bartozzz/bartozzz.github.io",
     contact: "hi@laniewski.me",
     social: {
@@ -121,13 +121,6 @@ const config = {
             };
           }
         },
-      },
-    },
-    {
-      resolve: "gatsby-plugin-canonical-urls",
-      options: {
-        siteUrl: "https://laniewski.me/",
-        stripQueryString: true,
       },
     },
     {

@@ -12,50 +12,51 @@ import { Repository } from "../components/Repository";
 import { SEO } from "../components/SEO";
 
 interface IndexPageQuery {
-  site?: {
-    siteMetadata?: {
-      title?: string;
+  site: {
+    siteMetadata: {
+      title: string;
+      siteUrl: string;
     };
   };
   allMdx: {
     nodes: Array<{
       excerpt: string;
-      fields?: {
-        slug?: string;
-        timeToRead?: {
+      fields: {
+        slug: string;
+        timeToRead: {
           minutes: number;
         };
       };
-      frontmatter?: {
-        dateCreated?: unknown;
-        dateUpdated?: unknown;
-        datePublished?: unknown;
+      frontmatter: {
+        dateCreated: string;
+        dateUpdated: string;
+        datePublished: string;
         title: string;
-        authors?: Array<string>;
-        language?: string;
-        keywords?: Array<string>;
-        description?: string;
+        authors: Array<string>;
+        language: string;
+        keywords: Array<string>;
+        description: string;
       };
     }>;
   };
   allRepositoriesYaml: {
     nodes: Array<{
       id: string;
-      name?: string;
-      desc?: string;
-      path?: string;
-      keywords?: Array<string>;
+      name: string;
+      desc: string;
+      path: string;
+      keywords: Array<string>;
     }>;
   };
   allGamesYaml: {
     nodes: Array<{
       id: string;
-      name?: string;
-      desc?: string;
-      path?: string;
-      icon?: string;
-      color?: string;
-      textColor?: string;
+      name: string;
+      desc: string;
+      path: string;
+      icon: string;
+      color: string;
+      textColor: string;
     }>;
   };
 }
@@ -137,8 +138,8 @@ export default function IndexPage({ data }: Props) {
               <li key={post.fields.slug}>
                 <PostExcerpt
                   link={post.fields.slug}
-                  timeToRead={post.fields.timeToRead?.minutes}
-                  title={post.frontmatter.title || post.fields.slug}
+                  timeToRead={post.fields.timeToRead.minutes}
+                  title={post.frontmatter.title}
                   date={post.frontmatter.datePublished}
                   authors={post.frontmatter.authors}
                   content={post.frontmatter.description || post.excerpt}
@@ -154,8 +155,14 @@ export default function IndexPage({ data }: Props) {
   );
 }
 
-export function Head({}: Props) {
-  return <SEO />;
+export function Head({ data }: Props) {
+  const siteUrl = data.site.siteMetadata.siteUrl;
+
+  return (
+    <SEO>
+      <link rel="canonical" href={`${siteUrl}/`} />
+    </SEO>
+  );
 }
 
 export const pageQuery = graphql`
@@ -163,6 +170,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     allMdx(limit: 5, sort: { frontmatter: { datePublished: DESC } }) {

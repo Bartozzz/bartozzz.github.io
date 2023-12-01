@@ -7,7 +7,13 @@ interface Props {
   description?: string;
 }
 
-export function SEO({ url, image, title, description }: Props) {
+export function SEO({
+  url,
+  image,
+  title,
+  description,
+  children,
+}: React.PropsWithChildren<Props>) {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -22,7 +28,7 @@ export function SEO({ url, image, title, description }: Props) {
 
   const metaUrl = url || site.siteMetadata.siteUrl;
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = image || "https://laniewski.me/thumbnail.png";
+  const metaImage = image || `${site.siteMetadata.siteUrl}/thumbnail.png`;
   const metaTitle = title
     ? `${title} • ${site.siteMetadata.title}`
     : `${site.siteMetadata.title}`;
@@ -39,6 +45,8 @@ export function SEO({ url, image, title, description }: Props) {
       <meta name="og:image" content={metaImage} />
       <meta name="og:title" content={metaTitle} />
       <meta name="og:description" content={metaDescription} />
+
+      {children}
     </>
   );
 }
