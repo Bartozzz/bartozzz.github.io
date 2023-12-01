@@ -45,8 +45,10 @@ export function GameCard({
           <picture>
             <img
               alt={`Icon image for ${name} game`}
-              loading="lazy"
               src={icon}
+              width={380}
+              height={380}
+              loading="lazy"
             />
           </picture>
 
