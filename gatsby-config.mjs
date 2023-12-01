@@ -50,7 +50,16 @@ const config = {
             rehypePrism,
             rehypeSlug,
             rehypeAutolinkHeadings,
-            rehypeExternalLinks,
+            [
+              rehypeExternalLinks,
+              {
+                target: "_blank",
+                rel: "nofollow noopener noreferrer",
+                // Exclude links to my own website (subdomains):
+                test: (node) =>
+                  !node.properties?.href?.includes("laniewski.me"),
+              },
+            ],
           ],
         },
       },
