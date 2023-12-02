@@ -2,8 +2,10 @@ import path from "path";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
+import rehypeKatex from "rehype-katex";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
+import remarkMath from "remark-math";
 import remarkSmartypants from "remark-smartypants";
 
 const config = {
@@ -43,10 +45,12 @@ const config = {
         mdxOptions: {
           remarkPlugins: [
             // See: https://github.com/remarkjs/remark/blob/main/doc/plugins.md
+            remarkMath,
             remarkSmartypants,
           ],
           rehypePlugins: [
             // See: https://github.com/rehypejs/rehype/blob/main/doc/plugins.md#list-of-plugins
+            [rehypeKatex, { strict: "ignore" }],
             rehypePrism,
             rehypeSlug,
             rehypeAutolinkHeadings,

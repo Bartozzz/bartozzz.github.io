@@ -1,3 +1,4 @@
+@import "katex/dist/katex.min.css";
 @import "../styles/extends/prefix-headings";
 @import "../styles/extends/reset-list";
 @import "../styles/extends/text-heading";
@@ -5,6 +6,11 @@
 @import "../styles/extends/text-word-wrap";
 @import "../styles/mixins/mediaquery";
 @import "../styles/mixins/vertical-rhythm";
+
+.katex-display {
+  margin-top: var(--ls-xxs);
+  margin-bottom: 0;
+}
 
 .post__header {
   margin: var(--ls-xl) 0;

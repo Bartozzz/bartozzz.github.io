@@ -10,7 +10,6 @@ import { BlogPost } from "../../gatsby/types/queries";
 import { Alert } from "../components/Alert";
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
-import { Formula } from "../components/Formula";
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { TableOfContents } from "../components/TableOfContents";
@@ -68,9 +67,7 @@ export default function BlogPostTemplate({ pageContext, children }: Props) {
 
             <div className="post__content">
               <div itemProp="articleBody">
-                <MDXProvider components={{ Alert, Formula }}>
-                  {children}
-                </MDXProvider>
+                <MDXProvider components={{ Alert }}>{children}</MDXProvider>
               </div>
 
               <Discussion lang={language} />

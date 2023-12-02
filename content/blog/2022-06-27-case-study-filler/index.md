@@ -17,7 +17,7 @@ I initially created Filler when I was ~15 years old. The idea came up as I was t
 > Lights Out is an electronic game released by Tiger Electronics in 1995. The game consists of a 5 by 5 grid of lights. When the game starts, a random number or a stored pattern of these lights is switched on. Pressing any of the lights will toggle it and the adjacent lights. The goal of the puzzle is to switch all the lights off, preferably in as few button presses as possible. – [Wikipedia](https://en.wikipedia.org/wiki/Lights_Out_(game))
 
 There are, however, a few differences between the original and my game. In Filler:
-1. grids can be of any size, not only <Formula>5 \times 5</Formula>;
+1. grids can be of any size, not only $$5 \times 5$$;
 2. the goal is to switch all the lights on, not off;
 
 The technology stack is pretty standard for the React ecosystem:
@@ -305,7 +305,7 @@ class Sound {
 
 I wanted to create a solver to monetize the game. It turned out to be quite a popular problem with a lot of resources online, so I won’t go into much detail. It just required a bit of linear algebra.
 
-A board can be modeled mathematically as a vector over <Formula>{`\\mathbb{F}_2`}</Formula>, a [field](https://en.wikipedia.org/wiki/GF(2)) containing only the elements 0 and 1 (for light on and off respectively). We can write each possible board position and each possible move as a vector over <Formula>{`\\mathbb{F}_2`}</Formula>. That means that:
+A board can be modeled mathematically as a vector over $$\mathbb{F}_2$$, a [field](https://en.wikipedia.org/wiki/GF(2)) containing only the elements 0 and 1 (for light on and off respectively). We can write each possible board position and each possible move as a vector over $$\mathbb{F}_2$$. That means that:
 - pressing a cell an even number of times has no effect;
 - the order in which we press the cells does not matter;
 
