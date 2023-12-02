@@ -14,7 +14,6 @@ import { SEO } from "../components/SEO";
 interface IndexPageQuery {
   site: {
     siteMetadata: {
-      title: string;
       siteUrl: string;
     };
   };
@@ -29,12 +28,15 @@ interface IndexPageQuery {
       };
       frontmatter: {
         dateCreated: string;
+        dateCreatedMeta: string;
         dateUpdated: string;
+        dateUpdatedMeta: string;
         datePublished: string;
+        datePublishedMeta: string;
         title: string;
-        authors: Array<string>;
+        authors: string[];
         language: string;
-        keywords: Array<string>;
+        keywords: string[];
         description: string;
       };
     }>;
@@ -137,10 +139,13 @@ export default function IndexPage({ data }: Props) {
             {posts.map((post) => (
               <li key={post.fields.slug}>
                 <PostExcerpt
+                  as="h3"
                   link={post.fields.slug}
                   timeToRead={post.fields.timeToRead.minutes}
                   title={post.frontmatter.title}
-                  date={post.frontmatter.datePublished}
+                  datePublished={post.frontmatter.datePublished}
+                  datePublishedMeta={post.frontmatter.datePublishedMeta}
+                  dateModifiedMeta={post.frontmatter.dateUpdatedMeta}
                   authors={post.frontmatter.authors}
                   content={post.frontmatter.description || post.excerpt}
                   language={post.frontmatter.language}
@@ -186,8 +191,11 @@ export const pageQuery = graphql`
         }
         frontmatter {
           dateCreated(formatString: "MMMM DD, YYYY")
+          dateCreatedMeta: dateCreated
           dateUpdated(formatString: "MMMM DD, YYYY")
+          dateUpdatedMeta: dateUpdated
           datePublished(formatString: "MMMM DD, YYYY")
+          datePublishedMeta: datePublished
           title
           authors
           language

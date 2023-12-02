@@ -73,7 +73,9 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
                 link={post.fields.slug}
                 timeToRead={post.fields.timeToRead?.minutes}
                 title={post.frontmatter.title || post.fields.slug}
-                date={post.frontmatter.datePublished}
+                datePublished={post.frontmatter.datePublished}
+                datePublishedMeta={post.frontmatter.datePublishedMeta}
+                dateModifiedMeta={post.frontmatter.dateUpdatedMeta}
                 authors={post.frontmatter.authors}
                 content={post.frontmatter.description || post.excerpt}
                 language={post.frontmatter.language}

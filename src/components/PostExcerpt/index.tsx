@@ -2,14 +2,18 @@ import * as css from "./index.module.scss";
 
 import React from "react";
 
-import { Link } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 
 import { mapKeywordToSlug } from "../../../gatsby/helpers/mapKeywordToSlug.mjs";
+import { mapSlugToImageName } from "../../../gatsby/helpers/mapSlugToImageName.mjs";
 
 interface Props {
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   link: string;
   title: string;
-  date: string;
+  datePublished: string;
+  datePublishedMeta: string;
+  dateModifiedMeta: string;
   content: string;
   keywords: string[];
   language: string;
@@ -17,16 +21,47 @@ interface Props {
   authors?: string[];
 }
 
+interface SiteQuery {
+  site: {
+    siteMetadata: {
+      siteUrl: string;
+    };
+  };
+}
+
 export function PostExcerpt({
+  as = "h2",
   link,
   title,
-  date,
+  datePublished,
+  datePublishedMeta,
+  dateModifiedMeta,
   authors,
   content,
   language,
   keywords,
   timeToRead,
 }: Props) {
+  const data = useStaticQuery<SiteQuery>(graphql`
+    query {
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
+    }
+  `);
+
+  const siteUrl = data.site.siteMetadata.siteUrl;
+  const thumbnailUrl = `${siteUrl}/thumbnails/${mapSlugToImageName(link)}.png`;
+
+  const HeadingWrapper = (
+    props: React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLElement>,
+      HTMLElement
+    >,
+  ) => React.createElement(as, props);
+
   return (
     <article
       itemScope
@@ -34,10 +69,16 @@ export function PostExcerpt({
       className={css.postExcerpt__wrapper}
       lang={language}
     >
+      <meta itemProp="image" content={thumbnailUrl} />
+      <meta itemProp="dateModified" content={dateModifiedMeta} />
+      {authors.map((author) => (
+        <meta key={author} itemProp="author" content={author} />
+      ))}
+
       <header>
         <p className={css.postExcerpt__info}>
-          <time dateTime={date} itemProp="datePublished">
-            {date}
+          <time dateTime={datePublishedMeta} itemProp="datePublished">
+            {datePublished}
           </time>
 
           {timeToRead ? (
@@ -67,21 +108,11 @@ export function PostExcerpt({
           ) : null}
         </p>
 
-        <h2 className={css.postExcerpt__title}>
+        <HeadingWrapper className={css.postExcerpt__title}>
           <Link to={link} itemProp="url" rel="bookmark">
             <span itemProp="headline">{title}</span>
           </Link>
-        </h2>
-
-        {authors?.length ? (
-          <ul className="visually-hidden">
-            {authors.map((author) => (
-              <li key={author}>
-                <p itemProp="author">{author}</p>
-              </li>
-            ))}
-          </ul>
-        ) : null}
+        </HeadingWrapper>
       </header>
 
       <p

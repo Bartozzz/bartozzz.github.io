@@ -10,36 +10,43 @@ function processQueryResult(result) {
   }
 }
 
+export const postQuery = `
+  totalCount
+  nodes {
+    id
+    excerpt
+    body
+    tableOfContents(maxDepth: 3)
+    fields {
+      slug
+      timeToRead {
+        minutes
+      }
+    }
+    frontmatter {
+      dateCreated(formatString: "MMMM DD, YYYY")
+      dateCreatedMeta: dateCreated
+      dateUpdated(formatString: "MMMM DD, YYYY")
+      dateUpdatedMeta: dateUpdated
+      datePublished(formatString: "MMMM DD, YYYY")
+      datePublishedMeta: datePublished
+      title
+      authors
+      language
+      keywords
+      description
+    }
+    internal {
+      contentFilePath
+    }
+  }
+`;
+
 export async function getAllPosts(graphql) {
   const result = await graphql(`
     query AllPostsQuery {
       allMdx(sort: { frontmatter: { datePublished: DESC } }) {
-        totalCount
-        nodes {
-          id
-          excerpt
-          body
-          tableOfContents(maxDepth: 3)
-          fields {
-            slug
-            timeToRead {
-              minutes
-            }
-          }
-          frontmatter {
-            dateCreated(formatString: "MMMM DD, YYYY")
-            dateUpdated(formatString: "MMMM DD, YYYY")
-            datePublished(formatString: "MMMM DD, YYYY")
-            title
-            authors
-            language
-            keywords
-            description
-          }
-          internal {
-            contentFilePath
-          }
-        }
+        ${postQuery}
       }
     }
   `);
@@ -55,32 +62,7 @@ export async function getAllPostsByKeyword(graphql, keyword) {
           sort: { frontmatter: { datePublished: DESC } }
           filter: { frontmatter: { keywords: { in: [$keyword] } } }
         ) {
-          totalCount
-          nodes {
-            id
-            excerpt
-            body
-            tableOfContents(maxDepth: 3)
-            fields {
-              slug
-              timeToRead {
-                minutes
-              }
-            }
-            frontmatter {
-              dateCreated(formatString: "MMMM DD, YYYY")
-              dateUpdated(formatString: "MMMM DD, YYYY")
-              datePublished(formatString: "MMMM DD, YYYY")
-              title
-              authors
-              language
-              keywords
-              description
-            }
-            internal {
-              contentFilePath
-            }
-          }
+          ${postQuery}
         }
       }
     `,

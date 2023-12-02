@@ -28,10 +28,25 @@ type Props = PageProps<
   }
 >;
 
-export default function BlogPostTemplate({ pageContext, children }: Props) {
+export default function BlogPostTemplate({
+  data,
+  pageContext,
+  children,
+}: Props) {
   const post = pageContext.data;
+  const slug = post.fields.slug;
   const { frontmatter, tableOfContents } = post;
-  const { title, datePublished, language, authors } = frontmatter;
+  const {
+    title,
+    language,
+    authors,
+    datePublished,
+    datePublishedMeta,
+    dateUpdatedMeta,
+  } = frontmatter;
+
+  const siteUrl = data.site.siteMetadata.siteUrl;
+  const thumbnailUrl = `${siteUrl}/thumbnails/${mapSlugToImageName(slug)}.png`;
 
   return (
     <Layout>
@@ -42,22 +57,18 @@ export default function BlogPostTemplate({ pageContext, children }: Props) {
           itemType="http://schema.org/Article"
           lang={language}
         >
+          <meta itemProp="image" content={thumbnailUrl} />
+          <meta itemProp="dateModified" content={dateUpdatedMeta} />
+          {authors.map((author) => (
+            <meta key={author} itemProp="author" content={author} />
+          ))}
+
           <header className="post__header">
             <h1 itemProp="headline">{title}</h1>
 
-            <time dateTime={datePublished} itemProp="datePublished">
+            <time dateTime={datePublishedMeta} itemProp="datePublished">
               {datePublished}
             </time>
-
-            {authors?.length ? (
-              <ul className="visually-hidden">
-                {authors.map((author) => (
-                  <li key={author}>
-                    <p itemProp="author">{author}</p>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
           </header>
 
           <div className="post__wrapper">
@@ -79,18 +90,20 @@ export default function BlogPostTemplate({ pageContext, children }: Props) {
   );
 }
 
-export function Head({ data, pageContext, location }: Props) {
+export function Head({ data, pageContext }: Props) {
   const post = pageContext.data;
-  const siteUrl = data.site.siteMetadata.siteUrl;
-  const slug = location.pathname;
+  const slug = post.fields.slug;
   const { excerpt } = post;
   const { title, description } = post.frontmatter;
+
+  const siteUrl = data.site.siteMetadata.siteUrl;
+  const thumbnailUrl = `${siteUrl}/thumbnails/${mapSlugToImageName(slug)}.png`;
 
   return (
     <SEO
       url={`${siteUrl}${slug}`}
       title={title}
-      image={`${siteUrl}/thumbnails/${mapSlugToImageName(slug)}.png`}
+      image={thumbnailUrl}
       description={description || excerpt}
     >
       <link rel="canonical" href={`${siteUrl}${slug}`} />
