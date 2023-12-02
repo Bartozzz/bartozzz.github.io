@@ -504,12 +504,10 @@ module.exports = defaultConfig;
 
 My aim I always to get at least a stable 60 FPS on all of the devices I have. Here are the results:
 
-| Device                                                                                    | Framerate |
-|-------------------------------------------------------------------------------------------|-----------|
-| [iPhone X](https://www.gsmchoice.com/en/catalogue/apple/iphonex/)                         | 60        |
-| [iPhone 13 Pro](https://www.gsmchoice.com/en/catalogue/apple/iphone13pro/)                | 60        |
-| [Samsung S8](https://www.gsmchoice.com/en/catalogue/samsung/galaxys8/)                    | 50-60     |
-| [Asus ZenFone 3 Max 5.2](https://www.gsmchoice.com/en/catalogue/asus/zenfone3maxzc520tl/) | 40-60     |
+- [iPhone X](https://www.gsmchoice.com/en/catalogue/apple/iphonex/): 60 FPS;
+- [iPhone 13 Pro](https://www.gsmchoice.com/en/catalogue/apple/iphone13pro/): 60 FPS;
+- [Samsung S8](https://www.gsmchoice.com/en/catalogue/samsung/galaxys8/): 50-60 FPS;
+- [Asus ZenFone 3 Max 5.2](https://www.gsmchoice.com/en/catalogue/asus/zenfone3maxzc520tl/): 40-60 FPS.
 
 Android phones have some troubles with garbage collection and there’s a ~10 FPS performance drop when going back and forth from the menu to the game screen.
 
