@@ -27,17 +27,17 @@ interface IndexPageQuery {
         };
       };
       frontmatter: {
+        title: string;
+        authors: string[];
+        language: string;
+        keywords: string[];
+        description: string;
         dateCreated: string;
         dateCreatedMeta: string;
         dateUpdated: string;
         dateUpdatedMeta: string;
         datePublished: string;
         datePublishedMeta: string;
-        title: string;
-        authors: string[];
-        language: string;
-        keywords: string[];
-        description: string;
       };
     }>;
   };
@@ -182,7 +182,7 @@ export const pageQuery = graphql`
     }
     allMdx(limit: 5, sort: { frontmatter: { datePublished: DESC } }) {
       nodes {
-        excerpt
+        excerpt(pruneLength: 155)
         fields {
           slug
           timeToRead {
@@ -190,17 +190,17 @@ export const pageQuery = graphql`
           }
         }
         frontmatter {
+          title
+          authors
+          language
+          keywords
+          description
           dateCreated(formatString: "MMMM DD, YYYY")
           dateCreatedMeta: dateCreated
           dateUpdated(formatString: "MMMM DD, YYYY")
           dateUpdatedMeta: dateUpdated
           datePublished(formatString: "MMMM DD, YYYY")
           datePublishedMeta: datePublished
-          title
-          authors
-          language
-          keywords
-          description
         }
       }
     }

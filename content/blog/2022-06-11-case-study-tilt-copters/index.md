@@ -8,7 +8,7 @@ dateUpdated: 2023-12-01 00:00:00 +0100
 datePublished: 2022-06-11 00:00:00 +0100
 ---
 
-[Tilt Copters] is a relatively simple game created with [pixi.js] and Expo. This is a project I’ve started to learn more about porting web libraries to React Native but also about game architecture and monetization.
+[Tilt Copters] is a relatively simple game created with [PixiJS] and Expo. This is a project I’ve started to learn more about porting web libraries to React Native but also about game architecture and monetization.
 
 ## Introduction
 
@@ -20,7 +20,7 @@ Technology stack:
 - [TypeScript](https://www.typescriptlang.org/)
 - [React Navigation](https://reactnavigation.org/)
 - [Styled Components](https://styled-components.com/)
-- [Pixi.js](https://pixijs.com/) with [my port](https://github.com/Bartozzz/expo-pixi) of the library
+- [PixiJS] with [my port](https://github.com/Bartozzz/expo-pixi) of the library
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [Zustand](https://github.com/pmndrs/zustand)
 
@@ -294,7 +294,7 @@ export function GameScore() {
 
 ### Expo and libraries
 
-There’s an official library called [`expo-pixi`](https://github.com/expo/expo-pixi) originally developed by Evan Bacon. This is the first search result when looking for PixiJS for Expo/React Native. I tried using this library but quickly abandoned it because of plenty of issues it has. Instead, I created my port with better compatibility. It can be found on [`Bartozzz/expo-pixi`](https://github.com/Bartozzz/expo-pixi).
+There’s an official library called [`expo-pixi`](https://github.com/expo/expo-pixi) originally developed by Evan Bacon. This is the first search result when looking for [PixiJS] for Expo/React Native. I tried using this library but quickly abandoned it because of plenty of issues it has. Instead, I created my port with better compatibility. It can be found on [`Bartozzz/expo-pixi`](https://github.com/Bartozzz/expo-pixi).
 
 #### Issue #1: incompatible with Expo 43 ([#221](https://github.com/expo/expo-pixi/issues/221))
 

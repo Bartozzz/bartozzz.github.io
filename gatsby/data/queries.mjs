@@ -14,8 +14,8 @@ export const postQuery = `
   totalCount
   nodes {
     id
-    excerpt
     body
+    excerpt(pruneLength: 155)
     tableOfContents(maxDepth: 3)
     fields {
       slug
@@ -24,17 +24,17 @@ export const postQuery = `
       }
     }
     frontmatter {
+      title
+      authors
+      keywords
+      language
+      description
       dateCreated(formatString: "MMMM DD, YYYY")
       dateCreatedMeta: dateCreated
       dateUpdated(formatString: "MMMM DD, YYYY")
       dateUpdatedMeta: dateUpdated
       datePublished(formatString: "MMMM DD, YYYY")
       datePublishedMeta: datePublished
-      title
-      authors
-      language
-      keywords
-      description
     }
     internal {
       contentFilePath

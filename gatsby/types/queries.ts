@@ -8,7 +8,6 @@ export interface TableOfContentItem extends TableOfContents {
 }
 
 export interface BlogPost {
-  id: string;
   excerpt: string;
   tableOfContents: TableOfContents;
   fields: {
@@ -18,14 +17,17 @@ export interface BlogPost {
     };
   };
   frontmatter: {
-    dateCreated: string;
-    dateUpdated: string;
-    datePublished: string;
     title: string;
     authors: string[];
     language: string;
     keywords: string[];
     description: string;
+    dateCreated: string;
+    dateCreatedMeta: string;
+    dateUpdated: string;
+    dateUpdatedMeta: string;
+    datePublished: string;
+    datePublishedMeta: string;
   };
   internal: {
     contentFilePath: string;
