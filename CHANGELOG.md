@@ -1,3 +1,11 @@
+# [1.26.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.25.1...v1.26.0) (2023-12-02)
+
+
+### Features
+
+* migrate katex to rehype ([6a4d6eb](https://github.com/Bartozzz/bartozzz.github.io/commit/6a4d6ebe580ab238d8235eeda9cd795797253723))
+* update rich results for blog posts ([3158aa4](https://github.com/Bartozzz/bartozzz.github.io/commit/3158aa4d1a9224bed10d63168cd50ed332257fcd))
+
 ## [1.25.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.25.0...v1.25.1) (2023-12-02)
 
 
