@@ -1,3 +1,10 @@
+## [1.25.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.25.0...v1.25.1) (2023-12-02)
+
+
+### Bug Fixes
+
+* remove table from article ([477f62c](https://github.com/Bartozzz/bartozzz.github.io/commit/477f62cd282b18ba64cb5a32b41f5ab2699e17b6))
+
 # [1.25.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.24.0...v1.25.0) (2023-12-01)
 
 
