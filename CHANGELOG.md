@@ -1,3 +1,10 @@
+# [1.29.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.28.0...v1.29.0) (2023-12-07)
+
+
+### Features
+
+* update excerpt length ([a69d7ef](https://github.com/Bartozzz/bartozzz.github.io/commit/a69d7ef07c52786c512270624347295fab5ae04b))
+
 # [1.28.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.27.0...v1.28.0) (2023-12-07)
 
 
