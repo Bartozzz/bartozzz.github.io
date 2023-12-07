@@ -108,7 +108,7 @@ export function Head({ data, pageContext, location }: Props) {
           : "My latest posts, updates, and stories about software engineering for developers"
       }
     >
-      <link rel="canonical" href={`${siteUrl}/posts/`} />
+      <link rel="canonical" href={`${siteUrl}${slug}`} />
     </SEO>
   );
 }
