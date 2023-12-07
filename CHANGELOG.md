@@ -1,3 +1,11 @@
+# [1.30.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.29.0...v1.30.0) (2023-12-07)
+
+
+### Features
+
+* update excerpt length ([6dbd9cc](https://github.com/Bartozzz/bartozzz.github.io/commit/6dbd9cc1c30764b60e5e26fbd6f6e3fb1c00e3eb))
+* update mapSlugToImageName ([64592c8](https://github.com/Bartozzz/bartozzz.github.io/commit/64592c8322b601fdc8ed8c1d60ea25f025af2ae8))
+
 # [1.29.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.28.0...v1.29.0) (2023-12-07)
 
 
