@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.27.0...v1.28.0) (2023-12-07)
+
+
+### Features
+
+* fix canonical links for blog categories ([5cc9805](https://github.com/Bartozzz/bartozzz.github.io/commit/5cc9805ba6782d13bbead97a16b5eada1df7a8a7))
+
 # [1.27.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.26.0...v1.27.0) (2023-12-02)
 
 
