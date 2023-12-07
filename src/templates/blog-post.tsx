@@ -72,9 +72,11 @@ export default function BlogPostTemplate({
           </header>
 
           <div className="post__wrapper">
-            <div className="post__toc">
-              <TableOfContents data={tableOfContents} />
-            </div>
+            {tableOfContents.items ? (
+              <div className="post__toc">
+                <TableOfContents data={tableOfContents} />
+              </div>
+            ) : null}
 
             <div className="post__content">
               <div itemProp="articleBody">

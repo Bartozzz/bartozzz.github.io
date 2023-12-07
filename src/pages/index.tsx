@@ -182,7 +182,7 @@ export const pageQuery = graphql`
     }
     allMdx(limit: 5, sort: { frontmatter: { datePublished: DESC } }) {
       nodes {
-        excerpt(pruneLength: 155)
+        excerpt(pruneLength: 154)
         fields {
           slug
           timeToRead {
