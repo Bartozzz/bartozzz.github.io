@@ -15,7 +15,7 @@ export const postQuery = `
   nodes {
     id
     body
-    excerpt(pruneLength: 155)
+    excerpt(pruneLength: 154)
     tableOfContents(maxDepth: 3)
     fields {
       slug
