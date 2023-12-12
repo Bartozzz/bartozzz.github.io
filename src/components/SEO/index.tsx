@@ -33,6 +33,7 @@ export function SEO({
       <meta name="description" content={description} />
 
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
       <meta name="twitter:creator" content="@blaniewski" />
       <meta name="og:url" content={metaUrl} />
       <meta name="og:type" content="website" />
