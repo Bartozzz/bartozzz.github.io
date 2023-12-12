@@ -102,7 +102,7 @@ const config = {
           allSitePage: { nodes: allSitePages },
           allMdx: { nodes: allMdxNodes },
         }) => {
-          const mdxNodeMap = allMdxNodes.reduce(
+          const blogPostsPages = allMdxNodes.reduce(
             (acc, node) => ({
               ...acc,
               [node.fields.slug]: node.frontmatter,
@@ -110,10 +110,20 @@ const config = {
             {},
           );
 
-          return allSitePages.map((page) => ({
+          const externalPages = [
+            { path: "https://slowo.laniewski.me/" },
+            { path: "https://make0.laniewski.me/" },
+            { path: "https://filler.laniewski.me/" },
+            { path: "https://stacker.laniewski.me/" },
+            { path: "https://tiltcopters.laniewski.me/" },
+          ];
+
+          const internalPages = allSitePages.map((page) => ({
             ...page,
-            ...mdxNodeMap[page.path],
+            ...blogPostsPages[page.path],
           }));
+
+          return [...internalPages, ...externalPages];
         },
         serialize: ({ path, dateUpdated }) => {
           if (dateUpdated) {
