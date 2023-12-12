@@ -1,3 +1,10 @@
+# [1.32.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.31.1...v1.32.0) (2023-12-12)
+
+
+### Features
+
+* write how to create a sitemap article ([5375062](https://github.com/Bartozzz/bartozzz.github.io/commit/5375062e61641a53d97577d6a5c761a69469f253))
+
 ## [1.31.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.31.0...v1.31.1) (2023-12-12)
 
 
