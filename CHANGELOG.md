@@ -1,3 +1,10 @@
+## [1.31.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.31.0...v1.31.1) (2023-12-12)
+
+
+### Bug Fixes
+
+* add missing twitter:title meta tag ([4698c0b](https://github.com/Bartozzz/bartozzz.github.io/commit/4698c0b1ece5a4423bbb2889d6abeba17f6a9966))
+
 # [1.31.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.30.1...v1.31.0) (2023-12-12)
 
 
