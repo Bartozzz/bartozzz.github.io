@@ -1,3 +1,10 @@
+## [1.30.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.30.0...v1.30.1) (2023-12-12)
+
+
+### Bug Fixes
+
+* update links to broken pages ([03a33eb](https://github.com/Bartozzz/bartozzz.github.io/commit/03a33eb7bf308bc7a33009b58d632be335ba6342))
+
 # [1.30.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.29.0...v1.30.0) (2023-12-07)
 
 
