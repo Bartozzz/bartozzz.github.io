@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Case Study", "Gamedev", "React Native"]
 language: en
 dateCreated: 2022-06-11 00:00:00 +0100
-dateUpdated: 2023-12-01 00:00:00 +0100
+dateUpdated: 2023-12-12 00:00:00 +0100
 datePublished: 2022-06-11 00:00:00 +0100
 ---
 
@@ -532,7 +532,7 @@ The second solution was not possible to implement because `expo-pixi` has [no su
 Some of the deviations were already described in [Expo and libraries](#expo-and-libraries) but there are more! The main differences between Android and other platforms are:
 
 - **Difference in default UI/UX:** by default the stack navigator is configured to have the familiar iOS and Android look & feel: new screens slide in from the right on iOS and use OS default animation on Android. There are also visual differences that need to be patched to provide similar game UI/UX across platforms;
-- **No full fonts support:** `font-weight` and `font-style` [are not supported](https://stackoverflow.com/a/38820631). You have to load all the font variants as separate fonts with a different `font-family` name;
+- **No full fonts support:** `font-weight` and `font-style` [are not supported](https://stackoverflow.com/questions/38815234/how-to-add-fonts-for-different-font-weights-for-react-native-android-project/38820631#38820631). You have to load all the font variants as separate fonts with a different `font-family` name;
 - **No full shadows support:** Android does not have native support for CSS-like shadows. You have to use the [`elevation`](https://reactnative.dev/docs/view-style-props#elevation-android) property or 3rd party libraries like [`react-native-shadow`](https://www.npmjs.com/package/react-native-shadow-2);
 - **Poor styling support**: for example, when making a text outline using `text-shadow`, we have to keep a small blur radius because Android won’t render it at all when it’s set to 0 (`text-shadow: 0 2px 0.00001px black`);
 - **Inconsistent API:** on Android devices, the accelerometer data is reversed and we have to normalize it before usage:

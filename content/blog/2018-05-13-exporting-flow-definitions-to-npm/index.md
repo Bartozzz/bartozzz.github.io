@@ -4,11 +4,11 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["JavaScript", "Flow", "npm"]
 language: en
 dateCreated: 2018-05-13 00:00:00 +0100
-dateUpdated: 2023-12-01 00:00:00 +0100
+dateUpdated: 2023-12-12 00:00:00 +0100
 datePublished: 2018-05-13 00:00:00 +0100
 ---
 
-There are more than [31000 repositories on GitHub][1] using Flow but only a few export Flow definitions. In this article, we will see how to export Flow definitions for a module. Before getting started, I encourage you to read my previous article about „_[Publishing tree shaking friendly packages to npm](/blog/2018-04-29-publishing-packages-to-npm/)_”.
+There are more than [31000 repositories on GitHub](https://github.com/facebook/flow/network/dependents) using Flow but only a few export Flow definitions. In this article, we will see how to export Flow definitions for a module. Before getting started, I encourage you to read my previous article about „_[Publishing tree shaking friendly packages to npm](/blog/2018-04-29-publishing-packages-to-npm/)_”.
 
 ## What is Flow?
 
@@ -71,7 +71,7 @@ Then, you can execute this script at the end of your build pipeline, as follows:
 
 ### Adding definitions to flow-typed
 
-Flow supports library definitions which allow you to describe the interface of a module or library separate from the implementation of that module/library. You can add your definitions by [contributing library definitions][3] which reside in the `flow-typed` repository. It will allow people who use your library to fetch definitions by using the following command:
+Flow supports library definitions which allow you to describe the interface of a module or library separate from the implementation of that module/library. You can add your definitions by [contributing library definitions](https://flow-typed.github.io/flow-typed/#/?id=how-do-i-contribute-library-definitions) which reside in the `flow-typed` repository. It will allow people who use your library to fetch definitions by using the following command:
 
 ```bash
 $ flow-typed install library@x.x.x
@@ -80,7 +80,3 @@ $ flow-typed install library@x.x.x
 ## Conclusion
 
 It is important to export Flow definitions so Flow can give errors if someone accidentally misuses your library. Additionally, it integrates well with most IDEs, as it gives developers a better experience by providing documentation, auto-complete and errors in real-time.
-
-[1]: https://github.com/facebook/flow/network/dependents
-[2]: https://github.com/flowtype/flow-typed/wiki/FAQs
-[3]: https://github.com/flowtype/flow-typed/wiki/Contributing-Library-Definitions

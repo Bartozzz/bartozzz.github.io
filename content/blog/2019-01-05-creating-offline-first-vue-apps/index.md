@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Vue", "PWA"]
 language: en
 dateCreated: 2019-01-05 00:00:00 +0100
-dateUpdated: 2023-12-01 00:00:00 +0100
+dateUpdated: 2023-12-12 00:00:00 +0100
 datePublished: 2019-01-05 00:00:00 +0100
 ---
 
@@ -14,7 +14,7 @@ With JavaScript increasingly gaining popularity, Progressive Web Apps (_PWAs_) m
 
 Progressive Web Apps can be installed on most devices like native apps. They are meant to be **reliable** (work on each platform, even offline), **fast**, and provide a **native-like** user experience. These apps combine the best of web and native solutions:
 
-- They are **rapid to develop**, **cross-platform** and **responsive** by nature. JavaScript provides a lot of frameworks (such as [Vue](https://vuejs.org/), [React](https://reactjs.org/)) and dedicated front-end component libraries to boost productivity (Bootstrap, Material UI). You write your code once and deploy your application on every platform;
+- They are **rapid to develop**, **cross-platform** and **responsive** by nature. JavaScript provides a lot of frameworks (such as [Vue](https://vuejs.org/), [React](https://react.dev/)) and dedicated front-end component libraries to boost productivity (Bootstrap, Material UI). You write your code once and deploy your application on every platform;
 - **Fast load**, **fast response**. Progressive web apps are comparable to native solutions in terms of efficiency. With _service workers_, cache, and several optimizations made in engines running JavaScript, Progressive Web Applications’ loading and response times are very low.
 
 It is important to notice that if you are planning on making your application a PWA, you don’t have to rewrite all the logic. For example, your application should work offline, but it doesn’t mean that you must set up a background queue or store your data in a persistent storage – an offline message (e.g. “_You’re offline, check your network status._”) is enough.

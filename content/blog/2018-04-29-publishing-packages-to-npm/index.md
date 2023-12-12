@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["JavaScript", "npm"]
 language: en
 dateCreated: 2018-04-29 00:00:00 +0100
-dateUpdated: 2023-12-01 00:00:00 +0100
+dateUpdated: 2023-12-12 00:00:00 +0100
 datePublished: 2018-04-29 00:00:00 +0100
 ---
 
@@ -18,7 +18,7 @@ With the rise of ES2015, modules have officially become an integral part of Java
 
 A package is a directory described by a `package.json`. Each package is composed of one or more modules that can be loaded by Node.js’ `require()`. In most cases, a package will expose a single module via the `main` field specified in `package.json`. If there’s no such field, npm will look for `index.js` in the root directory.
 
-In the era of JavaScript bundlers such as [Webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/), the idea of a single entry point is strongly encouraged. Most of the bundlers will output a unique JavaScript file containing all built modules. For example, let’s consider the following code:
+In the era of JavaScript bundlers such as [Webpack](https://webpack.js.org/) or [Browserify](https://browserify.org/), the idea of a single entry point is strongly encouraged. Most of the bundlers will output a unique JavaScript file containing all built modules. For example, let’s consider the following code:
 
 ```javascript
 // Source file: index.js
@@ -52,7 +52,7 @@ To build this package, Webpack will start by compiling the source file (called _
 });
 ```
 
-Once published to npm, each module can be loaded using Node.js’ `require()` (or [ES2015 `import`](https://tc39.github.io/ecma262/#sec-imports)) as follows:
+Once published to npm, each module can be loaded using Node.js’ `require()` (or [ES2015 `import`](https://tc39.es/ecma262/#sec-imports)) as follows:
 
 ```javascript
 import { moduleA, moduleB, moduleC } from "package";
@@ -125,7 +125,7 @@ In this article, we will use [Babel](https://babeljs.io/) for the compilation pr
 $ npm install --save-dev babel-cli
 ```
 
-For full installation details, I encourage you to check [Babel’ setup section in their documentation](https://babeljs.io/docs/setup/). Once Babel is installed, we can define a few scripts in `/package.json`:
+For full installation details, I encourage you to check [Babel’ setup section in their documentation](https://babeljs.io/setup/). Once Babel is installed, we can define a few scripts in `/package.json`:
 
 ```json
 {
@@ -277,7 +277,7 @@ bar |> methodB();
 5. [Webpack – Tree shaking documentation][7]
 6. [Rollup vs Webpack2 – David Rodenas][5]
 
-[1]: http://exploringjs.com/es6/ch_modules.html#static-module-structure "Exploring JS – Static module structure"
+[1]: https://exploringjs.com/es6/ch_modules.html#static-module-structure "Exploring JS – Static module structure"
 [2]: https://github.com/tc39/proposal-bind-operator "ECMAScript This-Binding Syntax"
 [3]: https://github.com/tc39/proposal-pipeline-operator "ESNext Proposal: The Pipeline Operator"
 [4]: https://rollupjs.org/guide/en#tree-shaking "Rollup – Tree shaking documentation"

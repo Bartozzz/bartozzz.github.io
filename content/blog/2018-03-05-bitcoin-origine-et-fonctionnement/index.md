@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski", "Tao Schreiner"]
 keywords: ["Blockchain", "Cryptocurrency"]
 language: fr
 dateCreated: 2018-03-05 00:00:00 +0100
-dateUpdated: 2023-12-01 00:00:00 +0100
+dateUpdated: 2023-12-12 00:00:00 +0100
 datePublished: 2018-03-05 00:00:00 +0100
 ---
 
@@ -16,7 +16,7 @@ Les origines du Bitcoin remontent à fin 2008. En août, le nom de domaine [bitc
 
 ### L’auteur du Bitcoin: Satoshi Nakamoto
 
-Satoshi Nakamoto, l’auteur du Bitcoin, reste encore inconnu à ce jour. Il pourrait aussi bien s’agir d’une seule personne que d’un groupe de plusieurs personnes disséminées à travers le monde. Son profil, tel qu’il apparaît sur un site traitant des systèmes pair-à-pair ([_P2P Foundation_](http://p2pfoundation.ning.com/profile/SatoshiNakamoto)), indique qu’il s’agit d’un homme d’origine japonaise. Toutefois, ces informations pourraient très bien être fabriquées – son anglais parfait remet en question ses origines. De plus, aucune preuve concrète n’a jamais été donnée quant à son identité.
+Satoshi Nakamoto, l’auteur du Bitcoin, reste encore inconnu à ce jour. Il pourrait aussi bien s’agir d’une seule personne que d’un groupe de plusieurs personnes disséminées à travers le monde. Son profil, tel qu’il apparaît sur un site traitant des systèmes pair-à-pair ([_P2P Foundation_](https://p2pfoundation.ning.com/profile/SatoshiNakamoto)), indique qu’il s’agit d’un homme d’origine japonaise. Toutefois, ces informations pourraient très bien être fabriquées – son anglais parfait remet en question ses origines. De plus, aucune preuve concrète n’a jamais été donnée quant à son identité.
 
 Il a miné les 50 premiers Bitcoins dans le _genesis block_ – un bloc unique en ce qu’il ne contient aucune référence à un bloc précédent. Ainsi, les transactions faites jusqu’à ce jour intègrent l’historique de chaque transaction effectuée depuis ce premier bloc. Il est aussi la première personne à émettre une transaction le 3 janvier 2009.
 
@@ -40,11 +40,11 @@ Le marché du Bitcoin est perçu, selon une majeure partie des économistes, com
 
 ### Les débuts du Bitcoin sur le marché
 
-Le Bitcoin est [l’une des premières][10] crypto-monnaies crées. C’est aussi la première crypto-monnaie qui eu un succès au niveau international. Pour bien expliquer le phénomène du Bitcoin, il faut remonter à 2008, quand l’une des plus grandes crises financières s’est produite. Des dizaines de devises ont commencé à perdre de leur valeur – les méthodes traditionnelles d’évaluation monétaire et leur dépendance ont contribuées à une [catastrophe économique][11].
+Le Bitcoin est [l’une des premières][7] crypto-monnaies crées. C’est aussi la première crypto-monnaie qui eu un succès au niveau international. Pour bien expliquer le phénomène du Bitcoin, il faut remonter à 2008, quand l’une des plus grandes crises financières s’est produite. Des dizaines de devises ont commencé à perdre de leur valeur – les méthodes traditionnelles d’évaluation monétaire et leur dépendance ont contribuées à une [catastrophe économique][10].
 
-À cette periode, la monnaie virtuelle semblait être une idée abstraite d’Internet. Cela se voyait particulièrement avec les faibles cotations du Bitcoin quand il a fait ses débuts sur le marché boursier de [_MtGox_][12] et ne valait que 0.063 USD par unité. Le Bitcoin était alors la seule monnaie ne pouvant pas être confisquée par les forces d’état (gouvernements, banques, huissiers de justice, etc.). Il fournissait une garantie de possession d’argent qui s’avéra particulièrement utile dans les pays les plus touchés par la crise comme la Grèce.
+À cette periode, la monnaie virtuelle semblait être une idée abstraite d’Internet. Cela se voyait particulièrement avec les faibles cotations du Bitcoin quand il a fait ses débuts sur le marché boursier de [_MtGox_][11] et ne valait que 0.063 USD par unité. Le Bitcoin était alors la seule monnaie ne pouvant pas être confisquée par les forces d’état (gouvernements, banques, huissiers de justice, etc.). Il fournissait une garantie de possession d’argent qui s’avéra particulièrement utile dans les pays les plus touchés par la crise comme la Grèce.
 
-> If people lose faith in a currency, the typical reaction is to start using another one. Traditionally, money has simply flung to the most stable currency, which has typically been the dollar. But Bitcoin has a couple of advantages over old-fashioned cash. The first advantage is that it is not controlled by any central authority. In countries where people are increasingly distrustful of how central banks and governments manage the economy, Bitcoin may seem like a more sensible alternative. ~ [Danny Bradbury][19]
+> If people lose faith in a currency, the typical reaction is to start using another one. Traditionally, money has simply flung to the most stable currency, which has typically been the dollar. But Bitcoin has a couple of advantages over old-fashioned cash. The first advantage is that it is not controlled by any central authority. In countries where people are increasingly distrustful of how central banks and governments manage the economy, Bitcoin may seem like a more sensible alternative. ~ [Danny Bradbury][18]
 
 ### Comparaison avec les monnaies classiques
 
@@ -59,13 +59,13 @@ Le Bitcoin vérifie toutes ces règles et résout plus efficacement d’autres p
 - **Sécurité.**
   Au cœur des crypto-monnaies se trouve une technologie nommée _blockchain_. Il s’agit d’un système qui joue le rôle du registre des transactions. Il peut être imaginé comme un livre de comptabilité collectif diffus dans le réseau. Il est ouvert à tous, mais ne peut être corrompu, car il est protégé par des outils cryptographiques puissants. Une fois une transaction enregistrée dans le registre, elle ne peut pas être annulée.
 - **Anonymat.**
-  L’émetteur et le destinataire sont identifiés par une [clé publique][13] mais leur vraie identité n’est connue de personne à part eux. En tant qu’utilisateur, nous ne sommes donc qu’une chaîne de caractères et de nombres aux yeux des autres internautes. Il n’y a aucun moyen de retrouver notre vraie identité en s’appuyant sur les <abbr title="Valeur de sortie d’une fonction de hachage cryptographique, c’est-à-dire une fonction qui à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu’elle est pratiquement impossible à inverser.">hash</abbr> du registre public qui sont gérés par la _blockchain_.
+  L’émetteur et le destinataire sont identifiés par une [clé publique][12] mais leur vraie identité n’est connue de personne à part eux. En tant qu’utilisateur, nous ne sommes donc qu’une chaîne de caractères et de nombres aux yeux des autres internautes. Il n’y a aucun moyen de retrouver notre vraie identité en s’appuyant sur les <abbr title="Valeur de sortie d’une fonction de hachage cryptographique, c’est-à-dire une fonction qui à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu’elle est pratiquement impossible à inverser.">hash</abbr> du registre public qui sont gérés par la _blockchain_.
 - **Divisibilité.**
-  Le prix d’un Bitcoin dépasse le budget de la plupart des personnes qui sont potentiellement intéressées dans son achat. Le grand avantage du Bitcoin est sa divisibilité. Ainsi, il est possible d’acheter 0,00000001 BTC ([jusqu’à 8 chiffres après la virgule][14]).
+  Le prix d’un Bitcoin dépasse le budget de la plupart des personnes qui sont potentiellement intéressées dans son achat. Le grand avantage du Bitcoin est sa divisibilité. Ainsi, il est possible d’acheter 0,00000001 BTC ([jusqu’à 8 chiffres après la virgule][13]).
 - **Décentralisation.**
-  Les crypto-monnaies reposent sur un système informatique décentralisé (de type pair-à-pair) et souvent avec un code source publié sous une licence libre ([MIT][15] pour le Bitcoin). Tout le monde peut utiliser sa machine pour aider à améliorer l’infrastructure.
+  Les crypto-monnaies reposent sur un système informatique décentralisé (de type pair-à-pair) et souvent avec un code source publié sous une licence libre ([MIT][14] pour le Bitcoin). Tout le monde peut utiliser sa machine pour aider à améliorer l’infrastructure.
 - **Facilité de transferts.**
-  Il est possible d’effectuer des transferts d’argent dans le monde entier à un prix très bas. Le coût de transaction est redistribué entre les «mineurs» une fois la transaction validée. En moyenne, un transfert dure 30 minutes ([jusqu’à 16 heures dans les cas extrêmes][16]). Plus le coût de transaction est grand, plus vite le transfert est effectué.
+  Il est possible d’effectuer des transferts d’argent dans le monde entier à un prix très bas. Le coût de transaction est redistribué entre les «mineurs» une fois la transaction validée. En moyenne, un transfert dure 30 minutes ([jusqu’à 16 heures dans les cas extrêmes][15]). Plus le coût de transaction est grand, plus vite le transfert est effectué.
 
 Le Bitcoin est une technologie révolutionnaire qui va changer le monde de la finance, tout comme l’e-mail a changé la façon dont les gens communiquent.
 
@@ -159,7 +159,7 @@ La synchronisation de notre base de données locale avec les bases de données d
 
 Il s’agit d’une communication à double-sens: notre système doit envoyer toutes les modifications pour les inclure dans la blockchain principale et fusionner les changements rencontrés chez les autres pairs pour les inclure dans la blockchain locale. À notre rescousse viennent les «_Gossip protocols_».
 
-L’information se propage comme une épidémie dans le réseau en _O(log(n))_. L’implementation de ce protocole est décrite par Robbert van Renesse, Dan Dumitriu, Valient Gough et Chris Thomas dans leur publication [«_Efficient Reconciliation and Flow Control for Anti-Entropy Protocols_»][20]:
+L’information se propage comme une épidémie dans le réseau en _O(log(n))_. L’implementation de ce protocole est décrite par Robbert van Renesse, Dan Dumitriu, Valient Gough et Chris Thomas dans leur publication [«_Efficient Reconciliation and Flow Control for Anti-Entropy Protocols_»][19]:
 
 > With few limitations, updates spread in expected time that grows logarithmic in the number of participating hosts, even in the face of host failures and message loss. The behavior of update propagation is easily modeled with well-known epidemic analysis techniques. As a result, many distributed applications use gossip to contain various inconsistencies.
 
@@ -173,7 +173,7 @@ Jean envoie 5 BTC a Pierre
 Marie envoie 2 BTC a Lucie
 ```
 
-Pour vérifier que c’est bien Jean et Marie qui ont envoyé de l’argent, dans chaque transaction on ajoute une signature ([digital signature][17]) générée par notre portefeuille. Il s’agit d’un système cryptographique classique appelé [<abbr title="Le chiffrement RSA (nommé par les initiales de ses trois inventeurs) est un algorithme de cryptographie asymétrique, très utilisé dans le commerce électronique, et plus généralement pour échanger des données confidentielles sur Internet.">RSA</abbr>][18]. À notre compte est attribué une clé privée (_q_) et une clé publique (_p_). Ce sont de grand nombres premiers, issus d’une courbe elliptique. De plus, nous disposons du hash (_h_) de la transaction.
+Pour vérifier que c’est bien Jean et Marie qui ont envoyé de l’argent, dans chaque transaction on ajoute une signature ([digital signature][16]) générée par notre portefeuille. Il s’agit d’un système cryptographique classique appelé [<abbr title="Le chiffrement RSA (nommé par les initiales de ses trois inventeurs) est un algorithme de cryptographie asymétrique, très utilisé dans le commerce électronique, et plus généralement pour échanger des données confidentielles sur Internet.">RSA</abbr>][17]. À notre compte est attribué une clé privée (_q_) et une clé publique (_p_). Ce sont de grand nombres premiers, issus d’une courbe elliptique. De plus, nous disposons du hash (_h_) de la transaction.
 
 #### Vérification de la signature
 
@@ -217,28 +217,27 @@ Pour vérifier les transactions on utilise les propriétés du système RSA. Il 
 3. [“Le Bitcoin, première crypto-monnaie” – Jean-Paul Delahaye][7]
 4. [“The price of bitcoin has doubled in two weeks“ – Lucas Matney][8]
 5. [“Why Is Bitcoin’s Value So Volatile” – Jonathan Todd Barker][9]
-6. [“Terrorist Use of Cyberspace and Cyber Terrorism: New Challenges and Responses” – M.N. Ogun][12]
-7. [“Bitcoin public and private keys” – Prypto][13]
-8. [“How long do Bitcoin transactions take?“ – Steven Buchko][16]
-9. [“Efficient Reconciliation and Flow Control for Anti-Entropy Protocols“ – Robbert van Renesse][20]
+6. [“Terrorist Use of Cyberspace and Cyber Terrorism: New Challenges and Responses” – M.N. Ogun][11]
+7. [“Bitcoin public and private keys” – Prypto][12]
+8. [“How long do Bitcoin transactions take?“ – Steven Buchko][15]
+9. [“Efficient Reconciliation and Flow Control for Anti-Entropy Protocols“ – Robbert van Renesse][19]
 
 [1]: https://coinmarketcap.com
 [2]: https://whois.com/whois/bitcoin.org
-[3]: http://satoshi.nakamotoinstitute.org/emails/cryptography
-[4]: http://nakamotoinstitute.org/literature
+[3]: https://satoshi.nakamotoinstitute.org/emails/cryptography/
+[4]: https://nakamotoinstitute.org/literature/
 [5]: https://eff.org/deeplinks/2011/01/bitcoin-step-toward-censorship-resista "“Bitcoin - a Step Toward Censorship-Resistant Digital Currency” – Rainey Reitman"
 [6]: https://americanbanker.com/news/bitpay-signs-1-000-merchants-to-accept-bitcoin-payments "”BitPay Signs 1,000 Merchants to Accept Bitcoin Payments” – Brian Browdie"
-[7]: http://www.societe-informatique-de-france.fr/wp-content/uploads/2014/10/1024-4-delahaye.pdf "“Le Bitcoin, première crypto-monnaie” – Jean-Paul Delahaye"
+[7]: https://www.societe-informatique-de-france.fr/wp-content/uploads/2014/10/1024-4-delahaye.pdf "“Le Bitcoin, première crypto-monnaie” – Jean-Paul Delahaye"
 [8]: https://techcrunch.com/2017/12/07/the-price-of-bitcoin-has-doubled-in-two-weeks-now-above-16k/ "“The price of bitcoin has doubled in two weeks“ – Lucas Matney"
 [9]: https://www.investopedia.com/articles/investing/052014/why-bitcoins-value-so-volatile.asp "“Why Is Bitcoin’s Value So Volatile” –  Jonathan Todd Barker"
-[10]: http://www.societe-informatique-de-france.fr/wp-content/uploads/2014/10/1024-4-delahaye.pdf "“Le Bitcoin, première crypto-monnaie” – Jean-Paul Delahaye"
-[11]: https://fr.wikipedia.org/wiki/Crise_bancaire_et_financi%C3%A8re_de_l%27automne_2008 "Crise bancaire et financière de l’automne 2008"
-[12]: https://books.google.fr/books?id=oPboDAAAQBAJ&lpg=PA47&vq=3.%20the%20fall%20of%20mt.%20gox&dq=mt.%20gox%2070&pg=PA47&q=3.%20the%20fall%20of%20mt.%20gox "“Terrorist Use of Cyberspace and Cyber Terrorism: New Challenges and Responses” – M.N. Ogun"
-[13]: http://www.dummies.com/software/other-software/bitcoin-public-private-keys/ "“Bitcoin public and private keys” – Prypto"
-[14]: https://en.bitcoin.it/wiki/Satoshi_(unit) "Satoshi (unit)"
-[15]: https://github.com/bitcoin/bitcoin/blob/master/COPYING "Bitcoin License"
-[16]: https://coincentral.com/how-long-do-bitcoin-transfers-take/ "“How long do Bitcoin transactions take?“ – Steven Buchko"
-[17]: https://fr.wikipedia.org/wiki/Signature_num%C3%A9rique "Signature numérique"
-[18]: https://fr.wikipedia.org/wiki/Chiffrement_RSA "Chiffrement RSA"
-[19]: https://thebalance.com/is-bitcoin-the-answer-in-a-financial-crisis-391275 "“Bitcoin and Financial Crisis“ – Danny Bradbury"
-[20]: https://www.cs.cornell.edu/home/rvr/papers/flowgossip.pdf "“Efficient Reconciliation and Flow Control for Anti-Entropy Protocols“ – Robbert van Renesse"
+[10]: https://fr.wikipedia.org/wiki/Crise_bancaire_et_financi%C3%A8re_de_l%27automne_2008 "Crise bancaire et financière de l’automne 2008"
+[11]: https://books.google.fr/books?id=oPboDAAAQBAJ&lpg=PA47&vq=3.%20the%20fall%20of%20mt.%20gox&dq=mt.%20gox%2070&pg=PA47&q=3.%20the%20fall%20of%20mt.%20gox "“Terrorist Use of Cyberspace and Cyber Terrorism: New Challenges and Responses” – M.N. Ogun"
+[12]: https://www.dummies.com/article/business-careers-money/personal-finance/cryptocurrency/bitcoin-public-private-keys-223627/ "“Bitcoin public and private keys” – Prypto"
+[13]: https://en.bitcoin.it/wiki/Satoshi_(unit) "Satoshi (unit)"
+[14]: https://github.com/bitcoin/bitcoin/blob/master/COPYING "Bitcoin License"
+[15]: https://coincentral.com/how-long-do-bitcoin-transfers-take/ "“How long do Bitcoin transactions take?“ – Steven Buchko"
+[16]: https://fr.wikipedia.org/wiki/Signature_num%C3%A9rique "Signature numérique"
+[17]: https://fr.wikipedia.org/wiki/Chiffrement_RSA "Chiffrement RSA"
+[18]: https://thebalance.com/is-bitcoin-the-answer-in-a-financial-crisis-391275 "“Bitcoin and Financial Crisis“ – Danny Bradbury"
+[19]: https://www.cs.cornell.edu/home/rvr/papers/flowgossip.pdf "“Efficient Reconciliation and Flow Control for Anti-Entropy Protocols“ – Robbert van Renesse"

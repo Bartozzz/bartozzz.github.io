@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["React"]
 language: en
 dateCreated: 2019-04-20 00:00:00 +0100
-dateUpdated: 2023-12-01 00:00:00 +0100
+dateUpdated: 2023-12-12 00:00:00 +0100
 datePublished: 2019-04-20 00:00:00 +0100
 ---
 
@@ -58,7 +58,7 @@ const LazyFooBar = () => (
 );
 ```
 
-The dynamic `import()` tells the bundler to exclude requested files from the main bundle. `React.lazy` returns a special component type that will suspend the render until it resolves or rejects The exact behavior is described in the following [RFC](https://github.com/reactjs/rfcs/blob/master/text/0064-lazy.md):
+The dynamic `import()` tells the bundler to exclude requested files from the main bundle. `React.lazy` returns a special component type that will suspend the render until it resolves or rejects The exact behavior is described in the following [RFC](https://github.com/reactjs/rfcs/blob/main/text/0064-lazy.md):
 
 > `React.lazy` accepts a Promise factory, and returns a new component type. When React renders that type for the first time, it triggers the Promise factory […]. If the Promise is fulfilled, React reads the `.default` value from it […], and uses it as a component type for rendering. If the Promise is rejected, the rejection is handled in the same way as React normally handles errors (by letting the nearest error boundary handle it). After the code has loaded, React caches the Promise result. Next renders of the components with this type become synchronous and have no extra cost.
 
@@ -134,16 +134,16 @@ const LazyImg = ({ lowResSrc, highResSrc, ...props }) => (
 
 There’s a GitHub project named `the-platform` which turns Web APIs into React Hooks and Suspense-friendly React components. It provides a set of lazy components out of the box, such as:
 
-- [`<Img>`](https://github.com/palmerhq/the-platform#img)
-- [`<Script>`](https://github.com/palmerhq/the-platform#script)
-- [`<Video>`](https://github.com/palmerhq/the-platform#video)
-- [`<Audio>`](https://github.com/palmerhq/the-platform#audio)
-- [`<Preload>`](https://github.com/palmerhq/the-platform#preload)
-- [`<Stylesheet>`](https://github.com/palmerhq/the-platform#stylesheet)
+- [`<Img>`](https://github.com/jaredpalmer/the-platform#img)
+- [`<Script>`](https://github.com/jaredpalmer/the-platform#script)
+- [`<Video>`](https://github.com/jaredpalmer/the-platform#video)
+- [`<Audio>`](https://github.com/jaredpalmer/the-platform#audio)
+- [`<Preload>`](https://github.com/jaredpalmer/the-platform#preload)
+- [`<Stylesheet>`](https://github.com/jaredpalmer/the-platform#stylesheet)
 
 ## Resources
 
-1. https://reactjs.org/docs/code-splitting.html
+1. https://legacy.reactjs.org/docs/code-splitting.html
 2. https://medium.com/@rossbulat/react-lazy-suspense-and-concorrent-react-breakdown-with-examples-2758de98cb1c
 3. https://github.com/palmerhq/the-platform
 4. https://youtube.com/watch?v=SCQgE4mTnjU

@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["CSS", "Accessibility"]
 language: en
 dateCreated: 2021-12-13 00:00:00 +0100
-dateUpdated: 2023-12-01 00:00:00 +0100
+dateUpdated: 2023-12-12 00:00:00 +0100
 datePublished: 2021-12-13 00:00:00 +0100
 ---
 
@@ -133,7 +133,7 @@ Light and dark modes have different use cases but both contribute to the [health
 }
 ```
 
-If you want to make full use of larger gamuts, you need to use new CSS colors formats ([`lab`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lab()), [`lch`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lch()), [`display-p3`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color())) or [fall back to images, as they support color profiles](https://twitter.com/panic/status/1106633444157607936). Keep in mind that ultra-bright colors available on the `p3` and `rec2020` gamuts can be uncomfortable and damage the screen if used on static content.
+If you want to make full use of larger gamuts, you need to use new CSS colors formats ([`lab`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lab), [`lch`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lch), [`display-p3`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color)) or [fall back to images, as they support color profiles](https://twitter.com/panic/status/1106633444157607936). Keep in mind that ultra-bright colors available on the `p3` and `rec2020` gamuts can be uncomfortable and damage the screen if used on static content.
 
 {
   /**

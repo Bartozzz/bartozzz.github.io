@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Security", "Privacy"]
 language: pl
 dateCreated: 2018-02-18 00:00:00 +0100
-dateUpdated: 2022-04-17 00:00:00 +0100
+dateUpdated: 2023-12-12 00:00:00 +0100
 datePublished: 2018-02-18 00:00:00 +0100
 ---
 
@@ -45,7 +45,7 @@ Bazując się na wyżej wymienionych informacjach, bardzo łatwo można wygenero
 
 <Alert>
 
-  Przeglądarka Google Chrome [planuje zredukować](https://developer.chrome.com/docs/privacy-sandbox/user-agent/) informacje wysyłane w nagłówku HTTP `User-Agent` oraz w obiekcie `navigator`. Ma to na celu zredukowanie informacji służących do identyfikacji użytkowników na podstawie odcisku przeglądarki.
+  Przeglądarka Google Chrome [planuje zredukować](https://developers.google.com/privacy-sandbox/protections/user-agent informacje wysyłane w nagłówku HTTP `User-Agent` oraz w obiekcie `navigator`. Ma to na celu zredukowanie informacji służących do identyfikacji użytkowników na podstawie odcisku przeglądarki.
 </Alert>
 
 [Preferowane języki][7] użytkownika, [rozszerzenia][8], dostępne czcionki, wsparcie przeglądarki oraz reszta danych systemowych są również powszechnie przetwarzane. Pełną listę charakterystyk, wraz z technicznym opisem oraz metodami ich pozyskania można znaleźć w artykule [_„Technical analysis of client identification mechanisms”_][4] autorstwa Artura Janc i Michała Zalewskiego.
@@ -85,13 +85,13 @@ Dodaj filtry z [`easylist` i `easyprivacy`][14]: _„The EasyList filter lists a
 
 [1]: https://en.wikipedia.org/wiki/Device_fingerprint "Device fingerprint – Wikipedia"
 [2]: https://html.spec.whatwg.org/multipage/system-state.html#system-state-and-capabilities "HTML Standard – The Navigator object"
-[3]: https://panopticlick.eff.org/static/browser-uniqueness.pdf "How Unique Is Your Web Browser? – Peter Eckersley"
-[4]: https://www.chromium.org/Home/chromium-security/client-identification-mechanisms "Technical analysis of client identification mechanisms – Artur Janc and Michal Zalewski"
-[5]: http://www.dziennikustaw.gov.pl/DU/2012/1445 "Ustawa z dnia 16 listopada 2012 r. o zmianie ustawy – Prawo telekomunikacyjne oraz niektórych innych ustaw"
+[3]: https://coveryourtracks.eff.org/static/browser-uniqueness.pdf "How Unique Is Your Web Browser? – Peter Eckersley"
+[4]: https://www.chromium.org/Home/chromium-security/client-identification-mechanisms/ "Technical analysis of client identification mechanisms – Artur Janc and Michal Zalewski"
+[5]: https://www.dziennikustaw.gov.pl/DU/2012/1445 "Ustawa z dnia 16 listopada 2012 r. o zmianie ustawy – Prawo telekomunikacyjne oraz niektórych innych ustaw"
 [6]: https://tools.ietf.org/html/rfc7231#section-5.5.3 "RFC 7231 – User-Agent"
-[7]: https://www.w3.org/TR/html51/webappapis.html#language-preferences "W3C Recommendation – Language preferences"
+[7]: https://html.spec.whatwg.org/multipage/webappapis.html "W3C Recommendation – Language preferences"
 [8]: https://html.spec.whatwg.org/multipage/system-state.html#plugins-2 "HTML Standard – Plugins"
-[9]: http://www.maratz.com/blog/archives/2006/08/18/detect-visitors-fonts-with-flash/ "Detect visitor’s fonts with Flash – Marko Dugonjić"
+[9]: https://www.maratz.com/blog/archives/2006/08/18/detect-visitors-fonts-with-flash/ "Detect visitor’s fonts with Flash – Marko Dugonjić"
 [10]: https://www.microsoft.com/en-us/research/publication/no-clicks-no-problem-using-cursor-movements-to-understand-and-improve-search-2/ "No Clicks, No Problem: Using Cursor Movements to Understand and Improve Search – Jeff Huang, Ryen White and Susan Dumais"
 [11]: https://github.com/gorhill/uBlock
 [12]: https://noscript.net/

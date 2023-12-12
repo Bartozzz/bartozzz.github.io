@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["React", "Architecture"]
 language: en
 dateCreated: 2019-03-01 00:00:00 +0100
-dateUpdated: 2023-12-01 00:00:00 +0100
+dateUpdated: 2023-12-12 00:00:00 +0100
 datePublished: 2019-03-01 00:00:00 +0100
 ---
 
@@ -20,7 +20,7 @@ Maintaining large React projects can be a difficult task. Below are a few practi
 
 ## File structure
 
-Dan Abramov created a [guide](http://react-file-structure.surge.sh/) for organizing files and he made a very good point. For months I’ve been following the “good” ways to organize React projects: starting at the separation of concerns with Presentational and Container components and finishing with adapting [ducks](https://github.com/erikras/ducks-modular-redux).
+Dan Abramov created a [guide](https://react-file-structure.surge.sh/) for organizing files and he made a very good point. For months I’ve been following the “good” ways to organize React projects: starting at the separation of concerns with Presentational and Container components and finishing with adapting [ducks](https://github.com/erikras/ducks-modular-redux).
 
 It worked well for small projects, but as they grew to be 30 different, unique screens and over 200 components, it became more difficult to maintain all of this together. At Milo, we came up with a directory structure that is inspired by Django and best practices from React, taking the separation of concerns to its extreme.
 
@@ -58,7 +58,7 @@ This contains the shared code used all across your app. It can include configura
 
 ### Screens
 
-Screens are components that are directly mounted on routes ([`react-router`](https://github.com/ReactTraining/react-router), [`react-navigation`](https://github.com/react-navigation/react-navigation)). They render shared and/or module components.
+Screens are components that are directly mounted on routes ([`react-router`](https://github.com/remix-run/react-router), [`react-navigation`](https://github.com/react-navigation/react-navigation)). They render shared and/or module components.
 
 ### Modules
 
@@ -332,11 +332,11 @@ export type RootAction =
 You can think of Redux as a low-level API – it doesn’t force any particular patterns and allows you pretty much to do whatever you want.
 
 - [Ramda](https://ramdajs.com/): a practical functional library for JavaScript programmers.
-- [Immer](https://github.com/mweststrate/immer): create the next immutable state by mutating the current one.
+- [Immer](https://github.com/immerjs/immer): create the next immutable state by mutating the current one.
 
 ### Utilities for creating styles
 
-Creating styles can be a pain, especially in React Native or when you need to create custom styles based on the state. [Styled Components](https://www.styled-components.com/ecosystem) can come in handy – they allow you to create styles directly in JavaScript using SCSS syntax.
+Creating styles can be a pain, especially in React Native or when you need to create custom styles based on the state. [Styled Components](https://styled-components.com/ecosystem) can come in handy – they allow you to create styles directly in JavaScript using SCSS syntax.
 
 ### Tips and tricks
 
@@ -344,7 +344,7 @@ Creating styles can be a pain, especially in React Native or when you need to cr
 
 Creating reducers to handle the inner component state is a good practice in the case when you have complex state logic – it is easier to test and in most cases, less error-prone. Creating reducers for inner state management is even easier with the new Hooks API.
 
-**Example:** from official React [`useReducer` example](https://reactjs.org/docs/hooks-reference.html#usereducer):
+**Example:** from official React [`useReducer` example](https://react.dev/reference/react/useReducer):
 
 ```jsx
 export const initialState = { count: 0 };
@@ -463,11 +463,11 @@ class FooComponent extends React.Component {
 
 As Michael Jackson (React-Router co-creator) said:
 
-> “Next time you think you need a HOC (higher-order component) in, you probably don’t. I can do anything you’re doing with your HOC using a regular component with a [render prop](https://reactjs.org/docs/render-props.html).“ – [Michael Jackson](https://twitter.com/mjackson/status/885910553432018945)
+> “Next time you think you need a HOC (higher-order component) in, you probably don’t. I can do anything you’re doing with your HOC using a regular component with a [render prop](https://legacy.reactjs.org/docs/render-props.html).“ – [Michael Jackson](https://twitter.com/mjackson/status/885910553432018945)
 
 #### Avoid using Components without `shouldComponentUpdate`
 
-A [`React.Component`](https://reactjs.org/docs/react-component.html), when used without `shouldComponentUpdate`, will re-render on every prop and state change.
+A [`React.Component`](https://react.dev/reference/react/Component), when used without `shouldComponentUpdate`, will re-render on every prop and state change.
 
 1. Consider creating a `shouldComponentUpdate() `method to prevent unnecessary re-renders.
 2. Consider using the built-in `PureComponent` instead of writing `shouldComponentUpdate` by hand. `PureComponent` performs a shallow comparison of props and state, and reduces the chance that you’ll skip a necessary update.
