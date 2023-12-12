@@ -1,58 +1,65 @@
 import { createFilePath } from "gatsby-source-filesystem";
 import readingTime from "reading-time";
 
-import { getAllPosts, getAllPostsByKeyword } from "./gatsby/data/queries.mjs";
+import { getAllPosts } from "./gatsby/data/queries.mjs";
 import { createAllBlogPostsPage } from "./gatsby/helpers/createAllBlogPostsPage.mjs";
 import { createBlogPostPage } from "./gatsby/helpers/createBlogPostPage.mjs";
+import { createBlogPostThumbnails } from "./gatsby/helpers/createBlogPostThumbnails.mjs";
 import { redirects } from "./redirects.mjs";
 
+function getAllPostsByKeyword(posts, keyword) {
+  return posts.filter((post) => post.frontmatter.keywords.includes(keyword));
+}
+
 export const createPages = async ({ graphql, actions }) => {
+  const allPostsResult = await getAllPosts(graphql);
+  const allPosts = allPostsResult.allMdx.nodes;
+
   // Create a list of unique keywords from blog posts:
-  const keywords = new Set();
+  const allKeywords = allPosts.flatMap((post) => post.frontmatter.keywords);
+  const uniqueKeywords = Array.from(new Set(allKeywords).keys());
 
-  // Create pages for blog posts:
-  await (async function () {
-    const result = await getAllPosts(graphql);
-    const posts = result.allMdx.nodes;
-
-    // Run sequentially because we need to generate images for each post:
-    for (const data of posts) {
-      data.frontmatter.keywords.forEach((keyword) => {
-        keywords.add(keyword);
+  async function createRedirectsTask() {
+    redirects.forEach((redirect) => {
+      actions.createRedirect({
+        fromPath: redirect.from,
+        toPath: redirect.to,
+        isPermanent: true,
       });
+    });
+  }
 
-      await createBlogPostPage(actions, data);
+  async function createAllBlogPostPagesTask() {
+    for (const post of allPosts) {
+      await createBlogPostPage(actions, post);
     }
-  })();
+  }
 
-  // Create page for listing all blog posts:
-  await (async function () {
-    const result = await getAllPosts(graphql);
-    const data = result.allMdx.nodes;
+  async function createAllBlogPostThumbnailsTask() {
+    await createBlogPostThumbnails(
+      allPosts.map((post) => ({
+        title: post.frontmatter.title,
+        slug: post.fields.slug,
+      })),
+    );
+  }
 
-    return await createAllBlogPostsPage(actions, data);
-  })();
+  async function createAllBlogPostListingPagesTask() {
+    // All blog posts listing:
+    await createAllBlogPostsPage(actions, allPosts);
 
-  // Create page for listing all blog posts by keyword:
-  await (async function () {
-    const tasks = Array.from(keywords.keys()).map(async (keyword) => {
-      const result = await getAllPostsByKeyword(graphql, keyword);
-      const data = result.allMdx.nodes;
+    for (const keyword of uniqueKeywords) {
+      const allPostsForKeyword = getAllPostsByKeyword(allPosts, keyword);
+      await createAllBlogPostsPage(actions, allPostsForKeyword, { keyword });
+    }
+  }
 
-      await createAllBlogPostsPage(actions, data, { keyword });
-    });
-
-    return await Promise.all(tasks);
-  })();
-
-  // Create redirects:
-  redirects.forEach((redirect) => {
-    actions.createRedirect({
-      fromPath: redirect.from,
-      toPath: redirect.to,
-      isPermanent: true,
-    });
-  });
+  return Promise.all([
+    createRedirectsTask(),
+    createAllBlogPostPagesTask(),
+    createAllBlogPostThumbnailsTask(),
+    createAllBlogPostListingPagesTask(),
+  ]);
 };
 
 export const onCreateNode = async ({ node, actions, getNode }) => {

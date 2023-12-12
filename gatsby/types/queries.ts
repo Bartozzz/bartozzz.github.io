@@ -40,10 +40,3 @@ export interface AllPostsQuery {
     nodes: BlogPost[];
   };
 }
-
-export interface PostsByKeywordQuery {
-  allMdx: {
-    totalCount: number;
-    nodes: BlogPost[];
-  };
-}

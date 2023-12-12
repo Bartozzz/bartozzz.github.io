@@ -53,23 +53,3 @@ export async function getAllPosts(graphql) {
 
   return processQueryResult(result);
 }
-
-export async function getAllPostsByKeyword(graphql, keyword) {
-  const result = await graphql(
-    `
-      query PostsByKeywordQuery($keyword: String) {
-        allMdx(
-          sort: { frontmatter: { datePublished: DESC } }
-          filter: { frontmatter: { keywords: { in: [$keyword] } } }
-        ) {
-          ${postQuery}
-        }
-      }
-    `,
-    {
-      keyword,
-    },
-  );
-
-  return processQueryResult(result);
-}
