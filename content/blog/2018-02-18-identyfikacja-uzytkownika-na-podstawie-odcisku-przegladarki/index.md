@@ -68,7 +68,7 @@ Poniższe rozszerzenia powinny jednak poradzić sobie z wieloma metodami śledze
 
 1.  [`uBlock Origin`][11]: _„An efficient blocker: easy on memory and CPU footprint, and yet can load and enforce thousands more filters than other popular blockers.”_.
 2.  [`noscript`][12]: _„Provides extra protection: allows JavaScript, Java, Flash and other plugins to be executed only by trusted web sites of your choice.”_.
-3.  [`blender`][13]: _„Blend in the crowd by faking to be the most common Firefox browser version, operating system and other stuff.”_.
+3.  [`Blend In`][13]: _„Blends in OS-related values in User-Agent HTTP request header & a number of JS properties, so that Firefox (Thunderbird) appears to sites visited as running on the OS being used the most in the world.”_.
 4.  [`ClearURLs`][17]: _„Automatically removes tracking elements from URLs to help protect your privacy when browsing through the internet.”_.
 
 Dodaj filtry z [`easylist` i `easyprivacy`][14]: _„The EasyList filter lists are sets of rules originally designed for Adblock that automatically remove unwanted content from the internet, including annoying adverts, bothersome banners and troublesome tracking.”_.
@@ -95,7 +95,7 @@ Dodaj filtry z [`easylist` i `easyprivacy`][14]: _„The EasyList filter lists a
 [10]: https://www.microsoft.com/en-us/research/publication/no-clicks-no-problem-using-cursor-movements-to-understand-and-improve-search-2/ "No Clicks, No Problem: Using Cursor Movements to Understand and Improve Search – Jeff Huang, Ryen White and Susan Dumais"
 [11]: https://github.com/gorhill/uBlock
 [12]: https://noscript.net/
-[13]: https://addons.mozilla.org/en-US/firefox/addon/blender-1/
+[13]: https://addons.mozilla.org/en-US/firefox/addon/blend-in/
 [14]: https://easylist.to/
 [15]: https://github.com/StevenBlack/hosts
 [16]: https://rekseto.github.io/eksperymenty/inne/javascript/2018/06/04/jak-duzo-o-tobie-wiem.html

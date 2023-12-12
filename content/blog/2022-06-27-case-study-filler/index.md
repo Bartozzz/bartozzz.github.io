@@ -135,7 +135,7 @@ function ScoreStars({ score }: { score: number }) {
 };
 ```
 
-…where `Swing` is a custom [keyframe](https://docs.swmansion.com/react-native-reanimated/docs/api/LayoutAnimations/keyframeAnimations/) I created:
+…where `Swing` is a custom [keyframe](https://docs.swmansion.com/react-native-reanimated/docs/2.x/api/LayoutAnimations/keyframeAnimations/) I created:
 
 ```tsx
 const Swing = () =>
