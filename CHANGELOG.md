@@ -1,3 +1,10 @@
+# [1.31.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.30.1...v1.31.0) (2023-12-12)
+
+
+### Features
+
+* add games landing pages to sitemap ([7cff5ff](https://github.com/Bartozzz/bartozzz.github.io/commit/7cff5ffb632e4b5b4485c04730d34ea6aed6f9a5))
+
 ## [1.30.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.30.0...v1.30.1) (2023-12-12)
 
 
