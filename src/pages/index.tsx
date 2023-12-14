@@ -1,6 +1,6 @@
 import "../styles/pages/index.scss";
 
-import { PageProps, graphql } from "gatsby";
+import { HeadProps, PageProps, graphql } from "gatsby";
 
 import { Content } from "../components/Content";
 import { GameCard } from "../components/GameCard";
@@ -11,7 +11,7 @@ import { PostExcerpt } from "../components/PostExcerpt";
 import { Repository } from "../components/Repository";
 import { SEO } from "../components/SEO";
 
-interface IndexPageQuery {
+interface DataType {
   site: {
     siteMetadata: {
       siteUrl: string;
@@ -63,9 +63,7 @@ interface IndexPageQuery {
   };
 }
 
-type Props = PageProps<IndexPageQuery>;
-
-export default function IndexPage({ data }: Props) {
+export default function IndexPage({ data }: PageProps<DataType>) {
   const posts = data.allMdx.nodes;
   const games = data.allGamesYaml.nodes;
   const repositories = data.allRepositoriesYaml.nodes;
@@ -160,16 +158,12 @@ export default function IndexPage({ data }: Props) {
   );
 }
 
-export function Head({ data }: Props) {
-  const siteUrl = data.site.siteMetadata.siteUrl;
-
+export function Head({}: HeadProps<DataType>) {
   return (
     <SEO
       title="Bartosz Łaniewski"
       description="Creative designer & developer based in Poland. Passionate about architecture and beautiful software."
-    >
-      <link rel="canonical" href={`${siteUrl}/`} />
-    </SEO>
+    />
   );
 }
 

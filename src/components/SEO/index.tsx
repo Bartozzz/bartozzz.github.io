@@ -3,8 +3,8 @@ import { useStaticQuery, graphql } from "gatsby";
 interface Props {
   url?: string;
   image?: string;
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
 }
 
 export function SEO({
@@ -30,6 +30,7 @@ export function SEO({
   return (
     <>
       <title>{title}</title>
+      <link rel="canonical" href={metaUrl} />
       <meta name="description" content={description} />
 
       <meta name="twitter:card" content="summary_large_image" />

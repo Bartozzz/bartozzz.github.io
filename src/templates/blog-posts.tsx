@@ -1,6 +1,6 @@
 import "./blog-posts.scss";
 
-import { Link, PageProps, graphql } from "gatsby";
+import { HeadProps, Link, PageProps, graphql } from "gatsby";
 
 import { mapKeywordToSlug } from "../../gatsby/helpers/mapKeywordToSlug.mjs";
 
@@ -13,21 +13,22 @@ import { PostExcerpt } from "../components/PostExcerpt";
 import { SEO } from "../components/SEO";
 import { useKeywords } from "../hooks/useKeywords";
 
-type Props = PageProps<
-  {
-    site: {
-      siteMetadata: {
-        siteUrl: string;
-      };
+interface DataType {
+  site: {
+    siteMetadata: {
+      siteUrl: string;
     };
-  },
-  {
-    data: BlogPost[];
-    keyword?: string;
-  }
->;
+  };
+}
 
-export default function BlogPostsTemplate({ pageContext }: Props) {
+interface PageContextType {
+  data: BlogPost[];
+  keyword?: string;
+}
+
+export default function BlogPostsTemplate({
+  pageContext,
+}: PageProps<DataType, PageContextType>) {
   const keywords = useKeywords();
 
   const pagePosts = pageContext.data;
@@ -89,7 +90,11 @@ export default function BlogPostsTemplate({ pageContext }: Props) {
   );
 }
 
-export function Head({ data, pageContext, location }: Props) {
+export function Head({
+  data,
+  pageContext,
+  location,
+}: HeadProps<DataType, PageContextType>) {
   const pageKeyword = pageContext.keyword;
   const siteUrl = data.site.siteMetadata.siteUrl;
   const slug = location.pathname;
@@ -107,9 +112,7 @@ export function Head({ data, pageContext, location }: Props) {
           ? `My latest posts, updates, and stories about ${pageKeyword} for developers`
           : "My latest posts, updates, and stories about software engineering for developers"
       }
-    >
-      <link rel="canonical" href={`${siteUrl}${slug}`} />
-    </SEO>
+    />
   );
 }
 

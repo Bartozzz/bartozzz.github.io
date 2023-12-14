@@ -2,7 +2,7 @@ import "./blog-post.scss";
 
 import { MDXProvider } from "@mdx-js/react";
 
-import { PageProps, graphql } from "gatsby";
+import { HeadProps, PageProps, graphql } from "gatsby";
 
 import { mapSlugToImageName } from "../../gatsby/helpers/mapSlugToImageName.mjs";
 import { BlogPost } from "../../gatsby/types/queries";
@@ -14,25 +14,24 @@ import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { TableOfContents } from "../components/TableOfContents";
 
-type Props = PageProps<
-  {
-    site: {
-      siteMetadata: {
-        siteUrl: string;
-      };
+interface DataType {
+  site: {
+    siteMetadata: {
+      siteUrl: string;
     };
-  },
-  {
-    data: BlogPost;
-    slug: string;
-  }
->;
+  };
+}
+
+interface PageContextType {
+  data: BlogPost;
+  slug: string;
+}
 
 export default function BlogPostTemplate({
   data,
   pageContext,
   children,
-}: Props) {
+}: PageProps<DataType, PageContextType>) {
   const post = pageContext.data;
   const slug = post.fields.slug;
   const { frontmatter, tableOfContents } = post;
@@ -92,7 +91,10 @@ export default function BlogPostTemplate({
   );
 }
 
-export function Head({ data, pageContext }: Props) {
+export function Head({
+  data,
+  pageContext,
+}: HeadProps<DataType, PageContextType>) {
   const post = pageContext.data;
   const slug = post.fields.slug;
   const { excerpt } = post;
@@ -108,7 +110,6 @@ export function Head({ data, pageContext }: Props) {
       image={thumbnailUrl}
       description={description || excerpt}
     >
-      <link rel="canonical" href={`${siteUrl}${slug}`} />
       <html className="smooth-scroll" />
     </SEO>
   );
