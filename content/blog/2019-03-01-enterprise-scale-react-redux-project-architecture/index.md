@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["React", "Architecture"]
 language: en
 dateCreated: 2019-03-01 00:00:00 +0100
-dateUpdated: 2023-12-12 00:00:00 +0100
+dateUpdated: 2023-12-14 00:00:00 +0100
 datePublished: 2019-03-01 00:00:00 +0100
 ---
 
@@ -292,20 +292,24 @@ export const errorsReducer = (state: ErrorsState = null, action: Action) => {
 
     default:
       return state;
+  }
 }
 
 export const loadingReducer = (state: LoadingState = false, action: Action) => {
   switch (action.type) {
-    case Types.POSTS_REQUEST: return true;
-    case Types.POSTS_PROCESS: return false;
-    default: return state;
+    case Types.POSTS_REQUEST:
+      return true;
+    case Types.POSTS_PROCESS:
+      return false;
+    default:
+      return state;
   }
 }
 
 export default combineReducers({
-    data: postsReducer,
-    errors: errorsReducer,
-    loading: loadingReducer
+  data: postsReducer,
+  errors: errorsReducer,
+  loading: loadingReducer,
 });
 ```
 
