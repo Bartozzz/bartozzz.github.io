@@ -23,4 +23,8 @@ export const redirects = [
     from: "/javascript/2018/04/29/publishing-packages-to-npm.html",
     to: "/blog/2018-04-29-publishing-packages-to-npm/",
   },
+  {
+    from: "/2019-04-19-lazy-loading-and-code-splitting-in-react-apps/",
+    to: "/blog/2019-04-19-lazy-loading-and-code-splitting-in-react-apps/",
+  },
 ];
