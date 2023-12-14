@@ -4,15 +4,15 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Gatsby", "SEO"]
 language: en
 dateCreated: 2023-12-12 00:00:00 +0100
-dateUpdated: 2023-12-12 00:00:00 +0100
+dateUpdated: 2023-12-14 00:00:00 +0100
 datePublished: 2023-12-12 00:00:00 +0100
 ---
 
-Creating a sitemap is an essential step towards enhancing the visibility and SEO performance of your Gatsby website. A sitemap assists search engines in efficiently crawling and indexing your content. In this guide, I'll walk you through the process of creating a sitemap for your Gatsby project, boosting its search engine optimization.
+Creating a sitemap is an essential step towards enhancing the visibility and SEO performance of your Gatsby website. A sitemap assists search engines in efficiently crawling and indexing your content. In this guide, I’ll walk you through the process of creating a sitemap for your Gatsby project, boosting its search engine optimization.
 
 ## The Importance of a Sitemap
 
-A sitemap serves as a guide for search engines, helping them discover and rank your content more effectively. It also ensures that any updates or new pages are recognized. This is crucial for search engine optimization (SEO) and ensuring that your website appears in search engine results pages (SERPs).
+A sitemap serves as a guide for search engines, helping them discover and rank your content more effectively. It also ensures that any updates or new pages are recognized. This is crucial for Search Engine Optimization (_SEO_) and ensuring that your website appears in Search Engine Results Pages (_SERPs_).
 
 ## Step 1: Install the Gatsby Plugin
 
@@ -172,9 +172,9 @@ With the configuration above, the new sitemap should contain the new field `<las
 
 ## Step 3: Update your robots.txt file
 
-The `robots.txt` file is a text file placed in a website's root directory to instruct web crawlers about which parts of the site should not be crawled or indexed. The `Sitemap` directive in the `robots.txt` file is used to indicate the location of the XML sitemap.
+The `robots.txt` file is a text file placed in a website’s root directory to instruct web crawlers about which parts of the site should not be crawled or indexed. The `Sitemap` directive in the `robots.txt` file is used to indicate the location of the XML sitemap.
 
-To generate a `robots.txt` file, you can use the [`gatsby-plugin-robots-txt`](https://www.gatsbyjs.com/plugins/gatsby-plugin-robots-txt/) plugin. For our use case, we won't overengineer the configuration. Let's manually create a `robots.txt` file in the `static` folder and simply add a reference to the sitemap file to allow all crawlers to index our website:
+To generate a `robots.txt` file, you can use the [`gatsby-plugin-robots-txt`](https://www.gatsbyjs.com/plugins/gatsby-plugin-robots-txt/) plugin. For our use case, we won’t overengineer the configuration. Let’s manually create a `robots.txt` file in the `static` folder and simply add a reference to the sitemap file to allow all crawlers to index our website:
 
 ```txt
 Sitemap: https://example.com/sitemap-index.xml
@@ -184,13 +184,13 @@ Disallow:
 
 ## Step 4: Test and Deploy
 
-Before deploying your Gatsby website with the new sitemap, it's crucial to test it locally. The sitemap is only generated for production mode. To test your sitemap, you should run the following command:
+Before deploying your Gatsby website with the new sitemap, it’s crucial to test it locally. The sitemap is only generated for production mode. To test your sitemap, you should run the following command:
 
 ```bash
 $ gatsby build && gatsby serve.
 ```
 
-…and head to `localhost:9000/sitemap-index.xml` to see the generated sitemap. Once you've confirmed that everything is working as expected, deploy your Gatsby website to your hosting provider.
+…and head to `localhost:9000/sitemap-index.xml` to see the generated sitemap. Once you’ve confirmed that everything is working as expected, deploy your Gatsby website to your hosting provider.
 
 ## Step 5: Submit to search engines
 
@@ -214,4 +214,4 @@ Creating a sitemap for your Gatsby website is a strategic move towards improving
 
 The `gatsby-plugin-sitemap` simplifies this process, allowing you to focus on creating compelling content while ensuring that search engines can easily discover and index your pages.
 
-By following these steps and customizing your sitemap, you can increase visibility, and ultimately optimize your website's performance.
+By following these steps and customizing your sitemap, you can increase visibility, and ultimately optimize your website’s performance.
