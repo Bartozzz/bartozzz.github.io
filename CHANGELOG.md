@@ -1,3 +1,10 @@
+# [1.34.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.33.0...v1.34.0) (2023-12-15)
+
+
+### Features
+
+* write article about gatsby seo component ([f8ca473](https://github.com/Bartozzz/bartozzz.github.io/commit/f8ca473ff0f5799cd31917c68fe6f2e012134d5e))
+
 # [1.33.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.32.1...v1.33.0) (2023-12-15)
 
 
