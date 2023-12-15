@@ -1,3 +1,10 @@
+# [1.35.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.34.0...v1.35.0) (2023-12-15)
+
+
+### Features
+
+* update h1 on blog post categories ([6e4d96d](https://github.com/Bartozzz/bartozzz.github.io/commit/6e4d96d3989d47d9fe3b5b6ac354e327e530b547))
+
 # [1.34.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.33.0...v1.34.0) (2023-12-15)
 
 
