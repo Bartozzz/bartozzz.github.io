@@ -1,3 +1,11 @@
+## [1.32.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.32.0...v1.32.1) (2023-12-15)
+
+
+### Bug Fixes
+
+* head API typings ([ee3287c](https://github.com/Bartozzz/bartozzz.github.io/commit/ee3287cd16583f81907a190024ae1036befdf4d3))
+* missing bracket in article ([8e5e93d](https://github.com/Bartozzz/bartozzz.github.io/commit/8e5e93d3792d9074c6b07c9493ddaa9b050d7378))
+
 # [1.32.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.31.1...v1.32.0) (2023-12-12)
 
 
