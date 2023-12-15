@@ -1,3 +1,10 @@
+# [1.33.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.32.1...v1.33.0) (2023-12-15)
+
+
+### Features
+
+* display author and modified date in blog post ([c6603b5](https://github.com/Bartozzz/bartozzz.github.io/commit/c6603b53ce009a0493ed64757eeb723dcff32057))
+
 ## [1.32.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.32.0...v1.32.1) (2023-12-15)
 
 
