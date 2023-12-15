@@ -158,9 +158,12 @@ export default function IndexPage({ data }: PageProps<DataType>) {
   );
 }
 
-export function Head({}: HeadProps<DataType>) {
+export function Head({ data }: HeadProps<DataType>) {
+  const siteUrl = data.site.siteMetadata.siteUrl;
+
   return (
     <SEO
+      url={`${siteUrl}/`}
       title="Bartosz Łaniewski"
       description="Creative designer & developer based in Poland. Passionate about architecture and beautiful software."
     />
@@ -168,7 +171,7 @@ export function Head({}: HeadProps<DataType>) {
 }
 
 export const pageQuery = graphql`
-  query IndexPage {
+  {
     site {
       siteMetadata {
         siteUrl

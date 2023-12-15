@@ -1,10 +1,10 @@
 import { useStaticQuery, graphql } from "gatsby";
 
 interface Props {
-  url?: string;
-  image?: string;
+  url: string;
   title: string;
   description: string;
+  image?: string;
 }
 
 export function SEO({
@@ -24,19 +24,18 @@ export function SEO({
     }
   `);
 
-  const metaUrl = url || `${site.siteMetadata.siteUrl}/`;
   const metaImage = image || `${site.siteMetadata.siteUrl}/thumbnail.png`;
 
   return (
     <>
       <title>{title}</title>
-      <link rel="canonical" href={metaUrl} />
+      <link rel="canonical" href={url} />
       <meta name="description" content={description} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:creator" content="@blaniewski" />
-      <meta name="og:url" content={metaUrl} />
+      <meta name="og:url" content={url} />
       <meta name="og:type" content="website" />
       <meta name="og:image" content={metaImage} />
       <meta name="og:title" content={title} />

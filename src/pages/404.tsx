@@ -1,10 +1,18 @@
-import { HeadProps, PageProps } from "gatsby";
+import { HeadProps, PageProps, graphql } from "gatsby";
 
 import { Content } from "../components/Content";
 import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
 
-export default function NotFoundPage({}: PageProps) {
+interface DataType {
+  site: {
+    siteMetadata: {
+      siteUrl: string;
+    };
+  };
+}
+
+export default function NotFoundPage({}: PageProps<DataType>) {
   return (
     <Layout>
       <Content>
@@ -34,6 +42,25 @@ export default function NotFoundPage({}: PageProps) {
   );
 }
 
-export function Head({}: HeadProps) {
-  return <SEO title="404: Not Found" description="Page not found" />;
+export function Head({ data, location }: HeadProps<DataType>) {
+  const siteUrl = data.site.siteMetadata.siteUrl;
+  const slug = location.pathname;
+
+  return (
+    <SEO
+      url={`${siteUrl}${slug}`}
+      title="404: Not Found"
+      description="Page not found"
+    />
+  );
 }
+
+export const pageQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`;
