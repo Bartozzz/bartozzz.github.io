@@ -38,7 +38,9 @@ export default function BlogPostsTemplate({
     <Layout>
       <Content>
         <h1 className="heading">
-          {pageKeyword ? `Articles about ${pageKeyword}` : "Blog"}
+          {pageKeyword
+            ? `Articles about ${pageKeyword}`
+            : "Most Recent Articles"}
         </h1>
 
         <ul className="keywords">
