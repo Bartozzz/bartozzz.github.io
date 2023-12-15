@@ -25,9 +25,17 @@
   }
 
   time {
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: var(--text-secondary);
+
+    text-decoration: none;
+    cursor: help;
+  }
+
+  &--metadata {
     @include vr-font("md");
 
-    display: block;
     margin-top: var(--ls-xxs);
   }
 }

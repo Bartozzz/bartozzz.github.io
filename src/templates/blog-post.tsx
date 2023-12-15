@@ -41,6 +41,7 @@ export default function BlogPostTemplate({
     authors,
     datePublished,
     datePublishedMeta,
+    dateUpdated,
     dateUpdatedMeta,
   } = frontmatter;
 
@@ -58,16 +59,35 @@ export default function BlogPostTemplate({
         >
           <meta itemProp="image" content={thumbnailUrl} />
           <meta itemProp="dateModified" content={dateUpdatedMeta} />
-          {authors.map((author) => (
-            <meta key={author} itemProp="author" content={author} />
-          ))}
 
           <header className="post__header">
             <h1 itemProp="headline">{title}</h1>
 
-            <time dateTime={datePublishedMeta} itemProp="datePublished">
-              {datePublished}
-            </time>
+            <p className="post__header--metadata">
+              By{" "}
+              {authors.map((author, index) => (
+                <>
+                  <span
+                    key={author}
+                    itemScope
+                    itemProp="author"
+                    itemType="https://schema.org/Person"
+                  >
+                    <span itemProp="name">{author}</span>
+                  </span>
+
+                  {index < authors.length - 1 ? " and " : ""}
+                </>
+              ))}{" "}
+              on{" "}
+              <time
+                dateTime={datePublishedMeta}
+                itemProp="datePublished"
+                title={`Last modified on ${dateUpdated}`}
+              >
+                {datePublished}
+              </time>
+            </p>
           </header>
 
           <div className="post__wrapper">
