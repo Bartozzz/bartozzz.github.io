@@ -8,7 +8,7 @@ dateUpdated: 2023-12-15 18:10:00 +0100
 datePublished: 2023-12-15 18:10:00 +0100
 ---
 
-Search Engine Optimization (_SEO_) is a crucial aspect of building a successful website. One way to enhance your Gatsby site’s SEO capabilities is by creating a custom SEO component for easy metadata tag management. In this blog post, we’ll explore the Head’s API and a step-by-step guide on creating a Gatsby SEO component.
+One way to enhance your Gatsby site’s SEO capabilities is by creating a custom SEO component for easy metadata tag management. In this blog post, we’ll explore the Head API and a step-by-step guide on creating a Gatsby SEO component.
 
 ## What is the Gatsby Head API?
 
