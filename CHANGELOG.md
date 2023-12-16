@@ -1,3 +1,10 @@
+## [1.37.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.37.0...v1.37.1) (2023-12-16)
+
+
+### Bug Fixes
+
+* outlinks 3xx redirects ([85d196d](https://github.com/Bartozzz/bartozzz.github.io/commit/85d196d893ed7cf6f6d5eb8497d1a24d9ac76be6))
+
 # [1.37.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.36.0...v1.37.0) (2023-12-16)
 
 
