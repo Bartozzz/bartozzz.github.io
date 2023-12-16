@@ -1,3 +1,10 @@
+# [1.38.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.37.1...v1.38.0) (2023-12-16)
+
+
+### Features
+
+* publish article about generating thumbnails ([7028475](https://github.com/Bartozzz/bartozzz.github.io/commit/70284759ebb658f359a0a8aa725d9de1617a3d0a))
+
 ## [1.37.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.37.0...v1.37.1) (2023-12-16)
 
 
