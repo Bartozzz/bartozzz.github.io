@@ -76,6 +76,7 @@ export default function BlogPostsTemplate({
             <li key={post.fields.slug}>
               <PostExcerpt
                 link={post.fields.slug}
+                wordCount={post.fields.timeToRead.words}
                 timeToRead={post.fields.timeToRead?.minutes}
                 title={post.frontmatter.title || post.fields.slug}
                 datePublished={post.frontmatter.datePublished}

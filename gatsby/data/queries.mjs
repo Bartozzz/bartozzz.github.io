@@ -21,6 +21,7 @@ export const postQuery = `
       slug
       timeToRead {
         minutes
+        words
       }
     }
     frontmatter {

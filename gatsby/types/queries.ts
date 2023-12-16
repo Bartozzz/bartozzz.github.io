@@ -12,8 +12,9 @@ export interface BlogPost {
   tableOfContents: TableOfContents;
   fields: {
     slug: string;
-    timeToRead?: {
+    timeToRead: {
       minutes: number;
+      words: number;
     };
   };
   frontmatter: {

@@ -11,6 +11,8 @@ import { Alert } from "../components/Alert";
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
 import { Layout } from "../components/Layout";
+import { PostAuthors } from "../components/PostExcerpt/PostAuthors";
+import { PostTimeToRead } from "../components/PostExcerpt/PostTimeToRead";
 import { SEO } from "../components/SEO";
 import { TableOfContents } from "../components/TableOfContents";
 
@@ -33,8 +35,8 @@ export default function BlogPostTemplate({
   children,
 }: PageProps<DataType, PageContextType>) {
   const post = pageContext.data;
-  const slug = post.fields.slug;
   const { frontmatter, tableOfContents } = post;
+  const { slug, timeToRead } = post.fields;
   const {
     title,
     language,
@@ -59,34 +61,24 @@ export default function BlogPostTemplate({
         >
           <meta itemProp="image" content={thumbnailUrl} />
           <meta itemProp="dateModified" content={dateUpdatedMeta} />
+          <meta itemProp="wordCount" content={`${timeToRead.words}`} />
 
           <header className="post__header">
             <h1 itemProp="headline">{title}</h1>
 
             <p className="post__header--metadata">
-              By{" "}
-              {authors.map((author, index) => (
-                <>
-                  <span
-                    key={author}
-                    itemScope
-                    itemProp="author"
-                    itemType="https://schema.org/Person"
-                  >
-                    <span itemProp="name">{author}</span>
-                  </span>
-
-                  {index < authors.length - 1 ? " and " : ""}
-                </>
-              ))}{" "}
-              on{" "}
+              <PostAuthors data={authors} />
+              {" on "}
               <time
                 dateTime={datePublishedMeta}
                 itemProp="datePublished"
                 title={`Last modified on ${dateUpdated}`}
+                className="post__header--date"
               >
                 {datePublished}
               </time>
+              {" • "}
+              <PostTimeToRead value={timeToRead.minutes} />
             </p>
           </header>
 

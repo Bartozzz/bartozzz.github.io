@@ -24,6 +24,7 @@ interface DataType {
         slug: string;
         timeToRead: {
           minutes: number;
+          words: number;
         };
       };
       frontmatter: {
@@ -139,6 +140,7 @@ export default function IndexPage({ data }: PageProps<DataType>) {
                 <PostExcerpt
                   as="h3"
                   link={post.fields.slug}
+                  wordCount={post.fields.timeToRead.words}
                   timeToRead={post.fields.timeToRead.minutes}
                   title={post.frontmatter.title}
                   datePublished={post.frontmatter.datePublished}
@@ -184,6 +186,7 @@ export const pageQuery = graphql`
           slug
           timeToRead {
             minutes
+            words
           }
         }
         frontmatter {

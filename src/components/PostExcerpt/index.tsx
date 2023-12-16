@@ -1,10 +1,13 @@
 import * as css from "./index.module.scss";
 
-import React from "react";
+import * as React from "react";
 
 import { Link, graphql, useStaticQuery } from "gatsby";
 
-import { mapKeywordToSlug } from "../../../gatsby/helpers/mapKeywordToSlug.mjs";
+import { PostAuthors } from "./PostAuthors";
+import { PostKeywords } from "./PostKeywords";
+import { PostTimeToRead } from "./PostTimeToRead";
+
 import { mapSlugToImageName } from "../../../gatsby/helpers/mapSlugToImageName.mjs";
 
 interface Props {
@@ -17,6 +20,7 @@ interface Props {
   content: string;
   keywords: string[];
   language: string;
+  wordCount: number;
   timeToRead: number;
   authors?: string[];
 }
@@ -40,6 +44,7 @@ export function PostExcerpt({
   content,
   language,
   keywords,
+  wordCount,
   timeToRead,
 }: Props) {
   const data = useStaticQuery<SiteQuery>(graphql`
@@ -71,41 +76,21 @@ export function PostExcerpt({
     >
       <meta itemProp="image" content={thumbnailUrl} />
       <meta itemProp="dateModified" content={dateModifiedMeta} />
-      {authors.map((author) => (
-        <meta key={author} itemProp="author" content={author} />
-      ))}
+      <meta itemProp="wordCount" content={`${wordCount}`} />
 
       <header>
         <p className={css.postExcerpt__info}>
+          <PostAuthors data={authors} className="visually-hidden" />
+
           <time dateTime={datePublishedMeta} itemProp="datePublished">
             {datePublished}
           </time>
 
-          {timeToRead ? (
-            <>
-              <span aria-hidden>{" • "}</span>
-              <span itemProp="timeRequired">{Math.ceil(timeToRead)} min</span>
-              {" read "}
-            </>
-          ) : null}
+          <span aria-hidden>{" • "}</span>
+          <PostTimeToRead value={timeToRead} />
 
-          {keywords?.length > 0 ? (
-            <>
-              <span aria-hidden>{" • "}</span>
-              {keywords.map((keyword, index) => (
-                <React.Fragment key={keyword}>
-                  <Link
-                    to={`/posts/${mapKeywordToSlug(keyword)}/`}
-                    title={`Category: ${keyword}`}
-                    className={css.postExcerpt__keyword}
-                  >
-                    {keyword}
-                  </Link>
-                  {index !== keywords.length - 1 ? ", " : null}
-                </React.Fragment>
-              ))}
-            </>
-          ) : null}
+          <span aria-hidden>{" • "}</span>
+          <PostKeywords data={keywords} className={css.postExcerpt__keyword} />
         </p>
 
         <HeadingWrapper className={css.postExcerpt__title}>
