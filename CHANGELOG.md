@@ -1,3 +1,10 @@
+# [1.37.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.36.0...v1.37.0) (2023-12-16)
+
+
+### Features
+
+* improve metadata on articles and excerpts ([c507734](https://github.com/Bartozzz/bartozzz.github.io/commit/c5077346c0f404940267d7057a1911bc30820cdc))
+
 # [1.36.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.35.0...v1.36.0) (2023-12-15)
 
 
