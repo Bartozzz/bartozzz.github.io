@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["React"]
 language: en
 dateCreated: 2019-04-20 00:00:00 +0100
-dateUpdated: 2023-12-12 00:00:00 +0100
+dateUpdated: 2023-12-16 13:10:00 +0100
 datePublished: 2019-04-20 00:00:00 +0100
 ---
 
@@ -37,7 +37,7 @@ Concurrent React can partially render a tree without committing the result.
 
 ### Code splitting
 
-React 16.6 introduced [`React.lazy`](https://reactjs.org/docs/code-splitting.html#reactlazy) which allows us to perform code splitting and a [`Suspense`](https://reactjs.org/docs/code-splitting.html#suspense) component which renders placeholders for lazy-loaded resources.
+React 16.6 introduced [`React.lazy`](https://react.dev/reference/react/lazy) which allows us to perform code splitting and a [`Suspense`](https://react.dev/reference/react/Suspense) component which renders placeholders for lazy-loaded resources.
 
 ```jsx
 import React, { Suspense, lazy } from "react";

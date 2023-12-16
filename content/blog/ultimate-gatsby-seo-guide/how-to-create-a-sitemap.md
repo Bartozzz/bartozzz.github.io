@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Gatsby", "SEO"]
 language: en
 dateCreated: 2023-12-12 00:00:00 +0100
-dateUpdated: 2023-12-14 00:00:00 +0100
+dateUpdated: 2023-12-16 13:10:00 +0100
 datePublished: 2023-12-12 00:00:00 +0100
 ---
 
@@ -204,7 +204,7 @@ The next step is to submit it to major search engines. Google Search Console, Bi
 
 ### How to submit a sitemap to Bing Webmaster Tools
 
-1. Sign in to [Bing Webmaster Tools](https://www.bing.com/toolbox/webmaster) and select your website.
+1. Sign in to [Bing Webmaster Tools](https://www.bing.com/webmasters/about) and select your website.
 2. In the navigation menu, click on **Sitemaps**, then click on **Submit sitemap**;
 4. Enter a full sitemap URL in the **Submit sitemap** field and click **Submit**.
 

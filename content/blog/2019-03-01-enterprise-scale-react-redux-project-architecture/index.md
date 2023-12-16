@@ -4,13 +4,13 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["React", "Architecture"]
 language: en
 dateCreated: 2019-03-01 00:00:00 +0100
-dateUpdated: 2023-12-14 00:00:00 +0100
+dateUpdated: 2023-12-16 13:10:00 +0100
 datePublished: 2019-03-01 00:00:00 +0100
 ---
 
 Maintaining large React projects can be a difficult task. Below are a few practices I’ve adapted over the years working with React projects of all scales. A low of those practices were directly taken or inspired by excellent resources found in the React/Redux community, precisely:
 
-- [React: official documentation](https://reactjs.org);
+- [React: official documentation](https://react.dev/);
 - [Redux: official documentation](https://redux.js.org/);
 - [Ducks: Redux Reducer Bundles](https://github.com/erikras/ducks-modular-redux);
 - [Re-ducks: Building on the duck legacy](https://github.com/alexnm/re-ducks);
