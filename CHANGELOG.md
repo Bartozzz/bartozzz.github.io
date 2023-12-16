@@ -1,3 +1,10 @@
+## [1.38.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.38.0...v1.38.1) (2023-12-16)
+
+
+### Bug Fixes
+
+* update robots.txt ([75e90e6](https://github.com/Bartozzz/bartozzz.github.io/commit/75e90e6118ad9e7e092ba3c0c616ef7bc711d085))
+
 # [1.38.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.37.1...v1.38.0) (2023-12-16)
 
 
