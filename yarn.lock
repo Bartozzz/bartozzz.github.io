@@ -7348,16 +7348,16 @@ gatsby-sharp@^1.13.0:
   dependencies:
     sharp "^0.32.6"
 
-gatsby-source-filesystem@^5.12.1:
-  version "5.12.1"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-5.12.1.tgz#200b141620e632bcefd23bd0fc468b070cfd89aa"
-  integrity sha512-JV6lttId7cBDasVaweFbKuDQP9VH8fFgI1Mg0sM/tfydfKTLXiEbBadKgEHbvbwAZsYjK+/KvT7A58dzrzDdXw==
+gatsby-source-filesystem@^5.13.0:
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-5.13.0.tgz#33d6a5307a268a67c931dd3602d3e9150b597905"
+  integrity sha512-yn4axQhIPHLQDMgrhEmerXyoawiTVB1haUz36BTlQers0HfMmODyjbnIK01Dt1IKAbYVfS0A2suBjBjIbNLwAg==
   dependencies:
     "@babel/runtime" "^7.20.13"
     chokidar "^3.5.3"
     file-type "^16.5.4"
     fs-extra "^11.1.1"
-    gatsby-core-utils "^4.12.1"
+    gatsby-core-utils "^4.13.0"
     mime "^3.0.0"
     pretty-bytes "^5.6.0"
     valid-url "^1.0.9"
