@@ -7273,10 +7273,10 @@ gatsby-plugin-sass@^6.13.0:
     resolve-url-loader "^3.1.5"
     sass-loader "^10.4.1"
 
-gatsby-plugin-sitemap@^6.12.3:
-  version "6.12.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-6.12.3.tgz#c74c3faaeee1f11ec6b7eed0aabf005b5ba90cde"
-  integrity sha512-D1ZAji/Tj630RPL/1eebzfihIWDArZz1xsV+9bR51UC2lYd3rApqGiGnAyT+Ou4VdL9vtIUtQ0GhhnpovoqXBg==
+gatsby-plugin-sitemap@^6.13.0:
+  version "6.13.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-6.13.0.tgz#d0e8844a893183207d41423f51b31bc477126ff8"
+  integrity sha512-j3zjgIz7aCZ0ukq0NB2xGKV2CtMMyBviYHlD1u0djstelvu9+pbsGTQKf/UpiLv0/ez9rRrFs0YhPQV2aFzx6g==
   dependencies:
     "@babel/runtime" "^7.20.13"
     common-tags "^1.8.2"
