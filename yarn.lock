@@ -7389,10 +7389,10 @@ gatsby-transformer-json@^5.13.0:
     "@babel/runtime" "^7.20.13"
     bluebird "^3.7.2"
 
-gatsby-transformer-yaml@^5.12.0:
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-yaml/-/gatsby-transformer-yaml-5.12.0.tgz#9165e3191aba27cc1e6a7dfeb119f5ef5af70699"
-  integrity sha512-v6vBFIV1A5+Nn87MG5CRAXM6JbVNMGktR4TnLu9JwLLy1ZOYRTePMUJWbbSPOoVvb13t85nfnU0NVArELNeymQ==
+gatsby-transformer-yaml@^5.13.0:
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-yaml/-/gatsby-transformer-yaml-5.13.0.tgz#5d8d419f56ba685377afedacf13435cbaa7675b4"
+  integrity sha512-vGVbvhIWRQZ39ZVNIj/6m73WtzEHkPrW+PEbe0t2ze48vFJ3ceEe5+z5L9ayM1BUob3Th3taWnxDic+KFE2qmQ==
   dependencies:
     "@babel/runtime" "^7.20.13"
     js-yaml "^4.1.0"
