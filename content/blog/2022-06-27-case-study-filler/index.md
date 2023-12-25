@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Case Study", "Gamedev", "React Native"]
 language: en
 dateCreated: 2022-06-27 00:00:00 +0100
-dateUpdated: 2023-12-01 00:00:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2022-06-27 00:00:00 +0100
 ---
 
@@ -78,6 +78,8 @@ it("should reset the board on ’Reset’ button click", () => {
 ```
 
 I was not afraid to break anything in the user interface because my application contains visual regression tests. It allows me to ensure that my application appears to the end-user as it was originally intended to and I can catch visual regressions with ease.
+
+<Newsletter />
 
 ### Animations
 

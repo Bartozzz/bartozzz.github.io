@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["CSS", "Accessibility"]
 language: en
 dateCreated: 2021-12-13 00:00:00 +0100
-dateUpdated: 2023-12-12 00:00:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2021-12-13 00:00:00 +0100
 ---
 
@@ -18,8 +18,10 @@ Most of the designs are rarely built with user preferences in mind, it is the ap
 
 ```css
 @media (prefers-reduced-motion: reduced) {
-  /* CSS to disable motion goes here */
-  animation: none;
+  .element {
+    /* CSS to disable motion goes here */
+    animation: none;
+  }
 }
 ```
 
@@ -27,8 +29,10 @@ I prefer to go the other way around and enable animations for users who have mad
 
 ```css
 @media (prefers-reduced-motion: no-preference) {
-  /* CSS to enable motion goes here */
-  transition: all 0.2s ease;
+  .element {
+    /* CSS to enable motion goes here */
+    transition: all 0.2s ease;
+  }
 }
 ```
 
@@ -65,19 +69,25 @@ html {
 
 …with that, you should be able to size everything using relative length units without a headache. Keep in mind that you don’t have to limit yourself to font sizes. You can use `rem` unit on breakpoints, widths, heights, and any other CSS property.
 
+<Newsletter />
+
 ## Use a color scheme based on the user’s preferred theme
 
 [The `prefers-color-scheme` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) can be used to make your website adapt to the user’s preferred color scheme. The user might indicate this preference by changing the color scheme in their operating system.
 
 ```css
 @media (prefers-color-scheme: dark) {
-  --text-primary: #fff;
-  --background: #000;
+  :root {
+    --text-primary: #fff;
+    --background: #000;
+  }
 }
 
 @media (prefers-color-scheme: light) {
-  --text-primary: #000;
-  --background: #fff;
+  :root {
+    --text-primary: #000;
+    --background: #fff;
+  }
 }
 ```
 

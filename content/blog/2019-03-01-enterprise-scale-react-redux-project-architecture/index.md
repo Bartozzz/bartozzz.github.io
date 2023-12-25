@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["React", "Architecture"]
 language: en
 dateCreated: 2019-03-01 00:00:00 +0100
-dateUpdated: 2023-12-16 13:10:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2019-03-01 00:00:00 +0100
 ---
 
@@ -137,6 +137,8 @@ import { actions as moduleActionsB } from "../moduleB";
 const mapDispatchToProps = (dispatch: Dispatch<Types.RootAction>) =>
   bindActionCreators({ ...moduleActionsA, ...moduleActionsB }, dispatch);
 ```
+
+<Newsletter />
 
 #### API Calls
 

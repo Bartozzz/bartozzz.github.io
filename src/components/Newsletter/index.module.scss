@@ -1,0 +1,131 @@
+@import "../../styles/extends/text-heading";
+@import "../../styles/extends/text-paragraph";
+@import "../../styles/mixins/mediaquery";
+@import "../../styles/mixins/vertical-rhythm";
+
+:is(.newsletter) {
+  $field-fs: var(--fs-md);
+  $field-lh: var(--lh-md);
+  $field-label-fs: var(--fs-sm);
+  $field-label-lh: var(--lh-sm);
+  $field-padding: var(--cs-sm);
+  $field-margin-top: var(--ls-md);
+  $field-margin-bottom: var(--ls-xs);
+
+  $decoration-big: 10px;
+  $decoration-medium: 5px;
+  $decoration-small: 1px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  min-width: 100%;
+
+  margin: var(--ls-md) calc(-1 * var(--ls-xxs));
+  padding:
+    calc(var(--ls-xs) - #{$decoration-medium})
+    var(--ls-xxs)
+    calc(var(--ls-xs) - #{$decoration-small});
+
+  background-color: var(--background-100);
+
+  border-width: $decoration-medium 0 $decoration-small;
+  border-style: solid;
+  border-color: var(--text-primary);
+
+  @include mediaquery("lg") {
+    border-width: $decoration-small;
+    box-shadow: $decoration-big $decoration-big 0px var(--primary-300);
+
+    margin: var(--ls-md) 0;
+    padding:
+      calc(var(--ls-sm) - #{$decoration-small})
+      calc(var(--ls-xs) - #{$decoration-small})
+      calc(var(--ls-xs) - #{$decoration-small});
+  }
+
+  .newsletter__heading {
+    @include vr-font("xl");
+    @extend %text-heading;
+
+    margin-top: 0;
+  }
+
+  .newsletter__description {
+    @extend %text-paragraph;
+  }
+
+  .newsletter__form {
+    display: flex;
+    width: 100%;
+    max-width: var(--mw-xxs);
+  }
+
+  .newsletter__button,
+  .newsletter__fieldInput {
+    font-size: $field-fs;
+    line-height: $field-lh;
+
+    margin: $field-margin-top 0 $field-margin-bottom;
+    padding: $field-padding;
+
+    border: none;
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: var(--text-primary);
+  }
+
+  .newsletter__button {
+    font-weight: 700;
+    background-color: var(--text-primary);
+    color: var(--background-100);
+    cursor: pointer;
+
+    &--error {
+      background-color: var(--color-failure);
+      outline-color: var(--color-failure);
+    }
+  }
+
+  .newsletter__field {
+    position: relative;
+    flex: 1;
+  }
+
+  .newsletter__fieldInput {
+    width: 100%;
+    background-color: var(--background-100);
+
+    &::placeholder {
+      color: var(--text-secondary);
+    }
+
+    &--error {
+      outline-color: var(--color-failure);
+    }
+  }
+
+  .newsletter__fieldLabel {
+    @include vr-font("sm");
+    @extend %text-heading;
+
+    position: absolute;
+    top: calc($field-margin-top - $field-label-lh);
+  }
+
+  .newsletter__fieldInput--error,
+  .newsletter__fieldLabel--error,
+  .newsletter__fieldError {
+    color: var(--color-failure);
+  }
+
+  .newsletter__fieldError {
+    @include vr-font("sm");
+    position: absolute;
+    top: calc($field-margin-top + $field-label-lh);
+    color: var(--color-failure);
+    text-align: left;
+  }
+}

@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Vue", "PWA"]
 language: en
 dateCreated: 2019-01-05 00:00:00 +0100
-dateUpdated: 2023-12-12 00:00:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2019-01-05 00:00:00 +0100
 ---
 
@@ -175,6 +175,8 @@ Once registered, we can listen for the `canInstall` event in any component and h
 ```
 
 And that’s all. The banner should be displayed on the website once the 5 requirements listed above are met, and when the user clicks on _Opt for_ button, he will be asked by the browser if he wants to install the app on his local machine.
+
+<Newsletter />
 
 ### Prompting the user to update
 

@@ -159,6 +159,13 @@ const config = {
       },
     },
     {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://laniewski.us14.list-manage.com/subscribe/post?u=bdf52b20921d687fdf3435ba2&amp;id=8ce23f66dd&amp;f_id=00d0c2e1f0",
+      },
+    },
+    {
       resolve: "gatsby-plugin-google-gtag",
       options: {
         trackingIds: ["G-N3PHFLJDNK"],

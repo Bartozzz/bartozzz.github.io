@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["JavaScript", "npm"]
 language: en
 dateCreated: 2018-04-29 00:00:00 +0100
-dateUpdated: 2023-12-12 00:00:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2018-04-29 00:00:00 +0100
 ---
 
@@ -78,6 +78,8 @@ import { moduleA, moduleB } from "package";
 `package` exports `moduleA`, `moduleB`, and `moduleC` but only the first two are required. Without tree shaking, the final bundle would be a lot bigger since it would contain unreachable code. During bundling, unused exports can be removed, potentially resulting in significant space savings.
 
 > Utilizing the tree shaking and dead code elimination can significantly reduce the code size we have in our application. The less code we send over the wire the more performant the application will be. – [Alex Bachuk](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd).
+
+<Newsletter />
 
 ## Creating tree shaking friendly packages
 

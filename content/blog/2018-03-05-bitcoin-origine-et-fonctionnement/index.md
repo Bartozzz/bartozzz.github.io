@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski", "Tao Schreiner"]
 keywords: ["Blockchain", "Cryptocurrency"]
 language: fr
 dateCreated: 2018-03-05 00:00:00 +0100
-dateUpdated: 2023-12-12 00:00:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2018-03-05 00:00:00 +0100
 ---
 
@@ -68,6 +68,8 @@ Le Bitcoin vérifie toutes ces règles et résout plus efficacement d’autres p
   Il est possible d’effectuer des transferts d’argent dans le monde entier à un prix très bas. Le coût de transaction est redistribué entre les «mineurs» une fois la transaction validée. En moyenne, un transfert dure 30 minutes ([jusqu’à 16 heures dans les cas extrêmes][15]). Plus le coût de transaction est grand, plus vite le transfert est effectué.
 
 Le Bitcoin est une technologie révolutionnaire qui va changer le monde de la finance, tout comme l’e-mail a changé la façon dont les gens communiquent.
+
+<Newsletter />
 
 ---
 

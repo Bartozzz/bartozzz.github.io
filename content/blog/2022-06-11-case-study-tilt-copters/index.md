@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Case Study", "Gamedev", "React Native"]
 language: en
 dateCreated: 2022-06-11 00:00:00 +0100
-dateUpdated: 2023-12-12 00:00:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2022-06-11 00:00:00 +0100
 ---
 
@@ -171,6 +171,8 @@ export function forShopInterpolator({
   };
 }
 ```
+
+<Newsletter />
 
 ### Responsiveness
 

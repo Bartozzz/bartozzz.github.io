@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["JavaScript", "Flow", "npm"]
 language: en
 dateCreated: 2018-05-13 00:00:00 +0100
-dateUpdated: 2023-12-12 00:00:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2018-05-13 00:00:00 +0100
 ---
 
@@ -68,6 +68,8 @@ Then, you can execute this script at the end of your build pipeline, as follows:
   }
 }
 ```
+
+<Newsletter />
 
 ### Adding definitions to flow-typed
 

@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["JavaScript", "TypeScript"]
 language: en
 dateCreated: 2023-11-20 00:00:00 +0100
-dateUpdated: 2023-12-01 00:00:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2023-11-20 00:00:00 +0100
 ---
 
@@ -53,6 +53,8 @@ In this example, `userSchema` defines a schema for user data, specifying the exp
 - **Readability and Expressiveness:** Zod’s syntax is clean and expressive, making it easy to define and understand complex data structures. This enhances code readability and maintainability.
 
 - **Flexibility:** Zod allows you to create sophisticated validation rules, including custom validation functions, conditional validation, and more. This flexibility is valuable when dealing with diverse and evolving data structures.
+
+<Newsletter />
 
 ## How to use Zod
 

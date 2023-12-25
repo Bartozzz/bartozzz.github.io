@@ -11,6 +11,7 @@ import { Alert } from "../components/Alert";
 import { Content } from "../components/Content";
 import { Discussion } from "../components/Discussion";
 import { Layout } from "../components/Layout";
+import { Newsletter } from "../components/Newsletter";
 import { PostAuthors } from "../components/PostExcerpt/PostAuthors";
 import { PostTimeToRead } from "../components/PostExcerpt/PostTimeToRead";
 import { SEO } from "../components/SEO";
@@ -91,7 +92,9 @@ export default function BlogPostTemplate({
 
             <div className="post__content">
               <div itemProp="articleBody">
-                <MDXProvider components={{ Alert }}>{children}</MDXProvider>
+                <MDXProvider components={{ Alert, Newsletter }}>
+                  {children}
+                </MDXProvider>
               </div>
 
               <Discussion lang={language} />

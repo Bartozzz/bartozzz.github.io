@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["Gatsby", "SEO"]
 language: en
 dateCreated: 2023-12-16 13:10:00 +0100
-dateUpdated: 2023-12-16 16:45:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2023-12-16 16:45:00 +0100
 ---
 
@@ -104,6 +104,8 @@ export async function createBlogPostThumbnails(posts) {
   });
 }
 ```
+
+<Newsletter />
 
 ## Step 3: Create thumbnails when building pages
 

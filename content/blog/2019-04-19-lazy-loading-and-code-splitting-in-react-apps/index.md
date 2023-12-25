@@ -4,7 +4,7 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["React"]
 language: en
 dateCreated: 2019-04-20 00:00:00 +0100
-dateUpdated: 2023-12-16 13:10:00 +0100
+dateUpdated: 2023-12-26 00:00:00 +0100
 datePublished: 2019-04-20 00:00:00 +0100
 ---
 
@@ -30,6 +30,8 @@ This is the typical drawback of code-splitting: the initial page load is faster 
 Developers tend to provide visual feedback for each asynchronous action. It often results in an immense amount of loaders and it’s still badly perceived by users. Once the lazy components render, they can perform other asynchronous actions (like network requests) which adds another layer of loaders.
 
 As a developer, you need to find the perfect balance between initial and dynamic loading and focus on creating great fallback experiences.
+
+<Newsletter />
 
 ## Solutions
 
