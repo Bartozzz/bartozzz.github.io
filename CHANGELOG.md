@@ -1,3 +1,10 @@
+# [1.39.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.38.1...v1.39.0) (2023-12-25)
+
+
+### Features
+
+* implement newsletter component ([66c8c66](https://github.com/Bartozzz/bartozzz.github.io/commit/66c8c663bfb0219558c0e1bc5d2dee43ddff2861))
+
 ## [1.38.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.38.0...v1.38.1) (2023-12-16)
 
 
