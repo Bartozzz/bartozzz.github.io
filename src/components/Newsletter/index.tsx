@@ -27,7 +27,7 @@ export function Newsletter() {
   const isSuccess = result === "success";
 
   return (
-    <div className={`${css.newsletter}`}>
+    <div className={`${css.newsletter}`} data-nosnippet>
       <p className={`${css.newsletter__heading}`}>
         Subscribe to my mailing list!
       </p>
