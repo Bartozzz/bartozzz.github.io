@@ -1,3 +1,10 @@
+## [1.39.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.39.0...v1.39.1) (2023-12-26)
+
+
+### Bug Fixes
+
+* prevent newsletter from indexing ([b98d081](https://github.com/Bartozzz/bartozzz.github.io/commit/b98d081686f74acd19f8c1034d9e871a70bf8c62))
+
 # [1.39.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.38.1...v1.39.0) (2023-12-25)
 
 
