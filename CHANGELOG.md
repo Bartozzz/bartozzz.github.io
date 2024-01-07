@@ -1,3 +1,10 @@
+# [1.40.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.39.1...v1.40.0) (2024-01-07)
+
+
+### Features
+
+* write article about rich snippets ([a89d69b](https://github.com/Bartozzz/bartozzz.github.io/commit/a89d69b8f0508aec06f8d774ebc3805db11c6799))
+
 ## [1.39.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.39.0...v1.39.1) (2023-12-26)
 
 
