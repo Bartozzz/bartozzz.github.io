@@ -29,7 +29,7 @@
     "gatsby-plugin-mdx": "^5.13.1",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-react-svg": "^3.3.0",
-    "gatsby-plugin-sass": "^6.13.0",
+    "gatsby-plugin-sass": "^6.13.1",
     "gatsby-plugin-sitemap": "^6.13.1",
     "gatsby-source-filesystem": "^5.13.0",
     "gatsby-transformer-json": "^5.13.1",
