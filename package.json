@@ -47,7 +47,7 @@
     "rehype-slug": "^6.0.0",
     "remark-math": "^6.0.0",
     "remark-smartypants": "^2.1.0",
-    "sass": "^1.71.0"
+    "sass": "^1.71.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.1",
