@@ -58,7 +58,7 @@
     "@semantic-release/github": "^10.0.2",
     "@semantic-release/release-notes-generator": "^12.1.0",
     "@types/jest": "^29.5.12",
-    "@types/react": "^18.2.66",
+    "@types/react": "^18.2.69",
     "@types/react-toggle": "^4.0.5",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^6.21.0",
