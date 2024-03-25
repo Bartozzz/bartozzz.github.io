@@ -2588,19 +2588,6 @@
     fs-extra "^11.0.0"
     lodash "^4.17.4"
 
-"@semantic-release/commit-analyzer@^11.0.0":
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-11.1.0.tgz#dd24663c4e1e7c218f53de73f5c639eb2d5a077e"
-  integrity sha512-cXNTbv3nXR2hlzHjAMgbuiQVtvWHTlwwISt60B+4NZv01y/QRY7p2HcJm8Eh2StzcTJoNnflvKjHH/cjFS7d5g==
-  dependencies:
-    conventional-changelog-angular "^7.0.0"
-    conventional-commits-filter "^4.0.0"
-    conventional-commits-parser "^5.0.0"
-    debug "^4.0.0"
-    import-from-esm "^1.0.3"
-    lodash-es "^4.17.21"
-    micromatch "^4.0.2"
-
 "@semantic-release/commit-analyzer@^12.0.0":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-12.0.0.tgz#7219b05ab79a4303c99fc9cd0413d68881599270"
@@ -2678,22 +2665,6 @@
     registry-auth-token "^5.0.0"
     semver "^7.1.2"
     tempy "^3.0.0"
-
-"@semantic-release/release-notes-generator@^12.0.0":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@semantic-release/release-notes-generator/-/release-notes-generator-12.1.0.tgz#7fbe501188c7960db412b96a97c3d6cfb5788d12"
-  integrity sha512-g6M9AjUKAZUZnxaJZnouNBeDNTCUrJ5Ltj+VJ60gJeDaRRahcHsry9HW8yKrnKkKNkx5lbWiEP1FPMqVNQz8Kg==
-  dependencies:
-    conventional-changelog-angular "^7.0.0"
-    conventional-changelog-writer "^7.0.0"
-    conventional-commits-filter "^4.0.0"
-    conventional-commits-parser "^5.0.0"
-    debug "^4.0.0"
-    get-stream "^7.0.0"
-    import-from-esm "^1.0.3"
-    into-stream "^7.0.0"
-    lodash-es "^4.17.21"
-    read-pkg-up "^11.0.0"
 
 "@semantic-release/release-notes-generator@^13.0.0":
   version "13.0.0"
@@ -13714,16 +13685,16 @@ section-matter@^1.0.0:
     extend-shallow "^2.0.1"
     kind-of "^6.0.0"
 
-semantic-release@^23.0.4:
-  version "23.0.4"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-23.0.4.tgz#62a2a860893468d8175335160aa83671602a74b2"
-  integrity sha512-UlcgO6SEcFtwSF/JMVXKswK+4Af2ypu55WRdLL6IhnKHPCZ9Zap7CV8PN2+wmvAdAPTI76CqouJyGZyb1fp9VA==
+semantic-release@^23.0.6:
+  version "23.0.6"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-23.0.6.tgz#61db9815ad7d64b142272419084b62d2eae9ea89"
+  integrity sha512-/r62F4PNhJZhyZYMobcpcACGwpFNQyaVcSmqZQXG50GMbHSBVZQLCvwafqxO1lDQKVgmGmyCEtOVYzwvzvyhVw==
   dependencies:
-    "@semantic-release/commit-analyzer" "^11.0.0"
+    "@semantic-release/commit-analyzer" "^12.0.0"
     "@semantic-release/error" "^4.0.0"
     "@semantic-release/github" "^10.0.0"
     "@semantic-release/npm" "^12.0.0"
-    "@semantic-release/release-notes-generator" "^12.0.0"
+    "@semantic-release/release-notes-generator" "^13.0.0"
     aggregate-error "^5.0.0"
     cosmiconfig "^9.0.0"
     debug "^4.0.0"
