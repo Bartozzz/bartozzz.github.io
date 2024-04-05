@@ -51,10 +51,6 @@ At first glance, barrel files look promising! Barrel files can improve code orga
 
 If you target a no-build architecture or don’t have [tree-shaking](/blog/2018-04-29-publishing-packages-to-npm/) enabled in your bundler, all the files imported in the barrel file will get bundled into the application, even when unused! It results in tons of dead code, which can impact loading times.
 
-<Alert type="info">
-  Fortunately, most bundlers have tree shaking enabled by default because it reduces bundle size without changing the code behavior.
-</Alert>
-
 Let’s have a look at the following application, which renders a simple `Button` component from the [Material Design component library](https://mui.com/material-ui/):
 
 ```jsx
@@ -100,6 +96,10 @@ File sizes after gzip:
 
 <Alert type="success">
   When not using a barrel file, the build size <u>decreased from ~151 kB to ~75 kB</u>.
+</Alert>
+
+<Alert type="info">
+  Fortunately, most bundlers have tree shaking enabled by default because it reduces bundle size without changing the code behavior.
 </Alert>
 
 ## The build-time cost
