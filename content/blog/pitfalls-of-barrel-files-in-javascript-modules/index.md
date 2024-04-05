@@ -215,7 +215,7 @@ Barrel files affect the linting performance. Let’s say you use the `import/no-
 
 ## Developer experience
 
-1. Most (if not all IDEs) have autocomplete and IntelliSense - you can type the function name, and it will get the import right automatically.
+1. Most (if not all) IDEs have autocomplete and IntelliSense - you can type the function name, and it will get the import right automatically.
 
 2. Having barrel files makes code navigation harder - <kbd>CMD + click</kbd> navigates to the barrel file instead of the actual definition of the module.
 
