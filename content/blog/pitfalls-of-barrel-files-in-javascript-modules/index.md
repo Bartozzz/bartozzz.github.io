@@ -4,8 +4,8 @@ authors: ["Bartosz Łaniewski"]
 keywords: ["JavaScript", "Architecture"]
 language: en
 dateCreated: 2024-03-28 00:00:00 +0100
-dateUpdated: 2024-03-28 00:00:00 +0100
-datePublished: 2024-03-28 00:00:00 +0100
+dateUpdated: 2024-04-05 14:30:00 +0100
+datePublished: 2024-04-05 14:00:00 +0100
 ---
 
 Barrel files consolidate the exports of multiple modules into a single file. We use them to import a module using a single import statement without worrying about the underlying folder structure.
@@ -57,7 +57,7 @@ If you target a no-build architecture or don’t have [tree-shaking](/blog/2018-
 
 Let’s have a look at the following application, which renders a simple `Button` component from the [Material Design component library](https://mui.com/material-ui/):
 
-```js
+```jsx
 import { Button } from "@mui/material";
 
 export function App() {
@@ -110,7 +110,7 @@ The more files, the longer it takes for the bundler to resolve and manage them. 
 
 - **With barrel file:**
 
-```js
+```jsx
 import { Button } from "@mui/material";
 
 export function App() {
@@ -156,7 +156,7 @@ Let's run the same test suite on two modules:
 
 - **Importing from barrel file:**
 
-```js
+```jsx
 import { Button } from "@mui/material";
 
 export function App() {
