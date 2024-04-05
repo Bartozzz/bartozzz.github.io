@@ -1,3 +1,10 @@
+# [1.41.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.40.0...v1.41.0) (2024-04-05)
+
+
+### Features
+
+* write article about barrel files ([799a195](https://github.com/Bartozzz/bartozzz.github.io/commit/799a1955323554d3f8bbc0f3aa0e307d7b57c98b))
+
 # [1.40.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.39.1...v1.40.0) (2024-01-07)
 
 
