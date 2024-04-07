@@ -1,3 +1,10 @@
+# [1.42.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.41.0...v1.42.0) (2024-04-07)
+
+
+### Features
+
+* update publishing packages to npm ([89cc74f](https://github.com/Bartozzz/bartozzz.github.io/commit/89cc74f4cc53cd4613bc2c0287872f7d219f62a0))
+
 # [1.41.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.40.0...v1.41.0) (2024-04-05)
 
 
