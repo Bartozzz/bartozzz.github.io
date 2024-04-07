@@ -1,10 +1,10 @@
 ---
-title: Publishing tree shaking friendly npm packages
+title: How to publish a tree shaking friendly npm package?
 authors: ["Bartosz Łaniewski"]
 keywords: ["JavaScript", "npm"]
 language: en
 dateCreated: 2018-04-29 00:00:00 +0100
-dateUpdated: 2023-12-26 00:00:00 +0100
+dateUpdated: 2024-04-07 00:00:00 +0100
 datePublished: 2018-04-29 00:00:00 +0100
 ---
 
@@ -12,22 +12,23 @@ With the rise of ES2015, modules have officially become an integral part of Java
 
 ## Introduction to npm packages
 
-**npm** is the most popular package manager for JavaScript. It is shipped by default with Node.js – the JavaScript runtime environment. Each month, there are over [20 billion downloads](https://www.npmjs.com/) from the npm registry which counts more than half a million different packages.
+**npm** is the most popular package manager for JavaScript. It is shipped by default with Node.js – the JavaScript runtime environment. Each month, there are over [20 billion downloads](https://www.npmjs.com/) from the npm registry, which counts more than half a million different packages.
 
-### Basic terminology & overview
+### How does bundling work?
 
-A package is a directory described by a `package.json`. Each package is composed of one or more modules that can be loaded by Node.js’ `require()`. In most cases, a package will expose a single module via the `main` field specified in `package.json`. If there’s no such field, npm will look for `index.js` in the root directory.
+A package is a directory described by a `package.json`. Each package is composed of one or more modules that can be loaded by Node.js’ `require()`. A package usually exposes a single module via the `main` field specified in `package.json`. If there’s no such field, npm will look for `index.js` in the root directory.
 
-In the era of JavaScript bundlers such as [Webpack](https://webpack.js.org/) or [Browserify](https://browserify.org/), the idea of a single entry point is strongly encouraged. Most of the bundlers will output a unique JavaScript file containing all built modules. For example, let’s consider the following code:
+
+Most bundlers (such as [Webpack](https://webpack.js.org/) or [Browserify](https://browserify.org/)) will output a unique JavaScript file when building the package. For example, let’s consider the following code:
 
 ```javascript
-// Source file: index.js
+// Entry point: index.js
 export * as moduleA from "./src/moduleA";
 export * as moduleB from "./src/moduleB";
 export * as moduleC from "./src/moduleC";
 ```
 
-To build this package, Webpack will start by compiling the source file (called _entry point_). It will then move from `import` to `import` and include every required file in the build pipe. It will generate a single bundle containing all the required modules, as follows:
+Webpack will start by compiling the source file (called _entry point_). It will then move from `import` to `import` and include every required file in the build pipe. It will generate a single bundle containing all the imported modules as follows:
 
 ```javascript
 (function (modules) {
@@ -57,33 +58,33 @@ Once published to npm, each module can be loaded using Node.js’ `require()` (o
 ```javascript
 import { moduleA, moduleB, moduleC } from "package";
 
-moduleA.internal();
-moduleB.internal();
-moduleC.internal();
+moduleA.method();
+moduleB.method();
+moduleC.method();
 ```
 
-The reason why such bundlers can work is that [ES2015 packages are static by nature][1]: you can predict which modules are being imported and exported just by analyzing the code, without the need to execute it. However, this has some drawbacks:
+Such bundlers can work because [ES2015 packages are static by nature][1]: you can predict which modules are being imported and exported just by analyzing the code without the need to execute it. However, this has some drawbacks:
 
 - **conditional imports and exports** are unsupported – you have to declare your imports at the top level;
 - both imports and exports **cannot have any dynamic parts** – you cannot use string concatenation in `require()`.
 
-### The role of tree shaking
+### What is tree shaking?
 
-Tree shaking simply means _dead code elimination_ – a script will perform code analysis for a given bundle and check at the **compile (build) time** which modules are never being used. Let’s take the previous example:
+Tree shaking is a script that performs code analysis for a given bundle and checks which modules are never used at the **compile (build) time**. Let’s take the previous example:
 
 ```javascript
 import { moduleA, moduleB } from "package";
 ```
 
-`package` exports `moduleA`, `moduleB`, and `moduleC` but only the first two are required. Without tree shaking, the final bundle would be a lot bigger since it would contain unreachable code. During bundling, unused exports can be removed, potentially resulting in significant space savings.
+`package` exports `moduleA`, `moduleB`, and `moduleC`, but only the first two are imported. Without tree shaking, the final bundle would contain unreachable code (`moduleC`). Unused exports can be removed during bundling, potentially resulting in significant space savings.
 
 > Utilizing the tree shaking and dead code elimination can significantly reduce the code size we have in our application. The less code we send over the wire the more performant the application will be. – [Alex Bachuk](https://medium.com/@netxm/what-is-tree-shaking-de7c6be5cadd).
 
 <Newsletter />
 
-## Creating tree shaking friendly packages
+## Creating tree shaking-friendly packages
 
-Our goal will be to expose multiple module bundles from a single package, so one can `import` only necessary parts instead of the entire library:
+Our goal will be to expose multiple module bundles from a single package so one can `import` only necessary parts instead of the entire library:
 
 ```javascript
 import * as moduleA from "package/moduleA";
@@ -94,7 +95,7 @@ import { funcA, funcB } from "package/moduleC";
 - If we import only `moduleA`, the two other modules will not be included in the final bundle because they aren’t required anywhere.
 - If we import only a specific function from a module (ex. `funcA`), the rest of the module’s content will be ignored.
 
-Additionally, we don’t have to access a named export like in previous examples. That means we don’t have to do a slow, dynamic property lookup. In our case, we statically know the content and can optimize the access.
+We don’t have to access a named export like in previous examples. That means we don’t have to do a slow, dynamic property lookup. In our case, we know the content and can optimize the access.
 
 ### Directory structure overview
 
@@ -108,16 +109,14 @@ Additionally, we don’t have to access a named export like in previous examples
 │   ├── moduleB/
 │   ├── moduleC/
 │   └── index.js
-├── README.md
-├── LICENSE
 └── package.json
 ```
 
-- `scripts/` will contain all JavaScript binaries that will be used to build your package. Those steps will be automated via `package.json` scripts.
-- `package/` directory is where your package will actually reside once it is compiled. This is the directory that will be pushed to the npm registry.
-- `source/` directory is where your package source resides. It will not be pushed to the npm registry but should be contained in the repository.
+- `scripts/` will contain all JavaScript binaries that will be used to build your package.
+- `package/` directory is where your package will reside once it is compiled. It is the directory that will be pushed to the npm registry.
+- `source/` directory is where your package source resides. It will not be pushed to the npm registry but should be in the repository.
 
-As you can see, there are two `package.json` files. The one at the root will be used to declare your `dependencies`, basic package data, and build scripts. The second one is declaring in detail the package that will be pushed to the npm registry.
+As you can see, there are two `package.json` files. The one at the root will be used to declare your dependencies, metadata, and scripts. The second one will be pushed to the npm registry. It will get generated automatically and populated with more fields, such as `main`.
 
 ### Compiling and building the package
 
@@ -127,17 +126,16 @@ In this article, we will use [Babel](https://babeljs.io/) for the compilation pr
 $ npm install --save-dev babel-cli
 ```
 
-For full installation details, I encourage you to check [Babel’ setup section in their documentation](https://babeljs.io/setup/). Once Babel is installed, we can define a few scripts in `/package.json`:
+For in-depth installation details, I encourage you to check [Babel’ setup section in their documentation](https://babeljs.io/setup/). Once Babel is installed, we can define a few scripts in `/package.json`:
 
 ```json
 {
   "private": true,
   "dependencies": {
-    "rimraf": "^2.6.2"
+    "rimraf": "^5.0.5",
+    "fs-extra": "^11.2.0"
   },
   "scripts": {
-    "prepare": "npm start",
-    "start": "npm run clean && npm run build && npm run copy",
     "clean": "npx rimraf ./package/*",
     "build": "npx babel ./source --out-dir ./package",
     "copy": "npx babel-node ./scripts/copy.js"
@@ -149,11 +147,13 @@ For full installation details, I encourage you to check [Babel’ setup section 
 - `npm run build` will build modules and pipe the bundles to the `/package` directory.
 - `npm run copy` will execute the `/scripts/copy.js` script described in the next section.
 
-Note that it is important to set `"private": true` in `/package.json`. It will prevent you from accidentally pushing your entire repository to the npm registry instead of only the built modules.
+<Alert type="info">
+  It is important to set `private` to `true` in `/package.json` to prevent you from accidentally pushing your entire repository to the npm registry instead of only the build.
+</Alert>
 
 ### Copying required files into the package
 
-The script below will copy important files such as `README.md` and `LICENSE` to your final package. Additionally, it will create a brand new `package.json`.
+The script below will copy meta files such as `README.md` and `LICENSE` to your final package. Additionally, it will create a brand new `package.json`.
 
 ```javascript
 // File: /scripts/copy.js
@@ -170,22 +170,23 @@ async function copyFile(file) {
 }
 
 async function createPackageFile() {
-  const oldPckgPath = resolve(__dirname, "../package.json");
-  const oldPckgData = require(oldPckgPath);
+  const oldPackagePath = resolve(__dirname, "../package.json");
+  const oldPackageData = require(oldPackagePath);
 
-  delete oldPckgData.private;
-  delete oldPckgData.scripts;
-  delete oldPckgData.devDependencies;
+  delete oldPackageData.private;
+  delete oldPackageData.scripts;
+  delete oldPackageData.devDependencies;
 
-  const newPckgPath = resolve(__dirname, "../package/package.json");
-  const newPckgData = Object.assign(oldPckgData, { main: "./index.js" });
-  await writeFile(newPckgPath, JSON.stringify(newPckgData), "utf8");
+  const newPackagePath = resolve(__dirname, "../package/package.json");
+  const newPackageData = Object.assign(oldPackageData, { main: "./index.js" });
+  await writeFile(newPackagePath, JSON.stringify(newPackageData), "utf8");
 
-  console.log(`Created package.json in ${newPckgPath}`);
+  console.log(`Created package.json in ${newPackagePath}`);
 }
 
 async function run() {
-  await ["README.md", "LICENSE"].map((file) => copyFile(file));
+  await copyFile("README.md");
+  await copyFile("LICENSE");
   await createPackageFile();
 }
 
@@ -198,7 +199,7 @@ Tree shaking is a relatively new technology and still has some limitations. Whil
 
 ### Side effects in module bundles
 
-Some modules have side effects: they can perform additional tasks such as modifying global variables instead of just exporting their content. According to the ECMAScript specifications, all child modules must be evaluated because they could contain side effects. Let’s take the following examples:
+Some modules have side effects: they can perform additional tasks, such as modifying global variables instead of just exporting their content. According to the ECMAScript specifications, all child modules must be evaluated because they could contain side effects. Let’s take the following examples:
 
 ```javascript
 // moduleA
@@ -234,17 +235,7 @@ bar[`method${n}`]();
 bar["methodD".split("").reverse().join("")]();
 ```
 
-As you can see, `methodA` and `methodB` can be statically determined as being used at compile time, but this is not the case for the last two cases. A potential solution to this problem could be to import methods separately and call them with an instance:
-
-```javascript
-import Foo, { methodA, methodB } from "foo";
-
-const bar = new Foo();
-methodA.call(bar, "param");
-methodB.call(bar, "param");
-```
-
-This doesn’t solve cases like `methodD` in the previous example but, at least, can be optimized by tree shaking. There are different proposals which could serve this purpose a little bit better.
+As you can see, `methodA` and `methodB` can be statically determined as being used at compile time, but this is not true for the last two cases. There are different proposals to improve tree shaking in classes.
 
 #### Bind operator proposal
 
