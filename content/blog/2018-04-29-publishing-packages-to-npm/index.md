@@ -1,5 +1,5 @@
 ---
-title: How to publish a tree shaking friendly npm package?
+title: How to publish a Tree Shaking friendly npm package?
 authors: ["Bartosz Łaniewski"]
 keywords: ["JavaScript", "npm"]
 language: en
