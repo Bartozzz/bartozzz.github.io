@@ -201,7 +201,7 @@ Time:        1.097 s
   The test duration <u>decreased from ~1.7 to ~1.1 seconds</u> when not importing from a barrel file.
 </Alert>
 
-Notice the test suite itself took 25-29ms. The 60ms overhead comes from building the module graph. The cost of loading modules can change depending on the machine and the tooling.
+Notice the test suite itself took 25-29ms. The 600ms overhead comes from building the module graph. The cost of loading modules can change depending on the machine and the tooling.
 
 In my lab setup, 10 independent tests running in 4 child processes would result in a $$\frac{0.6 \times 10}{4} = 1.5$$ seconds overhead.
 
