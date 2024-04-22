@@ -1,3 +1,10 @@
+# [1.44.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.43.0...v1.44.0) (2024-04-22)
+
+
+### Features
+
+* write Compound Components in React article ([671d799](https://github.com/Bartozzz/bartozzz.github.io/commit/671d79954bd935d8e9fb81ccf0eb4e4a1bdbb708))
+
 # [1.43.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.42.0...v1.43.0) (2024-04-07)
 
 
