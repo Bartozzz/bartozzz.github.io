@@ -150,7 +150,7 @@ In both articles (I highly recommend reading those):
 
 ...the conclusion is the same: barrel files slow down tests.
 
-> The problem is that Jest has no idea where the component we’re importing is located. The barrel file has intentionally obfuscated that fact. So when Jest hits a barrel file, it must load every export referenced inside it. This behavior quickly gets out of hand for large libraries like `@mui/material`. We’re looking for a single button and end up loading hundreds of additional files.
+> The problem is that Jest has no idea where the component we’re importing is located. The barrel file has intentionally obfuscated that fact. So when Jest hits a barrel file, it must load every export referenced inside it. This behavior quickly gets out of hand for large libraries like `@mui/material`. We’re looking for a single button and end up loading hundreds of additional files. – Steven Lemon in ["Why is My Jest Test Suite So Slow?"](https://dev.to/twynsicle/why-is-my-jest-test-suite-so-slow-1od)
 
 Let's run the same test suite on two modules:
 
