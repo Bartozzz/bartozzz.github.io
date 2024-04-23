@@ -38,7 +38,7 @@ Now, imagine you have to implement a language selection and want to show a flag 
 
 ```jsx {4-5}
 <Select
-  name="langauge"
+  name="language"
   options={[
     { value: "pl", label: "Polish", image: "pl.png" },
     { value: "fr", label: "French", image: "fr.png" },
@@ -52,7 +52,7 @@ Times fly, and so do design trends. There’s a new language to be added. Design
 
 ```jsx {4}
 <Select
-  name="langauge"
+  name="language"
   options={[
     { value: "it", label: "Italian", icon: <ItalianFlag />, badge: <Badge>New</Badge> },
     { value: "pl", label: "Polish", image: "pl.png" },
@@ -68,7 +68,7 @@ Times fly, and so do design trends. There’s a new language to be added. Design
 What if, instead of adding more and more properties, we could use the parent-child relationship? Think of:
 
 ```jsx
-<Select name="langauge" value={value} onChange={setValue}>
+<Select name="language" value={value} onChange={setValue}>
   <Select.Option value="it">
     <ItalianFlag />
     <Select.OptionLabel>Italian <Badge>New</Badge></Select.OptionLabel>
@@ -89,7 +89,7 @@ What if, instead of adding more and more properties, we could use the parent-chi
 `Select` does not need to know anything about its children; it will render whatever we give it. We can render any component inside the `Select` without modifying the source code!
 
 ```jsx
-<Select name="langauge" value={value} onChange={setValue}>
+<Select name="language" value={value} onChange={setValue}>
   <Heading>Europe</Heading>
   <Select.Option value="...">...</Select.Option>
   <Select.Option value="...">...</Select.Option>
@@ -162,7 +162,7 @@ That would be awesome, no? With this approach, we could not only render whatever
 
 ### How to create a Compound Component?
 
-First, let’s start by creating a context that will handle all of the component state:
+First, let’s start by creating a context that will handle all of the component’s state:
 
 ```jsx
 const TabsContext = createContext({});
@@ -255,10 +255,15 @@ function useControlled({ value, initialValue }) {
 
 Now, we can use this hook as follows to make our `Tabs` a controlled or uncontrolled component at will:
 
-```jsx {4-7, 9-12, 14-21}
+```jsx {6-7, 9-12, 14-17, 19-25}
 const TabsContext = createContext({});
 
-export function Tabs({ children, initialActiveTab = 0, activeTab, onActiveTabChange }) {
+export function Tabs({
+  children,
+  initialActiveTab = 0,
+  activeTab,
+  onActiveTabChange
+}) {
   const [value, onValueChange] = useControlled({
     value: activeTab,
     initialValue: initialActiveTab
@@ -282,3 +287,7 @@ export function Tabs({ children, initialActiveTab = 0, activeTab, onActiveTabCha
   );
 }
 ```
+
+## Conclusion
+
+Compound Components allow you to create composable components with straightforward and simple-to-use API. By leveraging the Context API and the parent-child relationship, we avoided prop drilling and made the state sharing implicit while giving the developer control over what is being rendered.
