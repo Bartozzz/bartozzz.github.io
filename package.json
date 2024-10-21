@@ -19,7 +19,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@mdx-js/react": "^3.0.1",
+    "@mdx-js/react": "^3.1.0",
     "change-case": "^5.4.4",
     "gatsby": "^5.13.7",
     "gatsby-plugin-catch-links": "^5.13.1",
