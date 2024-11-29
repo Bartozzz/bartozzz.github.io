@@ -1,0 +1,23 @@
+@import "../../styles/mixins/theme";
+
+.sphere {
+  position: absolute;
+
+  border-radius: 50%;
+}
+
+@include theme("light") {
+  .sphere {
+    background-color: var(--primary-500);
+    background-image: linear-gradient(180deg, var(--primary-300), transparent);
+    // box-shadow: inset -25px -25px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@include theme("dark") {
+  .sphere {
+    background-color: var(--primary-300);
+    background-image: linear-gradient(180deg, var(--primary-500), transparent);
+    // box-shadow: inset -25px -25px 40px var(--primary-100);
+  }
+}
