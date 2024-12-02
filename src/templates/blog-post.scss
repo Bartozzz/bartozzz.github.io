@@ -106,9 +106,24 @@
   h4,
   h5,
   h6 {
-    margin: 0;
     @extend %text-heading;
+    margin: 0;
     scroll-margin-top: var(--ls-xl);
+
+    &:hover .heading-link {
+      display: inline-block;
+    }
+
+    .heading-link {
+      display: none;
+      border-width: 0;
+      padding-left: var(--cs-sm);
+
+      svg {
+        width: calc(var(--fs-xl) - 8px);
+        height: calc(var(--fs-xl) - 8px);
+      }
+    }
   }
   h1 {
     @include vertical-rhythm.vr-font("xxl");
