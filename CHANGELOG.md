@@ -1,3 +1,10 @@
+# [1.45.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.44.0...v1.45.0) (2024-12-02)
+
+
+### Features
+
+* cleanup SCSS and dependencies ([d9136b4](https://github.com/Bartozzz/bartozzz.github.io/commit/d9136b45ee96d6d3cc6e846aa6b8b1e99fedce54))
+
 # [1.44.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.43.0...v1.44.0) (2024-04-22)
 
 
