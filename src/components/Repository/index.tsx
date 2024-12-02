@@ -33,7 +33,6 @@ export function Repository({
       itemScope
     >
       <link itemProp="codeRepository" href={link} />
-      <link itemProp="downloadUrl" href={`${link}/releases`} />
 
       <a
         className={css.repository__link}
