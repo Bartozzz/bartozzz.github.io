@@ -227,10 +227,10 @@ Pour vérifier les transactions on utilise les propriétés du système RSA. Il 
 [1]: https://coinmarketcap.com
 [2]: https://whois.com/whois/bitcoin.org
 [3]: https://satoshi.nakamotoinstitute.org/emails/cryptography/
-[4]: https://nakamotoinstitute.org/literature/
+[4]: https://nakamotoinstitute.org/library/
 [5]: https://eff.org/deeplinks/2011/01/bitcoin-step-toward-censorship-resista "“Bitcoin - a Step Toward Censorship-Resistant Digital Currency” – Rainey Reitman"
 [6]: https://americanbanker.com/news/bitpay-signs-1-000-merchants-to-accept-bitcoin-payments "”BitPay Signs 1,000 Merchants to Accept Bitcoin Payments” – Brian Browdie"
-[7]: https://www.societe-informatique-de-france.fr/wp-content/uploads/2014/10/1024-4-delahaye.pdf "“Le Bitcoin, première crypto-monnaie” – Jean-Paul Delahaye"
+[7]: https://web.archive.org/web/20230507222708/https://www.societe-informatique-de-france.fr/wp-content/uploads/2014/10/1024-4-delahaye.pdf "“Le Bitcoin, première crypto-monnaie” – Jean-Paul Delahaye"
 [8]: https://techcrunch.com/2017/12/07/the-price-of-bitcoin-has-doubled-in-two-weeks-now-above-16k/ "“The price of bitcoin has doubled in two weeks“ – Lucas Matney"
 [9]: https://www.investopedia.com/articles/investing/052014/why-bitcoins-value-so-volatile.asp "“Why Is Bitcoin’s Value So Volatile” –  Jonathan Todd Barker"
 [10]: https://fr.wikipedia.org/wiki/Crise_bancaire_et_financi%C3%A8re_de_l%27automne_2008 "Crise bancaire et financière de l’automne 2008"

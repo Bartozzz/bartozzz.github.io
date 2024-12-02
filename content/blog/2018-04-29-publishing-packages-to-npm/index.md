@@ -274,6 +274,6 @@ bar |> methodB();
 [2]: https://github.com/tc39/proposal-bind-operator "ECMAScript This-Binding Syntax"
 [3]: https://github.com/tc39/proposal-pipeline-operator "ESNext Proposal: The Pipeline Operator"
 [4]: https://rollupjs.org/guide/en#tree-shaking "Rollup – Tree shaking documentation"
-[5]: http://david-rodenas.com/posts/rollup-vs-webpack-and-tree-shaking "Rollup vs. Webpack – Tree shaking"
+[5]: https://web.archive.org/web/20190922121239/http://david-rodenas.com:80/posts/rollup-vs-webpack-and-tree-shaking "Rollup vs. Webpack – Tree shaking"
 [6]: https://palantir.github.io/tslint/rules/no-default-export/ "TSLint rules – no default export"
 [7]: https://webpack.js.org/guides/tree-shaking/ "Webpack – Tree shaking documentation"
