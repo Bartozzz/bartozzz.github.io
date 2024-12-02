@@ -1,11 +1,11 @@
+@use "../styles/mixins/mediaquery";
+@use "../styles/mixins/vertical-rhythm";
+@use "../styles/extends/prefix-headings";
+@use "../styles/extends/text-heading";
+@use "../styles/extends/text-paragraph";
+@use "../styles/extends/text-word-wrap";
+
 @import "katex/dist/katex.min.css";
-@import "../styles/extends/prefix-headings";
-@import "../styles/extends/reset-list";
-@import "../styles/extends/text-heading";
-@import "../styles/extends/text-paragraph";
-@import "../styles/extends/text-word-wrap";
-@import "../styles/mixins/mediaquery";
-@import "../styles/mixins/vertical-rhythm";
 
 .katex-display {
   margin-top: var(--ls-xxs);
@@ -19,7 +19,7 @@
   color: var(--text-primary);
 
   h1 {
-    @include vr-font("xxl");
+    @include vertical-rhythm.vr-font("xxl");
     @extend %text-heading;
     margin: 0;
   }
@@ -34,7 +34,7 @@
   }
 
   &--metadata {
-    @include vr-font("md");
+    @include vertical-rhythm.vr-font("md");
 
     margin-top: var(--ls-xxs);
   }
@@ -49,7 +49,7 @@
 .post__toc {
   display: none;
 
-  @include mediaquery("xxl") {
+  @include mediaquery.mediaquery("xxl") {
     display: block;
   }
 }
@@ -66,7 +66,7 @@
 
   color: var(--text-primary);
 
-  @include mediaquery("xxl") {
+  @include mediaquery.mediaquery("xxl") {
     margin: 0 auto 0 0;
   }
 
@@ -111,18 +111,18 @@
     scroll-margin-top: var(--ls-xl);
   }
   h1 {
-    @include vr-font("xxl");
+    @include vertical-rhythm.vr-font("xxl");
   }
   h2 {
-    @include vr-font("xl");
+    @include vertical-rhythm.vr-font("xl");
     margin-top: var(--ls-md);
   }
   h3 {
-    @include vr-font("lg");
+    @include vertical-rhythm.vr-font("lg");
     margin-top: var(--ls-md);
   }
   h4 {
-    @include vr-font("lg");
+    @include vertical-rhythm.vr-font("lg");
     margin-top: var(--ls-sm);
   }
   h5,
@@ -201,7 +201,7 @@
 
   pre,
   code {
-    @include vr-font("md");
+    @include vertical-rhythm.vr-font("md");
 
     font-family: var(--fn-mono);
     font-weight: 400;
@@ -229,7 +229,7 @@
     -webkit-overflow-scrolling: auto;
     overflow: auto;
 
-    @include mediaquery("lg") {
+    @include mediaquery.mediaquery("lg") {
       margin: var(--ls-sm) 0;
       padding: var(--ls-xs);
 
@@ -331,7 +331,7 @@
     text-align: center;
 
     &::before {
-      @include vr-font("xl");
+      @include vertical-rhythm.vr-font("xl");
 
       display: inline-block;
       position: relative;

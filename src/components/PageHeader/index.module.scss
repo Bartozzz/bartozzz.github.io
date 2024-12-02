@@ -1,6 +1,6 @@
-@import "../../styles/mixins/theme";
-@import "../../styles/mixins/vertical-rhythm";
-@import "../../styles/extends/link-underline";
+@use "../../styles/mixins/vertical-rhythm";
+@use "../../styles/mixins/theme";
+@use "../../styles/extends/link-underline";
 
 .header {
   position: sticky;
@@ -19,13 +19,13 @@
     backdrop-filter: blur(5px);
   }
 
-  @include theme("dark") {
+  @include theme.theme("dark") {
     .header {
       background-color: hsla(var(--background-100-shade) / 0.75);
     }
   }
 
-  @include theme("light") {
+  @include theme.theme("light") {
     .header {
       background-color: hsla(var(--background-100-shade) / 0.5);
     }
@@ -45,7 +45,7 @@
 }
 
 .header__item {
-  @include vr-font("md");
+  @include vertical-rhythm.vr-font("md");
 
   font-family: var(--fn-main);
   font-weight: 500;
@@ -60,7 +60,7 @@
 }
 
 .header__item--logo {
-  @include vr-font("lg");
+  @include vertical-rhythm.vr-font("lg");
 
   flex: 1;
   padding: 0;

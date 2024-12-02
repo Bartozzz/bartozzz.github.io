@@ -1,5 +1,5 @@
-@import "../../styles/mixins/vertical-rhythm";
-@import "../../styles/extends/link-underline";
+@use "../../styles/mixins/vertical-rhythm";
+@use "../../styles/extends/link-underline";
 
 .post-excerpt__wrapper {
   max-width: var(--mw-xs);
@@ -8,7 +8,7 @@
 }
 
 .post-excerpt__title {
-  @include vr-font("lg");
+  @include vertical-rhythm.vr-font("lg");
 
   margin: var(--cs-md) 0;
 
@@ -19,7 +19,7 @@
 }
 
 .post-excerpt__content {
-  @include vr-font("md");
+  @include vertical-rhythm.vr-font("md");
 
   margin: 0;
 
@@ -29,7 +29,7 @@
 }
 
 .post-excerpt__info {
-  @include vr-font("sm");
+  @include vertical-rhythm.vr-font("sm");
 
   font-family: var(--fn-mono);
   color: var(--text-secondary);

@@ -1,12 +1,8 @@
-@import "../../styles/mixins/mediaquery";
+@use "../../styles/mixins/mediaquery";
 
 :global(.games) {
   --gap: var(--ls-md);
   --size: 30rem;
-
-  @include mediaquery("xs") {
-    --size: 38rem;
-  }
 
   display: grid;
   grid-auto-flow: column;
@@ -105,5 +101,9 @@
       line-height: var(--lh-md);
       font-weight: 400;
     }
+  }
+
+  @include mediaquery.mediaquery("xs") {
+    --size: 38rem;
   }
 }

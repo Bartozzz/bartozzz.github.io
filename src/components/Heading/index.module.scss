@@ -1,4 +1,4 @@
-@import "../../styles/mixins/vertical-rhythm";
+@use "../../styles/mixins/vertical-rhythm";
 
 .heading__wrapper {
   margin: var(--ls-lg) 0;
@@ -14,7 +14,7 @@
   color: var(--text-primary);
 
   &--h2 {
-    @include vr-font("xxl");
+    @include vertical-rhythm.vr-font("xxl");
 
     margin-top: 0;
     margin-bottom: var(--ls-xxs);
@@ -24,7 +24,7 @@
   }
 
   &--h3 {
-    @include vr-font("md");
+    @include vertical-rhythm.vr-font("md");
 
     font-weight: 400;
   }

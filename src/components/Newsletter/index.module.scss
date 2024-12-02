@@ -1,7 +1,7 @@
-@import "../../styles/extends/text-heading";
-@import "../../styles/extends/text-paragraph";
-@import "../../styles/mixins/mediaquery";
-@import "../../styles/mixins/vertical-rhythm";
+@use "../../styles/mixins/mediaquery";
+@use "../../styles/mixins/vertical-rhythm";
+@use "../../styles/extends/text-heading";
+@use "../../styles/extends/text-paragraph";
 
 :is(.newsletter) {
   $field-fs: var(--fs-md);
@@ -35,7 +35,7 @@
   border-style: solid;
   border-color: var(--text-primary);
 
-  @include mediaquery("lg") {
+  @include mediaquery.mediaquery("lg") {
     border-width: $decoration-small;
     box-shadow: $decoration-big $decoration-big 0px var(--primary-300);
 
@@ -47,7 +47,7 @@
   }
 
   .newsletter__heading {
-    @include vr-font("xl");
+    @include vertical-rhythm.vr-font("xl");
     @extend %text-heading;
 
     margin-top: 0;
@@ -108,7 +108,7 @@
   }
 
   .newsletter__fieldLabel {
-    @include vr-font("sm");
+    @include vertical-rhythm.vr-font("sm");
     @extend %text-heading;
 
     position: absolute;
@@ -122,7 +122,7 @@
   }
 
   .newsletter__fieldError {
-    @include vr-font("sm");
+    @include vertical-rhythm.vr-font("sm");
     position: absolute;
     top: calc($field-margin-top + $field-label-lh);
     color: var(--color-failure);

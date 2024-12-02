@@ -1,10 +1,10 @@
-@import "../../styles/mixins/mediaquery.scss";
+@use "../../styles/mixins/mediaquery";
 
 .hero {
   height: calc(100vh - var(--vr-lh) * 3);
   min-height: 288px; // 8 * 35
 
-  @include mediaquery("sm") {
+  @include mediaquery.mediaquery("sm") {
     height: 480px; // 8 * 60
   }
 }
@@ -24,7 +24,7 @@
     )
     fixed;
 
-  @include mediaquery("sm") {
+  @include mediaquery.mediaquery("sm") {
     padding-bottom: calc(var(--vr-lh) * 3);
   }
 }
@@ -38,7 +38,7 @@
   letter-spacing: -0.003em;
   color: var(--text-primary);
 
-  @include mediaquery("sm") {
+  @include mediaquery.mediaquery("sm") {
     font-size: 83px;
     line-height: 83px;
   }
@@ -52,7 +52,7 @@
   letter-spacing: 0.85px;
   color: var(--text-primary);
 
-  @include mediaquery("sm") {
+  @include mediaquery.mediaquery("sm") {
     margin: 0 0 0 6px;
 
     font-size: 16px;
@@ -64,7 +64,7 @@
 .hero__subtitle span {
   display: none;
 
-  @include mediaquery("sm") {
+  @include mediaquery.mediaquery("sm") {
     display: initial;
   }
 }

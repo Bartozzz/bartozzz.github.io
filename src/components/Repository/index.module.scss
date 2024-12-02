@@ -1,4 +1,4 @@
-@import "../../styles/mixins/vertical-rhythm";
+@use "../../styles/mixins/vertical-rhythm";
 
 .repository__link {
   --border-width: 2px;
@@ -37,7 +37,7 @@
 }
 
 .repository__name {
-  @include vr-font("sm");
+  @include vertical-rhythm.vr-font("sm");
 
   margin: 0 var(--cs-sm);
 
@@ -47,7 +47,7 @@
 }
 
 .repository__description {
-  @include vr-font("sm");
+  @include vertical-rhythm.vr-font("sm");
 
   flex: 1;
   margin: var(--cs-sm) var(--cs-sm) var(--cs-md);

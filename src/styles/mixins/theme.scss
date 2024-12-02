@@ -1,7 +1,9 @@
+@use "sass:list";
+
 @mixin theme($theme) {
   $themes: "dark" "light";
 
-  @if index($themes, $theme) != null {
+  @if list.index($themes, $theme) != null {
     // https://tahoeninjas.blog/2019/07/28/prevent-scss-from-changing-your-css-class-names/
     :global {
       .#{$theme} {

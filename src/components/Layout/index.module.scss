@@ -1,7 +1,7 @@
-@import "../../styles/mixins/vertical-rhythm";
+@use "../../styles/mixins/vertical-rhythm";
 
 .skip {
-  @include vr-font("lg");
+  @include vertical-rhythm.vr-font("lg");
 
   position: absolute;
   top: var(--cs-xl);

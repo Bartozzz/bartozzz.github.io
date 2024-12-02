@@ -1,4 +1,4 @@
-@import "../mixins/mediaquery.scss";
+@use "../mixins/mediaquery";
 
 .repositories {
   display: grid;
@@ -8,11 +8,11 @@
 
   padding: 0 0 var(--ls-xl) 0;
 
-  @include mediaquery("sm") {
+  @include mediaquery.mediaquery("sm") {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include mediaquery("xl") {
+  @include mediaquery.mediaquery("xl") {
     grid-template-columns: repeat(3, 1fr);
   }
 }

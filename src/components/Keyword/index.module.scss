@@ -1,7 +1,7 @@
-@import "../../styles/mixins/vertical-rhythm";
+@use "../../styles/mixins/vertical-rhythm";
 
 .keyword {
-  @include vr-font("xs");
+  @include vertical-rhythm.vr-font("xs");
 
   display: inline-block;
 

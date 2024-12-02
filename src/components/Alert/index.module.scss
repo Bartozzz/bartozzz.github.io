@@ -1,10 +1,4 @@
-@import "../../styles/extends/prefix-headings";
-@import "../../styles/extends/reset-list";
-@import "../../styles/extends/text-heading";
-@import "../../styles/extends/text-paragraph";
-@import "../../styles/extends/text-word-wrap";
-@import "../../styles/mixins/mediaquery";
-@import "../../styles/mixins/vertical-rhythm";
+@use "../../styles/extends/text-paragraph";
 
 .alert {
   $decoration-border-width: 5px;

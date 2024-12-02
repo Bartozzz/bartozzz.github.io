@@ -1,6 +1,6 @@
-@import "../../styles/mixins/mediaquery";
-@import "../../styles/mixins/vertical-rhythm";
-@import "../../styles/extends/link-underline";
+@use "../../styles/mixins/mediaquery";
+@use "../../styles/mixins/vertical-rhythm";
+@use "../../styles/extends/link-underline";
 
 .footer {
   margin: 0 auto;
@@ -15,7 +15,7 @@
 }
 
 .footer__item {
-  @include vr-font("md");
+  @include vertical-rhythm.vr-font("md");
 
   display: inline-block;
   margin-left: 0;
@@ -38,7 +38,7 @@
 .footer__item-text {
   display: none;
 
-  @include mediaquery("sm") {
+  @include mediaquery.mediaquery("sm") {
     display: initial;
   }
 }
@@ -53,13 +53,13 @@
     width: 26px;
   }
 
-  @include mediaquery("sm") {
+  @include mediaquery.mediaquery("sm") {
     display: none;
   }
 }
 
 .footer__source {
-  @include vr-font("md");
+  @include vertical-rhythm.vr-font("md");
 
   margin: var(--cs-xl) 0 0;
 

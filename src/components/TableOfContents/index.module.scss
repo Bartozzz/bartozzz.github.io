@@ -1,7 +1,6 @@
-@import "../../styles/extends/reset-list";
-@import "../../styles/extends/text-paragraph";
-@import "../../styles/mixins/theme";
-@import "../../styles/mixins/vertical-rhythm";
+@use "../../styles/mixins/vertical-rhythm";
+@use "../../styles/mixins/theme";
+@use "../../styles/extends/text-paragraph";
 
 .toc {
   --toc-outer-space: var(--ls-sm); // space between article and ToC
@@ -30,7 +29,10 @@
   --toc-link-border-width: 2px;
   --toc-link-max-width: calc(var(--toc-available-width) - var(--toc-link-max-depth) * var(--toc-inner-space) - var(--toc-link-border-width));
 
-  @extend %reset-list;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
 
   // Add spacing to nested lists:
   .toc__list {
@@ -46,7 +48,7 @@
 }
 
 .toc__link {
-  @include vr-font("sm");
+  @include vertical-rhythm.vr-font("sm");
 
   display: inline-flex;
 
@@ -74,7 +76,7 @@
   font-weight: bold;
 }
 
-@include theme("dark") {
+@include theme.theme("dark") {
   .toc__link:hover {
     background-color: var(--background-500);
   }

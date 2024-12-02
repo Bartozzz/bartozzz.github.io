@@ -16,7 +16,7 @@
     "test": "npm run test:lint && npm run test:unit",
     "test:unit": "exit 0",
     "test:lint": "npx eslint ./src",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.0",
@@ -60,9 +60,9 @@
     "@types/jest": "^29.5.14",
     "@types/react": "^18.3.12",
     "@types/react-toggle": "^4.0.5",
-    "@typescript-eslint/eslint-plugin": "^8.16.0",
-    "@typescript-eslint/parser": "^8.16.0",
-    "eslint": "^9.16.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
