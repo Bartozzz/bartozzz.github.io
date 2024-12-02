@@ -1,3 +1,10 @@
+# [1.47.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.46.0...v1.47.0) (2024-12-02)
+
+
+### Features
+
+* implement clickable permalinks ([2c9355d](https://github.com/Bartozzz/bartozzz.github.io/commit/2c9355d8c695667be89003f53aa8b9d2c7edc442))
+
 # [1.46.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.45.0...v1.46.0) (2024-12-02)
 
 
