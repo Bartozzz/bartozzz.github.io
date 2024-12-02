@@ -114,8 +114,8 @@ export function Head({
       }
       description={
         pageKeyword
-          ? `My latest posts, updates, and stories about ${pageKeyword} for developers`
-          : "My latest posts, updates, and stories about software engineering for developers"
+          ? `Explore my latest posts, updates, and practical stories about ${pageKeyword} for developers`
+          : "Explore my latest posts, updates, and practical stories about software engineering for developers"
       }
     />
   );
