@@ -1,3 +1,11 @@
+## [1.47.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.47.0...v1.47.1) (2024-12-02)
+
+
+### Bug Fixes
+
+* removed links ([03ccd38](https://github.com/Bartozzz/bartozzz.github.io/commit/03ccd3810329584970800bc67270ebfd2c9208f2))
+* unexpected property downloadUrl ([8e9ebe6](https://github.com/Bartozzz/bartozzz.github.io/commit/8e9ebe65c0531ec5c70abfbf8fe819662d877b16))
+
 # [1.47.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.46.0...v1.47.0) (2024-12-02)
 
 
