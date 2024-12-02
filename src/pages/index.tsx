@@ -76,24 +76,31 @@ export default function IndexPage({ data }: PageProps<DataType>) {
       <Content>
         <article>
           <Heading>
-            <Heading.H2>Open-source projects</Heading.H2>
+            <Heading.H2>Newest articles</Heading.H2>
             <Heading.H3>
-              Community is essential to me. I want to become the kind of
-              developer that I would want to work with. That is why I share my
-              knowledge, code, and time with others.
+              I write articles about web development, mostly React, Vue, best
+              practices, accessibility and JS related stuff.
             </Heading.H3>
           </Heading>
 
-          <ol className="repositories list">
-            {repositories.map((repository) => (
-              <Repository
-                as="li"
-                key={repository.id}
-                link={repository.path}
-                name={repository.name}
-                description={repository.desc}
-                keywords={repository.keywords}
-              />
+          <ol className="list">
+            {posts.map((post) => (
+              <li key={post.fields.slug}>
+                <PostExcerpt
+                  as="h3"
+                  link={post.fields.slug}
+                  wordCount={post.fields.timeToRead.words}
+                  timeToRead={post.fields.timeToRead.minutes}
+                  title={post.frontmatter.title}
+                  datePublished={post.frontmatter.datePublished}
+                  datePublishedMeta={post.frontmatter.datePublishedMeta}
+                  dateModifiedMeta={post.frontmatter.dateUpdatedMeta}
+                  authors={post.frontmatter.authors}
+                  content={post.frontmatter.description || post.excerpt}
+                  language={post.frontmatter.language}
+                  keywords={post.frontmatter.keywords}
+                />
+              </li>
             ))}
           </ol>
         </article>
@@ -127,31 +134,24 @@ export default function IndexPage({ data }: PageProps<DataType>) {
       <Content>
         <article>
           <Heading>
-            <Heading.H2>Newest articles</Heading.H2>
+            <Heading.H2>Open-source projects</Heading.H2>
             <Heading.H3>
-              I write articles about web development, mostly React, Vue, best
-              practices, accessibility and JS related stuff.
+              Community is essential to me. I want to become the kind of
+              developer that I would want to work with. That is why I share my
+              knowledge, code, and time with others.
             </Heading.H3>
           </Heading>
 
-          <ol className="list">
-            {posts.map((post) => (
-              <li key={post.fields.slug}>
-                <PostExcerpt
-                  as="h3"
-                  link={post.fields.slug}
-                  wordCount={post.fields.timeToRead.words}
-                  timeToRead={post.fields.timeToRead.minutes}
-                  title={post.frontmatter.title}
-                  datePublished={post.frontmatter.datePublished}
-                  datePublishedMeta={post.frontmatter.datePublishedMeta}
-                  dateModifiedMeta={post.frontmatter.dateUpdatedMeta}
-                  authors={post.frontmatter.authors}
-                  content={post.frontmatter.description || post.excerpt}
-                  language={post.frontmatter.language}
-                  keywords={post.frontmatter.keywords}
-                />
-              </li>
+          <ol className="repositories list">
+            {repositories.map((repository) => (
+              <Repository
+                as="li"
+                key={repository.id}
+                link={repository.path}
+                name={repository.name}
+                description={repository.desc}
+                keywords={repository.keywords}
+              />
             ))}
           </ol>
         </article>
