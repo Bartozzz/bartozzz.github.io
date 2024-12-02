@@ -1,3 +1,10 @@
+# [1.46.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.45.0...v1.46.0) (2024-12-02)
+
+
+### Features
+
+* put articles at the top ([72af476](https://github.com/Bartozzz/bartozzz.github.io/commit/72af47698f72f80ac00bf82e87bfaa730ec29e8d))
+
 # [1.45.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.44.0...v1.45.0) (2024-12-02)
 
 
