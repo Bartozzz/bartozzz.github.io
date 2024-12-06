@@ -118,30 +118,36 @@
       display: none;
       border-width: 0;
       padding-left: var(--cs-sm);
+      vertical-align: bottom;
 
       svg {
-        width: calc(var(--fs-xl) - 8px);
-        height: calc(var(--fs-xl) - 8px);
+        width: calc(var(--heading-size) * 4/5);
+        height: calc(var(--heading-size) * 4/5);
       }
     }
   }
   h1 {
     @include vertical-rhythm.vr-font("xxl");
+    --heading-size: var(--fs-xxl);
   }
   h2 {
     @include vertical-rhythm.vr-font("xl");
+    --heading-size: var(--fs-xl);
     margin-top: var(--ls-md);
   }
   h3 {
     @include vertical-rhythm.vr-font("lg");
+    --heading-size: var(--fs-lg);
     margin-top: var(--ls-md);
   }
   h4 {
     @include vertical-rhythm.vr-font("lg");
+    --heading-size: var(--fs-lg);
     margin-top: var(--ls-sm);
   }
   h5,
   h6 {
+    --heading-size: var(--fs-sm);
     margin-top: var(--ls-sm);
   }
 
