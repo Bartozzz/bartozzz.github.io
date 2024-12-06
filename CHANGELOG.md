@@ -1,3 +1,10 @@
+## [1.47.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.47.1...v1.47.2) (2024-12-06)
+
+
+### Bug Fixes
+
+* heading anchor size ([b1f1cfa](https://github.com/Bartozzz/bartozzz.github.io/commit/b1f1cfaa17e03b2fa5f0f1c49038d010da776712))
+
 ## [1.47.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.47.0...v1.47.1) (2024-12-02)
 
 
