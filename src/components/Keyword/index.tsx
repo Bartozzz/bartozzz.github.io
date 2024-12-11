@@ -1,30 +1,20 @@
 import * as css from "./index.module.scss";
 
-interface Props
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLElement>,
-    HTMLElement
-  > {
-  children: string;
-  outlined?: boolean;
-  wide?: boolean;
-}
+import { Link, GatsbyLinkProps } from "gatsby";
 
-export function Keyword({
+// https://github.com/gatsbyjs/gatsby/issues/16682
+export function Keyword<TState>({
   children,
-  outlined,
-  wide,
-  ...detailedHTMLProps
-}: Props) {
+  ...props
+}: Omit<GatsbyLinkProps<TState>, "ref">) {
   return (
-    <strong
-      className={`${css.keyword} ${outlined ? css.keyword__outlined : ""} ${
-        wide ? css.keyword__wide : ""
-      }`}
+    <Link<TState>
+      className={css.keyword}
+      activeClassName={css.keyword__active}
       title={`Topic: ${children}`}
-      {...detailedHTMLProps}
+      {...props}
     >
       {children}
-    </strong>
+    </Link>
   );
 }

@@ -2,8 +2,6 @@ import * as css from "./index.module.scss";
 
 import * as React from "react";
 
-import { Keyword } from "../Keyword";
-
 interface Props {
   as?: string | React.ComponentType<unknown>;
   link: string;
@@ -50,7 +48,9 @@ export function Repository({
 
         <aside itemProp="keywords">
           {keywords.map((keyword) => (
-            <Keyword key={keyword}>{keyword}</Keyword>
+            <strong className={css.repository__tag} key={keyword}>
+              {keyword}
+            </strong>
           ))}
         </aside>
       </a>

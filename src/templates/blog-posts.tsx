@@ -1,6 +1,6 @@
 import "./blog-posts.scss";
 
-import { HeadProps, Link, PageProps, graphql } from "gatsby";
+import { HeadProps, PageProps, graphql } from "gatsby";
 
 import { mapKeywordToSlug } from "../../gatsby/helpers/mapKeywordToSlug.mjs";
 
@@ -45,28 +45,21 @@ export default function BlogPostsTemplate({
 
         <ul className="keywords">
           <li>
-            <Link to="/posts/">
-              <Keyword wide outlined={pageKeyword ? true : false}>
-                All
-              </Keyword>
-            </Link>
+            <Keyword to="/posts/">All</Keyword>
           </li>
 
           {keywords.map((keyword) => (
             <li key={keyword.name}>
-              <Link to={`/posts/${mapKeywordToSlug(keyword.name)}/`}>
-                <Keyword
-                  wide
-                  outlined={keyword.name !== pageKeyword}
-                  title={`${keyword.name} category contains ${
-                    keyword.quantity === 1
-                      ? "1 post"
-                      : `${keyword.quantity} posts`
-                  }`}
-                >
-                  {keyword.name}
-                </Keyword>
-              </Link>
+              <Keyword
+                to={`/posts/${mapKeywordToSlug(keyword.name)}/`}
+                title={`${keyword.name} category contains ${
+                  keyword.quantity === 1
+                    ? "1 post"
+                    : `${keyword.quantity} posts`
+                }`}
+              >
+                {keyword.name}
+              </Keyword>
             </li>
           ))}
         </ul>

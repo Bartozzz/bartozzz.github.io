@@ -20,18 +20,17 @@
   outline: 0;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition-property: transform, box-shadow;
+    transition-property: border-color, box-shadow;
     transition-duration: 200ms;
     transition-timing-function: ease-in-out;
   }
 
   &:hover,
   &:focus {
-    transform: scale(1.025);
+    border-color: var(--primary-300);
   }
 
   &:focus {
-    border-color: var(--primary-300);
     box-shadow: 0 0 0 5px var(--primary-100);
   }
 }
@@ -53,4 +52,18 @@
   margin: var(--cs-sm) var(--cs-sm) var(--cs-md);
 
   color: var(--text-primary);
+}
+
+.repository__tag {
+  @include vertical-rhythm.vr-font("xs");
+
+  display: inline-block;
+
+  padding: 0 var(--cs-sm);
+  margin: 0 0 var(--cs-sm) var(--cs-sm);
+
+  border-radius: var(--br-md);
+
+  color: var(--text-primary);
+  background-color: var(--primary-500);
 }

@@ -2,3 +2,4 @@
 export const repository__link: string;
 export const repository__name: string;
 export const repository__description: string;
+export const repository__tag: string;
