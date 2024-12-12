@@ -37,7 +37,7 @@ export default function BlogPostsTemplate({
   return (
     <Layout>
       <Content>
-        <h1 className="heading">
+        <h1 className="heading visually-hidden">
           {pageKeyword
             ? `Articles about ${pageKeyword}`
             : "Most Recent Articles"}

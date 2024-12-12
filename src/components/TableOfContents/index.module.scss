@@ -9,7 +9,7 @@
   --toc-available-width: calc(var(--toc-wrapper-width) - var(--mw-sm) - var(--toc-outer-space));
 
   position: sticky;
-  top: 7.2rem;
+  top: calc(var(--vr-unit) * 12);
 
   width: var(--toc-available-width);
 }

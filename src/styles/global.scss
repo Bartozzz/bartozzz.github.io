@@ -13,13 +13,13 @@ body {
 
 :root {
   /* Fonts: */
-  --fn-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --fn-head: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+  --fn-main: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial",
+    sans-serif;
+  --fn-head: "SF Pro Display", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     var(--fn-main);
-  --fn-mono: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+  --fn-mono: "SF Mono", "Consolas", "Liberation Mono", "Menlo", "Courier",
     monospace;
-  --fn-serif: "pt serif", Georgia, Cambria, times new roman, Times, serif;
+  --fn-serif: "New York", "PT Serif", "Georgia", "Cambria", "Times New Roman", Times, serif;
 
   /* Vertical rhythm: */
   --vr-unit: 0.8rem; // ~8px
@@ -72,7 +72,7 @@ body.dark {
 
   --background-100-shade: 0 0% 7%;
   --background-100: hsl(var(--background-100-shade));
-  --background-300: hsl(var(--background-100-shade));
+  --background-300: hsl(0 0% 10%);
   --background-500: hsl(0 0% 15%);
 
   --primary-100: hsl(266 48% 15%);

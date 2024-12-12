@@ -1,7 +1,7 @@
 %link-underline {
   --line-color: var(--primary-500);
-  --line-offset: 8px;
-  --line-size-hover: 3px;
+  --line-offset: calc(var(--vr-unit) / 2 - 2px);
+  --line-size-hover: 2px;
   --line-animation-duration: 150ms;
   --line-animation-timing-function: ease-in-out;
 
@@ -14,7 +14,7 @@
   );
   background-size: 0 var(--line-size-hover);
   background-repeat: no-repeat;
-  background-position: left 85%;
+  background-position: left bottom;
 
   // Disable transition on touch devices:
   @media (prefers-reduced-motion: no-preference) and (hover: hover) {
@@ -24,7 +24,8 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:global(.active) {
     background-size: 100% var(--line-size-hover);
   }
 }

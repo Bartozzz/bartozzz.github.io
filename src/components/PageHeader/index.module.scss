@@ -8,6 +8,9 @@
 
   width: 100%;
 
+  outline-width: var(--border-width);
+  outline-style: solid;
+  outline-color: var(--background-500);
   background-color: hsla(var(--background-100-shade) / 0.85);
   box-shadow: 0 0 8px -3px var(--background-100);
 
@@ -16,7 +19,7 @@
 
 @supports (backdrop-filter: none) {
   .header {
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
   }
 
   @include theme.theme("dark") {
@@ -37,7 +40,7 @@
   align-items: center;
 
   margin: 0 auto;
-  padding: var(--cs-xl) var(--cs-md);
+  padding: 0 var(--cs-md);
 
   max-width: var(--mw-md);
 
@@ -53,6 +56,10 @@
   padding: 0 0 0 var(--cs-xl);
 
   a {
+    display: inline-block;
+    padding: var(--cs-xl) 0;
+
+    --line-offset: calc(var(--cs-xl));
     @extend %link-underline;
 
     color: var(--text-primary);
