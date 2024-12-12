@@ -1,3 +1,11 @@
+# [1.48.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.47.2...v1.48.0) (2024-12-12)
+
+
+### Features
+
+* new design ([7cd8b3a](https://github.com/Bartozzz/bartozzz.github.io/commit/7cd8b3a276d37dae045ddc3dcf5ea39d1244ca45))
+* redesign Keyword and Repository ([bd94fec](https://github.com/Bartozzz/bartozzz.github.io/commit/bd94fec9d859f1195b45779f9651b96b36a9a51a))
+
 ## [1.47.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.47.1...v1.47.2) (2024-12-06)
 
 
