@@ -20,7 +20,7 @@
   outline: 0;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition-property: border-color, box-shadow;
+    transition-property: box-shadow;
     transition-duration: 200ms;
     transition-timing-function: ease-in-out;
   }
