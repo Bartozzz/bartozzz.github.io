@@ -1,3 +1,10 @@
+# [1.49.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.48.0...v1.49.0) (2024-12-12)
+
+
+### Features
+
+* remove border and background transitions ([7ef4284](https://github.com/Bartozzz/bartozzz.github.io/commit/7ef4284d32c0fe1f6ce760bedc036835db31c7b6))
+
 # [1.48.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.47.2...v1.48.0) (2024-12-12)
 
 
