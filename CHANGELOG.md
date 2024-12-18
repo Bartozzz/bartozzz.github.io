@@ -1,3 +1,10 @@
+## [1.52.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.52.0...v1.52.1) (2024-12-18)
+
+
+### Bug Fixes
+
+* update heading levels in article ([71575fb](https://github.com/Bartozzz/bartozzz.github.io/commit/71575fb0069388df946c8c51b4369534396583ca))
+
 # [1.52.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.51.0...v1.52.0) (2024-12-18)
 
 
