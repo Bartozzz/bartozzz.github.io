@@ -167,7 +167,7 @@ Then, add your plugin to the plugins list in the `app.json` configuration file:
 
 With this done, you should see dependencies correctly added.
 
-### Expected results in `android/app/build.gradle`
+#### Expected results in `android/app/build.gradle`
 
 ```diff
 dependencies {
@@ -180,7 +180,7 @@ dependencies {
 }
 ```
 
-### Expected results in `ios/Podfile.lock`
+#### Expected results in `ios/Podfile.lock`
 
 ```diff
 +  - GoogleMobileAdsMediationUnity (4.12.5.0):
