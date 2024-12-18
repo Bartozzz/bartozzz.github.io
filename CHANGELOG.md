@@ -1,3 +1,11 @@
+## [1.52.2](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.52.1...v1.52.2) (2024-12-18)
+
+
+### Bug Fixes
+
+* blog post code wrapping ([ffec6f5](https://github.com/Bartozzz/bartozzz.github.io/commit/ffec6f5ecb773a7055057b8c83325040799b7a40))
+* newsletter border radius ([0c199cb](https://github.com/Bartozzz/bartozzz.github.io/commit/0c199cb2e3d81088b628624f6ca4e29e3110e840))
+
 ## [1.52.1](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.52.0...v1.52.1) (2024-12-18)
 
 
