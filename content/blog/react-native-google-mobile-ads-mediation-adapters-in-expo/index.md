@@ -188,6 +188,7 @@ dependencies {
 +    - UnityAds (= 4.12.5)
 ```
 
+<Newsletter />
 
 ## Update the SKAdNetwork list
 

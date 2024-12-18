@@ -156,6 +156,8 @@ Let's go a little bit further. Everybody knows state management is hard, and you
 
 That would be awesome, no? With this approach, we could not only render whatever we want, whenever we want, but also not have to worry about state management!
 
+<Newsletter />
+
 ## Compound components to the rescue
 
 “Compound Components” is a React pattern where several components implicitly share a state and leverage the parent-child relationship to communicate via the [Context API](https://react.dev/learn/passing-data-deeply-with-context) in the background.

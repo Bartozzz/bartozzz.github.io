@@ -219,6 +219,8 @@ Barrel files affect the linting performance. Let’s say you use the `import/no-
 
 2. Having barrel files makes code navigation harder - <kbd>CMD + click</kbd> navigates to the barrel file instead of the actual definition of the module.
 
+<Newsletter />
+
 ## Conclusion
 
 As software engineers, we are implementing new features daily, and each one has to be covered by _tests_. To do so, we use _linters_ to help us write better code faster. Then, we _build_ our app for a testing environment before releasing it to production (_another build_), and so on...
