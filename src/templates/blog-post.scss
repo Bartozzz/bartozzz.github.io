@@ -229,7 +229,6 @@
     font-style: normal;
 
     text-align: left;
-    white-space: pre;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
@@ -250,6 +249,10 @@
     -webkit-overflow-scrolling: auto;
     overflow: auto;
 
+    &, & > code {
+      white-space: pre;
+    }
+
     @include mediaquery.mediaquery("lg") {
       margin: var(--ls-sm) 0;
       padding: var(--ls-xs);
@@ -261,6 +264,7 @@
   code {
     border-radius: var(--br-md);
 
+    white-space: pre-wrap;
     letter-spacing: -0.005em;
 
     .comment {
