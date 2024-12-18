@@ -1,7 +1,7 @@
 %link-underline {
   --line-color: var(--primary-500);
-  --line-offset: calc(var(--vr-unit) / 2 - 2px);
   --line-size-hover: 2px;
+  --line-offset: calc(var(--vr-unit) / 2 - var(--line-size-hover));
   --line-animation-duration: 150ms;
   --line-animation-timing-function: ease-in-out;
 

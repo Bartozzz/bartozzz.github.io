@@ -43,6 +43,7 @@ body {
   /* Border radius */
   --br-sm: calc(var(--vr-unit) * 1);
   --br-md: calc(var(--vr-unit) * 2);
+  --border-width: 1px;
 
   /* Component spacings: */
   --cs-sm: calc(var(--vr-unit) * 1);

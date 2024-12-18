@@ -59,7 +59,6 @@
     display: inline-block;
     padding: var(--cs-xl) 0;
 
-    --line-offset: calc(var(--cs-xl));
     @extend %link-underline;
 
     color: var(--text-primary);

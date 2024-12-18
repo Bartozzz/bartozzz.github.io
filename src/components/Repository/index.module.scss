@@ -1,8 +1,6 @@
 @use "../../styles/mixins/vertical-rhythm";
 
 .repository__link {
-  --border-width: 2px;
-
   display: flex;
   flex-direction: column;
 
