@@ -1,3 +1,10 @@
+# [1.50.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.49.0...v1.50.0) (2024-12-18)
+
+
+### Features
+
+* bump dependencies and remove dependabot automerge ([d1bd69a](https://github.com/Bartozzz/bartozzz.github.io/commit/d1bd69ac0a77d01169f26d02223e37e8d40dc4b9))
+
 # [1.49.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.48.0...v1.49.0) (2024-12-12)
 
 
