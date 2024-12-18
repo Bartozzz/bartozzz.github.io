@@ -1,3 +1,10 @@
+# [1.51.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.50.0...v1.51.0) (2024-12-18)
+
+
+### Features
+
+* normalize border widths ([060beb1](https://github.com/Bartozzz/bartozzz.github.io/commit/060beb1f898e3c619ea492edf206863d83aa6813))
+
 # [1.50.0](https://github.com/Bartozzz/bartozzz.github.io/compare/v1.49.0...v1.50.0) (2024-12-18)
 
 
