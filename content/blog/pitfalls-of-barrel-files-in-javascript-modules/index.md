@@ -138,8 +138,10 @@ Execution time: 0h:00m:7s sec
 ```
 
 <Alert type="success">
-  The build time is <u>30% faster</u> when not using a barrel file.<sup title="In a real-world scenario, the build time will probably not decrease by that much.">*</sup>
+  The build time is <u>30% faster</u> when not using a barrel file.<sup title="In a real-world scenario, the build time can decrease even more.">*</sup>
 </Alert>
+
+**Fun fact:** [Next.js](https://nextjs.org/) implemented an `optimizePackageImports` option that skips barrel files and directly imports from the target, preventing loading unnecessary modules. The build times improvements [they declare](https://vercel.com/blog/how-we-optimized-package-imports-in-next-js) vary from ~15% to ~70% time boost on the development builds (depending on the actual library). They also declare a ~28% improvement on production builds.
 
 ## The test-time cost
 
@@ -152,7 +154,7 @@ In both articles (I highly recommend reading those):
 
 > The problem is that Jest has no idea where the component we’re importing is located. The barrel file has intentionally obfuscated that fact. So when Jest hits a barrel file, it must load every export referenced inside it. This behavior quickly gets out of hand for large libraries like `@mui/material`. We’re looking for a single button and end up loading hundreds of additional files. – Steven Lemon in ["Why is My Jest Test Suite So Slow?"](https://dev.to/twynsicle/why-is-my-jest-test-suite-so-slow-1od)
 
-Let's run the same test suite on two modules:
+Let’s run the same test suite on two modules:
 
 - **Importing from barrel file:**
 
@@ -219,10 +221,21 @@ Barrel files affect the linting performance. Let’s say you use the `import/no-
 
 2. Having barrel files makes code navigation harder - <kbd>CMD + click</kbd> navigates to the barrel file instead of the actual definition of the module.
 
+Additionally,
+
+- consistency is hard to enforce, as developers can still bypass the barrel, importing directly from individual files,
+- barrel files can cause circular dependencies, especially when modules within the same directory import from the barrel file instead of directly referencing the needed file.
+
 <Newsletter />
 
 ## Conclusion
 
 As software engineers, we are implementing new features daily, and each one has to be covered by _tests_. To do so, we use _linters_ to help us write better code faster. Then, we _build_ our app for a testing environment before releasing it to production (_another build_), and so on...
 
-Builds, tests, and tooling will only get slower as the application grows. Avoiding barrel files can improve performance without compromising the architecture or the developer experience.
+Builds, tests, and tooling will only get slower as the application grows. Avoiding barrel files can improve performance without compromising the architecture or the developer experience. Fortunately, there’s [an ESLint rule](https://github.com/gajus/eslint-plugin-canonical#no-barrel-import) to help you fight with barrel file imports.
+
+---
+
+Additional resources worth checking:
+- [Jason Miller post on X about Barrel Files](https://x.com/_developit/status/1842225012092104732)
+- [Shu Ding post about how Next.js optimized packages imports](https://vercel.com/blog/how-we-optimized-package-imports-in-next-js)
